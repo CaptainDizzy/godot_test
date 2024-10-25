@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://btso2rnv7oaai"]
+
+[ext_resource type="PackedScene" uid="uid://h8j8cdu16s4w" path="res://moon.tscn" id="1_1ghgr"]
+[ext_resource type="Texture2D" uid="uid://c4vifeju04o21" path="res://imgs/night-bg.png" id="1_i1mo4"]
+[ext_resource type="PackedScene" uid="uid://cgle86hfe06tc" path="res://player.tscn" id="3_deisp"]
+[ext_resource type="Script" path="res://player.gd" id="4_qthpk"]
+
+[node name="Game" type="Node2D"]
+
+[node name="NightBG" type="Sprite2D" parent="."]
+position = Vector2(512, 384)
+texture = ExtResource("1_i1mo4")
+
+[node name="Moon" parent="." instance=ExtResource("1_1ghgr")]
+
+[node name="Player" parent="." instance=ExtResource("3_deisp")]
+position = Vector2(530, 415)
+script = ExtResource("4_qthpk")

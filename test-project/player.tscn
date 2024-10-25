@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgle86hfe06tc"]
+
+[ext_resource type="Texture2D" uid="uid://dr2godfyvlebn" path="res://imgs/bat.svg" id="1_3meal"]
+
+[node name="Player" type="Sprite2D"]
+texture = ExtResource("1_3meal")

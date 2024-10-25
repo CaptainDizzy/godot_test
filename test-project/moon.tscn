@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://h8j8cdu16s4w"]
+
+[ext_resource type="Texture2D" uid="uid://bjr8qgs370xwc" path="res://imgs/moon.svg" id="1_hkw8b"]
+[ext_resource type="Script" path="res://moon.gd" id="2_40v4e"]
+
+[node name="Moon" type="Node2D"]
+
+[node name="Moon" type="Sprite2D" parent="."]
+texture = ExtResource("1_hkw8b")
+script = ExtResource("2_40v4e")
