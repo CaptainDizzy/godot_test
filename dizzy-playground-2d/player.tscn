@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://c1sx7bic4uhdj"]
+
+[ext_resource type="PackedScene" uid="uid://pbmyh1qru7p" path="res://characters/happy_boo/happy_boo.tscn" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://yh2ao5or56lq" path="res://player.gd" id="1_onrkg"]
+[ext_resource type="PackedScene" uid="uid://du5i8r7jdycua" path="res://gun.tscn" id="3_i3pqv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_onrkg"]
+radius = 29.068884
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i3pqv"]
+radius = 38.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i3pqv"]
+bg_color = Color(0, 0, 0, 0.09803922)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hqtel"]
+bg_color = Color(0, 0.6666667, 0, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+corner_detail = 12
+
+[node name="Player" type="CharacterBody2D" unique_id=1539348156]
+script = ExtResource("1_onrkg")
+
+[node name="HappyBoo" parent="." unique_id=1091727253 instance=ExtResource("1_4flbx")]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=651655985]
+shape = SubResource("CircleShape2D_onrkg")
+
+[node name="Gun" parent="." unique_id=160249540 instance=ExtResource("3_i3pqv")]
+position = Vector2(0, -25)
+
+[node name="HurtBox" type="Area2D" parent="." unique_id=1613943365]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=482066878]
+position = Vector2(0, -4)
+shape = SubResource("CircleShape2D_i3pqv")
+debug_color = Color(0.95594364, 0.15462458, 0.3724318, 0.41960785)
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=597863647]
+unique_name_in_owner = true
+offset_left = -95.0
+offset_top = -138.0
+offset_right = 95.0
+offset_bottom = -121.0
+theme_override_font_sizes/font_size = 16
+theme_override_styles/background = SubResource("StyleBoxFlat_i3pqv")
+theme_override_styles/fill = SubResource("StyleBoxFlat_hqtel")
+value = 100.0
+show_percentage = false
+
+[connection signal="health_depleted" from="." to="." method="_on_health_depleted"]
+[connection signal="health_depleted" from="." to="Gun" method="_on_player_health_depleted"]

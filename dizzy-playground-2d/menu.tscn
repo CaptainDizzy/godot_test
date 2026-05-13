@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://ctxreuet1b0bj"]
+
+[ext_resource type="Script" uid="uid://b4f6t6033w2ta" path="res://menu.gd" id="1_l48gv"]
+[ext_resource type="StyleBox" uid="uid://7x50o2cg0jgk" path="res://UI/menu_button_style.tres" id="1_mae5d"]
+[ext_resource type="StyleBox" uid="uid://fnh6725e6aaq" path="res://UI/menu_hoverfocus.tres" id="1_ouk20"]
+[ext_resource type="Texture2D" uid="uid://btf8x383dhtsa" path="res://characters/happy_boo/square_ref.png" id="3_mae5d"]
+[ext_resource type="Script" uid="uid://nrmyee055jel" path="res://UI/2d_game_button.gd" id="4_4hy44"]
+[ext_resource type="PackedScene" uid="uid://ckowrgqaidh8t" path="res://dizzy_transitions.tscn" id="5_ytr4m"]
+
+[sub_resource type="FontVariation" id="FontVariation_ouk20"]
+variation_embolden = 0.66
+spacing_top = 24
+spacing_bottom = 24
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mae5d"]
+content_margin_left = 24.0
+content_margin_right = 24.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_color = Color(1, 1, 1, 1)
+
+[node name="Menu" type="Node2D" unique_id=581441927]
+script = ExtResource("1_l48gv")
+
+[node name="BGColor" type="ColorRect" parent="." unique_id=1442195473]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.039215688, 0.12941177, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1728546174]
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="BarLeft" type="VBoxContainer" parent="HBoxContainer" unique_id=375331943]
+layout_mode = 2
+
+[node name="BarSpacer" type="Control" parent="HBoxContainer/BarLeft" unique_id=1644926130]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+
+[node name="MainCenter" type="VBoxContainer" parent="HBoxContainer" unique_id=1567626730]
+layout_mode = 2
+
+[node name="TitleSpacer" type="Control" parent="HBoxContainer/MainCenter" unique_id=1608269862]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+
+[node name="Title" type="Label" parent="HBoxContainer/MainCenter" unique_id=1729282121]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_ouk20")
+theme_override_font_sizes/font_size = 56
+theme_override_styles/normal = SubResource("StyleBoxFlat_mae5d")
+text = "Main Menu UI Test"
+vertical_alignment = 1
+
+[node name="HR" type="ColorRect" parent="HBoxContainer/MainCenter" unique_id=2143404988]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+color = Color(1, 1, 1, 0.25882354)
+
+[node name="MenuSpace" type="Control" parent="HBoxContainer/MainCenter" unique_id=1185415599]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+
+[node name="2DGameButton" type="Button" parent="HBoxContainer/MainCenter" unique_id=948342383]
+layout_mode = 2
+theme_override_constants/h_separation = 12
+theme_override_constants/icon_max_width = 64
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = ExtResource("1_mae5d")
+theme_override_styles/hover = ExtResource("1_ouk20")
+theme_override_styles/disabled_mirrored = ExtResource("1_ouk20")
+text = "GDQuiz 2D Tutorial (Survivors)"
+icon = ExtResource("3_mae5d")
+alignment = 0
+script = ExtResource("4_4hy44")
+
+[node name="OtherButton" type="Button" parent="HBoxContainer/MainCenter" unique_id=1744443458]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = ExtResource("1_mae5d")
+theme_override_styles/hover = ExtResource("1_ouk20")
+theme_override_styles/disabled_mirrored = ExtResource("1_ouk20")
+text = "Something Else??"
+alignment = 0
+
+[node name="BarRight" type="VBoxContainer" parent="HBoxContainer" unique_id=134465698]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DizzyTransitions" parent="." unique_id=688147533 instance=ExtResource("5_ytr4m")]
+unique_name_in_owner = true
