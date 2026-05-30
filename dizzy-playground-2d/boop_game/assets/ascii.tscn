@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://toc2xj8apek7"]
+
+[ext_resource type="FontFile" uid="uid://b0r2cab1742t2" path="res://fonts/vertopal.com_8514oem.ttf" id="1_eyw10"]
+
+[node name="ASCII" type="Node2D" unique_id=1679823848]
+
+[node name="Colorize" type="Node2D" parent="." unique_id=1341846446]
+position = Vector2(0, -108)
+
+[node name="Head" type="Sprite2D" parent="Colorize" unique_id=1154393749]
+
+[node name="Label" type="Label" parent="Colorize/Head" unique_id=832565407]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -39.0
+offset_top = -196.0
+offset_right = 38.0
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(39, 102)
+theme_override_fonts/font = ExtResource("1_eyw10")
+theme_override_font_sizes/font_size = 124
+text = "8"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="LArm" type="Sprite2D" parent="Colorize" unique_id=1507291707]
+
+[node name="Label" type="Label" parent="Colorize/LArm" unique_id=229579271]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -71.0
+offset_top = -172.0
+offset_right = 6.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -1.5707964
+pivot_offset = Vector2(39, 102)
+theme_override_fonts/font = ExtResource("1_eyw10")
+theme_override_font_sizes/font_size = 124
+text = "8"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="RArm2" type="Sprite2D" parent="Colorize" unique_id=130979437]
+
+[node name="Label" type="Label" parent="Colorize/RArm2" unique_id=1917422629]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -172.0
+offset_right = 69.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5707964
+pivot_offset = Vector2(39, 102)
+theme_override_fonts/font = ExtResource("1_eyw10")
+theme_override_font_sizes/font_size = 124
+text = "8"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Torso" type="Sprite2D" parent="Colorize" unique_id=1422683257]
+
+[node name="Label" type="Label" parent="Colorize/Torso" unique_id=596960907]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -39.0
+offset_top = -102.0
+offset_right = 38.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(39, 102)
+theme_override_fonts/font = ExtResource("1_eyw10")
+theme_override_font_sizes/font_size = 124
+text = "O"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Torso2" type="Sprite2D" parent="Colorize" unique_id=1614430293]
+
+[node name="Label" type="Label" parent="Colorize/Torso2" unique_id=1352550961]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -39.0
+offset_top = -8.0
+offset_right = 38.0
+offset_bottom = 116.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(39, 102)
+theme_override_fonts/font = ExtResource("1_eyw10")
+theme_override_font_sizes/font_size = 124
+text = "/\\"
+horizontal_alignment = 1
+vertical_alignment = 1

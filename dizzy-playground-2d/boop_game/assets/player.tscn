@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://ca6qc3lev5jre"]
+
+[ext_resource type="PackedScene" uid="uid://toc2xj8apek7" path="res://boop_game/assets/ascii.tscn" id="1_ww4cf"]
+
+[node name="Player" type="CharacterBody2D" unique_id=1632503170]
+
+[node name="ASCII" parent="." unique_id=1679823848 instance=ExtResource("1_ww4cf")]

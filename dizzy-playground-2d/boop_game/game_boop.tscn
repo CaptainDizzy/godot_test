@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://ck2uub8r0b31w"]
+
+[ext_resource type="FontFile" uid="uid://bcijiqbocagsh" path="res://fonts/PressStart2P-Regular.ttf" id="1_0adjh"]
+[ext_resource type="PackedScene" uid="uid://ckowrgqaidh8t" path="res://addons/dizzy_transitions/dizzy_transitions.tscn" id="2_grd68"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6tceu"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0adjh"]
+content_margin_left = 24.0
+content_margin_right = 24.0
+draw_center = false
+border_width_left = 4
+expand_margin_left = 4.0
+
+[sub_resource type="Theme" id="Theme_grd68"]
+default_font = ExtResource("1_0adjh")
+
+[node name="Game" type="Node2D" unique_id=545093323]
+
+[node name="GUI2" type="CanvasLayer" parent="." unique_id=1806525517]
+layer = -5
+
+[node name="BGColor" type="ColorRect" parent="GUI2" unique_id=968781158]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.03082189, 0.058766246, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="Button" type="Button" parent="GUI2" unique_id=235528313]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 633.0
+offset_top = 428.0
+offset_right = 889.0
+offset_bottom = 483.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_0adjh")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_6tceu")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0adjh")
+text = "Let's Go"
+
+[node name="Label" type="Label" parent="GUI2" unique_id=637224605]
+anchors_preset = -1
+anchor_left = 0.27083334
+anchor_top = 0.032407407
+anchor_right = 0.7291667
+anchor_bottom = 0.06944445
+grow_horizontal = 2
+theme = SubResource("Theme_grd68")
+theme_override_font_sizes/font_size = 40
+text = "BUILD YOUR CHARACTER!!"
+
+[node name="DizzyTransitions" parent="." unique_id=688147533 instance=ExtResource("2_grd68")]
+unique_name_in_owner = true
+visible = false

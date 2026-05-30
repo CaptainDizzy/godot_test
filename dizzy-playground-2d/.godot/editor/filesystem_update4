@@ -1,9 +1,0 @@
-res://dizzy_transitions.tscn
-res://dizzy_transitions.gd
-res://menu.tscn
-res://survivors_game.tscn
-res://UI/2d_game_button.gd
-res://menu_btn.gd
-res://retry_btn.gd
-res://survivors_game.gd
-res://menu.gd
