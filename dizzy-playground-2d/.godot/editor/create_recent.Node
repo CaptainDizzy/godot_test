@@ -1,12 +1,12 @@
 ColorRect
+CanvasLayer
+Sprite2D
 Label
 Container
-Sprite2D
 Node2D
 CharacterBody2D
 Button
 Control
-CanvasLayer
 GridContainer
 RichTextLabel
 VBoxContainer
