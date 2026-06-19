@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1781877806
+::res://::1781883068
 default_bus_layout.tres::AudioBusLayout::6564268947468103023::1781877756::0::1::::<><><>0<>0<><>::
 ::res://addons/::1781877756
 ::res://addons/colorpicker_presets/::1781877756
@@ -20,17 +20,21 @@ ComicMono.ttf::FontFile::8315116623901010605::1781877756::1781877756::1::::<><><
 gbs-mono copy.bmp::FontFile::8526529340540637872::1781877756::1781877756::1::::<><><>0<>0<>aafc22876d1299927722c5458665d8aa<>res://.godot/imported/gbs-mono copy.bmp-97a27e29e2bd36d21b7cd57a8ab3e79c.fontdata::
 PressStart2P-Regular.ttf::FontFile::2543874974844964259::1781877756::1781877756::1::::<><><>0<>0<>e2eea5c9726731709b8f84a79c0a1dc1<>res://.godot/imported/PressStart2P-Regular.ttf-c7d83f2c4bd295d4c960a93a703ae2b2.fontdata::
 vertopal.com_8514oem.ttf::FontFile::4177879129625491061::1781877756::1781877756::1::::<><><>0<>0<>4420fe9636d2cb81ad71ad25a1a2ea11<>res://.godot/imported/vertopal.com_8514oem.ttf-68086793a662ab3bd2976bbfd3c99bfe.fontdata::
-::res://menu/::1781878991
+::res://menu/::1781880048
 2d_game_button.gd::GDScript::948321069530135847::1781878786::0::1::::<>Button<><>0<>0<><>::
-boop_button.gd::GDScript::2747676532078044669::1781877756::0::1::::<>Button<><>0<>0<><>::
+boop_button.gd::GDScript::2747676532078044669::1781879518::0::1::::<>Button<><>0<>0<><>::
 menu.gd::GDScript::4434136862980763170::1781877756::0::1::::<>Node2D<><>0<>0<><>::
-menu.tscn::PackedScene::6154950474449148311::1781878991::0::1::::<><><>0<>0<><>::uid://b4f6t6033w2ta::::res://menu/menu.gd<>uid://7x50o2cg0jgk::::res://menu/ui/menu_button_style.tres<>uid://fnh6725e6aaq::::res://menu/ui/menu_hoverfocus.tres<>uid://cskdrt30gipyj::::res://menu/ui/survivor_game.png<>uid://btf8x383dhtsa::::res://survivors/assets/characters/happy_boo/square_ref.png<>uid://nrmyee055jel::::res://menu/2d_game_button.gd<>uid://ckowrgqaidh8t::::res://addons/dizzy_transitions/dizzy_transitions.tscn<>uid://bfe83ixkmftu8::::res://menu/boop_button.gd
-::res://menu/ui/::1781879362
+menu.tscn::PackedScene::6154950474449148311::1781880048::0::1::::<><><>0<>0<><>::uid://b4f6t6033w2ta::::res://menu/menu.gd<>uid://7x50o2cg0jgk::::res://menu/ui/menu_button_style.tres<>uid://fnh6725e6aaq::::res://menu/ui/menu_hoverfocus.tres<>uid://cskdrt30gipyj::::res://menu/ui/survivor_game.png<>uid://b2ef8d4l3xrd4::::res://menu/ui/ascii_game.png<>uid://btf8x383dhtsa::::res://survivors/assets/characters/happy_boo/square_ref.png<>uid://nrmyee055jel::::res://menu/2d_game_button.gd<>uid://ckowrgqaidh8t::::res://addons/dizzy_transitions/dizzy_transitions.tscn<>uid://bfe83ixkmftu8::::res://menu/boop_button.gd
+::res://menu/ui/::1781879368
 ascii_game.png::CompressedTexture2D::4290139692006417759::1781879364::1781879368::1::::<><><>0<>0<>f642837536d1eb8e4e9a8aa08a92f475<>res://.godot/imported/ascii_game.png-851c230e63233bcf20ecaab9c7016c4d.ctex::
 menu_button_group.tres::ButtonGroup::8634718466605888760::1781877756::0::1::::<><><>0<>0<><>::
 menu_button_style.tres::StyleBoxFlat::2295390616527530786::1781877756::0::1::::<><><>0<>0<><>::
 menu_hoverfocus.tres::StyleBoxFlat::378263231379906376::1781877756::0::1::::<><><>0<>0<><>::
 survivor_game.png::CompressedTexture2D::6057097882228478005::1781878218::1781878225::1::::<><><>0<>0<>61b1e4a2cf81d9704efb20e81ef65caa<>res://.godot/imported/survivor_game.png-6145cac245267ba49a7d82db19b932bf.ctex::
+::res://playground/::1781882939
+playground.tscn::PackedScene::1558899388342564604::1781882939::0::1::::<><><>0<>0<><>::
+::res://playground/assets/::1781880098
+::res://playground/ui/::1781880110
 ::res://survivors/::1781877756
 bullet.tscn::PackedScene::4510038469915135496::1781877756::0::1::::<><><>0<>0<><>::uid://cfjvwhypwf5h5::::res://survivors/scripts/bullet.gd<>uid://bd4rrqj72amnx::::res://survivors/assets/pistol/projectile.png
 gun.tscn::PackedScene::8625515866347305280::1781877756::0::1::::<><><>0<>0<><>::uid://bpyfw0mh6bsnv::::res://survivors/scripts/gun.gd<>uid://coon1w77o334i::::res://survivors/assets/pistol/pistol.png
