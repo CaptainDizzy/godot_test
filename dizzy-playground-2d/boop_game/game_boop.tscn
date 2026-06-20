@@ -1,7 +1,11 @@
 [gd_scene format=3 uid="uid://ck2uub8r0b31w"]
 
 [ext_resource type="FontFile" uid="uid://bcijiqbocagsh" path="res://fonts/PressStart2P-Regular.ttf" id="1_0adjh"]
+[ext_resource type="PackedScene" uid="uid://ca6qc3lev5jre" path="res://boop_game/assets/player.tscn" id="1_8odjb"]
+[ext_resource type="Script" uid="uid://drmt8mgohx0af" path="res://boop_game/game_boop.gd" id="1_qnvt8"]
 [ext_resource type="PackedScene" uid="uid://ckowrgqaidh8t" path="res://addons/dizzy_transitions/dizzy_transitions.tscn" id="2_grd68"]
+[ext_resource type="Theme" uid="uid://dpika668hgijq" path="res://boop_game/ui/pixelfont.theme" id="3_73481"]
+[ext_resource type="FontFile" uid="uid://b0r2cab1742t2" path="res://fonts/vertopal.com_8514oem.ttf" id="4_73481"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6tceu"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -13,15 +17,19 @@ draw_center = false
 border_width_left = 4
 expand_margin_left = 4.0
 
-[sub_resource type="Theme" id="Theme_grd68"]
-default_font = ExtResource("1_0adjh")
+[sub_resource type="Theme" id="Theme_oll6g"]
 
 [node name="Game" type="Node2D" unique_id=545093323]
+script = ExtResource("1_qnvt8")
 
-[node name="GUI2" type="CanvasLayer" parent="." unique_id=1806525517]
-layer = -5
+[node name="GUI" type="Control" parent="." unique_id=545097475]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1918.0
+offset_bottom = 1079.0
 
-[node name="BGColor" type="ColorRect" parent="GUI2" unique_id=968781158]
+[node name="BGColor" type="ColorRect" parent="GUI" unique_id=968781158]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -30,16 +38,21 @@ grow_vertical = 2
 color = Color(0.03082189, 0.058766246, 0, 1)
 metadata/_edit_lock_ = true
 
-[node name="Button" type="Button" parent="GUI2" unique_id=235528313]
+[node name="Player" parent="GUI" unique_id=1632503170 instance=ExtResource("1_8odjb")]
+unique_name_in_owner = true
+position = Vector2(960, 697)
+
+[node name="Button" type="Button" parent="GUI" unique_id=235528313]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 633.0
-offset_top = 428.0
-offset_right = 889.0
-offset_bottom = 483.0
+offset_left = 634.0
+offset_top = 428.5
+offset_right = 890.0
+offset_bottom = 483.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_0adjh")
@@ -48,16 +61,195 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_6tceu")
 theme_override_styles/hover = SubResource("StyleBoxFlat_0adjh")
 text = "Let's Go"
 
-[node name="Label" type="Label" parent="GUI2" unique_id=637224605]
+[node name="Label" type="Label" parent="GUI" unique_id=637224605]
+layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.27083334
-anchor_top = 0.032407407
-anchor_right = 0.7291667
-anchor_bottom = 0.06944445
+anchor_top = 0.097
+anchor_right = 1.0
+anchor_bottom = 0.142
+offset_top = -4.663002
+offset_right = -2.0
+offset_bottom = 35.33702
 grow_horizontal = 2
-theme = SubResource("Theme_grd68")
+theme = ExtResource("3_73481")
 theme_override_font_sizes/font_size = 40
-text = "BUILD YOUR CHARACTER!!"
+text = "CHARACTER CREATION"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HeadInput" type="Control" parent="GUI" unique_id=2045243235]
+anchors_preset = 0
+offset_left = 803.0
+offset_top = 216.0
+offset_right = 1132.0
+offset_bottom = 411.0
+
+[node name="LineEdit" type="LineEdit" parent="GUI/HeadInput" unique_id=1954742031]
+layout_mode = 0
+offset_top = 44.0
+offset_right = 328.0
+offset_bottom = 194.0
+theme = SubResource("Theme_oll6g")
+theme_override_fonts/font = ExtResource("4_73481")
+theme_override_font_sizes/font_size = 128
+alignment = 1
+max_length = 1
+drag_and_drop_selection_enabled = false
+
+[node name="Label" type="Label" parent="GUI/HeadInput" unique_id=1313815071]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 6.0
+offset_right = 111.0
+offset_bottom = 30.0
+theme = ExtResource("3_73481")
+theme_override_font_sizes/font_size = 24
+text = "Head"
+
+[node name="TorsoInput" type="Control" parent="GUI" unique_id=135303032]
+anchors_preset = 0
+offset_left = 799.0
+offset_top = 813.0
+offset_right = 1128.0
+offset_bottom = 1008.0
+
+[node name="LineEdit" type="LineEdit" parent="GUI/TorsoInput" unique_id=1147195116]
+layout_mode = 0
+offset_top = 44.0
+offset_right = 328.0
+offset_bottom = 194.0
+theme = SubResource("Theme_oll6g")
+theme_override_fonts/font = ExtResource("4_73481")
+theme_override_font_sizes/font_size = 128
+alignment = 1
+max_length = 1
+drag_and_drop_selection_enabled = false
+
+[node name="Label" type="Label" parent="GUI/TorsoInput" unique_id=1411328211]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 6.0
+offset_right = 111.0
+offset_bottom = 30.0
+theme = ExtResource("3_73481")
+theme_override_font_sizes/font_size = 24
+text = "Torso"
+
+[node name="LArmInput" type="Control" parent="GUI" unique_id=1940665545]
+anchors_preset = 0
+offset_left = 433.0
+offset_top = 391.0
+offset_right = 762.0
+offset_bottom = 586.0
+
+[node name="LineEdit" type="LineEdit" parent="GUI/LArmInput" unique_id=1940260382]
+layout_mode = 0
+offset_top = 44.0
+offset_right = 328.0
+offset_bottom = 194.0
+theme = SubResource("Theme_oll6g")
+theme_override_fonts/font = ExtResource("4_73481")
+theme_override_font_sizes/font_size = 128
+alignment = 1
+max_length = 1
+drag_and_drop_selection_enabled = false
+
+[node name="Label" type="Label" parent="GUI/LArmInput" unique_id=443212420]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 6.0
+offset_right = 111.0
+offset_bottom = 30.0
+theme = ExtResource("3_73481")
+theme_override_font_sizes/font_size = 24
+text = "Left Arm"
+
+[node name="RArmInput" type="Control" parent="GUI" unique_id=593430483]
+anchors_preset = 0
+offset_left = 1162.0
+offset_top = 391.0
+offset_right = 1491.0
+offset_bottom = 586.0
+
+[node name="LineEdit" type="LineEdit" parent="GUI/RArmInput" unique_id=1488888419]
+layout_mode = 0
+offset_top = 44.0
+offset_right = 328.0
+offset_bottom = 194.0
+theme = SubResource("Theme_oll6g")
+theme_override_fonts/font = ExtResource("4_73481")
+theme_override_font_sizes/font_size = 128
+alignment = 1
+max_length = 1
+drag_and_drop_selection_enabled = false
+
+[node name="Label" type="Label" parent="GUI/RArmInput" unique_id=1643267022]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 6.0
+offset_right = 111.0
+offset_bottom = 30.0
+theme = ExtResource("3_73481")
+theme_override_font_sizes/font_size = 24
+text = "Right Arm"
+
+[node name="LLegInput" type="Control" parent="GUI" unique_id=583764741]
+anchors_preset = 0
+offset_left = 433.0
+offset_top = 659.0
+offset_right = 762.0
+offset_bottom = 854.0
+
+[node name="LineEdit" type="LineEdit" parent="GUI/LLegInput" unique_id=157085679]
+layout_mode = 0
+offset_top = 44.0
+offset_right = 328.0
+offset_bottom = 194.0
+theme = SubResource("Theme_oll6g")
+theme_override_fonts/font = ExtResource("4_73481")
+theme_override_font_sizes/font_size = 128
+alignment = 1
+max_length = 1
+drag_and_drop_selection_enabled = false
+
+[node name="Label" type="Label" parent="GUI/LLegInput" unique_id=519182958]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 6.0
+offset_right = 111.0
+offset_bottom = 30.0
+theme = ExtResource("3_73481")
+theme_override_font_sizes/font_size = 24
+text = "Left Leg"
+
+[node name="RLegInput" type="Control" parent="GUI" unique_id=375288398]
+anchors_preset = 0
+offset_left = 1162.0
+offset_top = 659.0
+offset_right = 1491.0
+offset_bottom = 854.0
+
+[node name="LineEdit" type="LineEdit" parent="GUI/RLegInput" unique_id=1218125926]
+layout_mode = 0
+offset_top = 44.0
+offset_right = 328.0
+offset_bottom = 194.0
+theme = SubResource("Theme_oll6g")
+theme_override_fonts/font = ExtResource("4_73481")
+theme_override_font_sizes/font_size = 128
+alignment = 1
+max_length = 1
+drag_and_drop_selection_enabled = false
+
+[node name="Label" type="Label" parent="GUI/RLegInput" unique_id=793211334]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 6.0
+offset_right = 111.0
+offset_bottom = 30.0
+theme = ExtResource("3_73481")
+theme_override_font_sizes/font_size = 24
+text = "Right Leg"
 
 [node name="DizzyTransitions" parent="." unique_id=688147533 instance=ExtResource("2_grd68")]
 unique_name_in_owner = true

@@ -1,75 +1,156 @@
 [gd_scene format=3 uid="uid://toc2xj8apek7"]
 
 [ext_resource type="FontFile" uid="uid://b0r2cab1742t2" path="res://fonts/vertopal.com_8514oem.ttf" id="1_eyw10"]
+[ext_resource type="Script" uid="uid://cv5ud41fhwo5q" path="res://boop_game/assets/ascii.gd" id="1_vwu1f"]
+
+[sub_resource type="Animation" id="Animation_vwu1f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/LLeg:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body/RLeg:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body/Torso:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 62)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Body/Torso/LArm:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Body/Torso/RArm:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_kw32x"]
+resource_name = "idle"
+length = 1.9
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/LLeg:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.54105204]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body/RLeg:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.54105204]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body/Torso:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1.8660663, 0.5),
+"update": 0,
+"values": [Vector2(0, 62), Vector2(0, 68)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Body/Torso/LArm:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 2),
+"update": 0,
+"values": [-1.2217305, -0.87266463]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Body/Torso/RArm:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 2),
+"update": 0,
+"values": [1.2217305, 0.87266463]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j0sjl"]
+_data = {
+&"RESET": SubResource("Animation_vwu1f"),
+&"idle": SubResource("Animation_kw32x")
+}
 
 [node name="ASCII" type="Node2D" unique_id=1679823848]
+script = ExtResource("1_vwu1f")
 
-[node name="Colorize" type="Node2D" parent="." unique_id=1341846446]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=987547871]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_j0sjl")
+
+[node name="Body" type="Node2D" parent="." unique_id=1341846446]
 position = Vector2(0, -108)
 
-[node name="Head" type="Sprite2D" parent="Colorize" unique_id=1154393749]
+[node name="Torso" type="Sprite2D" parent="Body" unique_id=1422683257]
+position = Vector2(0, 62)
 
-[node name="Label" type="Label" parent="Colorize/Head" unique_id=832565407]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -39.0
-offset_top = -196.0
-offset_right = 38.0
-offset_bottom = -72.0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(39, 102)
-theme_override_fonts/font = ExtResource("1_eyw10")
-theme_override_font_sizes/font_size = 124
-text = "8"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="LArm" type="Sprite2D" parent="Colorize" unique_id=1507291707]
-
-[node name="Label" type="Label" parent="Colorize/LArm" unique_id=229579271]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -71.0
-offset_top = -172.0
-offset_right = 6.0
-offset_bottom = -48.0
-grow_horizontal = 2
-grow_vertical = 2
-rotation = -1.5707964
-pivot_offset = Vector2(39, 102)
-theme_override_fonts/font = ExtResource("1_eyw10")
-theme_override_font_sizes/font_size = 124
-text = "8"
-horizontal_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="RArm2" type="Sprite2D" parent="Colorize" unique_id=130979437]
-
-[node name="Label" type="Label" parent="Colorize/RArm2" unique_id=1917422629]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -8.0
-offset_top = -172.0
-offset_right = 69.0
-offset_bottom = -48.0
-grow_horizontal = 2
-grow_vertical = 2
-rotation = 1.5707964
-pivot_offset = Vector2(39, 102)
-theme_override_fonts/font = ExtResource("1_eyw10")
-theme_override_font_sizes/font_size = 124
-text = "8"
-horizontal_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="Torso" type="Sprite2D" parent="Colorize" unique_id=1422683257]
-
-[node name="Label" type="Label" parent="Colorize/Torso" unique_id=596960907]
+[node name="Symbol" type="Label" parent="Body/Torso" unique_id=596960907]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -82,26 +163,112 @@ grow_vertical = 2
 pivot_offset = Vector2(39, 102)
 theme_override_fonts/font = ExtResource("1_eyw10")
 theme_override_font_sizes/font_size = 124
-text = "O"
+text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Torso2" type="Sprite2D" parent="Colorize" unique_id=1614430293]
+[node name="Head" type="Sprite2D" parent="Body/Torso" unique_id=1154393749]
+position = Vector2(0, -95)
 
-[node name="Label" type="Label" parent="Colorize/Torso2" unique_id=1352550961]
+[node name="Symbol" type="Label" parent="Body/Torso/Head" unique_id=832565407]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -39.0
-offset_top = -8.0
+offset_top = -102.0
 offset_right = 38.0
-offset_bottom = 116.0
+offset_bottom = 22.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(39, 102)
 theme_override_fonts/font = ExtResource("1_eyw10")
 theme_override_font_sizes/font_size = 124
-text = "/\\"
+text = "@"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="LArm" type="Sprite2D" parent="Body/Torso" unique_id=1507291707]
+position = Vector2(-33, -77)
+
+[node name="Symbol" type="Label" parent="Body/Torso/LArm" unique_id=229579271]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -39.0
+offset_top = -102.0
+offset_right = 38.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -1.5707964
+scale = Vector2(-1, 1)
+pivot_offset = Vector2(39, 102)
+theme_override_fonts/font = ExtResource("1_eyw10")
+theme_override_font_sizes/font_size = 124
+text = "6"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="RArm" type="Sprite2D" parent="Body/Torso" unique_id=130979437]
+position = Vector2(33, -77)
+
+[node name="Symbol" type="Label" parent="Body/Torso/RArm" unique_id=1917422629]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -39.0
+offset_top = -102.0
+offset_right = 38.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5707964
+pivot_offset = Vector2(39, 102)
+theme_override_fonts/font = ExtResource("1_eyw10")
+theme_override_font_sizes/font_size = 124
+text = "6"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="LLeg" type="Sprite2D" parent="Body" unique_id=1614430293]
+position = Vector2(-31, 61)
+
+[node name="Symbol" type="Label" parent="Body/LLeg" unique_id=1352550961]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -39.0
+offset_top = -102.0
+offset_right = 38.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -2.6179938
+pivot_offset = Vector2(39, 102)
+theme_override_fonts/font = ExtResource("1_eyw10")
+theme_override_font_sizes/font_size = 124
+text = "7"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RLeg" type="Sprite2D" parent="Body" unique_id=1188312804]
+position = Vector2(31, 61)
+
+[node name="Symbol" type="Label" parent="Body/RLeg" unique_id=1640821503]
+anchors_preset = -1
+offset_left = -39.0
+offset_top = -102.0
+offset_right = 39.000004
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 2.6179938
+scale = Vector2(-1, 1)
+pivot_offset = Vector2(39, 102)
+theme_override_fonts/font = ExtResource("1_eyw10")
+theme_override_font_sizes/font_size = 124
+text = "7"
 horizontal_alignment = 1
 vertical_alignment = 1
