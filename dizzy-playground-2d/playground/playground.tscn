@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://whe30aqmg8ls"]
+
+[node name="Playground" type="Node2D" unique_id=1676796327]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=930048433]
+layer = -5
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1682407954]
+z_index = -5
+offset_right = 1920.0
+offset_bottom = 1084.0
+color = Color(0.5458855, 0.5875237, 0.8675112, 1)
+metadata/_edit_lock_ = true
+
+[node name="Ground" type="Node2D" parent="." unique_id=340097685]
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground" unique_id=853557842]
+
+[node name="GroundStaticBody" type="StaticBody2D" parent="Ground/Sprite2D" unique_id=135686144]
+
+[node name="GroundShape" type="Polygon2D" parent="Ground/Sprite2D/GroundStaticBody" unique_id=826904430]
+color = Color(0.14586785, 0.14586785, 0.14586785, 1)
+polygon = PackedVector2Array(-10, 927, 1926, 925, 1926, 1086, -9, 1089)
+
+[node name="GroundCollision" type="CollisionPolygon2D" parent="Ground/Sprite2D/GroundStaticBody" unique_id=1235407079]
+visible = false
+polygon = PackedVector2Array(-9, 1087, -4, 926, 1925, 924, 1926, 1089)

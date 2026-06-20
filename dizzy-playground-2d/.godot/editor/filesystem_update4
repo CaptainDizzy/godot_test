@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 res://boop_game/assets/ascii.tscn
 res://boop_game/assets/player.tscn
 res://boop_game/assets/ascii.gd
 res://boop_game/game_boop.tscn
 res://boop_game/assets/player.gd
 res://boop_game/game_boop.gd
+=======
+res://playground/playground.tscn
+>>>>>>> origin/playground
