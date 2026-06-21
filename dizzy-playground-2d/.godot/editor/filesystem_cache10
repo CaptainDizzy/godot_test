@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1782007089
+::res://::1782063785
 default_bus_layout.tres::AudioBusLayout::6564268947468103023::1778636408::0::1::::<><><>0<>0<><>::
 ::res://addons/::1779078365
 ::res://addons/colorpicker_presets/::1778636408
@@ -9,11 +9,11 @@ README.md::TextFile::-1::1778636408::0::1::::<><><>0<>0<><>::
 ::res://addons/dizzy_transitions/::1779078365
 dizzy_transitions.gd::GDScript::7369227209028823607::1779078365::0::1::::<>CanvasLayer<><>0<>0<><>::
 dizzy_transitions.tscn::PackedScene::5504997564528397609::1779078365::0::1::::<><><>0<>0<><>::uid://dc8ydims4ilq2::::res://addons/dizzy_transitions/dizzy_transitions.gd
-::res://boop_game/::1782006849
-game_boop.gd::GDScript::8378458120231406801::1782006525::0::1::::<>Node2D<><>0<>0<><>::
-game_boop.tscn::PackedScene::5531718163167346162::1782003384::0::1::::<><><>0<>0<><>::uid://bcijiqbocagsh::::res://fonts/PressStart2P-Regular.ttf<>uid://ca6qc3lev5jre::::res://boop_game/assets/player.tscn<>uid://drmt8mgohx0af::::res://boop_game/game_boop.gd<>uid://ckowrgqaidh8t::::res://addons/dizzy_transitions/dizzy_transitions.tscn<>uid://dpika668hgijq::::res://boop_game/ui/pixelfont.theme<>uid://b0r2cab1742t2::::res://fonts/vertopal.com_8514oem.ttf
-::res://boop_game/assets/::1782006540
-ascii.tscn::PackedScene::1362660191540673884::1782006540::0::1::::<><><>0<>0<><>::uid://b0r2cab1742t2::::res://fonts/vertopal.com_8514oem.ttf<>uid://cv5ud41fhwo5q::::res://boop_game/scripts/ascii.gd
+::res://boop_game/::1782010878
+game_boop.gd::GDScript::8378458120231406801::1782009911::0::1::::<>Node2D<><>0<>0<><>::
+game_boop.tscn::PackedScene::5531718163167346162::1782010878::0::1::::<><><>0<>0<><>::uid://bcijiqbocagsh::::res://fonts/PressStart2P-Regular.ttf<>uid://ca6qc3lev5jre::::res://boop_game/assets/player.tscn<>uid://drmt8mgohx0af::::res://boop_game/game_boop.gd<>uid://ckowrgqaidh8t::::res://addons/dizzy_transitions/dizzy_transitions.tscn<>uid://dpika668hgijq::::res://boop_game/ui/pixelfont.theme<>uid://b0r2cab1742t2::::res://fonts/vertopal.com_8514oem.ttf
+::res://boop_game/assets/::1782013419
+ascii.tscn::PackedScene::1362660191540673884::1782013419::0::1::::<><><>0<>0<><>::uid://b0r2cab1742t2::::res://fonts/vertopal.com_8514oem.ttf<>uid://cv5ud41fhwo5q::::res://boop_game/scripts/ascii.gd
 player.tscn::PackedScene::4837813609091775850::1782002296::0::1::::<><><>0<>0<><>::uid://ck1bhckuixx1i::::res://boop_game/scripts/player.gd<>uid://toc2xj8apek7::::res://boop_game/assets/ascii.tscn
 ::res://boop_game/scripts/::1782006540
 ascii.gd::GDScript::6309959677223201796::1782006540::0::1::::<>Node2D<><>0<>0<><>::
