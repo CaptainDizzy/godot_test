@@ -1,11 +1,11 @@
 extends Node2D
 
-@onready var head_symbol: LineEdit = $GUI/HeadInput/LineEdit
-@onready var torso_symbol: LineEdit = $GUI/TorsoInput/LineEdit
-@onready var larm_symbol: LineEdit = $GUI/LArmInput/LineEdit
-@onready var rarm_symbol: LineEdit = $GUI/RArmInput/LineEdit
-@onready var lleg_symbol: LineEdit = $GUI/LLegInput/LineEdit
-@onready var rleg_symbol: LineEdit = $GUI/RLegInput/LineEdit
+@onready var head_symbol: LineEdit = $CharCrtn/HeadInput/LineEdit
+@onready var torso_symbol: LineEdit = $CharCrtn/TorsoInput/LineEdit
+@onready var larm_symbol: LineEdit = $CharCrtn/LArmInput/LineEdit
+@onready var rarm_symbol: LineEdit = $CharCrtn/RArmInput/LineEdit
+@onready var lleg_symbol: LineEdit = $CharCrtn/LLegInput/LineEdit
+@onready var rleg_symbol: LineEdit = $CharCrtn/RLegInput/LineEdit
 @onready var ascii: Node2D = %Player/ASCII
 
 func _ready() -> void:

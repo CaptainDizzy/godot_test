@@ -8,27 +8,31 @@
 [ext_resource type="FontFile" uid="uid://b0r2cab1742t2" path="res://fonts/vertopal.com_8514oem.ttf" id="4_73481"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6tceu"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
+content_margin_left = 15.0
+content_margin_top = 3.0
+content_margin_right = 15.0
+bg_color = Color(0, 0.23921569, 0, 0)
+anti_aliasing = false
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0adjh"]
-content_margin_left = 24.0
-content_margin_right = 24.0
-draw_center = false
-border_width_left = 4
-expand_margin_left = 4.0
+content_margin_left = 15.0
+content_margin_top = 3.0
+content_margin_right = 15.0
+bg_color = Color(0, 0.43434733, 0, 1)
+border_color = Color(0.8, 0.8, 0.8, 0)
 
 [sub_resource type="Theme" id="Theme_oll6g"]
 
 [node name="Game" type="Node2D" unique_id=545093323]
 script = ExtResource("1_qnvt8")
 
-[node name="GUI" type="Control" parent="." unique_id=545097475]
+[node name="CharCrtn" type="Control" parent="." unique_id=545097475]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1918.0
 offset_bottom = 1079.0
 
-[node name="BGColor" type="ColorRect" parent="GUI" unique_id=968781158]
+[node name="BGColor" type="ColorRect" parent="CharCrtn" unique_id=968781158]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -38,21 +42,37 @@ grow_vertical = 2
 color = Color(0.03082189, 0.058766246, 0, 1)
 metadata/_edit_lock_ = true
 
-[node name="Player" parent="GUI" unique_id=1632503170 instance=ExtResource("1_8odjb")]
+[node name="Player" parent="CharCrtn" unique_id=1632503170 instance=ExtResource("1_8odjb")]
 unique_name_in_owner = true
-position = Vector2(960, 697)
+position = Vector2(960, 615)
 
-[node name="Button" type="Button" parent="GUI" unique_id=235528313]
+[node name="Title" type="Label" parent="CharCrtn" unique_id=637224605]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.097
+anchor_right = 1.0
+anchor_bottom = 0.142
+offset_top = -54.663002
+offset_right = -2.0
+offset_bottom = -63.218002
+grow_horizontal = 2
+theme = ExtResource("3_73481")
+theme_override_font_sizes/font_size = 40
+text = "CHARACTER CREATION"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Continue" type="Button" parent="CharCrtn" unique_id=235528313]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 634.0
-offset_top = 428.5
-offset_right = 890.0
-offset_bottom = 483.5
+offset_left = 652.0
+offset_top = 443.5
+offset_right = 908.0
+offset_bottom = 498.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_0adjh")
@@ -61,34 +81,18 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_6tceu")
 theme_override_styles/hover = SubResource("StyleBoxFlat_0adjh")
 text = "Let's Go"
 
-[node name="Label" type="Label" parent="GUI" unique_id=637224605]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.097
-anchor_right = 1.0
-anchor_bottom = 0.142
-offset_top = -4.663002
-offset_right = -2.0
-offset_bottom = 35.33702
-grow_horizontal = 2
-theme = ExtResource("3_73481")
-theme_override_font_sizes/font_size = 40
-text = "CHARACTER CREATION"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="HeadInput" type="Control" parent="GUI" unique_id=2045243235]
+[node name="HeadInput" type="Control" parent="CharCrtn" unique_id=2045243235]
 anchors_preset = 0
 offset_left = 803.0
-offset_top = 216.0
+offset_top = 142.0
 offset_right = 1132.0
-offset_bottom = 411.0
+offset_bottom = 337.0
 
-[node name="LineEdit" type="LineEdit" parent="GUI/HeadInput" unique_id=1954742031]
+[node name="LineEdit" type="LineEdit" parent="CharCrtn/HeadInput" unique_id=1954742031]
 layout_mode = 0
-offset_top = 44.0
+offset_top = 42.0
 offset_right = 328.0
-offset_bottom = 194.0
+offset_bottom = 192.0
 theme = SubResource("Theme_oll6g")
 theme_override_fonts/font = ExtResource("4_73481")
 theme_override_font_sizes/font_size = 128
@@ -96,24 +100,24 @@ alignment = 1
 max_length = 1
 drag_and_drop_selection_enabled = false
 
-[node name="Label" type="Label" parent="GUI/HeadInput" unique_id=1313815071]
+[node name="Label" type="Label" parent="CharCrtn/HeadInput" unique_id=1313815071]
 layout_mode = 0
 offset_left = 15.0
-offset_top = 6.0
+offset_top = 4.0
 offset_right = 111.0
-offset_bottom = 30.0
+offset_bottom = 28.0
 theme = ExtResource("3_73481")
 theme_override_font_sizes/font_size = 24
 text = "Head"
 
-[node name="TorsoInput" type="Control" parent="GUI" unique_id=135303032]
+[node name="TorsoInput" type="Control" parent="CharCrtn" unique_id=135303032]
 anchors_preset = 0
 offset_left = 799.0
-offset_top = 813.0
+offset_top = 722.0
 offset_right = 1128.0
-offset_bottom = 1008.0
+offset_bottom = 917.0
 
-[node name="LineEdit" type="LineEdit" parent="GUI/TorsoInput" unique_id=1147195116]
+[node name="LineEdit" type="LineEdit" parent="CharCrtn/TorsoInput" unique_id=1147195116]
 layout_mode = 0
 offset_top = 44.0
 offset_right = 328.0
@@ -125,24 +129,24 @@ alignment = 1
 max_length = 1
 drag_and_drop_selection_enabled = false
 
-[node name="Label" type="Label" parent="GUI/TorsoInput" unique_id=1411328211]
+[node name="Label" type="Label" parent="CharCrtn/TorsoInput" unique_id=1411328211]
 layout_mode = 0
 offset_left = 15.0
 offset_top = 6.0
-offset_right = 111.0
+offset_right = 135.0
 offset_bottom = 30.0
 theme = ExtResource("3_73481")
 theme_override_font_sizes/font_size = 24
 text = "Torso"
 
-[node name="LArmInput" type="Control" parent="GUI" unique_id=1940665545]
+[node name="LArmInput" type="Control" parent="CharCrtn" unique_id=1940665545]
 anchors_preset = 0
 offset_left = 433.0
-offset_top = 391.0
+offset_top = 300.0
 offset_right = 762.0
-offset_bottom = 586.0
+offset_bottom = 495.0
 
-[node name="LineEdit" type="LineEdit" parent="GUI/LArmInput" unique_id=1940260382]
+[node name="LineEdit" type="LineEdit" parent="CharCrtn/LArmInput" unique_id=1940260382]
 layout_mode = 0
 offset_top = 44.0
 offset_right = 328.0
@@ -154,24 +158,24 @@ alignment = 1
 max_length = 1
 drag_and_drop_selection_enabled = false
 
-[node name="Label" type="Label" parent="GUI/LArmInput" unique_id=443212420]
+[node name="Label" type="Label" parent="CharCrtn/LArmInput" unique_id=443212420]
 layout_mode = 0
 offset_left = 15.0
 offset_top = 6.0
-offset_right = 111.0
+offset_right = 207.0
 offset_bottom = 30.0
 theme = ExtResource("3_73481")
 theme_override_font_sizes/font_size = 24
 text = "Left Arm"
 
-[node name="RArmInput" type="Control" parent="GUI" unique_id=593430483]
+[node name="RArmInput" type="Control" parent="CharCrtn" unique_id=593430483]
 anchors_preset = 0
 offset_left = 1162.0
-offset_top = 391.0
+offset_top = 300.0
 offset_right = 1491.0
-offset_bottom = 586.0
+offset_bottom = 495.0
 
-[node name="LineEdit" type="LineEdit" parent="GUI/RArmInput" unique_id=1488888419]
+[node name="LineEdit" type="LineEdit" parent="CharCrtn/RArmInput" unique_id=1488888419]
 layout_mode = 0
 offset_top = 44.0
 offset_right = 328.0
@@ -183,24 +187,24 @@ alignment = 1
 max_length = 1
 drag_and_drop_selection_enabled = false
 
-[node name="Label" type="Label" parent="GUI/RArmInput" unique_id=1643267022]
+[node name="Label" type="Label" parent="CharCrtn/RArmInput" unique_id=1643267022]
 layout_mode = 0
 offset_left = 15.0
 offset_top = 6.0
-offset_right = 111.0
+offset_right = 231.0
 offset_bottom = 30.0
 theme = ExtResource("3_73481")
 theme_override_font_sizes/font_size = 24
 text = "Right Arm"
 
-[node name="LLegInput" type="Control" parent="GUI" unique_id=583764741]
+[node name="LLegInput" type="Control" parent="CharCrtn" unique_id=583764741]
 anchors_preset = 0
 offset_left = 433.0
-offset_top = 659.0
+offset_top = 568.0
 offset_right = 762.0
-offset_bottom = 854.0
+offset_bottom = 763.0
 
-[node name="LineEdit" type="LineEdit" parent="GUI/LLegInput" unique_id=157085679]
+[node name="LineEdit" type="LineEdit" parent="CharCrtn/LLegInput" unique_id=157085679]
 layout_mode = 0
 offset_top = 44.0
 offset_right = 328.0
@@ -212,24 +216,24 @@ alignment = 1
 max_length = 1
 drag_and_drop_selection_enabled = false
 
-[node name="Label" type="Label" parent="GUI/LLegInput" unique_id=519182958]
+[node name="Label" type="Label" parent="CharCrtn/LLegInput" unique_id=519182958]
 layout_mode = 0
 offset_left = 15.0
 offset_top = 6.0
-offset_right = 111.0
+offset_right = 207.0
 offset_bottom = 30.0
 theme = ExtResource("3_73481")
 theme_override_font_sizes/font_size = 24
 text = "Left Leg"
 
-[node name="RLegInput" type="Control" parent="GUI" unique_id=375288398]
+[node name="RLegInput" type="Control" parent="CharCrtn" unique_id=375288398]
 anchors_preset = 0
 offset_left = 1162.0
-offset_top = 659.0
+offset_top = 568.0
 offset_right = 1491.0
-offset_bottom = 854.0
+offset_bottom = 763.0
 
-[node name="LineEdit" type="LineEdit" parent="GUI/RLegInput" unique_id=1218125926]
+[node name="LineEdit" type="LineEdit" parent="CharCrtn/RLegInput" unique_id=1218125926]
 layout_mode = 0
 offset_top = 44.0
 offset_right = 328.0
@@ -241,11 +245,10 @@ alignment = 1
 max_length = 1
 drag_and_drop_selection_enabled = false
 
-[node name="Label" type="Label" parent="GUI/RLegInput" unique_id=793211334]
+[node name="Label" type="Label" parent="CharCrtn/RLegInput" unique_id=793211334]
 layout_mode = 0
-offset_left = 15.0
 offset_top = 6.0
-offset_right = 111.0
+offset_right = 216.0
 offset_bottom = 30.0
 theme = ExtResource("3_73481")
 theme_override_font_sizes/font_size = 24
