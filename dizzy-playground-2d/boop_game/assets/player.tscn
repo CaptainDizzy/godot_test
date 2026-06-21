@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://ca6qc3lev5jre"]
 
-[ext_resource type="Script" uid="uid://ck1bhckuixx1i" path="res://boop_game/assets/player.gd" id="1_op763"]
+[ext_resource type="Script" uid="uid://ck1bhckuixx1i" path="res://boop_game/scripts/player.gd" id="1_op763"]
 [ext_resource type="PackedScene" uid="uid://toc2xj8apek7" path="res://boop_game/assets/ascii.tscn" id="1_ww4cf"]
+
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ww4cf"]
 radius = 50.0

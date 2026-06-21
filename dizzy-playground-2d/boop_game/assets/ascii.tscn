@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://toc2xj8apek7"]
 
 [ext_resource type="FontFile" uid="uid://b0r2cab1742t2" path="res://fonts/vertopal.com_8514oem.ttf" id="1_eyw10"]
-[ext_resource type="Script" uid="uid://cv5ud41fhwo5q" path="res://boop_game/assets/ascii.gd" id="1_vwu1f"]
+[ext_resource type="Script" uid="uid://cv5ud41fhwo5q" path="res://boop_game/scripts/ascii.gd" id="1_vwu1f"]
 
 [sub_resource type="Animation" id="Animation_vwu1f"]
 length = 0.001
@@ -102,6 +102,71 @@ tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 0.5),
+"update": 0,
+"values": [Vector2(0, 62), Vector2(0, 68)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Body/Torso/LArm:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 3),
+"update": 0,
+"values": [-1.2217305, -1.0471975511965976]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Body/Torso/RArm:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 3),
+"update": 0,
+"values": [1.2217305, 1.0471975511965976]
+}
+
+[sub_resource type="Animation" id="Animation_j0sjl"]
+resource_name = "walk"
+length = 1.9
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/LLeg:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.54105204]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body/RLeg:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.54105204]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body/Torso:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1.8660663, 0.5),
 "update": 0,
 "values": [Vector2(0, 62), Vector2(0, 68)]
@@ -114,7 +179,7 @@ tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(1, 3),
 "update": 0,
 "values": [-1.2217305, -0.87266463]
 }
@@ -126,7 +191,7 @@ tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(1, 3),
 "update": 0,
 "values": [1.2217305, 0.87266463]
 }
@@ -134,7 +199,8 @@ tracks/4/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j0sjl"]
 _data = {
 &"RESET": SubResource("Animation_vwu1f"),
-&"idle": SubResource("Animation_kw32x")
+&"idle": SubResource("Animation_kw32x"),
+&"walk": SubResource("Animation_j0sjl")
 }
 
 [node name="ASCII" type="Node2D" unique_id=1679823848]
@@ -148,6 +214,7 @@ libraries/ = SubResource("AnimationLibrary_j0sjl")
 position = Vector2(0, -108)
 
 [node name="Torso" type="Sprite2D" parent="Body" unique_id=1422683257]
+unique_name_in_owner = true
 position = Vector2(0, 62)
 
 [node name="Symbol" type="Label" parent="Body/Torso" unique_id=596960907]
@@ -169,7 +236,8 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Head" type="Sprite2D" parent="Body/Torso" unique_id=1154393749]
-position = Vector2(0, -95)
+unique_name_in_owner = true
+position = Vector2(0, -104.998)
 
 [node name="Symbol" type="Label" parent="Body/Torso/Head" unique_id=832565407]
 anchors_preset = 15
@@ -190,7 +258,8 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="LArm" type="Sprite2D" parent="Body/Torso" unique_id=1507291707]
-position = Vector2(-33, -77)
+unique_name_in_owner = true
+position = Vector2(-35, -77.007)
 
 [node name="Symbol" type="Label" parent="Body/Torso/LArm" unique_id=229579271]
 anchors_preset = 15
@@ -212,7 +281,8 @@ horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="RArm" type="Sprite2D" parent="Body/Torso" unique_id=130979437]
-position = Vector2(33, -77)
+unique_name_in_owner = true
+position = Vector2(34, -77.007)
 
 [node name="Symbol" type="Label" parent="Body/Torso/RArm" unique_id=1917422629]
 anchors_preset = 15
@@ -233,6 +303,7 @@ horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="LLeg" type="Sprite2D" parent="Body" unique_id=1614430293]
+unique_name_in_owner = true
 position = Vector2(-31, 61)
 
 [node name="Symbol" type="Label" parent="Body/LLeg" unique_id=1352550961]
@@ -254,6 +325,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="RLeg" type="Sprite2D" parent="Body" unique_id=1188312804]
+unique_name_in_owner = true
 position = Vector2(31, 61)
 
 [node name="Symbol" type="Label" parent="Body/RLeg" unique_id=1640821503]
@@ -265,7 +337,6 @@ offset_bottom = 23.0
 grow_horizontal = 2
 grow_vertical = 2
 rotation = 2.6179938
-scale = Vector2(-1, 1)
 pivot_offset = Vector2(39, 102)
 theme_override_fonts/font = ExtResource("1_eyw10")
 theme_override_font_sizes/font_size = 124
