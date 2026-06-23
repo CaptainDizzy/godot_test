@@ -1,17 +1,19 @@
 extends CharacterBody2D
 
 signal health_depleted
+signal game_state(state)
 
 var health = 100.0
 var is_dead = false
 var death_anim = false
-var game_state
+var state: String = "create_char"
+var last_state: String = ""
 
 const SPEED = 250.0
 
 
 func _physics_process(delta: float) -> void:
-	if game_state != "create_char":
+	if state != "create_char":
 		var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 		if is_dead:
 			velocity = direction * 0
@@ -31,8 +33,11 @@ func _physics_process(delta: float) -> void:
 	if is_dead == true && not death_anim:
 		%ASCII.play_dead_animation()
 		death_anim = true
-	
 
+func _on_fake_button_fall(start_state: String) -> void:
+	change_game_state(start_state)
 
-func _on_game_state(state: Variant) -> void:
-	game_state = state
+func change_game_state(new_state: String):
+	last_state = state
+	state = new_state
+	game_state.emit(state)

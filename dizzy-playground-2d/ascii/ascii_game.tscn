@@ -1,0 +1,271 @@
+[gd_scene format=3 uid="uid://ck2uub8r0b31w"]
+
+[ext_resource type="Script" uid="uid://drmt8mgohx0af" path="res://ascii/scripts/ascii_game.gd" id="1_l4rt8"]
+[ext_resource type="PackedScene" uid="uid://ca6qc3lev5jre" path="res://ascii/assets/player.tscn" id="2_qihb0"]
+[ext_resource type="Theme" uid="uid://dpika668hgijq" path="res://ascii/ui/pixelfont.theme" id="3_msc5x"]
+[ext_resource type="FontFile" uid="uid://b0r2cab1742t2" path="res://fonts/vertopal.com_8514oem.ttf" id="4_xgstk"]
+[ext_resource type="PackedScene" uid="uid://d2u1ldw8p4xbr" path="res://ascii/ui/fake_button.tscn" id="5_e68bd"]
+[ext_resource type="PackedScene" uid="uid://ckowrgqaidh8t" path="res://addons/dizzy_transitions/dizzy_transitions.tscn" id="6_qjlv8"]
+
+[node name="Game" type="Node2D" unique_id=545093323]
+script = ExtResource("1_l4rt8")
+
+[node name="Player" parent="." unique_id=1632503170 instance=ExtResource("2_qihb0")]
+unique_name_in_owner = true
+position = Vector2(960, 615)
+
+[node name="Cam" type="Camera2D" parent="." unique_id=1775665619]
+unique_name_in_owner = true
+position = Vector2(960, 540)
+
+[node name="StartingScreen" type="Node2D" parent="." unique_id=1903222833]
+
+[node name="BGCanvas" type="CanvasLayer" parent="StartingScreen" unique_id=1107412984]
+layer = -5
+follow_viewport_enabled = true
+
+[node name="BGColor" type="ColorRect" parent="StartingScreen/BGCanvas" unique_id=968781158]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.08235294, 0.1764706, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="CharacterCreation" type="Control" parent="StartingScreen" unique_id=545097475]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+metadata/_edit_lock_ = true
+
+[node name="Title" type="Label" parent="StartingScreen/CharacterCreation" unique_id=637224605]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.097
+anchor_right = 1.0
+anchor_bottom = 0.142
+offset_top = -54.663002
+offset_right = -2.0
+offset_bottom = -63.218002
+grow_horizontal = 2
+theme = ExtResource("3_msc5x")
+theme_override_font_sizes/font_size = 40
+text = "CHARACTER CREATION"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HeadInput" type="Control" parent="StartingScreen/CharacterCreation" unique_id=2045243235]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_left = 803.0
+offset_top = 142.0
+offset_right = 1132.0
+offset_bottom = 337.0
+
+[node name="LineEdit" type="LineEdit" parent="StartingScreen/CharacterCreation/HeadInput" unique_id=1954742031]
+layout_mode = 0
+offset_top = 42.0
+offset_right = 328.0
+offset_bottom = 192.0
+theme = ExtResource("3_msc5x")
+theme_override_fonts/font = ExtResource("4_xgstk")
+theme_override_font_sizes/font_size = 128
+alignment = 1
+max_length = 1
+drag_and_drop_selection_enabled = false
+
+[node name="Label" type="Label" parent="StartingScreen/CharacterCreation/HeadInput" unique_id=1313815071]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 4.0
+offset_right = 328.0
+offset_bottom = 28.0
+theme = ExtResource("3_msc5x")
+theme_override_font_sizes/font_size = 24
+text = "Head"
+horizontal_alignment = 1
+
+[node name="TorsoInput" type="Control" parent="StartingScreen/CharacterCreation" unique_id=135303032]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_left = 799.0
+offset_top = 722.0
+offset_right = 1128.0
+offset_bottom = 917.0
+
+[node name="LineEdit" type="LineEdit" parent="StartingScreen/CharacterCreation/TorsoInput" unique_id=1147195116]
+layout_mode = 0
+offset_top = 44.0
+offset_right = 328.0
+offset_bottom = 194.0
+theme = ExtResource("3_msc5x")
+theme_override_fonts/font = ExtResource("4_xgstk")
+theme_override_font_sizes/font_size = 128
+alignment = 1
+max_length = 1
+drag_and_drop_selection_enabled = false
+
+[node name="Label" type="Label" parent="StartingScreen/CharacterCreation/TorsoInput" unique_id=1411328211]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 6.0
+offset_right = 325.0
+offset_bottom = 30.0
+theme = ExtResource("3_msc5x")
+theme_override_font_sizes/font_size = 24
+text = "Torso"
+horizontal_alignment = 1
+
+[node name="LArmInput" type="Control" parent="StartingScreen/CharacterCreation" unique_id=1940665545]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_left = 433.0
+offset_top = 300.0
+offset_right = 762.0
+offset_bottom = 495.0
+
+[node name="LineEdit" type="LineEdit" parent="StartingScreen/CharacterCreation/LArmInput" unique_id=1940260382]
+layout_mode = 0
+offset_top = 44.0
+offset_right = 328.0
+offset_bottom = 194.0
+theme = ExtResource("3_msc5x")
+theme_override_fonts/font = ExtResource("4_xgstk")
+theme_override_font_sizes/font_size = 128
+alignment = 1
+max_length = 1
+drag_and_drop_selection_enabled = false
+
+[node name="Label" type="Label" parent="StartingScreen/CharacterCreation/LArmInput" unique_id=443212420]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 6.0
+offset_right = 327.0
+offset_bottom = 30.0
+theme = ExtResource("3_msc5x")
+theme_override_font_sizes/font_size = 24
+text = "Left Arm"
+horizontal_alignment = 1
+
+[node name="RArmInput" type="Control" parent="StartingScreen/CharacterCreation" unique_id=593430483]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_left = 1162.0
+offset_top = 300.0
+offset_right = 1491.0
+offset_bottom = 495.0
+
+[node name="LineEdit" type="LineEdit" parent="StartingScreen/CharacterCreation/RArmInput" unique_id=1488888419]
+layout_mode = 0
+offset_top = 44.0
+offset_right = 328.0
+offset_bottom = 194.0
+theme = ExtResource("3_msc5x")
+theme_override_fonts/font = ExtResource("4_xgstk")
+theme_override_font_sizes/font_size = 128
+alignment = 1
+max_length = 1
+drag_and_drop_selection_enabled = false
+
+[node name="Label" type="Label" parent="StartingScreen/CharacterCreation/RArmInput" unique_id=1643267022]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 6.0
+offset_right = 328.0
+offset_bottom = 30.0
+theme = ExtResource("3_msc5x")
+theme_override_font_sizes/font_size = 24
+text = "Right Arm"
+horizontal_alignment = 1
+
+[node name="LLegInput" type="Control" parent="StartingScreen/CharacterCreation" unique_id=583764741]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_left = 433.0
+offset_top = 568.0
+offset_right = 762.0
+offset_bottom = 763.0
+
+[node name="LineEdit" type="LineEdit" parent="StartingScreen/CharacterCreation/LLegInput" unique_id=157085679]
+layout_mode = 0
+offset_top = 44.0
+offset_right = 328.0
+offset_bottom = 194.0
+theme = ExtResource("3_msc5x")
+theme_override_fonts/font = ExtResource("4_xgstk")
+theme_override_font_sizes/font_size = 128
+alignment = 1
+max_length = 1
+drag_and_drop_selection_enabled = false
+
+[node name="Label" type="Label" parent="StartingScreen/CharacterCreation/LLegInput" unique_id=519182958]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 6.0
+offset_right = 328.0
+offset_bottom = 30.0
+theme = ExtResource("3_msc5x")
+theme_override_font_sizes/font_size = 24
+text = "Left Leg"
+horizontal_alignment = 1
+
+[node name="RLegInput" type="Control" parent="StartingScreen/CharacterCreation" unique_id=375288398]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_left = 1162.0
+offset_top = 568.0
+offset_right = 1491.0
+offset_bottom = 763.0
+
+[node name="LineEdit" type="LineEdit" parent="StartingScreen/CharacterCreation/RLegInput" unique_id=1218125926]
+layout_mode = 0
+offset_top = 44.0
+offset_right = 328.0
+offset_bottom = 194.0
+theme = ExtResource("3_msc5x")
+theme_override_fonts/font = ExtResource("4_xgstk")
+theme_override_font_sizes/font_size = 128
+alignment = 1
+max_length = 1
+drag_and_drop_selection_enabled = false
+
+[node name="Label" type="Label" parent="StartingScreen/CharacterCreation/RLegInput" unique_id=793211334]
+layout_mode = 0
+offset_top = 6.0
+offset_right = 329.0
+offset_bottom = 30.0
+theme = ExtResource("3_msc5x")
+theme_override_font_sizes/font_size = 24
+text = "Right Leg"
+horizontal_alignment = 1
+
+[node name="FakeButton" parent="StartingScreen/CharacterCreation" unique_id=1669142330 instance=ExtResource("5_e68bd")]
+layout_mode = 0
+
+[node name="NameScreen" type="Node2D" parent="." unique_id=726492458]
+position = Vector2(2000, 0)
+
+[node name="BGCanvas" type="CanvasLayer" parent="NameScreen" unique_id=1230769464]
+layer = -5
+follow_viewport_enabled = true
+
+[node name="BGColor" type="ColorRect" parent="NameScreen/BGCanvas" unique_id=772217603]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2000.0
+offset_right = 2000.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.107737996, 0.10510687, 0.34437063, 1)
+metadata/_edit_lock_ = true
+
+[node name="DizzyTransitions" parent="." unique_id=688147533 instance=ExtResource("6_qjlv8")]
+unique_name_in_owner = true
+visible = false
+
+[connection signal="game_state" from="Player" to="." method="_on_changed_game_state"]
+[connection signal="button_fall" from="StartingScreen/CharacterCreation/FakeButton" to="Player" method="_on_fake_button_fall"]

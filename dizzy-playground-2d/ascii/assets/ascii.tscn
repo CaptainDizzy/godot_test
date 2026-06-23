@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://toc2xj8apek7"]
 
 [ext_resource type="FontFile" uid="uid://b0r2cab1742t2" path="res://fonts/vertopal.com_8514oem.ttf" id="1_eyw10"]
-[ext_resource type="Script" uid="uid://cv5ud41fhwo5q" path="res://boop_game/scripts/ascii.gd" id="1_vwu1f"]
+[ext_resource type="Script" uid="uid://cv5ud41fhwo5q" path="res://ascii/scripts/ascii.gd" id="1_vwu1f"]
 
 [sub_resource type="Animation" id="Animation_vwu1f"]
 length = 0.001
