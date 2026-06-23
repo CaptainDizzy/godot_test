@@ -8,6 +8,9 @@ extends Node2D
 @onready var rleg_symbol: LineEdit = $CharCrtn/RLegInput/LineEdit
 @onready var ascii: Node2D = %Player/ASCII
 
+signal game_state(state)
+var state = "create_char"
+
 func _ready() -> void:
 	torso_symbol.text_changed.connect(_on_torso_changed)
 	head_symbol.text_changed.connect(_on_head_changed)
@@ -15,6 +18,11 @@ func _ready() -> void:
 	rarm_symbol.text_changed.connect(_on_rarm_changed)
 	lleg_symbol.text_changed.connect(_on_lleg_changed)
 	rleg_symbol.text_changed.connect(_on_rleg_changed)
+
+func change_game_state(new_state):
+	var last_state = state
+	state = new_state
+	game_state.emit(state)
 
 func _on_torso_changed(symbol: String) -> void:
 	ascii.set_torso_symbol(symbol)
