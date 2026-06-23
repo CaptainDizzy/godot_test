@@ -1,39 +1,20 @@
 [gd_scene format=3 uid="uid://ck2uub8r0b31w"]
 
-[ext_resource type="FontFile" uid="uid://bcijiqbocagsh" path="res://fonts/PressStart2P-Regular.ttf" id="1_0adjh"]
 [ext_resource type="PackedScene" uid="uid://ca6qc3lev5jre" path="res://boop_game/assets/player.tscn" id="1_8odjb"]
 [ext_resource type="Script" uid="uid://drmt8mgohx0af" path="res://boop_game/game_boop.gd" id="1_qnvt8"]
 [ext_resource type="PackedScene" uid="uid://ckowrgqaidh8t" path="res://addons/dizzy_transitions/dizzy_transitions.tscn" id="2_grd68"]
 [ext_resource type="Theme" uid="uid://dpika668hgijq" path="res://boop_game/ui/pixelfont.theme" id="3_73481"]
 [ext_resource type="FontFile" uid="uid://b0r2cab1742t2" path="res://fonts/vertopal.com_8514oem.ttf" id="4_73481"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6tceu"]
-content_margin_left = 15.0
-content_margin_top = 3.0
-content_margin_right = 15.0
-bg_color = Color(0, 0.23921569, 0, 0)
-anti_aliasing = false
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0adjh"]
-content_margin_left = 15.0
-content_margin_top = 3.0
-content_margin_right = 15.0
-bg_color = Color(0, 0.43434733, 0, 1)
-border_color = Color(0.8, 0.8, 0.8, 0)
-
 [sub_resource type="Theme" id="Theme_oll6g"]
 
 [node name="Game" type="Node2D" unique_id=545093323]
 script = ExtResource("1_qnvt8")
 
-[node name="CharCrtn" type="Control" parent="." unique_id=545097475]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 1918.0
-offset_bottom = 1079.0
+[node name="BGCanvas" type="CanvasLayer" parent="." unique_id=1107412984]
+layer = -5
 
-[node name="BGColor" type="ColorRect" parent="CharCrtn" unique_id=968781158]
-layout_mode = 1
+[node name="BGColor" type="ColorRect" parent="BGCanvas" unique_id=968781158]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -42,9 +23,15 @@ grow_vertical = 2
 color = Color(0.03082189, 0.058766246, 0, 1)
 metadata/_edit_lock_ = true
 
-[node name="Player" parent="CharCrtn" unique_id=1632503170 instance=ExtResource("1_8odjb")]
+[node name="Player" parent="." unique_id=1632503170 instance=ExtResource("1_8odjb")]
 unique_name_in_owner = true
 position = Vector2(960, 615)
+
+[node name="CharCrtn" type="Control" parent="." unique_id=545097475]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1918.0
+offset_bottom = 1079.0
 
 [node name="Title" type="Label" parent="CharCrtn" unique_id=637224605]
 layout_mode = 1
@@ -61,25 +48,6 @@ theme_override_font_sizes/font_size = 40
 text = "CHARACTER CREATION"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="Continue" type="Button" parent="CharCrtn" unique_id=235528313]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 652.0
-offset_top = 443.5
-offset_right = 908.0
-offset_bottom = 498.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("1_0adjh")
-theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxFlat_6tceu")
-theme_override_styles/hover = SubResource("StyleBoxFlat_0adjh")
-text = "Let's Go"
 
 [node name="HeadInput" type="Control" parent="CharCrtn" unique_id=2045243235]
 anchors_preset = 0
@@ -258,4 +226,4 @@ text = "Right Leg"
 unique_name_in_owner = true
 visible = false
 
-[connection signal="game_state" from="." to="CharCrtn/Player" method="_on_game_state"]
+[connection signal="game_state" from="." to="Player" method="_on_game_state"]

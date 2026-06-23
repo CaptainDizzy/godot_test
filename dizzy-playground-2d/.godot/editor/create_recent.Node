@@ -1,3 +1,4 @@
+CanvasLayer
 Sprite2D
 StaticBody2D
 Polygon2D
@@ -5,15 +6,9 @@ Area2D
 CollisionPolygon2D
 Node2D
 ColorRect
-CanvasLayer
 Label
 Control
 LineEdit
 AnimationPlayer
 CollisionShape2D
 ColorRect
-Container
-CharacterBody2D
-Button
-Control
-GridContainer
