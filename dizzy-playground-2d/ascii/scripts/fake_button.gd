@@ -7,3 +7,5 @@ func fall_animation():
 func _on_button_button_up() -> void:
 	button_fall.emit("start_game")
 	fall_animation()
+	await %AnimationPlayer.animation_finished
+	%Title.text = "Uh oh..."

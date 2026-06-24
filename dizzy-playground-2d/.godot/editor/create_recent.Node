@@ -1,6 +1,6 @@
+CollisionShape2D
 LineEdit
 Control
-CollisionShape2D
 StaticBody2D
 Node2D
 Camera2D
@@ -12,4 +12,3 @@ Polygon2D
 Area2D
 CollisionPolygon2D
 ColorRect
-Label

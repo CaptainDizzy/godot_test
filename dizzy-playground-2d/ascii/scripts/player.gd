@@ -11,6 +11,7 @@ var last_state: String = ""
 var char_name: String = ""
 
 const SPEED = 250.0
+var speed_multiplier = 1
 
 
 func _physics_process(delta: float) -> void:
@@ -19,7 +20,7 @@ func _physics_process(delta: float) -> void:
 		if is_dead:
 			velocity = direction * 0
 		else:
-			velocity = direction * SPEED
+			velocity = direction * SPEED * speed_multiplier
 		if direction.x < 0:
 			%ASCII.scale.x = -1
 		elif direction.x > 0:
@@ -38,12 +39,14 @@ func _physics_process(delta: float) -> void:
 func _on_fake_button_fall(start_state: String) -> void:
 	change_game_state(start_state)
 
+func _on_name_changed(new_text: String) -> void:
+	char_name = new_text
+	print(char_name)
+
+func _on_title_screen() -> void:
+	speed_multiplier = 0.66
+
 func change_game_state(new_state: String):
 	last_state = state
 	state = new_state
 	game_state.emit(state)
-
-
-func _on_name_changed(new_text: String) -> void:
-	char_name = new_text
-	print(char_name)

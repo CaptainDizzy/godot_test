@@ -32,6 +32,16 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	get_cam_pos()
+	update_current_screen()
+	
+	if current_screen.scrn == "StartingScreen":
+		pass
+	elif current_screen.scrn == "NameScreen":
+		%Player.scale.x = 1
+		%Player.scale.y = 1
+	elif current_screen.scrn == "TitleScreen":
+		%Player.scale.x = 0.66
+		%Player.scale.y = 0.66
 
 func get_cam_pos() -> void:
 	var screen = get_node("%" + current_screen.scrn + "/Screen")
@@ -40,6 +50,13 @@ func get_cam_pos() -> void:
 	var cam_h = screen.size.y / cam_zoom.y
 	%Cam.position.x = screen.global_position.x + (cam_w / 2)
 	%Cam.position.y = screen.global_position.y + (cam_h / 2)
+
+func update_current_screen() -> void:
+	var screen = get_node("%" + current_screen.scrn + "/Screen")
+	current_screen.x = screen.global_position.x
+	current_screen.y = screen.global_position.y
+	current_screen.w = screen.size.x
+	current_screen.h = screen.size.y
 
 func _on_torso_changed(symbol: String) -> void:
 	ascii.set_torso_symbol(symbol)
@@ -61,4 +78,8 @@ func _on_changed_game_state(state: String) -> void:
 func _on_starting_screen_here(s: String) -> void:
 	current_screen.scrn = s
 func _on_name_screen_here(s: String) -> void:
+	current_screen.scrn = s
+func _on_title_screen_here(s: String) -> void:
+	current_screen.scrn = s
+func _on_fork_screen_here(s: Variant) -> void:
 	current_screen.scrn = s
