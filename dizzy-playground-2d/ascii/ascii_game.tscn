@@ -2,10 +2,12 @@
 
 [ext_resource type="Script" uid="uid://drmt8mgohx0af" path="res://ascii/scripts/ascii_game.gd" id="1_l4rt8"]
 [ext_resource type="PackedScene" uid="uid://ca6qc3lev5jre" path="res://ascii/assets/player.tscn" id="2_qihb0"]
+[ext_resource type="Script" uid="uid://w405fugcb2xs" path="res://ascii/scripts/starting_screen.gd" id="3_1bvfa"]
 [ext_resource type="Theme" uid="uid://dpika668hgijq" path="res://ascii/ui/pixelfont.theme" id="3_msc5x"]
 [ext_resource type="FontFile" uid="uid://b0r2cab1742t2" path="res://fonts/vertopal.com_8514oem.ttf" id="4_xgstk"]
 [ext_resource type="PackedScene" uid="uid://d2u1ldw8p4xbr" path="res://ascii/ui/fake_button.tscn" id="5_e68bd"]
 [ext_resource type="PackedScene" uid="uid://ckowrgqaidh8t" path="res://addons/dizzy_transitions/dizzy_transitions.tscn" id="6_qjlv8"]
+[ext_resource type="Script" uid="uid://dtwhyb8sh31cd" path="res://ascii/scripts/name_screen.gd" id="7_r2r38"]
 
 [node name="Game" type="Node2D" unique_id=545093323]
 script = ExtResource("1_l4rt8")
@@ -19,12 +21,18 @@ unique_name_in_owner = true
 position = Vector2(960, 540)
 
 [node name="StartingScreen" type="Node2D" parent="." unique_id=1903222833]
+unique_name_in_owner = true
+script = ExtResource("3_1bvfa")
 
-[node name="BGCanvas" type="CanvasLayer" parent="StartingScreen" unique_id=1107412984]
-layer = -5
-follow_viewport_enabled = true
+[node name="Screen" type="Control" parent="StartingScreen" unique_id=495942580]
+z_index = -5
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
 
-[node name="BGColor" type="ColorRect" parent="StartingScreen/BGCanvas" unique_id=968781158]
+[node name="BGColor" type="ColorRect" parent="StartingScreen/Screen" unique_id=968781158]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -246,26 +254,31 @@ horizontal_alignment = 1
 layout_mode = 0
 
 [node name="NameScreen" type="Node2D" parent="." unique_id=726492458]
+unique_name_in_owner = true
 position = Vector2(2000, 0)
+script = ExtResource("7_r2r38")
 
-[node name="BGCanvas" type="CanvasLayer" parent="NameScreen" unique_id=1230769464]
-layer = -5
-follow_viewport_enabled = true
+[node name="Screen" type="Control" parent="NameScreen" unique_id=405862091]
+z_index = -5
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
 
-[node name="BGColor" type="ColorRect" parent="NameScreen/BGCanvas" unique_id=772217603]
+[node name="BGColor" type="ColorRect" parent="NameScreen/Screen" unique_id=772217603]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 2000.0
-offset_right = 2000.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.107737996, 0.10510687, 0.34437063, 1)
-metadata/_edit_lock_ = true
 
 [node name="DizzyTransitions" parent="." unique_id=688147533 instance=ExtResource("6_qjlv8")]
 unique_name_in_owner = true
 visible = false
 
 [connection signal="game_state" from="Player" to="." method="_on_changed_game_state"]
+[connection signal="player_is_here" from="StartingScreen" to="." method="_on_starting_screen_here"]
 [connection signal="button_fall" from="StartingScreen/CharacterCreation/FakeButton" to="Player" method="_on_fake_button_fall"]
+[connection signal="player_is_here" from="NameScreen" to="." method="_on_name_screen_here"]

@@ -8,13 +8,15 @@ extends Node2D
 @onready var rleg_symbol: LineEdit = %RLegInput/LineEdit
 @onready var ascii: Node2D = %Player/ASCII
 
-var game_state: String = ""
-var current_screen = {
+@onready var current_screen = {
+	scrn = "StartingScreen",
 	x = %Cam.position.x,
 	y = %Cam.position.y,
 	w = 1920,
 	h = 1080
 	}
+
+var game_state: String = ""
 
 func _ready() -> void:
 	%DizzyTransitions.visible = true
@@ -32,11 +34,12 @@ func _process(delta: float) -> void:
 	get_cam_pos()
 
 func get_cam_pos() -> void:
-	var viewport_size = get_viewport_rect().size
+	var screen = get_node("%" + current_screen.scrn + "/Screen")
 	var cam_zoom = %Cam.zoom
-	var cam_w = viewport_size.x / cam_zoom.x
-	var cam_h = viewport_size.y / cam_zoom.y
-	
+	var cam_w = screen.size.x / cam_zoom.x
+	var cam_h = screen.size.y / cam_zoom.y
+	%Cam.position.x = screen.global_position.x + (cam_w / 2)
+	%Cam.position.y = screen.global_position.y + (cam_h / 2)
 
 func _on_torso_changed(symbol: String) -> void:
 	ascii.set_torso_symbol(symbol)
@@ -54,3 +57,8 @@ func _on_rleg_changed(symbol: String) -> void:
 
 func _on_changed_game_state(state: String) -> void:
 	game_state = state
+
+func _on_starting_screen_here(s: String) -> void:
+	current_screen.scrn = s
+func _on_name_screen_here(s: String) -> void:
+	current_screen.scrn = s
