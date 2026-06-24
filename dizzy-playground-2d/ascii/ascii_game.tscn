@@ -9,6 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://ckowrgqaidh8t" path="res://addons/dizzy_transitions/dizzy_transitions.tscn" id="6_qjlv8"]
 [ext_resource type="Script" uid="uid://dtwhyb8sh31cd" path="res://ascii/scripts/name_screen.gd" id="7_r2r38"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r2r38"]
+size = Vector2(1920, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fxxrn"]
+size = Vector2(20, 1080)
+
 [node name="Game" type="Node2D" unique_id=545093323]
 script = ExtResource("1_l4rt8")
 
@@ -30,6 +36,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
+metadata/_edit_lock_ = true
 
 [node name="BGColor" type="ColorRect" parent="StartingScreen/Screen" unique_id=968781158]
 layout_mode = 1
@@ -253,6 +260,20 @@ horizontal_alignment = 1
 [node name="FakeButton" parent="StartingScreen/CharacterCreation" unique_id=1669142330 instance=ExtResource("5_e68bd")]
 layout_mode = 0
 
+[node name="Walls" type="StaticBody2D" parent="StartingScreen" unique_id=1020435473]
+
+[node name="Bottom" type="CollisionShape2D" parent="StartingScreen/Walls" unique_id=1408709840]
+position = Vector2(960, 1086)
+shape = SubResource("RectangleShape2D_r2r38")
+
+[node name="Top" type="CollisionShape2D" parent="StartingScreen/Walls" unique_id=1175520708]
+position = Vector2(960, 0)
+shape = SubResource("RectangleShape2D_r2r38")
+
+[node name="Left" type="CollisionShape2D" parent="StartingScreen/Walls" unique_id=17590667]
+position = Vector2(0, 540)
+shape = SubResource("RectangleShape2D_fxxrn")
+
 [node name="NameScreen" type="Node2D" parent="." unique_id=726492458]
 unique_name_in_owner = true
 position = Vector2(2000, 0)
@@ -273,6 +294,53 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.107737996, 0.10510687, 0.34437063, 1)
+metadata/_edit_lock_ = true
+
+[node name="CharacterName" type="Control" parent="NameScreen" unique_id=466060925]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+metadata/_edit_lock_ = true
+
+[node name="Title" type="Label" parent="NameScreen/CharacterName" unique_id=1404911538]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.097
+anchor_right = 1.0
+anchor_bottom = 0.142
+offset_top = -54.663002
+offset_right = -2.0
+offset_bottom = -63.218002
+grow_horizontal = 2
+theme = ExtResource("3_msc5x")
+theme_override_font_sizes/font_size = 40
+text = "CHARACTER NAME"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="NameScreen/CharacterName" unique_id=1483731130]
+layout_mode = 0
+offset_left = 690.0
+offset_top = 158.0
+offset_right = 1232.0
+offset_bottom = 259.0
+theme = ExtResource("3_msc5x")
+theme_override_font_sizes/font_size = 92
+placeholder_text = "Name"
+alignment = 1
+max_length = 8
+
+[node name="Walls" type="StaticBody2D" parent="NameScreen" unique_id=989491748]
+
+[node name="Bottom" type="CollisionShape2D" parent="NameScreen/Walls" unique_id=471359230]
+position = Vector2(960, 1086)
+shape = SubResource("RectangleShape2D_r2r38")
+
+[node name="Top" type="CollisionShape2D" parent="NameScreen/Walls" unique_id=775087715]
+position = Vector2(960, 0)
+shape = SubResource("RectangleShape2D_r2r38")
 
 [node name="DizzyTransitions" parent="." unique_id=688147533 instance=ExtResource("6_qjlv8")]
 unique_name_in_owner = true
@@ -282,3 +350,4 @@ visible = false
 [connection signal="player_is_here" from="StartingScreen" to="." method="_on_starting_screen_here"]
 [connection signal="button_fall" from="StartingScreen/CharacterCreation/FakeButton" to="Player" method="_on_fake_button_fall"]
 [connection signal="player_is_here" from="NameScreen" to="." method="_on_name_screen_here"]
+[connection signal="text_changed" from="NameScreen/CharacterName/LineEdit" to="Player" method="_on_name_changed"]

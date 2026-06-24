@@ -1,4 +1,2 @@
 res://ascii/ascii_game.tscn
-res://ascii/scripts/ascii_game.gd
-res://ascii/scripts/starting_screen.gd
-res://ascii/scripts/name_screen.gd
+res://ascii/scripts/player.gd

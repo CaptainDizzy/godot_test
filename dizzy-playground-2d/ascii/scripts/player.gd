@@ -8,6 +8,7 @@ var is_dead = false
 var death_anim = false
 var state: String = "create_char"
 var last_state: String = ""
+var char_name: String = ""
 
 const SPEED = 250.0
 
@@ -41,3 +42,8 @@ func change_game_state(new_state: String):
 	last_state = state
 	state = new_state
 	game_state.emit(state)
+
+
+func _on_name_changed(new_text: String) -> void:
+	char_name = new_text
+	print(char_name)
