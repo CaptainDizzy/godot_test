@@ -16,6 +16,8 @@ var speed_multiplier = 1
 
 func _physics_process(delta: float) -> void:
 	if state != "create_char":
+		speed_multiplier = %Player.scale.x
+		print(speed_multiplier)
 		var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 		if is_dead:
 			velocity = direction * 0
@@ -44,7 +46,7 @@ func _on_name_changed(new_text: String) -> void:
 	print(char_name)
 
 func _on_title_screen() -> void:
-	speed_multiplier = 0.66
+	pass #speed_multiplier = 0.66
 
 func change_game_state(new_state: String):
 	last_state = state

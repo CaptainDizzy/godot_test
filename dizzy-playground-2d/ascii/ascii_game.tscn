@@ -330,7 +330,7 @@ offset_bottom = -63.218002
 grow_horizontal = 2
 theme = ExtResource("3_msc5x")
 theme_override_font_sizes/font_size = 40
-text = "Oh good, you're here..."
+text = "Oh good, you're here, uh..."
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -346,7 +346,7 @@ offset_bottom = 7.6849976
 grow_horizontal = 2
 theme = ExtResource("3_msc5x")
 theme_override_font_sizes/font_size = 40
-text = "Anyway, what's your name?"
+text = "What's your name again?"
 horizontal_alignment = 1
 vertical_alignment = 1
 

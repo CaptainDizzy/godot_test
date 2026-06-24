@@ -21,14 +21,14 @@ func _process(delta: float) -> void:
 	else:
 		entered = false
 	
-	if enter_count == 1:
+	if enter_count == 2:
 		%ForkMessage.text = "Want to choose another path?"
-	elif enter_count == 2:
-		%ForkMessage.text = "You've got the gist of it..."
 	elif enter_count == 3:
+		%ForkMessage.text = "You've got the gist of it..."
+	elif enter_count == 4:
 		%ForkMessage.text = "Ya winning, son?"
-	elif enter_count >= 4:
+	elif enter_count >= 5:
 		%ForkMessage.text = "I'm not updating this every time."
-	elif enter_count >= 6:
+	elif enter_count >= 8:
 		%ForkMessage.text = "..."
 	
