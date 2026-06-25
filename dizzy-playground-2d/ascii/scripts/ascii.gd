@@ -32,7 +32,9 @@ func play_jump_animation():
 	%AnimationPlayer.play("jump")
 func play_falling_animation():
 	%AnimationPlayer.play("falling")
-func play_dead_animation():
-	%AnimationPlayer.play("dead")
+func play_splat_animation():
+	%AnimationPlayer.play("splat")
+#func play_dead_animation():
+#	%AnimationPlayer.play("dead")
 func reset_animation():
 	%AnimationPlayer.play("RESET")

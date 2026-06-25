@@ -10,8 +10,8 @@ func _process(delta: float) -> void:
 	var py = %Player.position.y
 	var sx = %PlatformerScreen.position.x
 	var sy = %PlatformerScreen.position.y
-	var sw = %PlatformerScreen/Screen.size.x
-	var sh = %PlatformerScreen/Screen.size.y
+	var sw = %PlatformerScreen/Screen/BGColor.size.x
+	var sh = %PlatformerScreen/Screen/BGColor.size.y
 	
 	if px >= sx and px <= sx + sw and py >= sy and py <= sy + sh:
 		var screen_name = "PlatformerScreen"

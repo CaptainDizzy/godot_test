@@ -7,7 +7,7 @@ signal platformer_landing
 var health = 100.0
 var is_dead = false
 var death_anim = false
-var state: String = "create_char"
+var state: String = "platformer"
 var last_state: String = ""
 var char_name: String = "ASCII"
 
@@ -61,8 +61,6 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_pressed("jump") and is_on_floor():
 			is_jumping = true
 			velocity.x = move_toward(velocity.x, 0, SPEED * speed_multiplier)
-			%ASCII.play_ready_jump_animation()
-			await get_tree().create_timer(0.1).timeout
 			%ASCII.play_jump_animation()
 			velocity.y = JUMP_V
 			if Input.is_action_pressed("sprint"):
@@ -71,10 +69,10 @@ func _physics_process(delta: float) -> void:
 				velocity.x = direction * (SPEED * speed_multiplier * 1.5)
 			
 		elif Input.is_action_just_released("jump"):
-			%ASCII.play_falling_animation()
+			pass #%ASCII.play_falling_animation()
 			
 		# Ground movement (only when not charging a jump)
-		elif is_on_floor() and not is_jumping:
+		elif is_on_floor() and not is_jumping and not first_landing:
 			if Input.is_action_pressed("sprint") and direction != 0:
 				velocity.x = direction * (SPEED * speed_multiplier * 2)
 				%ASCII.play_run_animation()
@@ -99,8 +97,6 @@ func _physics_process(delta: float) -> void:
 		var on_floor := is_on_floor()     # 1. snapshot THIS frame
 		if on_floor and not was_on_floor: # 2. check the transition
 			_on_landing()                 # 3. react
-			if first_landing:
-				platformer_landing.emit()
 		was_on_floor = on_floor           # 4. remember for NEXT frame
 		
 	elif state == "shmup":
@@ -109,9 +105,12 @@ func _physics_process(delta: float) -> void:
 		pass 
 
 func _on_landing() -> void:
+	if first_landing:
+		%ASCII.play_splat_animation()
+		await get_tree().create_timer(1.5).timeout
+		platformer_landing.emit()
+		first_landing = false
 	fall_anim = false
-	%ASCII.play_ready_jump_animation()
-	await get_tree().create_timer(0.1).timeout
 	is_jumping = false
 
 func _on_fake_button_fall(start_state: String) -> void:

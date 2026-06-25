@@ -54,10 +54,11 @@ follow_viewport_enabled = true
 
 [node name="Player" parent="." unique_id=1632503170 instance=ExtResource("2_qihb0")]
 unique_name_in_owner = true
-position = Vector2(960, 615)
+position = Vector2(6540, 615)
 
 [node name="Cam" type="Camera2D" parent="." unique_id=1775665619]
 unique_name_in_owner = true
+position = Vector2(6000, 0)
 anchor_mode = 0
 
 [node name="StartingScreen" type="Node2D" parent="." unique_id=1903222833]

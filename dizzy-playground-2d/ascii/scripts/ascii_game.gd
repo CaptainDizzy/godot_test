@@ -60,8 +60,8 @@ func get_cam_pos() -> void:
 func follow_cam_pos() -> void:
 	%Cam.set_anchor_mode(1)
 	var screen = get_node("%" + current_screen.scrn + "/Screen")
-	var cam_w = %PlatformerScreen/Screen/BGColor.size.x
-	var cam_h = %PlatformerScreen/Screen/BGColor.size.y
+	var cam_w = %PlatformerScreen/Screen.size.x
+	var cam_h = %PlatformerScreen/Screen.size.y
 	%Cam.global_position.y = screen.global_position.y + (cam_h / 2)
 	if %Player.global_position.x <= screen.global_position.x + (cam_w / 2):
 		%Cam.global_position.x = screen.global_position.x + (cam_w / 2)
