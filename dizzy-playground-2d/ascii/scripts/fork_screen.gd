@@ -1,6 +1,7 @@
 extends Node2D
 
 signal player_is_here(n)
+signal intro_state(state)
 var enter_count = 0
 var entered := false
 
@@ -15,6 +16,7 @@ func _process(delta: float) -> void:
 	if px >= sx and px <= sx + sw and py >= sy and py <= sy + sh:
 		var screen_name = "ForkScreen"
 		player_is_here.emit(screen_name)
+		intro_state.emit("intro_screens")
 		if not entered:
 			enter_count += 1
 			entered = true

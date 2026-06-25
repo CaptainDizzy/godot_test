@@ -6,3 +6,8 @@ res://ascii/scripts/player.gd
 res://ascii/ascii_game.tscn
 res://ascii/assets/ascii.tscn
 res://ascii/scripts/ascii.gd
+res://ascii/assets/player.tscn
+res://ascii/scripts/fake_button.gd
+res://ascii/scripts/fork_screen.gd
+res://ascii/scripts/box.gd
+res://ascii/assets/pile_on.tscn

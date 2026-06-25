@@ -54,7 +54,7 @@ follow_viewport_enabled = true
 
 [node name="Player" parent="." unique_id=1632503170 instance=ExtResource("2_qihb0")]
 unique_name_in_owner = true
-position = Vector2(6540, 615)
+position = Vector2(6427, 986)
 
 [node name="Cam" type="Camera2D" parent="." unique_id=1775665619]
 unique_name_in_owner = true
@@ -500,6 +500,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
+metadata/_edit_lock_ = true
 
 [node name="BGColor" type="ColorRect" parent="ForkScreen/Screen" unique_id=1286875113]
 layout_mode = 1
@@ -627,6 +628,7 @@ visible = false
 [connection signal="player_is_here" from="NameScreen" to="." method="_on_name_screen_here"]
 [connection signal="text_changed" from="NameScreen/CharacterName/LineEdit" to="Player" method="_on_name_changed"]
 [connection signal="player_is_here" from="TitleScreen" to="." method="_on_title_screen_here"]
+[connection signal="intro_state" from="ForkScreen" to="Player" method="_on_fork_screen_intro_state"]
 [connection signal="player_is_here" from="ForkScreen" to="." method="_on_fork_screen_here"]
 [connection signal="platform_state" from="PlatformerScreen" to="Player" method="_on_platformer_screen_platform_state"]
 [connection signal="player_is_here" from="PlatformerScreen" to="." method="_on_platformer_screen_here"]

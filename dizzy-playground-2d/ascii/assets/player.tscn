@@ -3,9 +3,8 @@
 [ext_resource type="Script" uid="uid://ck1bhckuixx1i" path="res://ascii/scripts/player.gd" id="1_op763"]
 [ext_resource type="PackedScene" uid="uid://toc2xj8apek7" path="res://ascii/assets/ascii.tscn" id="1_ww4cf"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ww4cf"]
-radius = 50.0
-height = 172.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lrik7"]
+size = Vector2(109, 167)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_op763"]
 radius = 72.0
@@ -17,9 +16,9 @@ script = ExtResource("1_op763")
 [node name="ASCII" parent="." unique_id=1679823848 instance=ExtResource("1_ww4cf")]
 unique_name_in_owner = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1472965405]
-position = Vector2(0, -33)
-shape = SubResource("CapsuleShape2D_ww4cf")
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=1472965405]
+position = Vector2(3.5, -33.5)
+shape = SubResource("RectangleShape2D_lrik7")
 
 [node name="HurtBox" type="Area2D" parent="." unique_id=1543450016]
 unique_name_in_owner = true

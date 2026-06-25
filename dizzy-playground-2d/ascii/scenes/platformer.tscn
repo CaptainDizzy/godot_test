@@ -2,6 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://dpika668hgijq" path="res://ascii/ui/pixelfont.theme" id="1_o2jsq"]
 [ext_resource type="PackedScene" uid="uid://d0l45d00184ce" path="res://ascii/assets/box.tscn" id="2_mkhiu"]
+[ext_resource type="PackedScene" uid="uid://cc5jokgqwepq2" path="res://ascii/assets/pile_on.tscn" id="3_4k4rx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mkhiu"]
 size = Vector2(3060, 91)
@@ -31,6 +32,43 @@ offset_right = 11879.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.4440249, 0.5398438, 0.9164276, 1)
+metadata/_edit_lock_ = true
+
+[node name="Ruler" type="CanvasGroup" parent="Screen" unique_id=1560554955]
+visible = false
+position = Vector2(462, 5)
+
+[node name="ColorRect" type="ColorRect" parent="Screen/Ruler" unique_id=1438413122]
+offset_left = 1783.0
+offset_top = 937.0
+offset_right = 1833.0
+offset_bottom = 987.0
+color = Color(1, 1, 1, 0.5137255)
+metadata/_edit_lock_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="Screen/Ruler" unique_id=1567785542]
+offset_left = 1783.0
+offset_top = 886.0
+offset_right = 1833.0
+offset_bottom = 936.0
+color = Color(0.39498678, 0.3949867, 0.3949867, 0.5137255)
+metadata/_edit_lock_ = true
+
+[node name="ColorRect3" type="ColorRect" parent="Screen/Ruler" unique_id=128039525]
+offset_left = 1783.0
+offset_top = 834.0
+offset_right = 1833.0
+offset_bottom = 884.0
+color = Color(1, 1, 1, 0.5137255)
+metadata/_edit_lock_ = true
+
+[node name="ColorRect4" type="ColorRect" parent="Screen/Ruler" unique_id=517420862]
+offset_left = 1783.0
+offset_top = 783.0
+offset_right = 1833.0
+offset_bottom = 833.0
+color = Color(0.39498678, 0.3949867, 0.3949867, 0.5137255)
+metadata/_edit_lock_ = true
 
 [node name="PlatformerUI" type="Control" parent="." unique_id=52253998]
 layout_mode = 3
@@ -56,21 +94,9 @@ theme_override_font_sizes/font_size = 36
 text = "Watch your step!"
 horizontal_alignment = 2
 vertical_alignment = 1
+metadata/_edit_lock_ = true
 
 [node name="LevelCollisions" type="StaticBody2D" parent="." unique_id=1669005504]
-
-[node name="WallLeft" type="ColorRect" parent="LevelCollisions" unique_id=690026474]
-offset_left = -1.0
-offset_right = 69.0
-offset_bottom = 995.0
-color = Color(0.31839466, 0.10768031, 0.025600241, 1)
-
-[node name="WallLeft2" type="ColorRect" parent="LevelCollisions" unique_id=632500079]
-offset_left = 67.0
-offset_top = 752.0
-offset_right = 182.0
-offset_bottom = 772.0
-color = Color(0.31839466, 0.10768031, 0.025600241, 1)
 
 [node name="Floor" type="ColorRect" parent="LevelCollisions" unique_id=332434604]
 offset_top = 996.0
@@ -83,70 +109,79 @@ position = Vector2(1524, 1040.5)
 shape = SubResource("RectangleShape2D_mkhiu")
 
 [node name="Ladder" type="StaticBody2D" parent="LevelCollisions" unique_id=975406435]
+metadata/_edit_lock_ = true
+
+[node name="WallLeft" type="ColorRect" parent="LevelCollisions/Ladder" unique_id=690026474]
+offset_left = -1.0
+offset_right = 69.0
+offset_bottom = 995.0
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="LevelCollisions/Ladder" unique_id=323246924]
 position = Vector2(30, 495.5)
 shape = SubResource("RectangleShape2D_4k4rx")
 
+[node name="WallLeft2" type="ColorRect" parent="LevelCollisions/Ladder" unique_id=632500079]
+offset_left = 67.0
+offset_top = 818.0
+offset_right = 182.0
+offset_bottom = 838.0
+
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="LevelCollisions/Ladder" unique_id=822578772]
-position = Vector2(125, 762)
+position = Vector2(125, 828)
 shape = SubResource("RectangleShape2D_o2jsq")
 one_way_collision = true
 
 [node name="WallLeft3" type="ColorRect" parent="LevelCollisions/Ladder" unique_id=1763819534]
 offset_left = 67.0
-offset_top = 575.0
+offset_top = 635.0
 offset_right = 182.0
-offset_bottom = 595.0
-color = Color(0.31839466, 0.10768031, 0.025600241, 1)
+offset_bottom = 655.0
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="LevelCollisions/Ladder" unique_id=68459912]
-position = Vector2(125, 585)
+position = Vector2(125, 645)
 shape = SubResource("RectangleShape2D_o2jsq")
 one_way_collision = true
 
 [node name="WallLeft4" type="ColorRect" parent="LevelCollisions/Ladder" unique_id=1206648921]
 offset_left = 67.0
-offset_top = 402.0
+offset_top = 465.0
 offset_right = 182.0
-offset_bottom = 422.0
-color = Color(0.31839466, 0.10768031, 0.025600241, 1)
+offset_bottom = 485.0
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="LevelCollisions/Ladder" unique_id=1533151590]
-position = Vector2(125, 412)
-shape = SubResource("RectangleShape2D_o2jsq")
-one_way_collision = true
-
-[node name="WallLeft5" type="ColorRect" parent="LevelCollisions/Ladder" unique_id=1578653670]
-offset_left = 67.0
-offset_top = 240.0
-offset_right = 182.0
-offset_bottom = 260.0
-color = Color(0.31839466, 0.10768031, 0.025600241, 1)
-
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="LevelCollisions/Ladder" unique_id=2142529761]
-position = Vector2(125, 250)
+position = Vector2(125, 475)
 shape = SubResource("RectangleShape2D_o2jsq")
 one_way_collision = true
 
 [node name="WallLeft6" type="ColorRect" parent="LevelCollisions/Ladder" unique_id=819794647]
 offset_left = 67.0
-offset_top = 87.0
+offset_top = 292.0
 offset_right = 182.0
-offset_bottom = 107.0
-color = Color(0.31839466, 0.10768031, 0.025600241, 1)
+offset_bottom = 312.0
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="LevelCollisions/Ladder" unique_id=706002394]
-position = Vector2(125, 97)
+position = Vector2(125, 302)
+shape = SubResource("RectangleShape2D_o2jsq")
+one_way_collision = true
+
+[node name="WallLeft7" type="ColorRect" parent="LevelCollisions/Ladder" unique_id=993063680]
+offset_left = 67.0
+offset_top = 114.0
+offset_right = 182.0
+offset_bottom = 134.0
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="LevelCollisions/Ladder" unique_id=519307843]
+position = Vector2(125, 124)
 shape = SubResource("RectangleShape2D_o2jsq")
 one_way_collision = true
 
 [node name="LevelObjs" type="Node2D" parent="." unique_id=156608409]
 
 [node name="Box" parent="LevelObjs" unique_id=1886465380 instance=ExtResource("2_mkhiu")]
-modulate = Color(0.53333336, 0.4, 0.2, 1)
-position = Vector2(1584, 646)
+position = Vector2(1708, 654)
 
-[node name="Box2" parent="LevelObjs" unique_id=2051110610 instance=ExtResource("2_mkhiu")]
-modulate = Color(0.53333336, 0.4, 0.2, 1)
-position = Vector2(2021, 647)
+[node name="Box2" parent="LevelObjs" unique_id=1246783182 instance=ExtResource("2_mkhiu")]
+position = Vector2(2098, 654)
+
+[node name="PileOn" parent="LevelObjs" unique_id=1236754220 instance=ExtResource("3_4k4rx")]
+position = Vector2(2375, 996)

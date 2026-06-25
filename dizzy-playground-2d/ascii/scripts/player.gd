@@ -12,20 +12,24 @@ var last_state: String = ""
 var char_name: String = "ASCII"
 
 const SPEED = 250.0
-const JUMP_V = -800
+const JUMP_V = -1000
 var is_jumping = false
 var falling = false
 var fall_anim = false
 var was_on_floor = true
 var first_landing = true
 var speed_multiplier = 1
+var prev_multi
 
 
 func _physics_process(delta: float) -> void:
-	speed_multiplier = %Player.scale.x
 	if state == "create_char":
 		%ASCII.play_idle_animation()
-	elif state == "start_game":
+	elif state == "intro_screens":
+		speed_multiplier = %Player.scale.x
+		%Player/Collision.scale.x = 1
+		%Player/Collision.scale.y = 1
+		%Player/Collision.position.y = -33
 		var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 		if is_dead:
 			velocity = direction * 0
@@ -44,11 +48,19 @@ func _physics_process(delta: float) -> void:
 			%ASCII.play_dead_animation()
 			death_anim = true
 		move_and_slide()
-			
 		
 	elif state == "platformer":
 		%Player.scale.x = 0.66
 		%Player.scale.y = 0.66
+		%Player/Collision.scale.x = 1.5
+		%Player/Collision.scale.y = 1.66
+		%Player/Collision.position.y = -90
+		
+		if Input.is_action_pressed("sprint"):
+			speed_multiplier = move_toward(speed_multiplier, 3, 0.1)
+		else:
+			speed_multiplier = move_toward(speed_multiplier, 1, 0.1)
+		
 		# Add the gravity.
 		if not is_on_floor():
 			falling = true
@@ -58,32 +70,28 @@ func _physics_process(delta: float) -> void:
 		var direction := Input.get_axis("move_left", "move_right")
 
 		# Handle jump.
-		if Input.is_action_pressed("jump") and is_on_floor():
+		if Input.is_action_just_pressed("jump") and is_on_floor():
+			prev_multi = speed_multiplier
 			is_jumping = true
-			velocity.x = move_toward(velocity.x, 0, SPEED * speed_multiplier)
 			%ASCII.play_jump_animation()
 			velocity.y = JUMP_V
-			if Input.is_action_pressed("sprint"):
-				velocity.x = direction * (SPEED * speed_multiplier * 2.5)
+		
+		if not is_on_floor() and is_jumping:
+			velocity.x = move_toward(velocity.x, direction * SPEED * prev_multi, SPEED * 0.1)
+		
+		# Ground movement 
+		if is_on_floor() and not is_jumping and not first_landing:
+			if direction != 0:
+				velocity.x = move_toward(velocity.x, direction * SPEED * speed_multiplier, SPEED * 0.1)
+				if speed_multiplier > 2:
+					%ASCII.play_run_animation()
+				else:
+					%ASCII.play_walk_animation()
 			else:
-				velocity.x = direction * (SPEED * speed_multiplier * 1.5)
-			
-		elif Input.is_action_just_released("jump"):
-			pass #%ASCII.play_falling_animation()
-			
-		# Ground movement (only when not charging a jump)
-		elif is_on_floor() and not is_jumping and not first_landing:
-			if Input.is_action_pressed("sprint") and direction != 0:
-				velocity.x = direction * (SPEED * speed_multiplier * 2)
-				%ASCII.play_run_animation()
-			elif direction != 0:
-				velocity.x = direction * SPEED * speed_multiplier
-				%ASCII.play_walk_animation()
-			else:
-				velocity.x = move_toward(velocity.x, 0, SPEED * speed_multiplier)
+				velocity.x = move_toward(velocity.x, 0, SPEED * 0.25)
 				%ASCII.play_idle_animation()
-			
-		if not fall_anim and not is_jumping:
+		
+		if not fall_anim and falling:
 			%ASCII.play_falling_animation()
 			fall_anim = true
 		
@@ -98,11 +106,15 @@ func _physics_process(delta: float) -> void:
 		if on_floor and not was_on_floor: # 2. check the transition
 			_on_landing()                 # 3. react
 		was_on_floor = on_floor           # 4. remember for NEXT frame
-		
+	
 	elif state == "shmup":
 		pass 
 	elif state == "adventure":
-		pass 
+		speed_multiplier = %Player.scale.x 
+
+	if state != "platformer":
+		first_landing = true
+		fall_anim = false
 
 func _on_landing() -> void:
 	if first_landing:
@@ -118,10 +130,12 @@ func _on_fake_button_fall(start_state: String) -> void:
 
 func _on_name_changed(new_text: String) -> void:
 	char_name = new_text
-	print(char_name)
 
-func _on_platformer_screen_platform_state() -> void:
-	change_game_state("platformer")
+func _on_platformer_screen_platform_state(new_state: String) -> void:
+	change_game_state(new_state)
+
+func _on_fork_screen_intro_state(new_state: String) -> void:
+	change_game_state(new_state)
 
 func change_game_state(new_state: String):
 	last_state = state
