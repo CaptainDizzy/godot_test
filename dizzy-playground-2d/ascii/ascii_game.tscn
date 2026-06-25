@@ -9,7 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://ckowrgqaidh8t" path="res://addons/dizzy_transitions/dizzy_transitions.tscn" id="6_qjlv8"]
 [ext_resource type="Script" uid="uid://dtwhyb8sh31cd" path="res://ascii/scripts/name_screen.gd" id="7_r2r38"]
 [ext_resource type="Script" uid="uid://dlu7o73jbawau" path="res://ascii/scripts/title_screen.gd" id="8_fxxrn"]
+[ext_resource type="FontFile" uid="uid://bcijiqbocagsh" path="res://fonts/PressStart2P-Regular.ttf" id="8_q5w7w"]
 [ext_resource type="Script" uid="uid://cgq8aardyrekk" path="res://ascii/scripts/fork_screen.gd" id="9_xbe4s"]
+[ext_resource type="PackedScene" uid="uid://boq04k3epdjg0" path="res://ascii/scenes/platformer.tscn" id="11_m6wy5"]
+[ext_resource type="Script" uid="uid://ljc0bjxevnu3" path="res://ascii/scripts/platformer_screen.gd" id="12_q5w7w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r2r38"]
 size = Vector2(1920, 20)
@@ -26,8 +29,28 @@ size = Vector2(207, 66)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m6wy5"]
 size = Vector2(42, 368.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q5w7w"]
+size = Vector2(72, 78)
+
 [node name="Game" type="Node2D" unique_id=545093323]
 script = ExtResource("1_l4rt8")
+
+[node name="ParalaxBG" type="CanvasLayer" parent="." unique_id=1404425434]
+unique_name_in_owner = true
+layer = -5
+visible = false
+follow_viewport_enabled = true
+
+[node name="ColorRect" type="ColorRect" parent="ParalaxBG" unique_id=460801676]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.45296, 0.5478456, 1, 1)
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1880089007]
+unique_name_in_owner = true
+layer = 5
+visible = false
+follow_viewport_enabled = true
 
 [node name="Player" parent="." unique_id=1632503170 instance=ExtResource("2_qihb0")]
 unique_name_in_owner = true
@@ -35,7 +58,7 @@ position = Vector2(960, 615)
 
 [node name="Cam" type="Camera2D" parent="." unique_id=1775665619]
 unique_name_in_owner = true
-position = Vector2(960, 540)
+anchor_mode = 0
 
 [node name="StartingScreen" type="Node2D" parent="." unique_id=1903222833]
 unique_name_in_owner = true
@@ -103,6 +126,7 @@ theme_override_fonts/font = ExtResource("4_xgstk")
 theme_override_font_sizes/font_size = 128
 alignment = 1
 max_length = 1
+emoji_menu_enabled = false
 drag_and_drop_selection_enabled = false
 
 [node name="Label" type="Label" parent="StartingScreen/CharacterCreation/HeadInput" unique_id=1313815071]
@@ -352,15 +376,18 @@ vertical_alignment = 1
 
 [node name="LineEdit" type="LineEdit" parent="NameScreen/CharacterName" unique_id=1483731130]
 layout_mode = 0
-offset_left = 690.0
-offset_top = 218.0
-offset_right = 1232.0
-offset_bottom = 327.0
+offset_left = 626.0
+offset_top = 222.0
+offset_right = 1284.0
+offset_bottom = 372.0
 theme = ExtResource("3_msc5x")
-theme_override_font_sizes/font_size = 92
-placeholder_text = "Name"
+theme_override_fonts/font = ExtResource("8_q5w7w")
+theme_override_font_sizes/font_size = 68
+placeholder_text = "ASCII"
 alignment = 1
 max_length = 8
+context_menu_enabled = false
+caret_blink = true
 
 [node name="Walls" type="StaticBody2D" parent="NameScreen" unique_id=989491748]
 
@@ -511,13 +538,14 @@ anchors_preset = -1
 anchor_top = 0.007
 anchor_right = 0.9990001
 anchor_bottom = 0.1
+offset_left = -34.0
 offset_top = 970.44
-offset_right = -0.080078125
+offset_right = -34.08008
 offset_bottom = 970.0
 grow_horizontal = 2
 theme = ExtResource("3_msc5x")
 theme_override_font_sizes/font_size = 100
-text = "--               --"
+text = "-                --"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -559,15 +587,11 @@ vertical_alignment = 1
 [node name="Walls" type="StaticBody2D" parent="ForkScreen/PathUI" unique_id=809162423]
 
 [node name="Wall" type="CollisionShape2D" parent="ForkScreen/PathUI/Walls" unique_id=794097176]
-position = Vector2(1173, 25.5)
+position = Vector2(1169, 22.5)
 shape = SubResource("RectangleShape2D_xbe4s")
 
 [node name="Wall2" type="CollisionShape2D" parent="ForkScreen/PathUI/Walls" unique_id=1627613871]
-position = Vector2(93.5, 23)
-shape = SubResource("RectangleShape2D_jarwu")
-
-[node name="Wall3" type="CollisionShape2D" parent="ForkScreen/PathUI/Walls" unique_id=1846619927]
-position = Vector2(93.5, 1046)
+position = Vector2(93.5, 26)
 shape = SubResource("RectangleShape2D_jarwu")
 
 [node name="Wall4" type="CollisionShape2D" parent="ForkScreen/PathUI/Walls" unique_id=842818636]
@@ -579,18 +603,29 @@ position = Vector2(1904, 836)
 shape = SubResource("RectangleShape2D_m6wy5")
 
 [node name="Wall6" type="CollisionShape2D" parent="ForkScreen/PathUI/Walls" unique_id=569198984]
-position = Vector2(1825, 1046)
+position = Vector2(1792, 1046)
 shape = SubResource("RectangleShape2D_jarwu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ForkScreen/PathUI/Walls" unique_id=292164587]
+position = Vector2(26, 1051)
+shape = SubResource("RectangleShape2D_q5w7w")
+
+[node name="PlatformerScreen" parent="." unique_id=2138964136 instance=ExtResource("11_m6wy5")]
+unique_name_in_owner = true
+position = Vector2(6000, 1150)
+script = ExtResource("12_q5w7w")
 
 [node name="DizzyTransitions" parent="." unique_id=688147533 instance=ExtResource("6_qjlv8")]
 unique_name_in_owner = true
 visible = false
 
 [connection signal="game_state" from="Player" to="." method="_on_changed_game_state"]
+[connection signal="platformer_landing" from="Player" to="PlatformerScreen" method="_on_player_first_landing"]
 [connection signal="player_is_here" from="StartingScreen" to="." method="_on_starting_screen_here"]
 [connection signal="button_fall" from="StartingScreen/CharacterCreation/FakeButton" to="Player" method="_on_fake_button_fall"]
 [connection signal="player_is_here" from="NameScreen" to="." method="_on_name_screen_here"]
 [connection signal="text_changed" from="NameScreen/CharacterName/LineEdit" to="Player" method="_on_name_changed"]
 [connection signal="player_is_here" from="TitleScreen" to="." method="_on_title_screen_here"]
-[connection signal="title_screen" from="TitleScreen" to="Player" method="_on_title_screen"]
 [connection signal="player_is_here" from="ForkScreen" to="." method="_on_fork_screen_here"]
+[connection signal="platform_state" from="PlatformerScreen" to="Player" method="_on_platformer_screen_platform_state"]
+[connection signal="player_is_here" from="PlatformerScreen" to="." method="_on_platformer_screen_here"]

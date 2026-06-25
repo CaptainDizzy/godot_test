@@ -1,7 +1,6 @@
 extends Node2D
 
 signal player_is_here(n)
-signal title_screen
 var enter_count = 0
 var entered := false
 
@@ -16,7 +15,6 @@ func _process(delta: float) -> void:
 	if px >= sx and px <= sx + sw and py >= sy and py <= sy + sh:
 		var screen_name = "TitleScreen"
 		player_is_here.emit(screen_name)
-		title_screen.emit()
 		if not entered:
 			enter_count += 1
 			entered = true

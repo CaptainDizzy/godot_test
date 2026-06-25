@@ -31,7 +31,10 @@ func _ready() -> void:
 	rleg_symbol.text_changed.connect(_on_rleg_changed)
 
 func _process(delta: float) -> void:
-	get_cam_pos()
+	if current_screen.scrn != "PlatformerScreen" and current_screen.scrn != "ShmupScreen":
+		get_cam_pos()
+	elif current_screen.scrn == "PlatformerScreen" or current_screen.scrn == "ShmupScreen":
+		follow_cam_pos()
 	update_current_screen()
 	
 	if current_screen.scrn == "StartingScreen":
@@ -42,14 +45,28 @@ func _process(delta: float) -> void:
 	elif current_screen.scrn == "TitleScreen":
 		%Player.scale.x = 0.66
 		%Player.scale.y = 0.66
+	elif current_screen.scrn == "ForkScreen":
+		%HUD.visible = false
+	elif current_screen.scrn == "PlatformerScreen":
+		%HUD.visible = true
+		%ParalaxBG.visible = true
 
 func get_cam_pos() -> void:
+	%Cam.set_anchor_mode(0)
 	var screen = get_node("%" + current_screen.scrn + "/Screen")
-	var cam_zoom = %Cam.zoom
-	var cam_w = screen.size.x / cam_zoom.x
-	var cam_h = screen.size.y / cam_zoom.y
-	%Cam.position.x = screen.global_position.x + (cam_w / 2)
-	%Cam.position.y = screen.global_position.y + (cam_h / 2)
+	%Cam.global_position.x = screen.global_position.x
+	%Cam.global_position.y = screen.global_position.y
+
+func follow_cam_pos() -> void:
+	%Cam.set_anchor_mode(1)
+	var screen = get_node("%" + current_screen.scrn + "/Screen")
+	var cam_w = %PlatformerScreen/Screen/BGColor.size.x
+	var cam_h = %PlatformerScreen/Screen/BGColor.size.y
+	%Cam.global_position.y = screen.global_position.y + (cam_h / 2)
+	if %Player.global_position.x <= screen.global_position.x + (cam_w / 2):
+		%Cam.global_position.x = screen.global_position.x + (cam_w / 2)
+	elif %Player.global_position.x > screen.global_position.x + (cam_w / 2):
+		%Cam.global_position.x = %Player.global_position.x
 
 func update_current_screen() -> void:
 	var screen = get_node("%" + current_screen.scrn + "/Screen")
@@ -81,5 +98,7 @@ func _on_name_screen_here(s: String) -> void:
 	current_screen.scrn = s
 func _on_title_screen_here(s: String) -> void:
 	current_screen.scrn = s
-func _on_fork_screen_here(s: Variant) -> void:
+func _on_fork_screen_here(s: String) -> void:
+	current_screen.scrn = s
+func _on_platformer_screen_here(s: String) -> void:
 	current_screen.scrn = s

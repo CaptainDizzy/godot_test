@@ -24,5 +24,15 @@ func play_idle_animation():
 	%AnimationPlayer.play("idle")
 func play_walk_animation():
 	%AnimationPlayer.play("walk")
+func play_run_animation():
+	%AnimationPlayer.play("run")
+func play_ready_jump_animation():
+	%AnimationPlayer.play("ready_jump")
+func play_jump_animation():
+	%AnimationPlayer.play("jump")
+func play_falling_animation():
+	%AnimationPlayer.play("falling")
 func play_dead_animation():
 	%AnimationPlayer.play("dead")
+func reset_animation():
+	%AnimationPlayer.play("RESET")

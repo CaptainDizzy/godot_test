@@ -1,3 +1,5 @@
+ColorRect
+CanvasLayer
 CollisionShape2D
 LineEdit
 Control
@@ -6,9 +8,7 @@ Node2D
 Camera2D
 AnimationPlayer
 Button
-CanvasLayer
 Sprite2D
 Polygon2D
 Area2D
 CollisionPolygon2D
-ColorRect
