@@ -200,10 +200,10 @@ one_way_collision = true
 [node name="LevelObjs" type="Node2D" parent="." unique_id=156608409]
 
 [node name="Box" parent="LevelObjs" unique_id=1886465380 instance=ExtResource("2_mkhiu")]
-position = Vector2(1708, 654)
+position = Vector2(1593, 654)
 
 [node name="Box2" parent="LevelObjs" unique_id=1246783182 instance=ExtResource("2_mkhiu")]
-position = Vector2(2098, 654)
+position = Vector2(1983, 654)
 
 [node name="PileOn" parent="LevelObjs" unique_id=1236754220 instance=ExtResource("3_4k4rx")]
 position = Vector2(2375, 997)
