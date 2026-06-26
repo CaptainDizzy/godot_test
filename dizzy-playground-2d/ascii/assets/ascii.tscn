@@ -113,6 +113,18 @@ tracks/8/keys = {
 "update": 0,
 "values": [Vector2(0, -108)]
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Body/Torso/RArm:scale")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_gf01n"]
 resource_name = "falling"
@@ -469,7 +481,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [-0.5235987755982988, 0.0, -0.5235987755982988, -1.1519173063162575]
+"values": [-0.5235987755982988, 0.2617993877991494, -0.5235987755982988, -1.1519173063162575]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -478,10 +490,10 @@ tracks/1/path = NodePath("Body/RLeg:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
+"times": PackedFloat32Array(0.08333337, 0.23333338, 0.38333338, 0.53333336),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [0.5235987755982988, 0.0, 0.5235987755982988, 1.0471975511965976]
+"values": [0.5235987755982988, -0.2617993877991494, 0.5235987755982988, 1.3089969389957472]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -493,7 +505,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [-1.0471975511965976, -0.5235987755982988, -1.0471975511965976, -1.5707963267948966]
+"values": [-0.7853981633974483, -0.5235987755982988, -0.7853981633974483, -0.5235987755982988]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -505,7 +517,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [1.0471975511965976, 0.3490658503988659, 1.0471975511965976, 1.5707963267948966]
+"values": [-3.4033920413889427, -3.141592653589793, -3.4033920413889427, -3.141592653589793]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -542,6 +554,18 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [-0.17453292519943295]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Body/Torso/RArm:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, -1)]
 }
 
 [sub_resource type="Animation" id="Animation_0ijda"]
