@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://oheubn7bmxr5"]
+
+[node name="Crawler" type="CharacterBody2D" unique_id=1315470838]

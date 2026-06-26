@@ -49,23 +49,32 @@ _data = {
 [node name="Box" type="StaticBody2D" unique_id=1886465380]
 script = ExtResource("1_1xx71")
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2106119666]
+offset_left = -47.0
+offset_top = -42.0
+offset_right = 54.0
+offset_bottom = 59.0
+color = Color(0.26666668, 0.11372549, 0, 1)
+
 [node name="Label" type="Label" parent="." unique_id=1982216175]
 offset_left = -64.0
 offset_top = -90.0
 offset_right = 82.0
 offset_bottom = 130.0
 theme = ExtResource("1_4f1qd")
+theme_override_colors/font_color = Color(0.6656241, 0.30537152, 0, 1)
 theme_override_font_sizes/font_size = 155
 text = "▒"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2098000628]
+visible = false
 position = Vector2(3, 6.5)
 shape = SubResource("RectangleShape2D_1xx71")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=386221616]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=159037770]
-position = Vector2(4, 57)
+position = Vector2(4, 62)
 shape = SubResource("RectangleShape2D_e8jsp")
 debug_color = Color(0.9056442, 0.27826145, 0.32851112, 0.41960785)
 

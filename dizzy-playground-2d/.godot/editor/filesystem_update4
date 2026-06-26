@@ -11,3 +11,5 @@ res://ascii/scripts/fake_button.gd
 res://ascii/scripts/fork_screen.gd
 res://ascii/scripts/box.gd
 res://ascii/assets/pile_on.tscn
+res://ascii/assets/crawler_body.tscn
+res://ascii/assets/crawler.tscn

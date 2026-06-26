@@ -7,6 +7,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mkhiu"]
 size = Vector2(3060, 91)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x0j81"]
+size = Vector2(3059, 85)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4k4rx"]
 size = Vector2(80, 1011)
 
@@ -98,15 +101,28 @@ metadata/_edit_lock_ = true
 
 [node name="LevelCollisions" type="StaticBody2D" parent="." unique_id=1669005504]
 
-[node name="Floor" type="ColorRect" parent="LevelCollisions" unique_id=332434604]
+[node name="Floor2" type="ColorRect" parent="LevelCollisions" unique_id=1713326258]
 offset_top = 996.0
 offset_right = 3059.0
 offset_bottom = 1081.0
-color = Color(0.36862746, 0.40392157, 0.1764706, 1)
+color = Color(0.6666667, 0.30588236, 0, 1)
+
+[node name="Floor" type="ColorRect" parent="LevelCollisions" unique_id=332434604]
+offset_left = 3504.0
+offset_top = 996.0
+offset_right = 6563.0
+offset_bottom = 1081.0
+color = Color(0.6666667, 0.30588236, 0, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelCollisions" unique_id=1259949472]
+visible = false
 position = Vector2(1524, 1040.5)
 shape = SubResource("RectangleShape2D_mkhiu")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="LevelCollisions" unique_id=874748115]
+visible = false
+position = Vector2(5033.5, 1038.5)
+shape = SubResource("RectangleShape2D_x0j81")
 
 [node name="Ladder" type="StaticBody2D" parent="LevelCollisions" unique_id=975406435]
 metadata/_edit_lock_ = true
@@ -117,6 +133,7 @@ offset_right = 69.0
 offset_bottom = 995.0
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="LevelCollisions/Ladder" unique_id=323246924]
+visible = false
 position = Vector2(30, 495.5)
 shape = SubResource("RectangleShape2D_4k4rx")
 
@@ -127,6 +144,7 @@ offset_right = 182.0
 offset_bottom = 838.0
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="LevelCollisions/Ladder" unique_id=822578772]
+visible = false
 position = Vector2(125, 828)
 shape = SubResource("RectangleShape2D_o2jsq")
 one_way_collision = true
@@ -138,6 +156,7 @@ offset_right = 182.0
 offset_bottom = 655.0
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="LevelCollisions/Ladder" unique_id=68459912]
+visible = false
 position = Vector2(125, 645)
 shape = SubResource("RectangleShape2D_o2jsq")
 one_way_collision = true
@@ -149,6 +168,7 @@ offset_right = 182.0
 offset_bottom = 485.0
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="LevelCollisions/Ladder" unique_id=1533151590]
+visible = false
 position = Vector2(125, 475)
 shape = SubResource("RectangleShape2D_o2jsq")
 one_way_collision = true
@@ -160,6 +180,7 @@ offset_right = 182.0
 offset_bottom = 312.0
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="LevelCollisions/Ladder" unique_id=706002394]
+visible = false
 position = Vector2(125, 302)
 shape = SubResource("RectangleShape2D_o2jsq")
 one_way_collision = true
@@ -171,6 +192,7 @@ offset_right = 182.0
 offset_bottom = 134.0
 
 [node name="CollisionShape2D8" type="CollisionShape2D" parent="LevelCollisions/Ladder" unique_id=519307843]
+visible = false
 position = Vector2(125, 124)
 shape = SubResource("RectangleShape2D_o2jsq")
 one_way_collision = true
@@ -184,4 +206,10 @@ position = Vector2(1708, 654)
 position = Vector2(2098, 654)
 
 [node name="PileOn" parent="LevelObjs" unique_id=1236754220 instance=ExtResource("3_4k4rx")]
-position = Vector2(2375, 996)
+position = Vector2(2375, 997)
+
+[node name="PileOn2" parent="LevelObjs" unique_id=300128554 instance=ExtResource("3_4k4rx")]
+position = Vector2(2991, 997)
+
+[node name="PileOn3" parent="LevelObjs" unique_id=1527945603 instance=ExtResource("3_4k4rx")]
+position = Vector2(3572, 997)

@@ -1,0 +1,132 @@
+[gd_scene format=3 uid="uid://nt84jgovm5op"]
+
+[ext_resource type="Theme" uid="uid://dpika668hgijq" path="res://ascii/ui/pixelfont.theme" id="1_vwp26"]
+[ext_resource type="FontFile" uid="uid://b0r2cab1742t2" path="res://fonts/vertopal.com_8514oem.ttf" id="2_0xmxm"]
+
+[sub_resource type="Animation" id="Animation_aw40l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/LLeg:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body/RLeg:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_f7b8o"]
+resource_name = "walk"
+length = 0.875
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/LLeg:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.375, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.5235987755982988, -0.2617993877991494, 0.0, 0.5235987755982988]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body/RLeg:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.375, 0.5, 0.625),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [-0.2617993877991494, 0.0, 0.5235987755982988, 0.0, -0.5235987755982988]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8rtiv"]
+_data = {
+&"RESET": SubResource("Animation_aw40l"),
+&"walk": SubResource("Animation_f7b8o")
+}
+
+[node name="CrawlerBody" type="Node2D" unique_id=1389010231]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=317889790]
+libraries/ = SubResource("AnimationLibrary_8rtiv")
+
+[node name="Body" type="Sprite2D" parent="." unique_id=1654391899]
+position = Vector2(0, -9)
+
+[node name="Bod" type="Label" parent="Body" unique_id=605385606]
+anchors_preset = -1
+offset_left = -5.0
+offset_top = -8.0
+offset_right = 5.0
+offset_bottom = 9.0
+theme = ExtResource("1_vwp26")
+theme_override_fonts/font = ExtResource("2_0xmxm")
+text = "o"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Hair" type="Label" parent="Body" unique_id=330612066]
+anchors_preset = -1
+offset_left = -5.0
+offset_top = -9.0
+offset_right = 5.0
+offset_bottom = 8.0
+theme = ExtResource("1_vwp26")
+theme_override_fonts/font = ExtResource("2_0xmxm")
+text = "\""
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LLeg" type="Sprite2D" parent="Body" unique_id=1787861392]
+position = Vector2(-3, 5)
+scale = Vector2(-1, 1)
+
+[node name="Label" type="Label" parent="Body/LLeg" unique_id=1048872964]
+anchors_preset = -1
+offset_left = 5.0
+offset_top = 14.999999
+offset_right = 15.0
+offset_bottom = 32.0
+rotation = 3.1415927
+theme = ExtResource("1_vwp26")
+theme_override_fonts/font = ExtResource("2_0xmxm")
+text = ","
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="RLeg" type="Sprite2D" parent="Body" unique_id=728301225]
+position = Vector2(3, 5)
+
+[node name="Label" type="Label" parent="Body/RLeg" unique_id=1887885302]
+anchors_preset = -1
+offset_left = 5.0
+offset_top = 15.000001
+offset_right = 15.0
+offset_bottom = 32.0
+rotation = 3.1415927
+theme = ExtResource("1_vwp26")
+theme_override_fonts/font = ExtResource("2_0xmxm")
+text = ","
+horizontal_alignment = 1
+vertical_alignment = 1
