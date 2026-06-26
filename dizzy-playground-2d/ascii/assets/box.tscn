@@ -7,14 +7,14 @@
 size = Vector2(108, 101)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e8jsp"]
-size = Vector2(96, 10)
+size = Vector2(90, 10)
 
 [sub_resource type="Animation" id="Animation_8ce1p"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Label:position")
+tracks/0/path = NodePath("CenterContainer/Label:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -30,7 +30,7 @@ length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Label:position")
+tracks/0/path = NodePath("CenterContainer/Label:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -50,21 +50,11 @@ _data = {
 script = ExtResource("1_1xx71")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=2106119666]
-offset_left = -47.0
-offset_top = -42.0
-offset_right = 54.0
-offset_bottom = 59.0
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
 color = Color(0.26666668, 0.11372549, 0, 1)
-
-[node name="Label" type="Label" parent="." unique_id=1982216175]
-offset_left = -64.0
-offset_top = -90.0
-offset_right = 82.0
-offset_bottom = 130.0
-theme = ExtResource("1_4f1qd")
-theme_override_colors/font_color = Color(0.6656241, 0.30537152, 0, 1)
-theme_override_font_sizes/font_size = 155
-text = "▒"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2098000628]
 visible = false
@@ -74,12 +64,38 @@ shape = SubResource("RectangleShape2D_1xx71")
 [node name="Area2D" type="Area2D" parent="." unique_id=386221616]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=159037770]
-position = Vector2(4, 62)
+position = Vector2(0, 50)
 shape = SubResource("RectangleShape2D_e8jsp")
 debug_color = Color(0.9056442, 0.27826145, 0.32851112, 0.41960785)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1663759463]
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_8rdmo")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=65417305]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 62.0
+offset_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CenterContainer" unique_id=1982216175]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_4f1qd")
+theme_override_colors/font_color = Color(0.6656241, 0.30537152, 0, 1)
+theme_override_font_sizes/font_size = 91
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_trim_flags = 0
+justification_flags = 0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
