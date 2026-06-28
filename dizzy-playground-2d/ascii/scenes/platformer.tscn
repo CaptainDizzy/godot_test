@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://boq04k3epdjg0"]
 
 [ext_resource type="Theme" uid="uid://dpika668hgijq" path="res://ascii/ui/pixelfont.theme" id="1_o2jsq"]
+[ext_resource type="Script" uid="uid://ljc0bjxevnu3" path="res://ascii/scripts/platformer_screen.gd" id="1_x0j81"]
 [ext_resource type="PackedScene" uid="uid://d0l45d00184ce" path="res://ascii/assets/box.tscn" id="2_mkhiu"]
 [ext_resource type="PackedScene" uid="uid://cc5jokgqwepq2" path="res://ascii/assets/pile_on.tscn" id="3_4k4rx"]
 
@@ -17,6 +18,7 @@ size = Vector2(80, 1011)
 size = Vector2(116, 20)
 
 [node name="PlatformerScreen" type="Node2D" unique_id=2138964136]
+script = ExtResource("1_x0j81")
 
 [node name="Screen" type="Control" parent="." unique_id=756095916]
 z_index = -5
@@ -200,9 +202,11 @@ one_way_collision = true
 [node name="LevelObjs" type="Node2D" parent="." unique_id=156608409]
 
 [node name="Box" parent="LevelObjs" unique_id=1886465380 instance=ExtResource("2_mkhiu")]
+unique_name_in_owner = true
 position = Vector2(1593, 654)
 
 [node name="Box2" parent="LevelObjs" unique_id=1246783182 instance=ExtResource("2_mkhiu")]
+unique_name_in_owner = true
 position = Vector2(1983, 654)
 
 [node name="PileOn" parent="LevelObjs" unique_id=1236754220 instance=ExtResource("3_4k4rx")]
@@ -213,3 +217,6 @@ position = Vector2(2991, 997)
 
 [node name="PileOn3" parent="LevelObjs" unique_id=1527945603 instance=ExtResource("3_4k4rx")]
 position = Vector2(3572, 997)
+
+[connection signal="was_hit" from="LevelObjs/Box" to="." method="_on_box_was_hit"]
+[connection signal="was_hit" from="LevelObjs/Box2" to="." method="_on_box_was_hit"]
