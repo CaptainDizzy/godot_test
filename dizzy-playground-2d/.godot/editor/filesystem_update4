@@ -1,2 +1,9 @@
 res://ascii/scripts/platformer_screen.gd
 res://ascii/scenes/platformer.tscn
+res://ascii/assets/crawler_body.tscn
+res://ascii/assets/crawler.tscn
+res://ascii/scripts/crawler.gd
+res://ascii/assets/player.tscn
+res://ascii/ascii_game.tscn
+res://ascii/scripts/crawler_body.gd
+res://survivors/survivors_game.tscn
