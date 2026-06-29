@@ -7,7 +7,7 @@ signal platformer_landing
 var health = 100.0
 var is_dead = false
 var death_anim = false
-var state: String = "platformer"
+var state: String = "create_char"
 var last_state: String = ""
 var char_name: String = "ASCII"
 
@@ -113,8 +113,9 @@ func _physics_process(delta: float) -> void:
 		speed_multiplier = %Player.scale.x 
 
 	if state != "platformer":
-		first_landing = true
-		fall_anim = false
+		if last_state != state:
+			first_landing = true
+			fall_anim = false
 
 func _on_landing() -> void:
 	if first_landing:
@@ -122,8 +123,12 @@ func _on_landing() -> void:
 		await get_tree().create_timer(1.5).timeout
 		platformer_landing.emit()
 		first_landing = false
-	fall_anim = false
-	is_jumping = false
+		falling = false
+		is_jumping = false
+	else:
+		first_landing = false
+		falling = false
+		is_jumping = false
 
 func _on_fake_button_fall(start_state: String) -> void:
 	change_game_state(start_state)

@@ -1,0 +1,5 @@
+res://ascii/assets/box.tscn
+res://ascii/scenes/platformer.tscn
+res://ascii/scripts/box.gd
+res://ascii/scripts/platformer_screen.gd
+res://ascii/ascii_game.tscn

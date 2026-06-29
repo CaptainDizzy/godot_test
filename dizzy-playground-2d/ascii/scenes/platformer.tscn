@@ -2,6 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://dpika668hgijq" path="res://ascii/ui/pixelfont.theme" id="1_o2jsq"]
 [ext_resource type="Script" uid="uid://ljc0bjxevnu3" path="res://ascii/scripts/platformer_screen.gd" id="1_x0j81"]
+[ext_resource type="AudioStream" uid="uid://dc8wpo7l3qkoq" path="res://ascii/assets/audio/platformation.wav" id="2_8s4kh"]
 [ext_resource type="PackedScene" uid="uid://d0l45d00184ce" path="res://ascii/assets/box.tscn" id="2_mkhiu"]
 [ext_resource type="PackedScene" uid="uid://cc5jokgqwepq2" path="res://ascii/assets/pile_on.tscn" id="3_4k4rx"]
 
@@ -19,6 +20,10 @@ size = Vector2(116, 20)
 
 [node name="PlatformerScreen" type="Node2D" unique_id=2138964136]
 script = ExtResource("1_x0j81")
+
+[node name="Platformation" type="AudioStreamPlayer" parent="." unique_id=1675029330]
+stream = ExtResource("2_8s4kh")
+autoplay = true
 
 [node name="Screen" type="Control" parent="." unique_id=756095916]
 z_index = -5

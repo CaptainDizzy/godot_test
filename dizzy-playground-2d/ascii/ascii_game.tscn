@@ -1,18 +1,22 @@
 [gd_scene format=3 uid="uid://ck2uub8r0b31w"]
 
 [ext_resource type="Script" uid="uid://drmt8mgohx0af" path="res://ascii/scripts/ascii_game.gd" id="1_l4rt8"]
+[ext_resource type="Script" uid="uid://bsuo6jbxrtry2" path="res://ascii/scripts/bg_music.gd" id="2_0qvif"]
+[ext_resource type="AudioStream" uid="uid://c3a6cyhiluut" path="res://ascii/assets/audio/intro_beat.wav" id="2_ls0ox"]
 [ext_resource type="PackedScene" uid="uid://ca6qc3lev5jre" path="res://ascii/assets/player.tscn" id="2_qihb0"]
 [ext_resource type="Script" uid="uid://w405fugcb2xs" path="res://ascii/scripts/starting_screen.gd" id="3_1bvfa"]
 [ext_resource type="Theme" uid="uid://dpika668hgijq" path="res://ascii/ui/pixelfont.theme" id="3_msc5x"]
+[ext_resource type="AudioStream" uid="uid://bf2tc0twxtbh0" path="res://ascii/assets/audio/intro_mid_1.wav" id="3_myy03"]
+[ext_resource type="AudioStream" uid="uid://c6ruywpgmrjqt" path="res://ascii/assets/audio/intro_mid_2.wav" id="4_heixm"]
 [ext_resource type="FontFile" uid="uid://b0r2cab1742t2" path="res://fonts/vertopal.com_8514oem.ttf" id="4_xgstk"]
 [ext_resource type="PackedScene" uid="uid://d2u1ldw8p4xbr" path="res://ascii/ui/fake_button.tscn" id="5_e68bd"]
+[ext_resource type="AudioStream" uid="uid://mvnw2sttudq7" path="res://ascii/assets/audio/intro_end.wav" id="6_heixm"]
 [ext_resource type="PackedScene" uid="uid://ckowrgqaidh8t" path="res://addons/dizzy_transitions/dizzy_transitions.tscn" id="6_qjlv8"]
 [ext_resource type="Script" uid="uid://dtwhyb8sh31cd" path="res://ascii/scripts/name_screen.gd" id="7_r2r38"]
 [ext_resource type="Script" uid="uid://dlu7o73jbawau" path="res://ascii/scripts/title_screen.gd" id="8_fxxrn"]
 [ext_resource type="FontFile" uid="uid://bcijiqbocagsh" path="res://fonts/PressStart2P-Regular.ttf" id="8_q5w7w"]
 [ext_resource type="Script" uid="uid://cgq8aardyrekk" path="res://ascii/scripts/fork_screen.gd" id="9_xbe4s"]
 [ext_resource type="PackedScene" uid="uid://boq04k3epdjg0" path="res://ascii/scenes/platformer.tscn" id="11_m6wy5"]
-[ext_resource type="Script" uid="uid://ljc0bjxevnu3" path="res://ascii/scripts/platformer_screen.gd" id="12_q5w7w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r2r38"]
 size = Vector2(1920, 20)
@@ -35,6 +39,30 @@ size = Vector2(72, 78)
 [node name="Game" type="Node2D" unique_id=545093323]
 script = ExtResource("1_l4rt8")
 
+[node name="BGMusic" type="Control" parent="." unique_id=1918960794]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_0qvif")
+
+[node name="IntroBeat" type="AudioStreamPlayer" parent="BGMusic" unique_id=1837350731]
+unique_name_in_owner = true
+stream = ExtResource("2_ls0ox")
+
+[node name="IntroMid1" type="AudioStreamPlayer" parent="BGMusic" unique_id=1556175285]
+unique_name_in_owner = true
+stream = ExtResource("3_myy03")
+
+[node name="IntroMid2" type="AudioStreamPlayer" parent="BGMusic" unique_id=934078102]
+unique_name_in_owner = true
+stream = ExtResource("4_heixm")
+
+[node name="IntroEnd" type="AudioStreamPlayer" parent="BGMusic" unique_id=692030604]
+unique_name_in_owner = true
+stream = ExtResource("6_heixm")
+
 [node name="ParalaxBG" type="CanvasLayer" parent="." unique_id=1404425434]
 unique_name_in_owner = true
 layer = -5
@@ -54,7 +82,7 @@ follow_viewport_enabled = true
 
 [node name="Player" parent="." unique_id=1632503170 instance=ExtResource("2_qihb0")]
 unique_name_in_owner = true
-position = Vector2(6427, 986)
+position = Vector2(6521, 1023)
 
 [node name="Cam" type="Camera2D" parent="." unique_id=1775665619]
 unique_name_in_owner = true
@@ -412,6 +440,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
+metadata/_edit_lock_ = true
 
 [node name="BGColor" type="ColorRect" parent="TitleScreen/Screen" unique_id=1037776157]
 layout_mode = 1
@@ -615,7 +644,6 @@ shape = SubResource("RectangleShape2D_q5w7w")
 [node name="PlatformerScreen" parent="." unique_id=2138964136 instance=ExtResource("11_m6wy5")]
 unique_name_in_owner = true
 position = Vector2(6000, 1150)
-script = ExtResource("12_q5w7w")
 
 [node name="DizzyTransitions" parent="." unique_id=688147533 instance=ExtResource("6_qjlv8")]
 unique_name_in_owner = true
@@ -625,6 +653,7 @@ visible = false
 [connection signal="platformer_landing" from="Player" to="PlatformerScreen" method="_on_player_first_landing"]
 [connection signal="player_is_here" from="StartingScreen" to="." method="_on_starting_screen_here"]
 [connection signal="button_fall" from="StartingScreen/CharacterCreation/FakeButton" to="Player" method="_on_fake_button_fall"]
+[connection signal="start_music" from="StartingScreen/CharacterCreation/FakeButton" to="BGMusic" method="_on_start_music"]
 [connection signal="player_is_here" from="NameScreen" to="." method="_on_name_screen_here"]
 [connection signal="text_changed" from="NameScreen/CharacterName/LineEdit" to="Player" method="_on_name_changed"]
 [connection signal="player_is_here" from="TitleScreen" to="." method="_on_title_screen_here"]

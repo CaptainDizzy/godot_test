@@ -7,6 +7,10 @@ extends Node2D
 @onready var lleg_symbol: LineEdit = %LLegInput/LineEdit
 @onready var rleg_symbol: LineEdit = %RLegInput/LineEdit
 @onready var ascii: Node2D = %Player/ASCII
+@onready var intro_beat: AudioStreamPlayer = %IntroBeat
+@onready var intro_mid_1: AudioStreamPlayer = %IntroMid1
+@onready var intro_mid_2: AudioStreamPlayer = %IntroMid2
+@onready var intro_end: AudioStreamPlayer = %IntroEnd
 
 @onready var current_screen = {
 	scrn = "StartingScreen",
@@ -23,6 +27,9 @@ func _ready() -> void:
 	%DizzyTransitions.transition_in_wipe_right()
 	await get_tree().create_timer(1).timeout
 	%DizzyTransitions.visible = false
+	
+	intro_beat.finished
+	
 	torso_symbol.text_changed.connect(_on_torso_changed)
 	head_symbol.text_changed.connect(_on_head_changed)
 	larm_symbol.text_changed.connect(_on_larm_changed)
@@ -87,7 +94,6 @@ func _on_lleg_changed(symbol: String) -> void:
 	ascii.set_lleg_symbol(symbol)
 func _on_rleg_changed(symbol: String) -> void:
 	ascii.set_rleg_symbol(symbol)
-
 
 func _on_changed_game_state(state: String) -> void:
 	game_state = state
