@@ -21,14 +21,13 @@ extends Node2D
 	}
 
 var game_state: String = ""
+var points = 0
 
 func _ready() -> void:
 	%DizzyTransitions.visible = true
 	%DizzyTransitions.transition_in_wipe_right()
 	await get_tree().create_timer(1).timeout
 	%DizzyTransitions.visible = false
-	
-	intro_beat.finished
 	
 	torso_symbol.text_changed.connect(_on_torso_changed)
 	head_symbol.text_changed.connect(_on_head_changed)
@@ -108,3 +107,7 @@ func _on_fork_screen_here(s: String) -> void:
 	current_screen.scrn = s
 func _on_platformer_screen_here(s: String) -> void:
 	current_screen.scrn = s
+
+func _on_add_point(p: Variant) -> void:
+	points += p
+	print(points)
