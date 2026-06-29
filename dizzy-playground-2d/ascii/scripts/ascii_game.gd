@@ -21,7 +21,6 @@ extends Node2D
 	}
 
 var game_state: String = ""
-var points = 0
 
 func _ready() -> void:
 	%DizzyTransitions.visible = true
@@ -36,7 +35,7 @@ func _ready() -> void:
 	lleg_symbol.text_changed.connect(_on_lleg_changed)
 	rleg_symbol.text_changed.connect(_on_rleg_changed)
 
-func _process(delta: float) -> void:
+func _process(delta: float) -> void:	
 	if current_screen.scrn != "PlatformerScreen" and current_screen.scrn != "ShmupScreen":
 		get_cam_pos()
 	elif current_screen.scrn == "PlatformerScreen" or current_screen.scrn == "ShmupScreen":
@@ -44,7 +43,7 @@ func _process(delta: float) -> void:
 	update_current_screen()
 	
 	if current_screen.scrn == "StartingScreen":
-		pass
+		%HUD.visible = false
 	elif current_screen.scrn == "NameScreen":
 		%Player.scale.x = 1
 		%Player.scale.y = 1
@@ -107,7 +106,3 @@ func _on_fork_screen_here(s: String) -> void:
 	current_screen.scrn = s
 func _on_platformer_screen_here(s: String) -> void:
 	current_screen.scrn = s
-
-func _on_add_point(p: Variant) -> void:
-	points += p
-	print(points)

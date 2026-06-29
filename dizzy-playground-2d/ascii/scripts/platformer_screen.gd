@@ -2,7 +2,8 @@ extends Node2D
 
 signal player_is_here(s)
 signal platform_state(state)
-signal add_point(p)
+signal add_dollars(d: float)
+signal bounce_player(v: float)
 var enter_count = 0
 var entered := false
 
@@ -36,7 +37,11 @@ func _on_player_first_landing() -> void:
 
 
 func _on_box_was_hit(box_name: Variant) -> void:
-	var box_label = get_node("%" + box_name + "/Skin/CenterContainer/Label")
+	var box_label = get_node("%" + box_name + "/Skin/CenterContainer/Face")
 	box_label.text = ""
-	if box_name == "Box2":
-		add_point.emit(1)
+
+func _on_plr_bounce(v: float) -> void:
+	bounce_player.emit(v)
+
+func _on_box_has_dollars() -> void:
+	add_dollars.emit(1)

@@ -4,7 +4,9 @@ signal health_depleted
 signal game_state(state)
 signal platformer_landing
 
-var health = 100.0
+var health: int = 4
+var heart_string: String = ""
+var dollars: int = 0
 var is_dead = false
 var death_anim = false
 var state: String = "create_char"
@@ -23,6 +25,12 @@ var prev_multi
 
 
 func _physics_process(delta: float) -> void:
+	%DollarCount.text = str(dollars)
+	heart_string = ""
+	for i in range(health):
+		heart_string += "♥"
+	%Hearts.text = heart_string
+	
 	if state == "create_char":
 		%ASCII.play_idle_animation()
 	elif state == "intro_screens":
@@ -119,6 +127,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_landing() -> void:
 	if first_landing:
+		velocity.x = 0
 		%ASCII.play_splat_animation()
 		await get_tree().create_timer(1.5).timeout
 		platformer_landing.emit()
@@ -130,6 +139,15 @@ func _on_landing() -> void:
 		falling = false
 		is_jumping = false
 
+func _on_platformer_bounce_player(v: float) -> void:
+	%ASCII.play_jump_animation()
+	is_jumping = true
+	velocity.y = v
+
+func _on_add_dollars(d: float) -> void:
+	dollars += d
+	print(dollars)
+	
 func _on_fake_button_fall(start_state: String) -> void:
 	change_game_state(start_state)
 

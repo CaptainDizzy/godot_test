@@ -703,7 +703,7 @@ visible = false
 [connection signal="player_is_here" from="TitleScreen" to="." method="_on_title_screen_here"]
 [connection signal="intro_state" from="ForkScreen" to="Player" method="_on_fork_screen_intro_state"]
 [connection signal="player_is_here" from="ForkScreen" to="." method="_on_fork_screen_here"]
-[connection signal="add_dollars" from="PlatformerScreen" to="Player" method="_on_add_dollars"]
+[connection signal="add_dollars" from="PlatformerScreen" to="." method="_on_add_dollars"]
 [connection signal="bounce_player" from="PlatformerScreen" to="Player" method="_on_platformer_bounce_player"]
 [connection signal="platform_state" from="PlatformerScreen" to="Player" method="_on_platformer_screen_platform_state"]
 [connection signal="player_is_here" from="PlatformerScreen" to="." method="_on_platformer_screen_here"]

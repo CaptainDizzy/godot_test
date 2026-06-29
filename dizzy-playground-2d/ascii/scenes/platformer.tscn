@@ -224,5 +224,8 @@ position = Vector2(3572, 997)
 [node name="Crawler" parent="Mobs" unique_id=1315470838 instance=ExtResource("5_8s4kh")]
 position = Vector2(2643, 990)
 
+[connection signal="has_dollars" from="LevelObjs/Box" to="." method="_on_box_has_dollars"]
 [connection signal="was_hit" from="LevelObjs/Box" to="." method="_on_box_was_hit"]
+[connection signal="has_dollars" from="LevelObjs/Box2" to="." method="_on_box_has_dollars"]
 [connection signal="was_hit" from="LevelObjs/Box2" to="." method="_on_box_was_hit"]
+[connection signal="plr_bounce" from="Mobs/Crawler" to="." method="_on_plr_bounce"]
