@@ -5,5 +5,16 @@ res://ascii/assets/crawler.tscn
 res://ascii/scripts/crawler.gd
 res://ascii/assets/player.tscn
 res://ascii/ascii_game.tscn
+<<<<<<< HEAD
 res://ascii/scripts/crawler_body.gd
 res://survivors/survivors_game.tscn
+=======
+res://ascii/scripts/ascii_game.gd
+res://ascii/assets/audio/intro_beat.wav
+res://ascii/scripts/fake_button.gd
+res://ascii/scripts/bg_music.gd
+res://ascii/scripts/player.gd
+res://ascii/assets/box.tscn
+res://ascii/scripts/box.gd
+res://ascii/scripts/platformer_screen.gd
+>>>>>>> wip

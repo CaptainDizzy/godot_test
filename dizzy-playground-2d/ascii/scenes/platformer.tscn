@@ -204,11 +204,11 @@ one_way_collision = true
 
 [node name="Box" parent="LevelObjs" unique_id=1886465380 instance=ExtResource("2_mkhiu")]
 unique_name_in_owner = true
-position = Vector2(1593, 654)
+position = Vector2(1526, 654)
 
 [node name="Box2" parent="LevelObjs" unique_id=1246783182 instance=ExtResource("2_mkhiu")]
 unique_name_in_owner = true
-position = Vector2(1983, 654)
+position = Vector2(1916, 654)
 
 [node name="PileOn" parent="LevelObjs" unique_id=1236754220 instance=ExtResource("3_4k4rx")]
 position = Vector2(2375, 997)

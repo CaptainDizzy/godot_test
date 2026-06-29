@@ -77,7 +77,6 @@ color = Color(0.45296, 0.5478456, 1, 1)
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1880089007]
 unique_name_in_owner = true
 layer = 5
-visible = false
 follow_viewport_enabled = true
 
 [node name="Player" parent="." unique_id=1632503170 instance=ExtResource("2_qihb0")]
@@ -659,5 +658,6 @@ visible = false
 [connection signal="player_is_here" from="TitleScreen" to="." method="_on_title_screen_here"]
 [connection signal="intro_state" from="ForkScreen" to="Player" method="_on_fork_screen_intro_state"]
 [connection signal="player_is_here" from="ForkScreen" to="." method="_on_fork_screen_here"]
+[connection signal="add_point" from="PlatformerScreen" to="." method="_on_add_point"]
 [connection signal="platform_state" from="PlatformerScreen" to="Player" method="_on_platformer_screen_platform_state"]
 [connection signal="player_is_here" from="PlatformerScreen" to="." method="_on_platformer_screen_here"]
