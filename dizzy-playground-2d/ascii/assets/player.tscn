@@ -7,36 +7,36 @@
 size = Vector2(117, 167)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_op763"]
-radius = 72.0
-height = 262.0
+radius = 73.0
+height = 294.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yrb3g"]
-size = Vector2(115, 12)
+size = Vector2(116, 16)
 
 [node name="Player" type="CharacterBody2D" unique_id=1632503170]
+collision_mask = 7
 script = ExtResource("1_op763")
 
 [node name="ASCII" parent="." unique_id=1679823848 instance=ExtResource("1_ww4cf")]
 unique_name_in_owner = true
 
 [node name="Collision" type="CollisionShape2D" parent="." unique_id=1472965405]
-position = Vector2(-0.5, -33.5)
+position = Vector2(-0.5, -35.5)
 shape = SubResource("RectangleShape2D_lrik7")
 
-[node name="HurtBox" type="Area2D" parent="." unique_id=1543450016]
+[node name="HurtBox" type="Area2D" parent="." unique_id=1543450016 groups=["player_hurtbox"]]
 unique_name_in_owner = true
 position = Vector2(0, -71)
-collision_layer = 0
-collision_mask = 2
+collision_layer = 8
+collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=220814959]
-position = Vector2(0, -22)
+position = Vector2(0, -27)
 shape = SubResource("CapsuleShape2D_op763")
 debug_color = Color(0.95594364, 0.15462458, 0.3724318, 0.41960785)
 
-[node name="StompBox" type="Area2D" parent="." unique_id=1253904887]
+[node name="StompBox" type="Area2D" parent="." unique_id=304717299 groups=["player_attacks"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StompBox" unique_id=1485130328]
-position = Vector2(-0.5, 46)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StompBox" unique_id=853070074]
+position = Vector2(-1, 39)
 shape = SubResource("RectangleShape2D_yrb3g")
-debug_color = Color(0.55984414, 0.5592311, 0.09493359, 0.41960785)

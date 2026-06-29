@@ -6,3 +6,8 @@ res://ascii/scenes/platformer.tscn
 res://ascii/scripts/ascii_game.gd
 res://ascii/assets/box.tscn
 res://ascii/scripts/box.gd
+res://ascii/assets/player.tscn
+res://ascii/assets/crawler.tscn
+res://ascii/assets/pile_on.tscn
+res://ascii/scripts/ascii.gd
+res://ascii/assets/ascii.tscn

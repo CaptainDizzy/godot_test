@@ -7,9 +7,14 @@
 size = Vector2(63, 116)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_man4c"]
-size = Vector2(53, 14)
+size = Vector2(63, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kg4e5"]
+size = Vector2(120, 108)
 
 [node name="Crawler" type="CharacterBody2D" unique_id=1315470838]
+collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_kg4e5")
 
 [node name="CrawlerBody" parent="." unique_id=1389010231 instance=ExtResource("1_0mj7a")]
@@ -19,11 +24,22 @@ unique_name_in_owner = true
 position = Vector2(-0.5, -58)
 shape = SubResource("RectangleShape2D_31fi6")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=632002347]
+[node name="StompBox" type="Area2D" parent="." unique_id=632002347]
+collision_layer = 16
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=436893656]
-position = Vector2(-1.5, -113)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StompBox" unique_id=436893656]
+position = Vector2(-0.5, -120)
 shape = SubResource("RectangleShape2D_man4c")
 debug_color = Color(0.91922754, 0.24198356, 0.38580602, 0.41960785)
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_stomped"]
+[node name="DamageBox" type="Area2D" parent="." unique_id=766977714]
+collision_layer = 16
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageBox" unique_id=580885634]
+position = Vector2(0, -50)
+shape = SubResource("RectangleShape2D_kg4e5")
+debug_color = Color(0.9904775, 0.09580713, 1.92523e-07, 0.41960785)
+
+[connection signal="area_entered" from="StompBox" to="." method="_on_stomped"]
+[connection signal="area_entered" from="DamageBox" to="." method="_on_damage_box_area_entered"]

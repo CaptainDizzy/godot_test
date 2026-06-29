@@ -371,6 +371,8 @@ horizontal_alignment = 1
 layout_mode = 0
 
 [node name="Walls" type="StaticBody2D" parent="StartingScreen" unique_id=1020435473]
+collision_layer = 4
+collision_mask = 0
 
 [node name="Bottom" type="CollisionShape2D" parent="StartingScreen/Walls" unique_id=1408709840]
 position = Vector2(960, 1086)
@@ -463,6 +465,8 @@ context_menu_enabled = false
 caret_blink = true
 
 [node name="Walls" type="StaticBody2D" parent="NameScreen" unique_id=989491748]
+collision_layer = 4
+collision_mask = 0
 
 [node name="Bottom" type="CollisionShape2D" parent="NameScreen/Walls" unique_id=471359230]
 position = Vector2(960, 1086)
@@ -553,6 +557,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Walls" type="StaticBody2D" parent="TitleScreen" unique_id=1557256005]
+collision_layer = 4
+collision_mask = 0
 
 [node name="Bottom" type="CollisionShape2D" parent="TitleScreen/Walls" unique_id=605738051]
 position = Vector2(960, 1086)
@@ -660,6 +666,8 @@ horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="Walls" type="StaticBody2D" parent="ForkScreen/PathUI" unique_id=809162423]
+collision_layer = 4
+collision_mask = 0
 
 [node name="Wall" type="CollisionShape2D" parent="ForkScreen/PathUI/Walls" unique_id=794097176]
 position = Vector2(1169, 22.5)

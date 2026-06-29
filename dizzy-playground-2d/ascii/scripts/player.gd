@@ -20,6 +20,7 @@ var falling = false
 var fall_anim = false
 var was_on_floor = true
 var first_landing = true
+var hurt = false
 var speed_multiplier = 1
 var prev_multi
 
@@ -88,7 +89,7 @@ func _physics_process(delta: float) -> void:
 			velocity.x = move_toward(velocity.x, direction * SPEED * prev_multi, SPEED * 0.1)
 		
 		# Ground movement 
-		if is_on_floor() and not is_jumping and not first_landing:
+		if is_on_floor() and not is_jumping and not first_landing and not hurt:
 			if direction != 0:
 				velocity.x = move_toward(velocity.x, direction * SPEED * speed_multiplier, SPEED * 0.1)
 				if speed_multiplier > 2:
@@ -124,6 +125,17 @@ func _physics_process(delta: float) -> void:
 		if last_state != state:
 			first_landing = true
 			fall_anim = false
+
+func take_damage(damage: int, direction: int) -> void:
+	health -= damage
+	hurt = true
+	if state == "platformer":
+		velocity.y = -250
+		velocity.x = direction * 100
+		%ASCII.play_platformer_hurt_animation()
+		await get_tree().create_timer(0.33).timeout
+		move_and_slide()
+		hurt = false
 
 func _on_landing() -> void:
 	if first_landing:

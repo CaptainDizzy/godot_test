@@ -6,6 +6,8 @@
 size = Vector2(136, 174)
 
 [node name="PileOn" type="StaticBody2D" unique_id=1236754220]
+collision_layer = 4
+collision_mask = 0
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=107621583]
 offset_left = -37.0

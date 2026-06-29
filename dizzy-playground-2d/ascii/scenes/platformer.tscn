@@ -103,6 +103,8 @@ vertical_alignment = 1
 metadata/_edit_lock_ = true
 
 [node name="LevelCollisions" type="StaticBody2D" parent="." unique_id=1669005504]
+collision_layer = 4
+collision_mask = 0
 
 [node name="Floor2" type="ColorRect" parent="LevelCollisions" unique_id=1713326258]
 offset_top = 996.0
@@ -128,6 +130,8 @@ position = Vector2(5033.5, 1038.5)
 shape = SubResource("RectangleShape2D_x0j81")
 
 [node name="Ladder" type="StaticBody2D" parent="LevelCollisions" unique_id=975406435]
+collision_layer = 4
+collision_mask = 0
 metadata/_edit_lock_ = true
 
 [node name="WallLeft" type="ColorRect" parent="LevelCollisions/Ladder" unique_id=690026474]
@@ -222,7 +226,7 @@ position = Vector2(3572, 997)
 [node name="Mobs" type="Node2D" parent="." unique_id=1750582389]
 
 [node name="Crawler" parent="Mobs" unique_id=1315470838 instance=ExtResource("5_8s4kh")]
-position = Vector2(2643, 990)
+position = Vector2(1251, 990)
 
 [connection signal="has_dollars" from="LevelObjs/Box" to="." method="_on_box_has_dollars"]
 [connection signal="was_hit" from="LevelObjs/Box" to="." method="_on_box_was_hit"]
