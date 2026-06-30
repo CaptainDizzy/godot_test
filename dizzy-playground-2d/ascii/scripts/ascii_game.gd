@@ -35,7 +35,7 @@ func _ready() -> void:
 	lleg_symbol.text_changed.connect(_on_lleg_changed)
 	rleg_symbol.text_changed.connect(_on_rleg_changed)
 
-func _process(delta: float) -> void:	
+func _process(delta: float) -> void:
 	if current_screen.scrn != "PlatformerScreen" and current_screen.scrn != "ShmupScreen":
 		get_cam_pos()
 	elif current_screen.scrn == "PlatformerScreen" or current_screen.scrn == "ShmupScreen":

@@ -23,6 +23,11 @@ var first_landing = true
 var hurt = false
 var speed_multiplier = 1
 var prev_multi
+var hurt_blink := false
+var is_blinking = true
+var blink_time: float = 20
+var blink_number: int = 4 #This needs to be an even number or the player will end invisible
+var attack_direction: int = 0
 
 
 func _physics_process(delta: float) -> void:
@@ -129,13 +134,34 @@ func _physics_process(delta: float) -> void:
 func take_damage(damage: int, direction: int) -> void:
 	health -= damage
 	hurt = true
-	if state == "platformer":
+	if direction == 0:
+		%ASCII.play_blink_animation()
+		await get_tree().create_timer(0.5).timeout
+		hurt = false
+	else:
 		velocity.y = -250
-		velocity.x = direction * 100
+		velocity.x = attack_direction * 100
 		%ASCII.play_platformer_hurt_animation()
 		await get_tree().create_timer(0.33).timeout
-		move_and_slide()
 		hurt = false
+	move_and_slide()
+func damage_blink() -> void:
+	var blinks = 1
+	var blink_frame
+	for i in blink_time:
+		blink_frame = blinks * (blink_time / blink_number)
+		print("frame :" + str(blink_frame))
+		if i + 1 >= blink_frame and blinks != blink_number:
+			is_blinking = not is_blinking
+			blinks += 1
+		elif blinks == blink_number:
+			is_blinking = false
+			hurt_blink = false
+			hurt = false
+		if is_blinking:
+			%Player.visible = false
+		else:
+			%Player.visible = true
 
 func _on_landing() -> void:
 	if first_landing:

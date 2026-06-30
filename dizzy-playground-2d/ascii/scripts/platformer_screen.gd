@@ -45,3 +45,10 @@ func _on_plr_bounce(v: float) -> void:
 
 func _on_box_has_dollars() -> void:
 	add_dollars.emit(1)
+
+func _on_player_pit_fall(body: Node2D) -> void:
+	%Player/ASCII.play_platformer_hurt_animation()
+	%Player.global_position.x = %PlatformerScreen/Screen/BGColor.global_position.x + 960
+	%Player.global_position.y = %PlatformerScreen/Screen/BGColor.global_position.y + 60
+	%Player.take_damage(1,0)
+	
