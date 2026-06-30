@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://oheubn7bmxr5" path="res://ascii/assets/crawler.tscn" id="5_8s4kh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mkhiu"]
-size = Vector2(3060, 91)
+size = Vector2(3065, 91)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x0j81"]
 size = Vector2(3059, 85)
@@ -120,12 +120,10 @@ offset_bottom = 1081.0
 color = Color(0.6666667, 0.30588236, 0, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelCollisions" unique_id=1259949472]
-visible = false
-position = Vector2(1524, 1040.5)
+position = Vector2(1526.5, 1040.5)
 shape = SubResource("RectangleShape2D_mkhiu")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="LevelCollisions" unique_id=874748115]
-visible = false
 position = Vector2(5033.5, 1038.5)
 shape = SubResource("RectangleShape2D_x0j81")
 
@@ -226,7 +224,7 @@ position = Vector2(3572, 997)
 [node name="Mobs" type="Node2D" parent="." unique_id=1750582389]
 
 [node name="Crawler" parent="Mobs" unique_id=1315470838 instance=ExtResource("5_8s4kh")]
-position = Vector2(1251, 990)
+position = Vector2(2659, 916)
 
 [connection signal="has_dollars" from="LevelObjs/Box" to="." method="_on_box_has_dollars"]
 [connection signal="was_hit" from="LevelObjs/Box" to="." method="_on_box_was_hit"]

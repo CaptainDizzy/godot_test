@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://dpika668hgijq" path="res://ascii/ui/pixelfont.theme" id="1_qtsw1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_evbe6"]
-size = Vector2(136, 174)
+size = Vector2(136, 175.5)
 
 [node name="PileOn" type="StaticBody2D" unique_id=1236754220]
 collision_layer = 4
@@ -13,7 +13,7 @@ collision_mask = 0
 offset_left = -37.0
 offset_top = -164.0
 offset_right = 38.0
-color = Color(0.21632773, 0.3696953, 0.037368473, 1)
+color = Color(0.12416542, 0.3509792, 0, 1)
 
 [node name="Label3" type="Label" parent="." unique_id=432830159]
 offset_left = -68.0
@@ -37,5 +37,5 @@ text = "π"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=916504666]
 visible = false
-position = Vector2(0, -88)
+position = Vector2(0, -87.75)
 shape = SubResource("RectangleShape2D_evbe6")

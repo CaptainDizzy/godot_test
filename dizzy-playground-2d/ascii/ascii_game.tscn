@@ -126,7 +126,7 @@ text = "♥"
 
 [node name="Player" parent="." unique_id=1632503170 instance=ExtResource("2_qihb0")]
 unique_name_in_owner = true
-position = Vector2(6967, 627)
+position = Vector2(6831, 1016)
 
 [node name="Cam" type="Camera2D" parent="." unique_id=1775665619]
 unique_name_in_owner = true
@@ -695,7 +695,7 @@ shape = SubResource("RectangleShape2D_q5w7w")
 
 [node name="PlatformerScreen" parent="." unique_id=2138964136 instance=ExtResource("11_m6wy5")]
 unique_name_in_owner = true
-position = Vector2(6000, 1150)
+position = Vector2(6000, 1139)
 
 [node name="DizzyTransitions" parent="." unique_id=688147533 instance=ExtResource("6_qjlv8")]
 unique_name_in_owner = true
