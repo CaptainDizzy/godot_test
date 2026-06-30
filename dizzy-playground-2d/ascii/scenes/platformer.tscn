@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cc5jokgqwepq2" path="res://ascii/assets/pile_on.tscn" id="3_4k4rx"]
 [ext_resource type="Script" uid="uid://dugrd6k7yiwob" path="res://ascii/scripts/fall_line.gd" id="3_ccpff"]
 [ext_resource type="PackedScene" uid="uid://oheubn7bmxr5" path="res://ascii/assets/crawler.tscn" id="5_8s4kh"]
+[ext_resource type="PackedScene" uid="uid://bf5dwo0oy6mgc" path="res://ascii/assets/block.tscn" id="6_5i1g8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mkhiu"]
 size = Vector2(3065, 91)
@@ -235,17 +236,47 @@ position = Vector2(2991, 997)
 [node name="PileOn3" parent="LevelObjs" unique_id=1527945603 instance=ExtResource("3_4k4rx")]
 position = Vector2(3572, 997)
 
+[node name="Box3" parent="LevelObjs" unique_id=1124429847 instance=ExtResource("2_mkhiu")]
+position = Vector2(4038, 655)
+
+[node name="PileOn4" parent="LevelObjs" unique_id=2070580428 instance=ExtResource("3_4k4rx")]
+position = Vector2(4494, 997)
+
+[node name="Block6" parent="LevelObjs" unique_id=426997523 instance=ExtResource("6_5i1g8")]
+position = Vector2(5278, 746)
+
+[node name="Block7" parent="LevelObjs" unique_id=1951508907 instance=ExtResource("6_5i1g8")]
+position = Vector2(5378, 746)
+
+[node name="Block8" parent="LevelObjs" unique_id=1263190545 instance=ExtResource("6_5i1g8")]
+position = Vector2(5478, 746)
+
+[node name="Block9" parent="LevelObjs" unique_id=575200893 instance=ExtResource("6_5i1g8")]
+position = Vector2(5578, 746)
+
+[node name="Block10" parent="LevelObjs" unique_id=1300761355 instance=ExtResource("6_5i1g8")]
+position = Vector2(5678, 846)
+
+[node name="Block11" parent="LevelObjs" unique_id=806790462 instance=ExtResource("6_5i1g8")]
+position = Vector2(5678, 946)
+
 [node name="Mobs" type="Node2D" parent="." unique_id=1750582389]
+unique_name_in_owner = true
 
 [node name="Crawler" parent="Mobs" unique_id=1315470838 instance=ExtResource("5_8s4kh")]
-position = Vector2(2659, 916)
+position = Vector2(2676, 968)
 
-[node name="Crawler" parent="." unique_id=1125435250 instance=ExtResource("5_8s4kh")]
+[node name="Crawler2" parent="Mobs" unique_id=1125435250 instance=ExtResource("5_8s4kh")]
 position = Vector2(2170, 960)
+
+[node name="Crawler3" parent="Mobs" unique_id=1904531920 instance=ExtResource("5_8s4kh")]
+position = Vector2(4041, 939)
+
+[node name="Block" parent="." unique_id=756312004 instance=ExtResource("6_5i1g8")]
+position = Vector2(5778, 946)
 
 [connection signal="body_entered" from="PitFalls" to="." method="_on_player_pit_fall"]
 [connection signal="has_dollars" from="LevelObjs/Box" to="." method="_on_box_has_dollars"]
 [connection signal="was_hit" from="LevelObjs/Box" to="." method="_on_box_was_hit"]
 [connection signal="has_dollars" from="LevelObjs/Box2" to="." method="_on_box_has_dollars"]
 [connection signal="was_hit" from="LevelObjs/Box2" to="." method="_on_box_was_hit"]
-[connection signal="plr_bounce" from="Mobs/Crawler" to="." method="_on_plr_bounce"]

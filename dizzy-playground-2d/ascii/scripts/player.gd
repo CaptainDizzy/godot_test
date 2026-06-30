@@ -137,31 +137,13 @@ func take_damage(damage: int, direction: int) -> void:
 	if direction == 0:
 		%ASCII.play_blink_animation()
 		await get_tree().create_timer(0.51).timeout
-		hurt = false
 	else:
 		velocity.y = -250
-		velocity.x = attack_direction * 100
+		velocity.x = attack_direction * 250
 		%ASCII.play_platformer_hurt_animation()
 		await get_tree().create_timer(0.33).timeout
-		hurt = false
 	move_and_slide()
-func damage_blink() -> void:
-	var blinks = 1
-	var blink_frame
-	for i in blink_time:
-		blink_frame = blinks * (blink_time / blink_number)
-		print("frame :" + str(blink_frame))
-		if i + 1 >= blink_frame and blinks != blink_number:
-			is_blinking = not is_blinking
-			blinks += 1
-		elif blinks == blink_number:
-			is_blinking = false
-			hurt_blink = false
-			hurt = false
-		if is_blinking:
-			%Player.visible = false
-		else:
-			%Player.visible = true
+	hurt = false
 
 func _on_landing() -> void:
 	if first_landing:
@@ -181,10 +163,10 @@ func _on_platformer_bounce_player(v: float) -> void:
 	%ASCII.play_jump_animation()
 	is_jumping = true
 	velocity.y = v
+	move_and_slide()
 
 func _on_add_dollars(d: float) -> void:
 	dollars += d
-	print(dollars)
 	
 func _on_fake_button_fall(start_state: String) -> void:
 	change_game_state(start_state)

@@ -10,7 +10,7 @@ func _ready() -> void:
 	elif face_num >= 5:
 		%Face.text = "@"
 	elif face_num >= 1:
-		%Face.text = "X"
+		%Face.text = "%"
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body == $"../../../Player":
@@ -21,5 +21,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			%Face.text = ""
 		else:
 			%AnimationPlayer.play("bump")
+			%Face.text = ""
 			was_hit.emit(self.name)
 			

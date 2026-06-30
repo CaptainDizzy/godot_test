@@ -7,6 +7,11 @@ signal bounce_player(v: float)
 var enter_count = 0
 var entered := false
 
+func _ready() -> void:
+	for mob in %Mobs.get_children():
+		if mob.has_signal("plr_bounce"):
+			mob.plr_bounce.connect(_on_plr_bounce)
+
 func _process(delta: float) -> void:
 	var px = %Player.position.x
 	var py = %Player.position.y

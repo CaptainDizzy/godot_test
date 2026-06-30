@@ -12,3 +12,5 @@ res://ascii/assets/pile_on.tscn
 res://ascii/scripts/ascii.gd
 res://ascii/assets/ascii.tscn
 res://ascii/scripts/crawler_body.gd
+res://ascii/assets/block.tscn
+res://ascii/assets/block.gd

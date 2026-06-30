@@ -97,6 +97,9 @@ enabled=PackedStringArray("res://addons/colorpicker_presets/plugin.cfg")
 
 player_hurtbox=""
 player_attacks=""
+mob_damage_box=""
+mob_hurtbox=""
+player=""
 
 [input]
 
