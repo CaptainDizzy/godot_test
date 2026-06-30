@@ -96,7 +96,7 @@ func _physics_process(delta: float) -> void:
 		# Ground movement 
 		if is_on_floor() and not is_jumping and not first_landing and not hurt:
 			if direction != 0:
-				velocity.x = move_toward(velocity.x, direction * SPEED * speed_multiplier, SPEED * 0.1)
+				velocity.x = move_toward(velocity.x, direction * SPEED * speed_multiplier, SPEED * 0.25)
 				if speed_multiplier > 2:
 					%ASCII.play_run_animation()
 				else:
@@ -136,7 +136,7 @@ func take_damage(damage: int, direction: int) -> void:
 	hurt = true
 	if direction == 0:
 		%ASCII.play_blink_animation()
-		await get_tree().create_timer(0.5).timeout
+		await get_tree().create_timer(0.51).timeout
 		hurt = false
 	else:
 		velocity.y = -250

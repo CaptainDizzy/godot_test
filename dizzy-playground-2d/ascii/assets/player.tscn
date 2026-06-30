@@ -11,10 +11,11 @@ radius = 73.0
 height = 294.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yrb3g"]
-size = Vector2(116, 16)
+size = Vector2(119, 18)
 
 [node name="Player" type="CharacterBody2D" unique_id=1632503170]
 collision_mask = 7
+safe_margin = 0.05
 script = ExtResource("1_op763")
 
 [node name="ASCII" parent="." unique_id=1679823848 instance=ExtResource("1_ww4cf")]
@@ -38,5 +39,5 @@ debug_color = Color(0.95594364, 0.15462458, 0.3724318, 0.41960785)
 [node name="StompBox" type="Area2D" parent="." unique_id=304717299 groups=["player_attacks"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StompBox" unique_id=853070074]
-position = Vector2(-1, 39)
+position = Vector2(-0.5, 40)
 shape = SubResource("RectangleShape2D_yrb3g")

@@ -3,12 +3,6 @@
 [ext_resource type="Script" uid="uid://dtei2de7s78y4" path="res://ascii/scripts/box.gd" id="1_1xx71"]
 [ext_resource type="Theme" uid="uid://dpika668hgijq" path="res://ascii/ui/pixelfont.theme" id="1_4f1qd"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1xx71"]
-size = Vector2(100, 100)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_e8jsp"]
-size = Vector2(90, 10)
-
 [sub_resource type="Animation" id="Animation_8ce1p"]
 length = 0.001
 tracks/0/type = "value"
@@ -98,13 +92,22 @@ _data = {
 &"bump_dollar": SubResource("Animation_e8jsp")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1xx71"]
+size = Vector2(100, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e8jsp"]
+size = Vector2(90, 10)
+
 [node name="Box" type="StaticBody2D" unique_id=1886465380]
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_1xx71")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1663759463]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_8rdmo")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2098000628]
-visible = false
 shape = SubResource("RectangleShape2D_1xx71")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=386221616]
@@ -113,10 +116,6 @@ shape = SubResource("RectangleShape2D_1xx71")
 position = Vector2(0, 50)
 shape = SubResource("RectangleShape2D_e8jsp")
 debug_color = Color(0.9056442, 0.27826145, 0.32851112, 0.41960785)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1663759463]
-unique_name_in_owner = true
-libraries/ = SubResource("AnimationLibrary_8rdmo")
 
 [node name="Skin" type="Node2D" parent="." unique_id=29035454]
 
