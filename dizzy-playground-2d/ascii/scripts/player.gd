@@ -66,9 +66,9 @@ func _physics_process(delta: float) -> void:
 	elif state == "platformer":
 		%Player.scale.x = 0.66
 		%Player.scale.y = 0.66
-		%Player/Collision.scale.x = 1.5
+		%Player/Collision.scale.x = 1.125
 		%Player/Collision.scale.y = 1.66
-		%Player/Collision.position.y = -90
+		%Player/Collision.position.y = -92
 		
 		if Input.is_action_pressed("sprint"):
 			speed_multiplier = move_toward(speed_multiplier, 3, 0.1)

@@ -12,8 +12,8 @@ func _ready() -> void:
 	elif face_num >= 1:
 		%Face.text = "%"
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body == $"../../../Player":
+func _on_bonked(area: Area2D) -> void:
+	if area.is_in_group("player"):
 		if %Face.text == "$":
 			%AnimationPlayer.play("bump_dollar")
 			has_dollars.emit()
@@ -23,4 +23,3 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			%AnimationPlayer.play("bump")
 			%Face.text = ""
 			was_hit.emit(self.name)
-			

@@ -149,4 +149,4 @@ theme_override_colors/font_color = Color(0.6656241, 0.30537152, 0, 1)
 theme_override_font_sizes/font_size = 91
 text = "X"
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_bonked"]

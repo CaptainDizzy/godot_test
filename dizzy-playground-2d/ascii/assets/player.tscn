@@ -13,7 +13,7 @@ height = 294.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yrb3g"]
 size = Vector2(119, 18)
 
-[node name="Player" type="CharacterBody2D" unique_id=1632503170]
+[node name="Player" type="CharacterBody2D" unique_id=1632503170 groups=["player"]]
 collision_mask = 7
 safe_margin = 0.05
 script = ExtResource("1_op763")
