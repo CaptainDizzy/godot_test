@@ -267,7 +267,7 @@ unique_name_in_owner = true
 position = Vector2(2676, 968)
 
 [node name="Crawler2" parent="Mobs" unique_id=1125435250 instance=ExtResource("5_8s4kh")]
-position = Vector2(2170, 960)
+position = Vector2(1871, 976)
 
 [node name="Crawler3" parent="Mobs" unique_id=1904531920 instance=ExtResource("5_8s4kh")]
 position = Vector2(4041, 939)

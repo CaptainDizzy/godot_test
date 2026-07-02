@@ -1,8 +1,7 @@
-[gd_scene format=3 uid="uid://nt84jgovm5op"]
+[gd_scene format=3 uid="uid://qn0j5skc4k72"]
 
-[ext_resource type="Script" uid="uid://1nh5ypoopgdh" path="res://ascii/scripts/crawler_body.gd" id="1_0xmxm"]
-[ext_resource type="Theme" uid="uid://dpika668hgijq" path="res://ascii/ui/pixelfont.theme" id="1_vwp26"]
-[ext_resource type="FontFile" uid="uid://b0r2cab1742t2" path="res://fonts/vertopal.com_8514oem.ttf" id="2_0xmxm"]
+[ext_resource type="Theme" uid="uid://dpika668hgijq" path="res://ascii/ui/pixelfont.theme" id="1_frdft"]
+[ext_resource type="FontFile" uid="uid://b0r2cab1742t2" path="res://fonts/vertopal.com_8514oem.ttf" id="2_xykom"]
 
 [sub_resource type="Animation" id="Animation_aw40l"]
 length = 0.001
@@ -263,8 +262,7 @@ _data = {
 &"walk": SubResource("Animation_f7b8o")
 }
 
-[node name="CrawlerBody" type="Node2D" unique_id=1389010231]
-script = ExtResource("1_0xmxm")
+[node name="TosserBody" type="Node2D" unique_id=1389010231]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=317889790]
 unique_name_in_owner = true
@@ -279,10 +277,10 @@ offset_left = -39.0
 offset_top = -101.0
 offset_right = 39.0
 offset_bottom = 24.0
-theme = ExtResource("1_vwp26")
-theme_override_fonts/font = ExtResource("2_0xmxm")
+theme = ExtResource("1_frdft")
+theme_override_fonts/font = ExtResource("2_xykom")
 theme_override_font_sizes/font_size = 124
-text = "o"
+text = "8"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
@@ -290,13 +288,52 @@ metadata/_edit_use_anchors_ = true
 [node name="Hair" type="Label" parent="Body" unique_id=330612066]
 anchors_preset = -1
 offset_left = -39.0
-offset_top = -107.0
+offset_top = -132.0
 offset_right = 39.0
-offset_bottom = 18.0
-theme = ExtResource("1_vwp26")
-theme_override_fonts/font = ExtResource("2_0xmxm")
+offset_bottom = -7.0
+theme = ExtResource("1_frdft")
+theme_override_fonts/font = ExtResource("2_xykom")
 theme_override_font_sizes/font_size = 124
-text = "'"
+text = "\""
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="LArm" type="Sprite2D" parent="Body" unique_id=1181237788]
+position = Vector2(-41, -70)
+rotation = 1.5773596
+
+[node name="Label" type="Label" parent="Body/LArm" unique_id=254133751]
+anchors_preset = -1
+offset_left = 35.0
+offset_top = 114.0
+offset_right = 113.0
+offset_bottom = 239.0
+rotation = 3.1415927
+theme = ExtResource("1_frdft")
+theme_override_fonts/font = ExtResource("2_xykom")
+theme_override_font_sizes/font_size = 124
+text = ","
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="RArm" type="Sprite2D" parent="Body" unique_id=495525104]
+position = Vector2(40, -70)
+rotation = 1.5707964
+scale = Vector2(1, -1)
+
+[node name="Label" type="Label" parent="Body/RArm" unique_id=1098581095]
+anchors_preset = -1
+offset_left = 35.0
+offset_top = 114.0
+offset_right = 113.0
+offset_bottom = 239.0
+rotation = 3.1415927
+theme = ExtResource("1_frdft")
+theme_override_fonts/font = ExtResource("2_xykom")
+theme_override_font_sizes/font_size = 124
+text = ","
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
@@ -312,8 +349,8 @@ offset_top = 114.0
 offset_right = 113.0
 offset_bottom = 239.0
 rotation = 3.1415927
-theme = ExtResource("1_vwp26")
-theme_override_fonts/font = ExtResource("2_0xmxm")
+theme = ExtResource("1_frdft")
+theme_override_fonts/font = ExtResource("2_xykom")
 theme_override_font_sizes/font_size = 124
 text = ","
 horizontal_alignment = 1
@@ -330,8 +367,8 @@ offset_top = 114.0
 offset_right = 113.0
 offset_bottom = 239.0
 rotation = 3.1415927
-theme = ExtResource("1_vwp26")
-theme_override_fonts/font = ExtResource("2_0xmxm")
+theme = ExtResource("1_frdft")
+theme_override_fonts/font = ExtResource("2_xykom")
 theme_override_font_sizes/font_size = 124
 text = ","
 horizontal_alignment = 1
@@ -345,7 +382,7 @@ offset_top = -105.0
 offset_right = 71.0
 offset_bottom = 19.0
 pivot_offset = Vector2(60, 60)
-theme = ExtResource("1_vwp26")
+theme = ExtResource("1_frdft")
 theme_override_colors/font_color = Color(0.13333334, 0.13333334, 0.13333334, 0.5058824)
 theme_override_font_sizes/font_size = 124
 text = "*"
