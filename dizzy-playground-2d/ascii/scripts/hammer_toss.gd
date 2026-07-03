@@ -64,5 +64,5 @@ func _on_damage_box_area_entered(area: Area2D) -> void:
 			dir = -1
 		else:
 			dir = 1
-		print(dir)
 		area.get_parent().take_damage(DAMAGE, dir)
+		queue_free()

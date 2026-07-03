@@ -21,7 +21,7 @@ script = ExtResource("1_kg4e5")
 [node name="CrawlerBody" parent="." unique_id=1389010231 instance=ExtResource("1_0mj7a")]
 unique_name_in_owner = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1404329517]
+[node name="CBox" type="CollisionShape2D" parent="." unique_id=1404329517]
 position = Vector2(0, -50.5)
 shape = SubResource("RectangleShape2D_31fi6")
 
@@ -35,6 +35,7 @@ shape = SubResource("RectangleShape2D_man4c")
 debug_color = Color(0.91922754, 0.24198356, 0.38580602, 0.41960785)
 
 [node name="DamageBox" type="Area2D" parent="." unique_id=766977714 groups=["mob_damage_box"]]
+unique_name_in_owner = true
 collision_layer = 16
 collision_mask = 8
 

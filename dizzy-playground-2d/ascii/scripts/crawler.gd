@@ -87,6 +87,10 @@ func _on_stomped(area: Area2D) -> void:
 		is_dead = true
 		%CrawlerBody.get_stomped()
 		plr_bounce.emit(-500)
+		%StompBox.queue_free()
+		%DamageBox.queue_free()
+		set_collision_layer_value(2,false)
+		set_collision_mask_value(1,false)
 		await get_tree().create_timer(1.25).timeout
 		queue_free()
 
@@ -97,5 +101,5 @@ func _on_damage_box_area_entered(area: Area2D) -> void:
 			dir = -1
 		else:
 			dir = 1
-		print(dir)
+		print(damage)
 		area.get_parent().take_damage(damage, dir)

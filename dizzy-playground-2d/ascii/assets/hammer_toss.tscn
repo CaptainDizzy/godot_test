@@ -72,6 +72,8 @@ unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_fodfu")
 
 [node name="DamageBox" type="Area2D" parent="." unique_id=1726267033 groups=["mob_damage_box"]]
+collision_layer = 16
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageBox" unique_id=409567984]
 shape = SubResource("CircleShape2D_38n7b")

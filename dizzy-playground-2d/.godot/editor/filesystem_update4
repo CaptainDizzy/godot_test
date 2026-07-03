@@ -7,3 +7,6 @@ res://ascii/scripts/hammer_toss.gd
 res://ascii/assets/tosser_body.tscn
 res://survivors/bullet.tscn
 res://ascii/scripts/crawler.gd
+res://ascii/assets/player.tscn
+res://ascii/scripts/player.gd
+res://ascii/assets/crawler.tscn

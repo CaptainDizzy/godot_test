@@ -109,6 +109,10 @@ func _on_stomped(area: Area2D) -> void:
 		is_dead = true
 		%TosserBody.get_stomped()
 		plr_bounce.emit(-500)
+		%StompBox.queue_free()
+		%DamageBox.queue_free()
+		set_collision_layer_value(2,false)
+		set_collision_mask_value(1,false)
 		await get_tree().create_timer(1.25).timeout
 		queue_free()
 
