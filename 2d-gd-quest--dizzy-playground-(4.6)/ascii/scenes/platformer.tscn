@@ -1,0 +1,295 @@
+[gd_scene format=3 uid="uid://boq04k3epdjg0"]
+
+[ext_resource type="Theme" uid="uid://dpika668hgijq" path="res://ascii/ui/pixelfont.theme" id="1_o2jsq"]
+[ext_resource type="Script" uid="uid://ljc0bjxevnu3" path="res://ascii/scripts/platformer_screen.gd" id="1_x0j81"]
+[ext_resource type="PackedScene" uid="uid://d0l45d00184ce" path="res://ascii/assets/box.tscn" id="2_mkhiu"]
+[ext_resource type="PackedScene" uid="uid://cc5jokgqwepq2" path="res://ascii/assets/pile_on.tscn" id="3_4k4rx"]
+[ext_resource type="Script" uid="uid://dugrd6k7yiwob" path="res://ascii/scripts/fall_line.gd" id="3_ccpff"]
+[ext_resource type="PackedScene" uid="uid://oheubn7bmxr5" path="res://ascii/assets/crawler.tscn" id="5_8s4kh"]
+[ext_resource type="PackedScene" uid="uid://bf5dwo0oy6mgc" path="res://ascii/assets/block.tscn" id="6_5i1g8"]
+[ext_resource type="PackedScene" uid="uid://dc8vdt2xtvcif" path="res://ascii/assets/tosser.tscn" id="8_dkcvi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mkhiu"]
+size = Vector2(3065, 91)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x0j81"]
+size = Vector2(3059, 85)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4k4rx"]
+size = Vector2(80, 1011)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o2jsq"]
+size = Vector2(116, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5i1g8"]
+size = Vector2(13779, 27)
+
+[node name="PlatformerScreen" type="Node2D" unique_id=2138964136]
+script = ExtResource("1_x0j81")
+
+[node name="Screen" type="Control" parent="." unique_id=756095916]
+z_index = -5
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+metadata/_edit_lock_ = true
+
+[node name="BGColor" type="ColorRect" parent="Screen" unique_id=139453434]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 11879.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.4440249, 0.5398438, 0.9164276, 1)
+metadata/_edit_lock_ = true
+
+[node name="Ruler" type="CanvasGroup" parent="Screen" unique_id=1560554955]
+visible = false
+position = Vector2(462, 5)
+
+[node name="ColorRect" type="ColorRect" parent="Screen/Ruler" unique_id=1438413122]
+offset_left = 1783.0
+offset_top = 937.0
+offset_right = 1833.0
+offset_bottom = 987.0
+color = Color(1, 1, 1, 0.5137255)
+metadata/_edit_lock_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="Screen/Ruler" unique_id=1567785542]
+offset_left = 1783.0
+offset_top = 886.0
+offset_right = 1833.0
+offset_bottom = 936.0
+color = Color(0.39498678, 0.3949867, 0.3949867, 0.5137255)
+metadata/_edit_lock_ = true
+
+[node name="ColorRect3" type="ColorRect" parent="Screen/Ruler" unique_id=128039525]
+offset_left = 1783.0
+offset_top = 834.0
+offset_right = 1833.0
+offset_bottom = 884.0
+color = Color(1, 1, 1, 0.5137255)
+metadata/_edit_lock_ = true
+
+[node name="ColorRect4" type="ColorRect" parent="Screen/Ruler" unique_id=517420862]
+offset_left = 1783.0
+offset_top = 783.0
+offset_right = 1833.0
+offset_bottom = 833.0
+color = Color(0.39498678, 0.3949867, 0.3949867, 0.5137255)
+metadata/_edit_lock_ = true
+
+[node name="PlatformerUI" type="Control" parent="." unique_id=52253998]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+metadata/_edit_lock_ = true
+
+[node name="Message" type="Label" parent="PlatformerUI" unique_id=889026989]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.097
+anchor_right = 1.0
+anchor_bottom = 0.142
+offset_left = 25.0
+offset_top = -90.76
+offset_right = -25.0
+offset_bottom = -37.789032
+grow_horizontal = 2
+theme = ExtResource("1_o2jsq")
+theme_override_font_sizes/font_size = 36
+text = "Watch your step!"
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="LevelCollisions" type="StaticBody2D" parent="." unique_id=1669005504]
+collision_layer = 4
+collision_mask = 0
+
+[node name="Floor2" type="ColorRect" parent="LevelCollisions" unique_id=1713326258]
+offset_top = 996.0
+offset_right = 3059.0
+offset_bottom = 1081.0
+color = Color(0.6666667, 0.30588236, 0, 1)
+
+[node name="Floor" type="ColorRect" parent="LevelCollisions" unique_id=332434604]
+offset_left = 3504.0
+offset_top = 996.0
+offset_right = 6563.0
+offset_bottom = 1081.0
+color = Color(0.6666667, 0.30588236, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelCollisions" unique_id=1259949472]
+position = Vector2(1526.5, 1040.5)
+shape = SubResource("RectangleShape2D_mkhiu")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="LevelCollisions" unique_id=874748115]
+position = Vector2(5033.5, 1038.5)
+shape = SubResource("RectangleShape2D_x0j81")
+
+[node name="Ladder" type="StaticBody2D" parent="LevelCollisions" unique_id=975406435]
+collision_layer = 4
+collision_mask = 0
+metadata/_edit_lock_ = true
+
+[node name="WallLeft" type="ColorRect" parent="LevelCollisions/Ladder" unique_id=690026474]
+offset_left = -1.0
+offset_right = 69.0
+offset_bottom = 995.0
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="LevelCollisions/Ladder" unique_id=323246924]
+visible = false
+position = Vector2(30, 495.5)
+shape = SubResource("RectangleShape2D_4k4rx")
+
+[node name="WallLeft2" type="ColorRect" parent="LevelCollisions/Ladder" unique_id=632500079]
+offset_left = 67.0
+offset_top = 818.0
+offset_right = 182.0
+offset_bottom = 838.0
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="LevelCollisions/Ladder" unique_id=822578772]
+visible = false
+position = Vector2(125, 828)
+shape = SubResource("RectangleShape2D_o2jsq")
+one_way_collision = true
+
+[node name="WallLeft3" type="ColorRect" parent="LevelCollisions/Ladder" unique_id=1763819534]
+offset_left = 67.0
+offset_top = 635.0
+offset_right = 182.0
+offset_bottom = 655.0
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="LevelCollisions/Ladder" unique_id=68459912]
+visible = false
+position = Vector2(125, 645)
+shape = SubResource("RectangleShape2D_o2jsq")
+one_way_collision = true
+
+[node name="WallLeft4" type="ColorRect" parent="LevelCollisions/Ladder" unique_id=1206648921]
+offset_left = 67.0
+offset_top = 465.0
+offset_right = 182.0
+offset_bottom = 485.0
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="LevelCollisions/Ladder" unique_id=1533151590]
+visible = false
+position = Vector2(125, 475)
+shape = SubResource("RectangleShape2D_o2jsq")
+one_way_collision = true
+
+[node name="WallLeft6" type="ColorRect" parent="LevelCollisions/Ladder" unique_id=819794647]
+offset_left = 67.0
+offset_top = 292.0
+offset_right = 182.0
+offset_bottom = 312.0
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="LevelCollisions/Ladder" unique_id=706002394]
+visible = false
+position = Vector2(125, 302)
+shape = SubResource("RectangleShape2D_o2jsq")
+one_way_collision = true
+
+[node name="WallLeft7" type="ColorRect" parent="LevelCollisions/Ladder" unique_id=993063680]
+offset_left = 67.0
+offset_top = 114.0
+offset_right = 182.0
+offset_bottom = 134.0
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="LevelCollisions/Ladder" unique_id=519307843]
+visible = false
+position = Vector2(125, 124)
+shape = SubResource("RectangleShape2D_o2jsq")
+one_way_collision = true
+
+[node name="PitFalls" type="Area2D" parent="." unique_id=71671978]
+collision_layer = 0
+
+[node name="FallLine" type="CollisionShape2D" parent="PitFalls" unique_id=1194455981]
+unique_name_in_owner = true
+position = Vector2(6900.5, 1327.5)
+shape = SubResource("RectangleShape2D_5i1g8")
+debug_color = Color(0.9953279, 0.06464036, 7.70092e-07, 0.41960785)
+script = ExtResource("3_ccpff")
+
+[node name="LevelObjs" type="Node2D" parent="." unique_id=156608409]
+
+[node name="Box" parent="LevelObjs" unique_id=1886465380 instance=ExtResource("2_mkhiu")]
+unique_name_in_owner = true
+position = Vector2(1526, 654)
+
+[node name="Box2" parent="LevelObjs" unique_id=1246783182 instance=ExtResource("2_mkhiu")]
+unique_name_in_owner = true
+position = Vector2(1916, 654)
+
+[node name="PileOn" parent="LevelObjs" unique_id=1236754220 instance=ExtResource("3_4k4rx")]
+position = Vector2(2375, 997)
+
+[node name="PileOn2" parent="LevelObjs" unique_id=300128554 instance=ExtResource("3_4k4rx")]
+position = Vector2(2991, 997)
+
+[node name="PileOn3" parent="LevelObjs" unique_id=1527945603 instance=ExtResource("3_4k4rx")]
+position = Vector2(3572, 997)
+
+[node name="Box3" parent="LevelObjs" unique_id=1124429847 instance=ExtResource("2_mkhiu")]
+position = Vector2(4038, 655)
+
+[node name="Box4" parent="LevelObjs" unique_id=171591351 instance=ExtResource("2_mkhiu")]
+position = Vector2(6515, 746)
+
+[node name="PileOn4" parent="LevelObjs" unique_id=2070580428 instance=ExtResource("3_4k4rx")]
+position = Vector2(4494, 997)
+
+[node name="Block6" parent="LevelObjs" unique_id=426997523 instance=ExtResource("6_5i1g8")]
+position = Vector2(5278, 746)
+
+[node name="Block7" parent="LevelObjs" unique_id=1951508907 instance=ExtResource("6_5i1g8")]
+position = Vector2(5378, 746)
+
+[node name="Block8" parent="LevelObjs" unique_id=1263190545 instance=ExtResource("6_5i1g8")]
+position = Vector2(5478, 746)
+
+[node name="Block9" parent="LevelObjs" unique_id=575200893 instance=ExtResource("6_5i1g8")]
+position = Vector2(5578, 746)
+
+[node name="Block10" parent="LevelObjs" unique_id=1300761355 instance=ExtResource("6_5i1g8")]
+position = Vector2(5678, 846)
+
+[node name="Block11" parent="LevelObjs" unique_id=806790462 instance=ExtResource("6_5i1g8")]
+position = Vector2(5678, 946)
+
+[node name="Block" parent="LevelObjs" unique_id=1423264668 instance=ExtResource("6_5i1g8")]
+position = Vector2(6173, 946)
+
+[node name="Mobs" type="Node2D" parent="." unique_id=1750582389]
+unique_name_in_owner = true
+
+[node name="Crawler" parent="Mobs" unique_id=1315470838 instance=ExtResource("5_8s4kh")]
+position = Vector2(2676, 968)
+
+[node name="Crawler2" parent="Mobs" unique_id=1125435250 instance=ExtResource("5_8s4kh")]
+position = Vector2(1871, 965)
+
+[node name="Crawler3" parent="Mobs" unique_id=1904531920 instance=ExtResource("5_8s4kh")]
+position = Vector2(4041, 966)
+
+[node name="Tosser" parent="Mobs" unique_id=2012318944 instance=ExtResource("8_dkcvi")]
+position = Vector2(5356, 667)
+
+[node name="Crawler4" parent="Mobs" unique_id=1466439913 instance=ExtResource("5_8s4kh")]
+position = Vector2(4670, 964)
+
+[node name="Block" parent="." unique_id=756312004 instance=ExtResource("6_5i1g8")]
+position = Vector2(5778, 946)
+
+[connection signal="body_entered" from="PitFalls" to="." method="_on_player_pit_fall"]
+[connection signal="has_dollars" from="LevelObjs/Box" to="." method="_on_box_has_dollars"]
+[connection signal="was_hit" from="LevelObjs/Box" to="." method="_on_box_was_hit"]
+[connection signal="has_dollars" from="LevelObjs/Box2" to="." method="_on_box_has_dollars"]
+[connection signal="was_hit" from="LevelObjs/Box2" to="." method="_on_box_was_hit"]

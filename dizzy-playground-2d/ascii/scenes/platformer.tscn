@@ -24,6 +24,9 @@ size = Vector2(116, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5i1g8"]
 size = Vector2(13779, 27)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w8jo0"]
+size = Vector2(17, 120)
+
 [node name="PlatformerScreen" type="Node2D" unique_id=2138964136]
 script = ExtResource("1_x0j81")
 
@@ -281,9 +284,38 @@ position = Vector2(4041, 966)
 
 [node name="Tosser" parent="Mobs" unique_id=2012318944 instance=ExtResource("8_dkcvi")]
 position = Vector2(5356, 667)
+collision_mask = 71
+
+[node name="Tosser2" parent="Mobs" unique_id=75367391 instance=ExtResource("8_dkcvi")]
+position = Vector2(1526, 574)
+collision_mask = 71
 
 [node name="Crawler4" parent="Mobs" unique_id=1466439913 instance=ExtResource("5_8s4kh")]
 position = Vector2(4670, 964)
+
+[node name="WalkBlockers" type="StaticBody2D" parent="Mobs" unique_id=27020331]
+collision_layer = 64
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mobs/WalkBlockers" unique_id=1021058941]
+position = Vector2(5237, 634)
+shape = SubResource("RectangleShape2D_w8jo0")
+debug_color = Color(0.28853557, 0.6304161, 3.85046e-07, 0.41960785)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Mobs/WalkBlockers" unique_id=629456512]
+position = Vector2(5617, 634)
+shape = SubResource("RectangleShape2D_w8jo0")
+debug_color = Color(0.28853557, 0.6304161, 3.85046e-07, 0.41960785)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Mobs/WalkBlockers" unique_id=1331520548]
+position = Vector2(1464, 543)
+shape = SubResource("RectangleShape2D_w8jo0")
+debug_color = Color(0.28853557, 0.6304161, 3.85046e-07, 0.41960785)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Mobs/WalkBlockers" unique_id=499633842]
+position = Vector2(1588, 545)
+shape = SubResource("RectangleShape2D_w8jo0")
+debug_color = Color(0.28853557, 0.6304161, 3.85046e-07, 0.41960785)
 
 [node name="Block" parent="." unique_id=756312004 instance=ExtResource("6_5i1g8")]
 position = Vector2(5778, 946)

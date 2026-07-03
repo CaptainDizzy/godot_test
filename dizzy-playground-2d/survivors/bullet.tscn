@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://cfjvwhypwf5h5" path="res://survivors/scripts/bullet.gd" id="1_v8qja"]
 [ext_resource type="Texture2D" uid="uid://bd4rrqj72amnx" path="res://survivors/assets/pistol/projectile.png" id="2_t4vbm"]
 
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_2b2rl"]
 radius = 19.0
 

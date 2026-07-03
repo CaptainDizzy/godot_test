@@ -8,8 +8,6 @@ var falling := false
 var is_dead := false
 
 func _ready() -> void:
-	var hair: String
-	var head: String
 	var c1 = floor(randi_range(0,5) + 0.5)
 	var c2 = floor(randi_range(0,8) + 0.5)
 	if c1 == 0:
@@ -69,7 +67,6 @@ func _ready() -> void:
 		%CrawlerBody/Body/Bod.text = "|"
 
 func _physics_process(delta: float) -> void:
-	
 	# Add the gravity.
 	if not is_on_floor():
 		falling = true
@@ -83,6 +80,7 @@ func _physics_process(delta: float) -> void:
 	# Check if the enemy collided with a wall | This happens AFTER move_and_slide() because move_and_slide() handles in_on_wall() detection.
 	if is_on_wall():
 		direction *= -1 # Reverse direction
+		self.scale.x *= -1
 
 func _on_stomped(area: Area2D) -> void:
 	if area.is_in_group("player_attacks"):

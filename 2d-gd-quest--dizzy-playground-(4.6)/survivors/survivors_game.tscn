@@ -1,0 +1,143 @@
+[gd_scene format=3 uid="uid://swcb8q32cvqi"]
+
+[ext_resource type="Script" uid="uid://c1bfau31nfqio" path="res://survivors/scripts/survivors_game.gd" id="1_l26od"]
+[ext_resource type="PackedScene" uid="uid://c1sx7bic4uhdj" path="res://survivors/player.tscn" id="1_y3pti"]
+[ext_resource type="PackedScene" uid="uid://dq3r015sr1uql" path="res://survivors/pine_tree.tscn" id="2_l26od"]
+[ext_resource type="StyleBox" uid="uid://da43nc21q2lj6" path="res://survivors/ui/pause_menu_button_style.tres" id="4_7jj1j"]
+[ext_resource type="StyleBox" uid="uid://b6hffr70u4w7y" path="res://survivors/ui/pause_menu_hoverfocus.tres" id="5_edxvn"]
+[ext_resource type="Script" uid="uid://dlknnx1143n5a" path="res://survivors/scripts/menu_btn.gd" id="6_edxvn"]
+[ext_resource type="Script" uid="uid://b8uv184afnj3h" path="res://survivors/scripts/retry_btn.gd" id="7_pk6fm"]
+[ext_resource type="PackedScene" uid="uid://ckowrgqaidh8t" path="res://addons/dizzy_transitions/dizzy_transitions.tscn" id="8_getvi"]
+
+[sub_resource type="Curve2D" id="Curve2D_l26od"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -107, -98, 0, 0, 0, 0, 2025, -103, 0, 0, 0, 0, 2035, 1175, 0, 0, 0, 0, -107, 1161, 0, 0, 0, 0, -107, -98)
+}
+point_count = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pk6fm"]
+bg_color = Color(0, 0, 0, 0.39215687)
+
+[node name="Game" type="Node2D" unique_id=322693186]
+y_sort_enabled = true
+script = ExtResource("1_l26od")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2077469912]
+layer = -5
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=292522244]
+offset_left = -19.0
+offset_top = -17.0
+offset_right = 1961.0
+offset_bottom = 1100.0
+color = Color(0.08627451, 0.38431373, 0.1764706, 1)
+
+[node name="Player" parent="." unique_id=1539348156 instance=ExtResource("1_y3pti")]
+position = Vector2(960, 540)
+
+[node name="Path2D" type="Path2D" parent="Player" unique_id=115338825]
+position = Vector2(-983, -537)
+curve = SubResource("Curve2D_l26od")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Player/Path2D" unique_id=173701180]
+unique_name_in_owner = true
+position = Vector2(-107, -98)
+rotation = -0.0023452113
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1689441190]
+
+[node name="PineTree" parent="." unique_id=600028096 instance=ExtResource("2_l26od")]
+position = Vector2(489, 782)
+
+[node name="PineTree2" parent="." unique_id=69821728 instance=ExtResource("2_l26od")]
+position = Vector2(1317, 519)
+
+[node name="PineTree3" parent="." unique_id=1835074839 instance=ExtResource("2_l26od")]
+position = Vector2(761, 315)
+
+[node name="PineTree4" parent="." unique_id=1541898120 instance=ExtResource("2_l26od")]
+position = Vector2(1324, 885)
+
+[node name="PineTree5" parent="." unique_id=1725072474 instance=ExtResource("2_l26od")]
+position = Vector2(357, 415)
+
+[node name="Timer" type="Timer" parent="." unique_id=1198712846]
+autostart = true
+
+[node name="GameOver" type="CanvasLayer" parent="." unique_id=594987809]
+unique_name_in_owner = true
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="GameOver" unique_id=827201826]
+offset_right = 1920.0
+offset_bottom = 1080.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(0, 0, 0, 0.5882353)
+
+[node name="Control" type="Control" parent="GameOver" unique_id=1571348519]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="GameOver/Control" unique_id=747747997]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 161.0
+offset_right = 1920.0
+offset_bottom = 285.0
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxFlat_pk6fm")
+text = "YOU DEAD"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Menu_Btn" type="Button" parent="GameOver/Control" unique_id=1586857370]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 785.5
+offset_top = 769.0
+offset_right = 1094.5
+offset_bottom = 844.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = ExtResource("4_7jj1j")
+theme_override_styles/hover = ExtResource("5_edxvn")
+theme_override_styles/focus = ExtResource("5_edxvn")
+text = "Main Menu"
+script = ExtResource("6_edxvn")
+
+[node name="Retry_Btn" type="Button" parent="GameOver/Control" unique_id=1645818872]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 785.5
+offset_top = 632.0
+offset_right = 1094.5
+offset_bottom = 707.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = ExtResource("4_7jj1j")
+theme_override_styles/hover = ExtResource("5_edxvn")
+theme_override_styles/focus = ExtResource("5_edxvn")
+text = "Try Again?"
+script = ExtResource("7_pk6fm")
+
+[node name="DizzyTransitions" parent="." unique_id=688147533 instance=ExtResource("8_getvi")]
+unique_name_in_owner = true
+visible = false
+
+[connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
