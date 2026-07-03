@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://dugrd6k7yiwob" path="res://ascii/scripts/fall_line.gd" id="3_ccpff"]
 [ext_resource type="PackedScene" uid="uid://oheubn7bmxr5" path="res://ascii/assets/crawler.tscn" id="5_8s4kh"]
 [ext_resource type="PackedScene" uid="uid://bf5dwo0oy6mgc" path="res://ascii/assets/block.tscn" id="6_5i1g8"]
+[ext_resource type="PackedScene" uid="uid://dc8vdt2xtvcif" path="res://ascii/assets/tosser.tscn" id="8_dkcvi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mkhiu"]
 size = Vector2(3065, 91)
@@ -271,6 +272,12 @@ position = Vector2(1871, 976)
 
 [node name="Crawler3" parent="Mobs" unique_id=1904531920 instance=ExtResource("5_8s4kh")]
 position = Vector2(4041, 939)
+
+[node name="Tosser" parent="Mobs" unique_id=2012318944 instance=ExtResource("8_dkcvi")]
+position = Vector2(5356, 667)
+
+[node name="Crawler4" parent="Mobs" unique_id=1466439913 instance=ExtResource("5_8s4kh")]
+position = Vector2(4670, 957)
 
 [node name="Block" parent="." unique_id=756312004 instance=ExtResource("6_5i1g8")]
 position = Vector2(5778, 946)
