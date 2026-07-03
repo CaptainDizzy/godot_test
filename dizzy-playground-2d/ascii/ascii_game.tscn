@@ -31,10 +31,10 @@ size = Vector2(1494, 71)
 size = Vector2(207, 66)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m6wy5"]
-size = Vector2(42, 368.5)
+size = Vector2(42, 279.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q5w7w"]
-size = Vector2(72, 78)
+size = Vector2(91, 78)
 
 [node name="Game" type="Node2D" unique_id=545093323]
 script = ExtResource("1_l4rt8")
@@ -619,10 +619,10 @@ anchors_preset = -1
 anchor_top = 0.007
 anchor_right = 0.9990001
 anchor_bottom = 0.1
-offset_left = -34.0
-offset_top = 970.44
-offset_right = -34.08008
-offset_bottom = 970.0
+offset_left = -3.0
+offset_top = 972.44
+offset_right = -3.0800781
+offset_bottom = 972.0
 grow_horizontal = 2
 theme = ExtResource("3_msc5x")
 theme_override_font_sizes/font_size = 100
@@ -643,7 +643,7 @@ grow_horizontal = 2
 rotation = 1.5707964
 theme = ExtResource("3_msc5x")
 theme_override_font_sizes/font_size = 100
-text = "---   ----"
+text = "---    ---"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -678,19 +678,19 @@ position = Vector2(93.5, 26)
 shape = SubResource("RectangleShape2D_jarwu")
 
 [node name="Wall4" type="CollisionShape2D" parent="ForkScreen/PathUI/Walls" unique_id=842818636]
-position = Vector2(1904, 145)
+position = Vector2(1904, 189.625)
 shape = SubResource("RectangleShape2D_m6wy5")
 
 [node name="Wall5" type="CollisionShape2D" parent="ForkScreen/PathUI/Walls" unique_id=1948524022]
-position = Vector2(1904, 836)
+position = Vector2(1904, 877)
 shape = SubResource("RectangleShape2D_m6wy5")
 
 [node name="Wall6" type="CollisionShape2D" parent="ForkScreen/PathUI/Walls" unique_id=569198984]
-position = Vector2(1792, 1046)
+position = Vector2(1821, 1048)
 shape = SubResource("RectangleShape2D_jarwu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ForkScreen/PathUI/Walls" unique_id=292164587]
-position = Vector2(26, 1051)
+position = Vector2(48.5, 1051)
 shape = SubResource("RectangleShape2D_q5w7w")
 
 [node name="PlatformerScreen" parent="." unique_id=2138964136 instance=ExtResource("11_m6wy5")]
