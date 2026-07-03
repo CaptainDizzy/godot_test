@@ -1,6 +1,5 @@
 extends StaticBody2D
 
-signal was_hit(box_name)
 signal has_dollars
 var is_below: String = ""
 
@@ -15,10 +14,15 @@ func _ready() -> void:
 
 func is_stood_on(by: String) -> void:
 	is_below = by
-	print(str(is_below) + " is on " + str(self.name))
+func is_no_longer_stood_on() -> void:
+	is_below = ""
 
 func _on_bonked(body: Node2D) -> void:
 	if body.is_in_group("player"):
+		if is_below:
+			var standing_node = get_node("../../Mobs/" + is_below)
+			standing_node.get_dead()
+			
 		if %Face.text == "$":
 			%AnimationPlayer.play("bump_dollar")
 			has_dollars.emit()
@@ -27,4 +31,4 @@ func _on_bonked(body: Node2D) -> void:
 		else:
 			%AnimationPlayer.play("bump")
 			%Face.text = ""
-			was_hit.emit(self.name)
+		

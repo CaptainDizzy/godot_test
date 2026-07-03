@@ -40,11 +40,6 @@ func _on_player_first_landing() -> void:
 	elif enter_count >= 2:
 		%Message.text = "Did you not learn last time??"
 
-
-func _on_box_was_hit(box_name: Variant) -> void:
-	var box_label = get_node("%" + box_name + "/Skin/CenterContainer/Face")
-	box_label.text = ""
-
 func _on_plr_bounce(v: float) -> void:
 	bounce_player.emit(v)
 

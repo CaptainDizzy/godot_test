@@ -108,15 +108,18 @@ func _on_tossing_timeout() -> void:
 
 func _on_stomped(area: Area2D) -> void:
 	if area.is_in_group("player_attacks"):
-		is_dead = true
-		%TosserBody.get_stomped()
 		plr_bounce.emit(-500)
-		%StompBox.queue_free()
-		%DamageBox.queue_free()
-		set_collision_layer_value(2,false)
-		set_collision_mask_value(1,false)
-		await get_tree().create_timer(1.25).timeout
-		queue_free()
+		get_dead()
+
+func get_dead() -> void:
+	is_dead = true
+	%TosserBody.get_stomped()
+	%StompBox.queue_free()
+	%DamageBox.queue_free()
+	set_collision_layer_value(2,false)
+	set_collision_mask_value(1,false)
+	await get_tree().create_timer(1.25).timeout
+	queue_free()
 
 func _on_damage_box_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player_hurtbox"):
@@ -129,5 +132,10 @@ func _on_damage_box_area_entered(area: Area2D) -> void:
 		area.get_parent().take_damage(damage, dir)
 
 func _on_detect_standing_body(body: Node2D) -> void:
-	print(self.name + " is standing on " + body.name)
-	#body.is_stood_on(self.name)
+	var node_on = get_node("%" + body.name)
+	if not is_dead:
+		node_on.is_stood_on(self.name)
+func _on_detect_leaving_body(body: Node2D) -> void:
+	var node_left = get_node("%" + body.name)
+	if not is_dead:
+		node_left.is_no_longer_stood_on()

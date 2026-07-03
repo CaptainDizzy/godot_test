@@ -13,3 +13,5 @@ res://ascii/assets/crawler.tscn
 res://ascii/assets/box.tscn
 res://ascii/scripts/box.gd
 res://ascii/assets/block.tscn
+res://ascii/scripts/platformer_screen.gd
+res://ascii/assets/block.gd

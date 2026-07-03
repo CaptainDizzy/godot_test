@@ -38,6 +38,7 @@ shape = SubResource("RectangleShape2D_man4c")
 debug_color = Color(0.91922754, 0.24198356, 0.38580602, 0.41960785)
 
 [node name="DamageBox" type="Area2D" parent="." unique_id=766977714 groups=["mob_damage_box"]]
+unique_name_in_owner = true
 collision_layer = 16
 collision_mask = 8
 
@@ -63,3 +64,4 @@ shape = SubResource("CircleShape2D_w8jo0")
 [connection signal="area_entered" from="DamageBox" to="." method="_on_damage_box_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_tossing_timeout"]
 [connection signal="body_entered" from="StandOnDetect" to="." method="_on_detect_standing_body"]
+[connection signal="body_exited" from="StandOnDetect" to="." method="_on_detect_leaving_body"]

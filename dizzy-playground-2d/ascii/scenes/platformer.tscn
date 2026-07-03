@@ -241,33 +241,42 @@ position = Vector2(2991, 997)
 position = Vector2(3572, 997)
 
 [node name="Box3" parent="LevelObjs" unique_id=1124429847 instance=ExtResource("2_mkhiu")]
+unique_name_in_owner = true
 position = Vector2(4038, 655)
 
 [node name="Box4" parent="LevelObjs" unique_id=171591351 instance=ExtResource("2_mkhiu")]
+unique_name_in_owner = true
 position = Vector2(6515, 746)
 
 [node name="PileOn4" parent="LevelObjs" unique_id=2070580428 instance=ExtResource("3_4k4rx")]
 position = Vector2(4494, 997)
 
 [node name="Block6" parent="LevelObjs" unique_id=426997523 instance=ExtResource("6_5i1g8")]
+unique_name_in_owner = true
 position = Vector2(5278, 746)
 
 [node name="Block7" parent="LevelObjs" unique_id=1951508907 instance=ExtResource("6_5i1g8")]
+unique_name_in_owner = true
 position = Vector2(5378, 746)
 
 [node name="Block8" parent="LevelObjs" unique_id=1263190545 instance=ExtResource("6_5i1g8")]
+unique_name_in_owner = true
 position = Vector2(5478, 746)
 
 [node name="Block9" parent="LevelObjs" unique_id=575200893 instance=ExtResource("6_5i1g8")]
+unique_name_in_owner = true
 position = Vector2(5578, 746)
 
 [node name="Block10" parent="LevelObjs" unique_id=1300761355 instance=ExtResource("6_5i1g8")]
+unique_name_in_owner = true
 position = Vector2(5678, 846)
 
 [node name="Block11" parent="LevelObjs" unique_id=806790462 instance=ExtResource("6_5i1g8")]
+unique_name_in_owner = true
 position = Vector2(5678, 946)
 
 [node name="Block" parent="LevelObjs" unique_id=1423264668 instance=ExtResource("6_5i1g8")]
+unique_name_in_owner = true
 position = Vector2(6173, 946)
 
 [node name="Mobs" type="Node2D" parent="." unique_id=1750582389]
@@ -322,6 +331,4 @@ position = Vector2(5778, 946)
 
 [connection signal="body_entered" from="PitFalls" to="." method="_on_player_pit_fall"]
 [connection signal="has_dollars" from="LevelObjs/Box" to="." method="_on_box_has_dollars"]
-[connection signal="was_hit" from="LevelObjs/Box" to="." method="_on_box_was_hit"]
 [connection signal="has_dollars" from="LevelObjs/Box2" to="." method="_on_box_has_dollars"]
-[connection signal="was_hit" from="LevelObjs/Box2" to="." method="_on_box_was_hit"]
