@@ -131,10 +131,12 @@ func _on_damage_box_area_entered(area: Area2D) -> void:
 		area.get_parent().take_damage(damage, dir)
 
 func _on_detect_standing_body(body: Node2D) -> void:
-	var node_on = get_node("%" + body.name)
-	if not is_dead:
-		node_on.is_stood_on(self.name)
+	if body.is_in_group("bumpable"):
+		var node_on = get_node("%" + body.name)
+		if not is_dead:
+			node_on.is_stood_on(self.name)
 func _on_detect_leaving_body(body: Node2D) -> void:
-	var node_left = get_node("%" + body.name)
-	if not is_dead:
-		node_left.is_no_longer_stood_on()
+	if body.is_in_group("bumpable"):
+		var node_left = get_node("%" + body.name)
+		if not is_dead:
+			node_left.is_no_longer_stood_on()
