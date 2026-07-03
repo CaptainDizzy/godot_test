@@ -240,6 +240,9 @@ position = Vector2(3572, 997)
 [node name="Box3" parent="LevelObjs" unique_id=1124429847 instance=ExtResource("2_mkhiu")]
 position = Vector2(4038, 655)
 
+[node name="Box4" parent="LevelObjs" unique_id=171591351 instance=ExtResource("2_mkhiu")]
+position = Vector2(6515, 746)
+
 [node name="PileOn4" parent="LevelObjs" unique_id=2070580428 instance=ExtResource("3_4k4rx")]
 position = Vector2(4494, 997)
 
@@ -261,6 +264,9 @@ position = Vector2(5678, 846)
 [node name="Block11" parent="LevelObjs" unique_id=806790462 instance=ExtResource("6_5i1g8")]
 position = Vector2(5678, 946)
 
+[node name="Block" parent="LevelObjs" unique_id=1423264668 instance=ExtResource("6_5i1g8")]
+position = Vector2(6202, 946)
+
 [node name="Mobs" type="Node2D" parent="." unique_id=1750582389]
 unique_name_in_owner = true
 
@@ -268,16 +274,16 @@ unique_name_in_owner = true
 position = Vector2(2676, 968)
 
 [node name="Crawler2" parent="Mobs" unique_id=1125435250 instance=ExtResource("5_8s4kh")]
-position = Vector2(1871, 976)
+position = Vector2(1871, 965)
 
 [node name="Crawler3" parent="Mobs" unique_id=1904531920 instance=ExtResource("5_8s4kh")]
-position = Vector2(4041, 939)
+position = Vector2(4041, 966)
 
 [node name="Tosser" parent="Mobs" unique_id=2012318944 instance=ExtResource("8_dkcvi")]
 position = Vector2(5356, 667)
 
 [node name="Crawler4" parent="Mobs" unique_id=1466439913 instance=ExtResource("5_8s4kh")]
-position = Vector2(4670, 957)
+position = Vector2(4670, 964)
 
 [node name="Block" parent="." unique_id=756312004 instance=ExtResource("6_5i1g8")]
 position = Vector2(5778, 946)

@@ -695,7 +695,7 @@ shape = SubResource("RectangleShape2D_q5w7w")
 
 [node name="PlatformerScreen" parent="." unique_id=2138964136 instance=ExtResource("11_m6wy5")]
 unique_name_in_owner = true
-position = Vector2(6000, 1323)
+position = Vector2(6010, 1346)
 
 [node name="DizzyTransitions" parent="." unique_id=688147533 instance=ExtResource("6_qjlv8")]
 unique_name_in_owner = true
