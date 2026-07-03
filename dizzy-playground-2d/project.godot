@@ -100,6 +100,7 @@ player_attacks=""
 mob_damage_box=""
 mob_hurtbox=""
 player=""
+bumpable=""
 
 [input]
 

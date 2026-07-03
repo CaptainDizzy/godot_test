@@ -406,7 +406,7 @@ size = Vector2(100, 100)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e8jsp"]
 size = Vector2(90, 10)
 
-[node name="Block" type="StaticBody2D" unique_id=1886465380]
+[node name="Block" type="StaticBody2D" unique_id=1886465380 groups=["bumpable"]]
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_qgcrf")
