@@ -8,3 +8,5 @@ res://ascii/assets/crawler_body (2).tscn
 res://ascii/assets/crawler (2).tscn
 res://ascii/assets/tosser_body.tscn
 res://ascii/assets/tosser.tscn
+res://ascii/scripts/tosser.gd
+res://ascii/scripts/tosser_body.gd

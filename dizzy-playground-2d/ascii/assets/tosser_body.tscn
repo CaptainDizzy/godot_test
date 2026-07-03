@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://qn0j5skc4k72"]
 
 [ext_resource type="Theme" uid="uid://dpika668hgijq" path="res://ascii/ui/pixelfont.theme" id="1_frdft"]
+[ext_resource type="Script" uid="uid://by236qo5848hi" path="res://ascii/scripts/tosser_body.gd" id="1_xykom"]
 [ext_resource type="FontFile" uid="uid://b0r2cab1742t2" path="res://fonts/vertopal.com_8514oem.ttf" id="2_xykom"]
 
 [sub_resource type="Animation" id="Animation_aw40l"]
@@ -400,6 +401,7 @@ _data = {
 }
 
 [node name="TosserBody" type="Node2D" unique_id=1389010231]
+script = ExtResource("1_xykom")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=317889790]
 unique_name_in_owner = true
