@@ -102,7 +102,9 @@ func toss_action() -> void:
 		await get_tree().create_timer(1.25).timeout
 		tossed = false
 		is_tossing = false
-	
+
+func _on_tossing_timeout() -> void:
+	is_tossing = true
 
 func _on_stomped(area: Area2D) -> void:
 	if area.is_in_group("player_attacks"):
@@ -126,6 +128,6 @@ func _on_damage_box_area_entered(area: Area2D) -> void:
 		print(dir)
 		area.get_parent().take_damage(damage, dir)
 
-
-func _on_tossing_timeout() -> void:
-	is_tossing = true
+func _on_detect_standing_body(body: Node2D) -> void:
+	print(self.name + " is standing on " + body.name)
+	#body.is_stood_on(self.name)

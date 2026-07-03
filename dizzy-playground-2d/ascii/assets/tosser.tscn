@@ -13,6 +13,9 @@ size = Vector2(92, 14)
 radius = 45.0
 height = 140.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_w8jo0"]
+radius = 8.5440035
+
 [node name="Tosser" type="CharacterBody2D" unique_id=1315470838]
 collision_layer = 2
 collision_mask = 7
@@ -47,6 +50,16 @@ debug_color = Color(0.9904775, 0.09580713, 1.92523e-07, 0.41960785)
 wait_time = 3.0
 autostart = true
 
+[node name="StandOnDetect" type="Area2D" parent="." unique_id=1438702460]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StandOnDetect" unique_id=1090384551]
+position = Vector2(0, 15)
+shape = SubResource("CircleShape2D_w8jo0")
+
 [connection signal="area_entered" from="StompBox" to="." method="_on_stomped"]
 [connection signal="area_entered" from="DamageBox" to="." method="_on_damage_box_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_tossing_timeout"]
+[connection signal="body_entered" from="StandOnDetect" to="." method="_on_detect_standing_body"]

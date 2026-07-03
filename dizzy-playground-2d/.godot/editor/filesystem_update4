@@ -10,3 +10,6 @@ res://ascii/scripts/crawler.gd
 res://ascii/assets/player.tscn
 res://ascii/scripts/player.gd
 res://ascii/assets/crawler.tscn
+res://ascii/assets/box.tscn
+res://ascii/scripts/box.gd
+res://ascii/assets/block.tscn
