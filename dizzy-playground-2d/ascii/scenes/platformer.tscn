@@ -265,7 +265,7 @@ position = Vector2(5678, 846)
 position = Vector2(5678, 946)
 
 [node name="Block" parent="LevelObjs" unique_id=1423264668 instance=ExtResource("6_5i1g8")]
-position = Vector2(6202, 946)
+position = Vector2(6173, 946)
 
 [node name="Mobs" type="Node2D" parent="." unique_id=1750582389]
 unique_name_in_owner = true
