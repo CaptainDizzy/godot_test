@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://elo6dpv5myij"]
+
+[ext_resource type="Theme" uid="uid://dpika668hgijq" path="res://ascii/ui/pixelfont.theme" id="1_1i8j3"]
+[ext_resource type="Script" uid="uid://byyj5eb5vt8vc" path="res://ascii/scripts/moving_platform.gd" id="1_1pqf0"]
+[ext_resource type="FontFile" uid="uid://b0r2cab1742t2" path="res://fonts/vertopal.com_8514oem.ttf" id="2_1pqf0"]
+
+[sub_resource type="Curve2D" id="Curve2D_1pqf0"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -465, 0, 0, 0, 0, 0, 465, 0)
+}
+point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w8jo0"]
+size = Vector2(400, 22)
+
+[node name="MovingPlatform" type="Node2D" unique_id=1897429142]
+
+[node name="Path2D" type="Path2D" parent="." unique_id=2048727225]
+curve = SubResource("Curve2D_1pqf0")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=1602178336]
+position = Vector2(-465, 0)
+rotates = false
+loop = false
+
+[node name="Platform" type="AnimatableBody2D" parent="." unique_id=249943285]
+sync_to_physics = false
+script = ExtResource("1_1pqf0")
+
+[node name="CBox" type="CollisionShape2D" parent="Platform" unique_id=1962757504]
+shape = SubResource("RectangleShape2D_w8jo0")
+
+[node name="ColorRect" type="ColorRect" parent="Platform" unique_id=278070596]
+offset_left = -200.0
+offset_top = -11.0
+offset_right = 200.0
+offset_bottom = 11.0
+color = Color(0.6666667, 0.30588236, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Platform" unique_id=1703193455]
+offset_left = -200.0
+offset_top = 11.0
+offset_right = 200.0
+offset_bottom = 15.0
+color = Color(0.26666668, 0.11372549, 0, 1)
+
+[node name="Label" type="Label" parent="Platform" unique_id=613411088]
+offset_left = -200.0
+offset_top = -6.0
+offset_right = 200.0
+offset_bottom = 59.0
+theme = ExtResource("1_1i8j3")
+theme_override_colors/font_color = Color(0.26666668, 0.11372549, 0, 1)
+theme_override_fonts/font = ExtResource("2_1pqf0")
+theme_override_font_sizes/font_size = 64
+text = "~~~~~~~~~~"
