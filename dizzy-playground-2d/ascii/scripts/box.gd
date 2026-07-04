@@ -19,7 +19,8 @@ func is_no_longer_stood_on() -> void:
 
 func _on_bonked(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		if is_below:
+		var is_alive = get_node_or_null("../../Mobs/" + is_below) 
+		if is_alive and is_below :
 			var standing_node = get_node("../../Mobs/" + is_below)
 			standing_node.get_dead()
 			

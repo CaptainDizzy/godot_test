@@ -92,7 +92,7 @@ func _physics_process(delta: float) -> void:
 			%ASCII.play_jump_animation()
 			velocity.y = JUMP_V
 		
-		if not is_on_floor() and is_jumping:
+		if not is_on_floor() and is_jumping and not first_landing:
 			velocity.x = move_toward(velocity.x, direction * SPEED * prev_multi, SPEED * 0.1)
 		
 		# Ground movement 
@@ -100,14 +100,18 @@ func _physics_process(delta: float) -> void:
 			if direction != 0:
 				velocity.x = move_toward(velocity.x, direction * SPEED * speed_multiplier, SPEED * 0.25)
 				if speed_multiplier > 2:
+					%ASCII.reset_animation()
 					%ASCII.play_run_animation()
 				else:
+					%ASCII.reset_animation()
 					%ASCII.play_walk_animation()
 			else:
 				velocity.x = move_toward(velocity.x, 0, SPEED * 0.25)
+				%ASCII.reset_animation()
 				%ASCII.play_idle_animation()
 		
 		if not fall_anim and falling:
+			%ASCII.reset_animation()
 			%ASCII.play_falling_animation()
 			fall_anim = true
 		

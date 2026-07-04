@@ -283,6 +283,10 @@ position = Vector2(6173, 946)
 [node name="MovingPlatform" parent="LevelObjs" unique_id=2146357039 instance=ExtResource("7_504g7")]
 position = Vector2(7254, 739)
 
+[node name="MovingPlatform2" parent="LevelObjs" unique_id=1897429142 instance=ExtResource("7_504g7")]
+position = Vector2(8221, 590)
+scale = Vector2(-1, 1)
+
 [node name="Mobs" type="Node2D" parent="." unique_id=1750582389]
 unique_name_in_owner = true
 

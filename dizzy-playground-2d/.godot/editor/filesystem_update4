@@ -17,3 +17,4 @@ res://ascii/scripts/platformer_screen.gd
 res://ascii/assets/block.gd
 res://ascii/assets/moving_platform.tscn
 res://ascii/scripts/moving_platform.gd
+res://ascii/assets/ascii.tscn
