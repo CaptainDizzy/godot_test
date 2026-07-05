@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://btf8522amfvpj"]
+
+[ext_resource type="Script" uid="uid://d1ywl7w6x0d3u" path="res://path_tree/scripts/path_tree.gd" id="1_sdqx8"]
+[ext_resource type="Script" uid="uid://dd2a1iymt5tww" path="res://path_tree/scripts/map.gd" id="2_ckdk6"]
+[ext_resource type="Theme" uid="uid://5t27og2q550y" path="res://path_tree/ui/dizzy_generic_theme.tres" id="2_oix08"]
+[ext_resource type="PackedScene" uid="uid://ckowrgqaidh8t" path="res://addons/dizzy_transitions/dizzy_transitions.tscn" id="3_ckdk6"]
+
+[node name="PathTree" type="Node2D" unique_id=351082057]
+script = ExtResource("1_sdqx8")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=539933113]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+
+[node name="Map" type="Node2D" parent="." unique_id=1276505026]
+unique_name_in_owner = true
+script = ExtResource("2_ckdk6")
+
+[node name="GUI" type="Control" parent="." unique_id=278854026]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="GenerateNewBtn" type="Button" parent="GUI" unique_id=767181384]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -124.5
+offset_top = 40.0
+offset_right = 124.5
+offset_bottom = 84.0
+grow_horizontal = 2
+theme = ExtResource("2_oix08")
+text = "Generate New Map"
+
+[node name="Back to Menu" type="Button" parent="GUI" unique_id=1075713942]
+layout_mode = 1
+offset_left = 50.0
+offset_top = 40.0
+offset_right = 260.0
+offset_bottom = 84.0
+theme = ExtResource("2_oix08")
+text = "< Back to Menu"
+
+[node name="DizzyTransitions" parent="." unique_id=688147533 instance=ExtResource("3_ckdk6")]
+unique_name_in_owner = true
+visible = false
+
+[connection signal="button_up" from="GUI/GenerateNewBtn" to="Map" method="_on_generate_new_btn"]

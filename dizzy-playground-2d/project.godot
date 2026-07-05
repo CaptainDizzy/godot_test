@@ -102,6 +102,10 @@ mob_hurtbox=""
 player=""
 bumpable=""
 
+[gui]
+
+theme/custom_font="uid://xhybw3fm30i2"
+
 [input]
 
 ui_accept={

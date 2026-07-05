@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://b10ui6t8tnp2b"]
+
+[ext_resource type="Texture2D" uid="uid://dbq5py1pyyawd" path="res://path_tree/assets/node_shape.png" id="1_jmq84"]
+
+[node name="NodeShape" type="Node2D" unique_id=629090971]
+
+[node name="NodeShape" type="Sprite2D" parent="." unique_id=578908133]
+position = Vector2(25, 25)
+texture = ExtResource("1_jmq84")

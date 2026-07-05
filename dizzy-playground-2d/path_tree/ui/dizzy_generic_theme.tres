@@ -1,0 +1,30 @@
+[gd_resource type="Theme" format=3 uid="uid://5t27og2q550y"]
+
+[ext_resource type="StyleBox" uid="uid://dh7ow47cdxw6d" path="res://path_tree/ui/button_hover.tres" id="1_5mwn6"]
+[ext_resource type="StyleBox" uid="uid://csfd08ln2gc62" path="res://path_tree/ui/button_normal.tres" id="2_w01od"]
+[ext_resource type="StyleBox" uid="uid://dlkkl213k8s2r" path="res://path_tree/ui/button_pressed.tres" id="3_w01od"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u1g13"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dwd0p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xbwcf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ypyig"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jl4vw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sq1av"]
+
+[resource]
+Button/font_sizes/font_size = 24
+Button/styles/hover = ExtResource("1_5mwn6")
+Button/styles/normal = ExtResource("2_w01od")
+Button/styles/pressed = ExtResource("3_w01od")
+CheckBox/styles/focus = SubResource("StyleBoxEmpty_u1g13")
+CheckBox/styles/hover = SubResource("StyleBoxEmpty_dwd0p")
+CheckBox/styles/normal = SubResource("StyleBoxEmpty_xbwcf")
+CheckButton/styles/focus = SubResource("StyleBoxEmpty_ypyig")
+CheckButton/styles/hover = null
+CheckButton/styles/normal = SubResource("StyleBoxEmpty_jl4vw")
+CheckButton/styles/pressed = SubResource("StyleBoxEmpty_sq1av")

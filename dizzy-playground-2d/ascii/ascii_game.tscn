@@ -126,7 +126,7 @@ text = "♥"
 
 [node name="Player" parent="." unique_id=1632503170 instance=ExtResource("2_qihb0")]
 unique_name_in_owner = true
-position = Vector2(6831, 1016)
+position = Vector2(967, 641)
 
 [node name="Cam" type="Camera2D" parent="." unique_id=1775665619]
 unique_name_in_owner = true

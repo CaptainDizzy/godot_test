@@ -5,15 +5,16 @@
 [ext_resource type="StyleBox" uid="uid://fnh6725e6aaq" path="res://menu/ui/menu_hoverfocus.tres" id="1_ouk20"]
 [ext_resource type="Texture2D" uid="uid://cskdrt30gipyj" path="res://menu/ui/survivor_game.png" id="2_s4hbh"]
 [ext_resource type="Texture2D" uid="uid://b2ef8d4l3xrd4" path="res://menu/ui/ascii_game.png" id="3_6fswf"]
-[ext_resource type="Texture2D" uid="uid://btf8x383dhtsa" path="res://survivors/assets/characters/happy_boo/square_ref.png" id="3_mae5d"]
 [ext_resource type="Script" uid="uid://nrmyee055jel" path="res://menu/2d_game_button.gd" id="4_4hy44"]
+[ext_resource type="Theme" uid="uid://5t27og2q550y" path="res://path_tree/ui/dizzy_generic_theme.tres" id="4_bc54p"]
+[ext_resource type="Texture2D" uid="uid://dm43tfl8j2rwm" path="res://menu/ui/blank_preview_template.png" id="4_iesyu"]
 [ext_resource type="PackedScene" uid="uid://ckowrgqaidh8t" path="res://addons/dizzy_transitions/dizzy_transitions.tscn" id="5_ytr4m"]
 [ext_resource type="Script" uid="uid://bfe83ixkmftu8" path="res://menu/ascii_button.gd" id="6_v6yed"]
+[ext_resource type="Texture2D" uid="uid://hj3e18hsj07" path="res://survivors/assets/icon.png" id="8_iuxab"]
+[ext_resource type="Script" uid="uid://c2w22ipe5x7gx" path="res://menu/playground_button.gd" id="10_043lm"]
+[ext_resource type="Texture2D" uid="uid://dal8d8thtnqlh" path="res://ascii/ascii_icon.png" id="10_dmxns"]
 
-[sub_resource type="FontVariation" id="FontVariation_ouk20"]
-variation_embolden = 0.66
-spacing_top = 24
-spacing_bottom = 24
+[sub_resource type="FontVariation" id="FontVariation_043lm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mae5d"]
 content_margin_left = 24.0
@@ -48,9 +49,15 @@ texture = ExtResource("2_s4hbh")
 [node name="ASCIIPreview" type="Sprite2D" parent="Background" unique_id=1173100512]
 unique_name_in_owner = true
 visible = false
-position = Vector2(1214.6733, 540.25)
-scale = Vector2(0.77854055, 0.7785405)
+position = Vector2(1213, 540)
+scale = Vector2(1.0037178, 1.0037175)
 texture = ExtResource("3_6fswf")
+
+[node name="PathTreePreview" type="Sprite2D" parent="Background" unique_id=1366132971]
+unique_name_in_owner = true
+visible = false
+position = Vector2(1312.5, 540)
+texture = ExtResource("4_iesyu")
 
 [node name="BGColor2" type="ColorRect" parent="Background" unique_id=2011871906]
 layout_mode = 0
@@ -82,7 +89,8 @@ layout_mode = 2
 
 [node name="Title" type="Label" parent="HBoxContainer/MainCenter" unique_id=1729282121]
 layout_mode = 2
-theme_override_fonts/font = SubResource("FontVariation_ouk20")
+theme = ExtResource("4_bc54p")
+theme_override_fonts/font = SubResource("FontVariation_043lm")
 theme_override_font_sizes/font_size = 56
 theme_override_styles/normal = SubResource("StyleBoxFlat_mae5d")
 text = "Main Menu UI Test"
@@ -101,35 +109,44 @@ layout_mode = 2
 layout_mode = 2
 theme_override_constants/h_separation = 12
 theme_override_constants/icon_max_width = 64
+theme_override_fonts/font = SubResource("FontVariation_043lm")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = ExtResource("1_mae5d")
 theme_override_styles/hover = ExtResource("1_ouk20")
 theme_override_styles/disabled_mirrored = ExtResource("1_ouk20")
 text = "GDQuiz 2D Tutorial (Survivors)"
-icon = ExtResource("3_mae5d")
+icon = ExtResource("8_iuxab")
 alignment = 0
 script = ExtResource("4_4hy44")
 
 [node name="ASCIIGameButton" type="Button" parent="HBoxContainer/MainCenter" unique_id=1744443458]
 layout_mode = 2
+theme = ExtResource("4_bc54p")
+theme_override_fonts/font = SubResource("FontVariation_043lm")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = ExtResource("1_mae5d")
 theme_override_styles/hover = ExtResource("1_ouk20")
 theme_override_styles/disabled_mirrored = ExtResource("1_ouk20")
-text = "ASCII Character Test"
+text = "ASCII Adventure"
+icon = ExtResource("10_dmxns")
 alignment = 0
+expand_icon = true
 script = ExtResource("6_v6yed")
 
 [node name="PlaygroundButton" type="Button" parent="HBoxContainer/MainCenter" unique_id=1142430530]
 layout_mode = 2
+theme = ExtResource("4_bc54p")
+theme_override_fonts/font = SubResource("FontVariation_043lm")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = ExtResource("1_mae5d")
 theme_override_styles/hover = ExtResource("1_ouk20")
 theme_override_styles/disabled_mirrored = ExtResource("1_ouk20")
-text = "Playground"
+text = "Path Tree Test"
 alignment = 0
+script = ExtResource("10_043lm")
 
 [node name="BarRight" type="VBoxContainer" parent="HBoxContainer" unique_id=134465698]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 
