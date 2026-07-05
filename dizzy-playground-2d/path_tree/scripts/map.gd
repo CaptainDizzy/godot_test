@@ -28,6 +28,7 @@ func generate_tree() -> void:
 	canvas_bg.position = Vector2(0,0)
 	canvas_bg.color = Color("ffffff19")
 	add_child(canvas_bg)
+	
 	# Create 1st node (path_tree[0]) & initialize local relative variables
 	var start_location := {"x" = 0, "y" = (map_canvas.h / 2) - (node_size.h / 2)}
 	path_tree = [
@@ -36,6 +37,16 @@ func generate_tree() -> void:
 			"y": start_location.y
 		}
 	]
+	
+	# Create and display the path line that will connect the nodes.
+	# This is done before the first node shape, because I want the line behind the nodes
+	var path_line = Line2D.new()
+	add_child(path_line)
+	path_line.width = 8.0
+	path_line.default_color = Color("2f72d8")
+	path_line.add_point(Vector2(start_location.x + (node_size.w/2),start_location.y + (node_size.h/2)))
+	
+	# Display first node
 	const FIRST_NODE_SHAPE = preload("res://path_tree/assets/node_shape.tscn")
 	var first_node_shape = FIRST_NODE_SHAPE.instantiate()
 	first_node_shape.position.x = start_location.x
@@ -61,6 +72,9 @@ func generate_tree() -> void:
 		
 		# Add the new node to the path array
 		path_tree.append(new_node)
+		
+		# Update the path line to connect to the new node
+		path_line.add_point(Vector2(new_node.x + (node_size.w/2),new_node.y + (node_size.h/2)))
 		
 		# Create and show the actual node in the scene tree and on the screen visually
 		const NODE_SHAPE = preload("res://path_tree/assets/node_shape.tscn")
