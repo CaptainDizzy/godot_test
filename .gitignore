@@ -1,0 +1,20 @@
+# Godot editor data (auto-generated, never commit)
+.godot/
+
+# Godot mono/C# build artifacts
+.mono/
+data_*/
+mono_crash.*.json
+
+# Export builds
+builds/
+*.apk
+*.aab
+*.exe
+*.x86_64
+*.dmg
+*.zip
+
+# OS junk
+.DS_Store
+Thumbs.db
