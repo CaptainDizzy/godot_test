@@ -65,17 +65,12 @@ func generate_tree() -> void:
 			"y": prev_node.y + randi_range(-200, 200),
 			"branches": 0
 		}
-		# Make sure a node isn't above or below the map canvas
-		clamp_canvas(new_node)
-		
-		# Add the new node to the path array
-		path_tree.append(new_node)
+		clamp_canvas(new_node) # Make sure a node isn't above or below the map canvas
+		path_tree.append(new_node) # Add the new node to the path array
 		
 		# Update the path line to connect to the new node
 		path_line.add_point(Vector2(new_node.x + (node_size.w/2),new_node.y + (node_size.h/2)))
-		
-		# Create and show the actual node in the scene tree and on the screen visually
-		draw_node(new_node)
+		draw_node(new_node) # Create and show the actual node in the scene tree and on the screen visually
 		
 		# Record the new node so the next one can reference it more easily !!Must be the very last call in the loop
 		prev_node = new_node
@@ -88,7 +83,9 @@ func generate_tree() -> void:
 			print("End of line")
 			print(path_tree)
 			continue
-		var n = randi_range(1, 20)
+		
+		var n = randi_range(1, 20) # Choose 0, 1, or 2 paths
+		
 		if n > 12: # Don't create branch, and skip to the next node
 			print("node " + str(i) + ": no branch")
 			#continue
@@ -150,7 +147,7 @@ func generate_tree() -> void:
 							}
 							print("connector_node created at " + str(connector_node.x) + ", " + str(connector_node.y))
 							# Find a node to connect to
-							var connect_nodes: Array = get_tree_connectors(connector_node, 1)
+							var connect_nodes: Array = get_tree_connectors(connector_node)
 							var closest_dist = 0
 							var closest: Dictionary
 							for cnctn in connect_nodes:
@@ -250,12 +247,13 @@ func check_siblings_and_adjust(new_branch, crnt_node, new_node, branch_line, i =
 			elif sib_dist < closest_dist:
 				closest = s                         # Record the clossest node and it's distance
 				closest_dist = sib_dist
-		if closest_dist <= 75:      
+		if closest_dist <= 80:      
 			print("merged from " + str(new_node.y) + " to " + str(closest.y))                # If the closest of these nodes is less than or equal to 80...
 			new_node.y = closest.y                  # just merge them, connect the line, and end the loop
 			
 			branch_line.add_point(Vector2(new_node.x + (node_size.w/2),new_node.y + (node_size.h/2)))
 			draw_node(new_node)
+			
 			new_branch.append(new_node)
 			crnt_node["branch_" + str(i+1)] = new_branch
 			var end = true
@@ -263,12 +261,13 @@ func check_siblings_and_adjust(new_branch, crnt_node, new_node, branch_line, i =
 	elif siblings["close"].size() == 1:                    # If there's only 1 node close to new_node...
 		closest = siblings["close"][0]
 		
-		if abs(closest.y - new_node.y) <= 75:
+		if abs(closest.y - new_node.y) <= 50:
 			print("merged node from " + str(new_node.y))
 			new_node.y = closest.y
 			print("              to " + str(new_node.y))
 			
 			branch_line.add_point(Vector2(new_node.x + (node_size.w/2),new_node.y + (node_size.h/2)))
+			draw_node(new_node)
 			
 			new_branch.append(new_node)
 			crnt_node["branch_" + str(i+1)] = new_branch
@@ -308,10 +307,10 @@ func get_pos_siblings(node) -> Dictionary:
 	var sibs_and_close: Dictionary = {"all" = all, "close" = close}
 	return sibs_and_close
 
-func get_tree_connectors(node, varience) -> Array:
+func get_tree_connectors(node) -> Array:
 	var nodes: Array = []
 	for s in path_tree:
-		if abs(s.pos - node.pos) <= varience:
+		if abs(s.pos - node.pos) <= 1:
 			nodes.append(s)
 	return nodes
 
