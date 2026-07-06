@@ -45,6 +45,28 @@ offset_bottom = 84.0
 theme = ExtResource("2_oix08")
 text = "< Back to Menu"
 
+[node name="LineEdit" type="LineEdit" parent="GUI" unique_id=1603226682]
+layout_mode = 0
+offset_left = 551.0
+offset_top = 42.0
+offset_right = 631.0
+offset_bottom = 80.0
+theme = ExtResource("2_oix08")
+theme_override_font_sizes/font_size = 22
+text = "12"
+alignment = 1
+
+[node name="Label" type="Label" parent="GUI" unique_id=1426831877]
+layout_mode = 0
+offset_left = 442.0
+offset_top = 45.0
+offset_right = 539.0
+offset_bottom = 75.0
+theme = ExtResource("2_oix08")
+theme_override_colors/font_color = Color(0.7891722, 0.78917205, 0.78917235, 1)
+theme_override_font_sizes/font_size = 22
+text = "Segments:"
+
 [node name="DizzyTransitions" parent="." unique_id=688147533 instance=ExtResource("3_ckdk6")]
 unique_name_in_owner = true
 visible = false

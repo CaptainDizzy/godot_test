@@ -3,6 +3,7 @@
 [ext_resource type="StyleBox" uid="uid://dh7ow47cdxw6d" path="res://path_tree/ui/button_hover.tres" id="1_5mwn6"]
 [ext_resource type="StyleBox" uid="uid://csfd08ln2gc62" path="res://path_tree/ui/button_normal.tres" id="2_w01od"]
 [ext_resource type="StyleBox" uid="uid://dlkkl213k8s2r" path="res://path_tree/ui/button_pressed.tres" id="3_w01od"]
+[ext_resource type="StyleBox" uid="uid://ce0l4mktynfrg" path="res://path_tree/ui/line_edit.tres" id="4_hl02v"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u1g13"]
 
@@ -28,3 +29,4 @@ CheckButton/styles/focus = SubResource("StyleBoxEmpty_ypyig")
 CheckButton/styles/hover = null
 CheckButton/styles/normal = SubResource("StyleBoxEmpty_jl4vw")
 CheckButton/styles/pressed = SubResource("StyleBoxEmpty_sq1av")
+LineEdit/styles/normal = ExtResource("4_hl02v")
