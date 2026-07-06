@@ -97,132 +97,135 @@ func generate_tree() -> void:
 			node["branch_1"] = []
 			branch_segs = path_segs - (node.pos + 1) - 1 # Determine how many branch_segs there should be
 			
-			# Create a new branch array
-			var new_branch = []
-			
-			# Make the number of branches the node has
-			for b in node.branches:
-				# Create in set up the new branch's path line
-				var branch_line = Line2D.new()
-				add_child(branch_line)
-				branch_line.width = 8.0
-				branch_line.default_color = Color("507b41ff")
-				branch_line.add_point(Vector2(prev_node.x + (node_size.w/2),prev_node.y + (node_size.h/2)))
-				
-				# Generate new nodes until self terminating
-				var bs = 1
-				var end = false
-				while not end:
-					var c = randi_range(1, 20)
-					
-					# Reconnect to tree path
-					if c > 12:
-						print("node " + str(i) + ": reconnected from roll")
-						var new_node = {
-							"pos": prev_node.pos + 1,
-							"x": prev_node.x + node_distance,
-							"y": prev_node.y + randi_range(-200, 200),
-							"branches": 0
-						}
-						
-						var merged = check_siblings_and_adjust(new_branch, node, new_node, branch_line, b)
-						if merged:
-							print("merged early")
-							branch_line.add_point(Vector2(new_node.x + (node_size.w/2),new_node.y + (node_size.h/2)))
-							draw_node(new_node)
-							end = true  # If the check returns true, we just have to end the loop here because the check appends the node and branch and resolves the line and node for us
-						elif not merged:
-							new_branch.append(new_node) # Add the new node to the branch array
-							
-							branch_line.add_point(Vector2(new_node.x + (node_size.w/2),new_node.y + (node_size.h/2)))
-							draw_node(new_node)
-							
-							prev_node = new_node # Record new node as the previous node now that it's completed
-							
-							var connector_node = {
-								"pos": prev_node.pos,
-								"x": prev_node.x,
-								"y": prev_node.y,
-								"branches": 0
-							}
-							print("connector_node created at " + str(connector_node.x) + ", " + str(connector_node.y))
-							# Find a node to connect to
-							var connect_nodes: Array = get_tree_connectors(connector_node)
-							var closest_dist = 0
-							var closest: Dictionary
-							for cnctn in connect_nodes:
-								print("connector at pos: " + str(cnctn.pos) + " y = " + str(cnctn.y))
-								var dist = abs(cnctn.y - connector_node.y)
-								if not closest:
-									closest = cnctn                         # Record the first node to set the variables
-									closest_dist = dist
-								elif dist < closest_dist:
-									closest = cnctn                         # Record the clossest node and it's distance
-									closest_dist = dist
-							
-							print("closest at pos: " + str(closest.pos) + "| y: " + str(closest.y))
-							
-							if closest.pos == connector_node.pos:
-								var v = randi_range(1, 20)
-								if v > 12:
-									connector_node.y = closest.y
-									connector_node.x = closest.x
-									connector_node.pos = closest.pos
-									print("merged with closest node at pos " + str(closest.pos))
-								elif v > 6:
-									connector_node.y = connect_nodes[0].y
-									connector_node.x = connect_nodes[0].x
-									connector_node.pos = connect_nodes[0].pos
-									print("chose to merge with node at pos " + str(connect_nodes[1].pos))
-								elif v > 0:
-									connector_node.y = connect_nodes[2].y
-									connector_node.x = connect_nodes[2].x
-									connector_node.pos = connect_nodes[2].pos
-									print("chose to merge with node at pos " + str(connect_nodes[2].pos))
-							else:
-								connector_node.y = closest.y
-								connector_node.x = closest.x
-								print("merged with closest")
-							
-							new_branch.append(connector_node)
-							branch_line.add_point(Vector2(connector_node.x + (node_size.w/2),connector_node.y + (node_size.h/2)))
-							draw_node(connector_node)
-							node["branch_" + str(b+1)] = new_branch
-							end = true
-					
-					elif c > 0: # Create new node
-						# Set the new node's dictionary
-						var new_node = {
-							"pos": prev_node.pos + 1,
-							"x": prev_node.x + node_distance,
-							"y": prev_node.y + randi_range(-200, 200),
-							"branches": 0
-						}
-						
-						# Do all the heavy lifting in a separate function for reusability
-						var did_end = check_siblings_and_adjust(new_branch, node, new_node, branch_line, b)
-						
-						if did_end:                # If check_siblings_and_adjust returns true, that means it merged nodes along with draw the line and node, 
-							prev_node = new_node   # so we only need to set end to end to true and record prev_node I know this can be more efficient, but that's for Future Dizzy. to deal with.
-							end = true
-						elif not did_end:
-							new_branch.append(new_node)# Add the new node to the branch array
-							branch_line.add_point(Vector2(new_node.x + (node_size.w/2),new_node.y + (node_size.h/2))) # Update the path line to connect to the new node
-							draw_node(new_node) # Create and show the actual node in the scene tree and on the screen visually
-							prev_node = new_node # Record new node as the previous node now that it's completed
-					
-					# Check if branch_segs has been met, if so end loop
-					if bs >= branch_segs and not end:
-						node["branch_" + str(b+1)] = new_branch
-						end = true
-					else:
-						bs += 1
+			grow_branches(i,node, prev_node)
 			
 		elif n > 0: # Create 2 branches
 			print("node " + str(i) + ": 2 branches")
 		
 		i += 1
 	
+
+func grow_branches(i, node, prev_node) -> void:
+	# Create a new branch array
+	var new_branch = []
+	
+	# Make the number of branches the node has
+	for b in node.branches:
+		# Create in set up the new branch's path line
+		var branch_line = Line2D.new()
+		add_child(branch_line)
+		branch_line.width = 8.0
+		branch_line.default_color = Color("507b41ff")
+		branch_line.add_point(Vector2(prev_node.x + (node_size.w/2),prev_node.y + (node_size.h/2)))
+		
+		# Generate new nodes until self terminating
+		var bs = 1
+		var end = false
+		while not end:
+			var c = randi_range(1, 20)
+			
+			# Reconnect to tree path
+			if c > 12:
+				print("node " + str(i) + ": reconnected from roll")
+				var new_node = {
+					"pos": prev_node.pos + 1,
+					"x": prev_node.x + node_distance,
+					"y": prev_node.y + randi_range(-200, 200),
+					"branches": 0
+				}
+				
+				var merged = check_siblings_and_adjust(new_branch, node, new_node, branch_line, b)
+				if merged:
+					print("merged early")
+					branch_line.add_point(Vector2(new_node.x + (node_size.w/2),new_node.y + (node_size.h/2)))
+					draw_node(new_node)
+					end = true  # If the check returns true, we just have to end the loop here because the check appends the node and branch and resolves the line and node for us
+				elif not merged:
+					new_branch.append(new_node) # Add the new node to the branch array
+					
+					branch_line.add_point(Vector2(new_node.x + (node_size.w/2),new_node.y + (node_size.h/2)))
+					draw_node(new_node)
+					
+					prev_node = new_node # Record new node as the previous node now that it's completed
+					
+					var connector_node = {
+						"pos": prev_node.pos,
+						"x": prev_node.x,
+						"y": prev_node.y,
+						"branches": 0
+					}
+					print("connector_node created at " + str(connector_node.x) + ", " + str(connector_node.y))
+					# Find a node to connect to
+					var connect_nodes: Array = get_tree_connectors(connector_node)
+					var closest_dist = 0
+					var closest: Dictionary
+					for cnctn in connect_nodes:
+						print("connector at pos: " + str(cnctn.pos) + " y = " + str(cnctn.y))
+						var dist = abs(cnctn.y - connector_node.y)
+						if not closest:
+							closest = cnctn                         # Record the first node to set the variables
+							closest_dist = dist
+						elif dist < closest_dist:
+							closest = cnctn                         # Record the clossest node and it's distance
+							closest_dist = dist
+					
+					print("closest at pos: " + str(closest.pos) + "| y: " + str(closest.y))
+					
+					if closest.pos == connector_node.pos:
+						var v = randi_range(1, 20)
+						if v > 12:
+							connector_node.y = closest.y
+							connector_node.x = closest.x
+							connector_node.pos = closest.pos
+							print("merged with closest node at pos " + str(closest.pos))
+						elif v > 6:
+							connector_node.y = connect_nodes[0].y
+							connector_node.x = connect_nodes[0].x
+							connector_node.pos = connect_nodes[0].pos
+							print("chose to merge with node at pos " + str(connect_nodes[1].pos))
+						elif v > 0:
+							connector_node.y = connect_nodes[2].y
+							connector_node.x = connect_nodes[2].x
+							connector_node.pos = connect_nodes[2].pos
+							print("chose to merge with node at pos " + str(connect_nodes[2].pos))
+					else:
+						connector_node.y = closest.y
+						connector_node.x = closest.x
+						print("merged with closest")
+					
+					new_branch.append(connector_node)
+					branch_line.add_point(Vector2(connector_node.x + (node_size.w/2),connector_node.y + (node_size.h/2)))
+					draw_node(connector_node)
+					node["branch_" + str(b+1)] = new_branch
+					end = true
+			
+			elif c > 0: # Create new node
+				# Set the new node's dictionary
+				var new_node = {
+					"pos": prev_node.pos + 1,
+					"x": prev_node.x + node_distance,
+					"y": prev_node.y + randi_range(-200, 200),
+					"branches": 0
+				}
+				
+				# Do all the heavy lifting in a separate function for reusability
+				var did_end = check_siblings_and_adjust(new_branch, node, new_node, branch_line, b)
+				
+				if did_end:                # If check_siblings_and_adjust returns true, that means it merged nodes along with draw the line and node, 
+					prev_node = new_node   # so we only need to set end to end to true and record prev_node I know this can be more efficient, but that's for Future Dizzy. to deal with.
+					end = true
+				elif not did_end:
+					new_branch.append(new_node)# Add the new node to the branch array
+					branch_line.add_point(Vector2(new_node.x + (node_size.w/2),new_node.y + (node_size.h/2))) # Update the path line to connect to the new node
+					draw_node(new_node) # Create and show the actual node in the scene tree and on the screen visually
+					prev_node = new_node # Record new node as the previous node now that it's completed
+			
+			# Check if branch_segs has been met, if so end loop
+			if bs >= branch_segs and not end:
+				node["branch_" + str(b+1)] = new_branch
+				end = true
+			else:
+				bs += 1
 
 func check_siblings_and_adjust(new_branch, crnt_node, new_node, branch_line, i = 0) -> bool:
 	
