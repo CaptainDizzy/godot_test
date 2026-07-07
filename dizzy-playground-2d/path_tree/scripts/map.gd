@@ -91,6 +91,8 @@ func generate_tree() -> void:
 			print(path_tree)
 			continue
 		
+		prev_node = node # Set previous node to the branch's parent node since it will be the first node in this branch
+		branch_segs = path_segs - (node.pos + 1) - 1 # Determine how many branch_segs there should be
 		var n = randi_range(1, 20) # Choose 0, 1, or 2 paths
 		
 		if n > 12: # Don't create branch, and skip to the next node
@@ -99,16 +101,19 @@ func generate_tree() -> void:
 			
 		elif n > 4: # Create 1 branch
 			print("node " + str(node.pos) + ": 1 branch")
-			prev_node = node # Set previous node to the branch's parent node since it will be the first node in this branch
 			node.branches = 1 # Update the node's branches key value
 			node["branch_1"] = []
-			branch_segs = path_segs - (node.pos + 1) - 1 # Determine how many branch_segs there should be
 			
-			grow_branches(i,node, prev_node)
+			grow_branches(i, node, prev_node)
 			
 		elif n > 0: # Create 2 branches
 			print("node " + str(i) + ": 2 branches")
-		
+			node.branches = 2 # Update the node's branches key value
+			node["branch_1"] = []
+			node["branch_2"] = []
+			
+			grow_branches(i, node, prev_node)
+			
 		i += 1
 	
 
@@ -117,12 +122,16 @@ func grow_branches(i, node, prev_node) -> void:
 	var new_branch = []
 	
 	# Make the number of branches the node has
-	for b in node.branches:
+	for b in range(node.branches):
+		prev_node = node
 		# Create in set up the new branch's path line
 		var branch_line = Line2D.new()
 		add_child(branch_line)
 		branch_line.width = 8.0
-		branch_line.default_color = Color("507b41ff")
+		if b == 0:
+			branch_line.default_color = Color("507b41ff")
+		elif b == 1:
+			branch_line.default_color = Color("9d439fff")
 		branch_line.add_point(Vector2(prev_node.x + (node_size.w/2),prev_node.y + (node_size.h/2)))
 		
 		# Generate new nodes until self terminating
@@ -170,10 +179,10 @@ func grow_branches(i, node, prev_node) -> void:
 						print("connector at pos: " + str(cnctn.pos) + " y = " + str(cnctn.y))
 						var dist = abs(cnctn.y - connector_node.y)
 						if not closest:
-							closest = cnctn                         # Record the first node to set the variables
+							closest = cnctn       # Record the first node to set the variables
 							closest_dist = dist
 						elif dist < closest_dist:
-							closest = cnctn                         # Record the clossest node and it's distance
+							closest = cnctn       # Record the clossest node and it's distance
 							closest_dist = dist
 					
 					print("closest at pos: " + str(closest.pos) + "| y: " + str(closest.y))
