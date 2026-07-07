@@ -3,17 +3,22 @@ extends Node2D
 @onready var segs_input: SpinBox = %SegsInput
 
 var path_tree := []
-var map_canvas := {"x" = 128, "y" = 115, "w" = 1600, "h" = 850}
+var map_canvas := {"x" = 0, "y" = 0, "w" = 1600, "h" = 850}
 var node_size := {"w" = 50, "h" = 50}
-var path_segs: int
+var path_segs: int = 12
 var branch_segs: int
 var path_allowance: int = 200
 var node_distance: float = ((map_canvas.w - (node_size.w * path_segs)) / (path_segs - 1)) + node_size.w
 
 func _ready() -> void:
-	%Map.position.x = map_canvas.x
-	%Map.position.y = map_canvas.y
+	segs_input.value_changed.connect(_on_segment_changed)
+	%Map.position.x = 128
+	%Map.position.y = 115
 	generate_tree()
+
+func _on_segment_changed(segs: float) -> void:
+	path_segs = int(segs)
+	node_distance = ((map_canvas.w - (node_size.w * path_segs)) / (path_segs - 1)) + node_size.w
 
 func _on_generate_new_btn() -> void:
 	# Clear the array any previous nodes on screen
