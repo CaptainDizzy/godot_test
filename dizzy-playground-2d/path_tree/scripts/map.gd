@@ -1,9 +1,11 @@
 extends Node2D
 
+@onready var segs_input: SpinBox = %SegsInput
+
 var path_tree := []
 var map_canvas := {"x" = 128, "y" = 115, "w" = 1600, "h" = 850}
 var node_size := {"w" = 50, "h" = 50}
-var path_segs: int = 12
+var path_segs: int
 var branch_segs: int
 var path_allowance: int = 200
 var node_distance: float = ((map_canvas.w - (node_size.w * path_segs)) / (path_segs - 1)) + node_size.w
