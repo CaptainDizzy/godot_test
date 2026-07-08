@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://dd2a1iymt5tww" path="res://path_tree/scripts/map.gd" id="2_ckdk6"]
 [ext_resource type="Theme" uid="uid://5t27og2q550y" path="res://path_tree/ui/dizzy_generic_theme.tres" id="2_oix08"]
 [ext_resource type="PackedScene" uid="uid://ckowrgqaidh8t" path="res://addons/dizzy_transitions/dizzy_transitions.tscn" id="3_ckdk6"]
+[ext_resource type="Script" uid="uid://cvw44t1taxy0f" path="res://path_tree/scripts/back_to_menu.gd" id="4_ckdk6"]
 
 [node name="PathTree" type="Node2D" unique_id=351082057]
 script = ExtResource("1_sdqx8")
@@ -44,6 +45,7 @@ offset_right = 260.0
 offset_bottom = 84.0
 theme = ExtResource("2_oix08")
 text = "< Back to Menu"
+script = ExtResource("4_ckdk6")
 
 [node name="Label" type="Label" parent="GUI" unique_id=1426831877]
 layout_mode = 0

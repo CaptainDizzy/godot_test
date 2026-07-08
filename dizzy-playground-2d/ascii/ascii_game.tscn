@@ -8,7 +8,7 @@
 [ext_resource type="Theme" uid="uid://dpika668hgijq" path="res://ascii/ui/pixelfont.theme" id="3_msc5x"]
 [ext_resource type="AudioStream" uid="uid://bf2tc0twxtbh0" path="res://ascii/assets/audio/intro_mid_1.wav" id="3_myy03"]
 [ext_resource type="AudioStream" uid="uid://c6ruywpgmrjqt" path="res://ascii/assets/audio/intro_mid_2.wav" id="4_heixm"]
-[ext_resource type="FontFile" uid="uid://b0r2cab1742t2" path="res://fonts/vertopal.com_8514oem.ttf" id="4_xgstk"]
+[ext_resource type="FontFile" uid="uid://b0r2cab1742t2" path="res://fonts/8514oem.ttf" id="4_xgstk"]
 [ext_resource type="PackedScene" uid="uid://d2u1ldw8p4xbr" path="res://ascii/ui/fake_button.tscn" id="5_e68bd"]
 [ext_resource type="AudioStream" uid="uid://mvnw2sttudq7" path="res://ascii/assets/audio/intro_end.wav" id="6_heixm"]
 [ext_resource type="PackedScene" uid="uid://ckowrgqaidh8t" path="res://addons/dizzy_transitions/dizzy_transitions.tscn" id="6_qjlv8"]
@@ -126,7 +126,7 @@ text = "♥"
 
 [node name="Player" parent="." unique_id=1632503170 instance=ExtResource("2_qihb0")]
 unique_name_in_owner = true
-position = Vector2(967, 641)
+position = Vector2(967, 623)
 
 [node name="Cam" type="Camera2D" parent="." unique_id=1775665619]
 unique_name_in_owner = true
@@ -374,16 +374,65 @@ layout_mode = 0
 collision_layer = 4
 collision_mask = 0
 
+[node name="WallTop" type="Label" parent="StartingScreen/Walls" unique_id=877324357]
+anchors_preset = -1
+anchor_top = 0.007
+anchor_right = 0.9990001
+anchor_bottom = 0.1
+offset_left = 19.0
+offset_top = -30.0
+offset_right = 1919.0
+offset_bottom = 70.0
+grow_horizontal = 2
+theme = ExtResource("3_msc5x")
+theme_override_font_sizes/font_size = 100
+text = "-------------------"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WallBottom" type="Label" parent="StartingScreen/Walls" unique_id=1741803454]
+anchors_preset = -1
+anchor_top = 0.007
+anchor_right = 0.9990001
+anchor_bottom = 0.1
+offset_left = 19.0
+offset_top = 1021.0
+offset_right = 1919.0
+offset_bottom = 1121.0
+grow_horizontal = 2
+theme = ExtResource("3_msc5x")
+theme_override_font_sizes/font_size = 100
+text = "-------------------"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WallLeft" type="Label" parent="StartingScreen/Walls" unique_id=419748891]
+anchors_preset = -1
+anchor_top = 0.007
+anchor_right = 0.9990001
+anchor_bottom = 0.1
+offset_left = 59.0
+offset_top = 45.0
+offset_right = 1059.0
+offset_bottom = 145.0
+grow_horizontal = 2
+rotation = 1.5707964
+theme = ExtResource("3_msc5x")
+theme_override_font_sizes/font_size = 100
+text = "----------"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Bottom" type="CollisionShape2D" parent="StartingScreen/Walls" unique_id=1408709840]
-position = Vector2(960, 1086)
+position = Vector2(960, 1068)
 shape = SubResource("RectangleShape2D_r2r38")
 
 [node name="Top" type="CollisionShape2D" parent="StartingScreen/Walls" unique_id=1175520708]
-position = Vector2(960, 0)
+position = Vector2(960, 11)
 shape = SubResource("RectangleShape2D_r2r38")
 
 [node name="Left" type="CollisionShape2D" parent="StartingScreen/Walls" unique_id=17590667]
-position = Vector2(0, 540)
+position = Vector2(13, 541)
 shape = SubResource("RectangleShape2D_fxxrn")
 
 [node name="NameScreen" type="Node2D" parent="." unique_id=726492458]
@@ -469,12 +518,44 @@ collision_layer = 4
 collision_mask = 0
 
 [node name="Bottom" type="CollisionShape2D" parent="NameScreen/Walls" unique_id=471359230]
-position = Vector2(960, 1086)
+position = Vector2(960, 1066)
 shape = SubResource("RectangleShape2D_r2r38")
 
 [node name="Top" type="CollisionShape2D" parent="NameScreen/Walls" unique_id=775087715]
-position = Vector2(960, 0)
+position = Vector2(960, 10)
 shape = SubResource("RectangleShape2D_r2r38")
+
+[node name="WallTop" type="Label" parent="NameScreen/Walls" unique_id=656755222]
+anchors_preset = -1
+anchor_top = 0.007
+anchor_right = 0.9990001
+anchor_bottom = 0.1
+offset_left = 19.0
+offset_top = -30.0
+offset_right = 1919.0
+offset_bottom = 70.0
+grow_horizontal = 2
+theme = ExtResource("3_msc5x")
+theme_override_font_sizes/font_size = 100
+text = "-------------------"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WallBottom" type="Label" parent="NameScreen/Walls" unique_id=1571010831]
+anchors_preset = -1
+anchor_top = 0.007
+anchor_right = 0.9990001
+anchor_bottom = 0.1
+offset_left = 19.0
+offset_top = 1021.0
+offset_right = 1919.0
+offset_bottom = 1121.0
+grow_horizontal = 2
+theme = ExtResource("3_msc5x")
+theme_override_font_sizes/font_size = 100
+text = "-------------------"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="TitleScreen" type="Node2D" parent="." unique_id=618630963]
 unique_name_in_owner = true
@@ -561,12 +642,44 @@ collision_layer = 4
 collision_mask = 0
 
 [node name="Bottom" type="CollisionShape2D" parent="TitleScreen/Walls" unique_id=605738051]
-position = Vector2(960, 1086)
+position = Vector2(960, 1069)
 shape = SubResource("RectangleShape2D_r2r38")
 
 [node name="Top" type="CollisionShape2D" parent="TitleScreen/Walls" unique_id=1432198942]
-position = Vector2(960, 0)
+position = Vector2(960, 12)
 shape = SubResource("RectangleShape2D_r2r38")
+
+[node name="WallTop" type="Label" parent="TitleScreen/Walls" unique_id=383667797]
+anchors_preset = -1
+anchor_top = 0.007
+anchor_right = 0.9990001
+anchor_bottom = 0.1
+offset_left = 19.0
+offset_top = -30.0
+offset_right = 1919.0
+offset_bottom = 70.0
+grow_horizontal = 2
+theme = ExtResource("3_msc5x")
+theme_override_font_sizes/font_size = 100
+text = "-------------------"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WallBottom" type="Label" parent="TitleScreen/Walls" unique_id=881483733]
+anchors_preset = -1
+anchor_top = 0.007
+anchor_right = 0.9990001
+anchor_bottom = 0.1
+offset_left = 19.0
+offset_top = 1021.0
+offset_right = 1919.0
+offset_bottom = 1121.0
+grow_horizontal = 2
+theme = ExtResource("3_msc5x")
+theme_override_font_sizes/font_size = 100
+text = "-------------------"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ForkScreen" type="Node2D" parent="." unique_id=1410307427]
 unique_name_in_owner = true
@@ -604,8 +717,10 @@ anchors_preset = -1
 anchor_top = 0.007
 anchor_right = 0.9990001
 anchor_bottom = 0.1
-offset_top = 0.43999958
-offset_right = -0.080078125
+offset_left = 1.0
+offset_top = -41.56
+offset_right = 0.9199219
+offset_bottom = -42.0
 grow_horizontal = 2
 theme = ExtResource("3_msc5x")
 theme_override_font_sizes/font_size = 100
@@ -620,9 +735,9 @@ anchor_top = 0.007
 anchor_right = 0.9990001
 anchor_bottom = 0.1
 offset_left = -3.0
-offset_top = 972.44
+offset_top = 1009.44
 offset_right = -3.0800781
-offset_bottom = 972.0
+offset_bottom = 1009.0
 grow_horizontal = 2
 theme = ExtResource("3_msc5x")
 theme_override_font_sizes/font_size = 100
@@ -636,9 +751,10 @@ anchors_preset = -1
 anchor_top = 0.007
 anchor_right = 0.9990001
 anchor_bottom = 0.1
-offset_left = 1934.0
-offset_top = 0.43999958
-offset_right = 1085.4036
+offset_left = 1948.0
+offset_top = -24.560001
+offset_right = 1129.9199
+offset_bottom = -25.0
 grow_horizontal = 2
 rotation = 1.5707964
 theme = ExtResource("3_msc5x")
@@ -670,27 +786,27 @@ collision_layer = 4
 collision_mask = 0
 
 [node name="Wall" type="CollisionShape2D" parent="ForkScreen/PathUI/Walls" unique_id=794097176]
-position = Vector2(1169, 22.5)
+position = Vector2(1169, -13)
 shape = SubResource("RectangleShape2D_xbe4s")
 
 [node name="Wall2" type="CollisionShape2D" parent="ForkScreen/PathUI/Walls" unique_id=1627613871]
-position = Vector2(93.5, 26)
+position = Vector2(93.5, -9.5)
 shape = SubResource("RectangleShape2D_jarwu")
 
 [node name="Wall4" type="CollisionShape2D" parent="ForkScreen/PathUI/Walls" unique_id=842818636]
-position = Vector2(1904, 189.625)
+position = Vector2(1918, 161)
 shape = SubResource("RectangleShape2D_m6wy5")
 
 [node name="Wall5" type="CollisionShape2D" parent="ForkScreen/PathUI/Walls" unique_id=1948524022]
-position = Vector2(1904, 877)
+position = Vector2(1918, 900)
 shape = SubResource("RectangleShape2D_m6wy5")
 
 [node name="Wall6" type="CollisionShape2D" parent="ForkScreen/PathUI/Walls" unique_id=569198984]
-position = Vector2(1821, 1048)
+position = Vector2(1821, 1081)
 shape = SubResource("RectangleShape2D_jarwu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ForkScreen/PathUI/Walls" unique_id=292164587]
-position = Vector2(48.5, 1051)
+position = Vector2(48.5, 1084)
 shape = SubResource("RectangleShape2D_q5w7w")
 
 [node name="PlatformerScreen" parent="." unique_id=2138964136 instance=ExtResource("11_m6wy5")]
