@@ -5,4 +5,5 @@
 [node name="Game" type="Node2D" unique_id=612142271]
 
 [node name="Char" parent="." unique_id=2137954122 instance=ExtResource("1_80nbo")]
-position = Vector2(935, 728)
+position = Vector2(131, 482)
+scale = Vector2(0.5, 0.5)
