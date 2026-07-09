@@ -45,6 +45,8 @@ func _process(delta: float) -> void:
 	if current_screen.scrn == "StartingScreen":
 		%HUD.visible = false
 	elif current_screen.scrn == "NameScreen":
+		pass
+	elif current_screen.scrn == "NameScreen":
 		%Player.scale.x = 1
 		%Player.scale.y = 1
 	elif current_screen.scrn == "TitleScreen":
@@ -99,6 +101,8 @@ func _on_changed_game_state(state: String) -> void:
 func _on_starting_screen_here(s: String) -> void:
 	current_screen.scrn = s
 func _on_name_screen_here(s: String) -> void:
+	current_screen.scrn = s
+func _on_credits_screen_here(s: String) -> void:
 	current_screen.scrn = s
 func _on_title_screen_here(s: String) -> void:
 	current_screen.scrn = s

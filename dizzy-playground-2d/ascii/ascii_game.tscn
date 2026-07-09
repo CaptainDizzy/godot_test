@@ -17,6 +17,7 @@
 [ext_resource type="FontFile" uid="uid://bcijiqbocagsh" path="res://fonts/PressStart2P-Regular.ttf" id="8_q5w7w"]
 [ext_resource type="Script" uid="uid://cgq8aardyrekk" path="res://ascii/scripts/fork_screen.gd" id="9_xbe4s"]
 [ext_resource type="PackedScene" uid="uid://boq04k3epdjg0" path="res://ascii/scenes/platformer.tscn" id="11_m6wy5"]
+[ext_resource type="Script" uid="uid://bk77qtg1j5hpk" path="res://ascii/scripts/credits_screen.gd" id="14_cxvm1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r2r38"]
 size = Vector2(1920, 20)
@@ -25,16 +26,16 @@ size = Vector2(1920, 20)
 size = Vector2(20, 1080)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xbe4s"]
-size = Vector2(1494, 71)
+size = Vector2(1520, 71)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jarwu"]
-size = Vector2(207, 66)
+size = Vector2(192.5, 66)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m6wy5"]
-size = Vector2(42, 279.25)
+size = Vector2(42, 268.3125)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q5w7w"]
-size = Vector2(91, 78)
+size = Vector2(66, 78)
 
 [node name="Game" type="Node2D" unique_id=545093323]
 script = ExtResource("1_l4rt8")
@@ -126,11 +127,10 @@ text = "♥"
 
 [node name="Player" parent="." unique_id=1632503170 instance=ExtResource("2_qihb0")]
 unique_name_in_owner = true
-position = Vector2(967, 623)
+position = Vector2(967, 651)
 
 [node name="Cam" type="Camera2D" parent="." unique_id=1775665619]
 unique_name_in_owner = true
-position = Vector2(6001, 0)
 anchor_mode = 0
 
 [node name="StartingScreen" type="Node2D" parent="." unique_id=1903222833]
@@ -171,9 +171,9 @@ anchors_preset = -1
 anchor_top = 0.097
 anchor_right = 1.0
 anchor_bottom = 0.142
-offset_top = -54.663002
+offset_top = -38.760002
 offset_right = -2.0
-offset_bottom = -63.218002
+offset_bottom = -47.315002
 grow_horizontal = 2
 theme = ExtResource("3_msc5x")
 theme_override_font_sizes/font_size = 40
@@ -191,9 +191,9 @@ offset_bottom = 337.0
 
 [node name="LineEdit" type="LineEdit" parent="StartingScreen/CharacterCreation/HeadInput" unique_id=1954742031]
 layout_mode = 0
-offset_top = 42.0
-offset_right = 328.0
-offset_bottom = 192.0
+offset_top = 70.0
+offset_right = 336.0
+offset_bottom = 220.0
 theme = ExtResource("3_msc5x")
 theme_override_fonts/font = ExtResource("4_xgstk")
 theme_override_font_sizes/font_size = 128
@@ -205,9 +205,9 @@ drag_and_drop_selection_enabled = false
 [node name="Label" type="Label" parent="StartingScreen/CharacterCreation/HeadInput" unique_id=1313815071]
 layout_mode = 0
 offset_left = 10.0
-offset_top = 4.0
+offset_top = 32.0
 offset_right = 328.0
-offset_bottom = 28.0
+offset_bottom = 56.0
 theme = ExtResource("3_msc5x")
 theme_override_font_sizes/font_size = 24
 text = "Head"
@@ -217,9 +217,9 @@ horizontal_alignment = 1
 unique_name_in_owner = true
 anchors_preset = 0
 offset_left = 799.0
-offset_top = 722.0
+offset_top = 750.0
 offset_right = 1128.0
-offset_bottom = 917.0
+offset_bottom = 945.0
 
 [node name="LineEdit" type="LineEdit" parent="StartingScreen/CharacterCreation/TorsoInput" unique_id=1147195116]
 layout_mode = 0
@@ -248,9 +248,9 @@ horizontal_alignment = 1
 unique_name_in_owner = true
 anchors_preset = 0
 offset_left = 433.0
-offset_top = 300.0
+offset_top = 328.0
 offset_right = 762.0
-offset_bottom = 495.0
+offset_bottom = 523.0
 
 [node name="LineEdit" type="LineEdit" parent="StartingScreen/CharacterCreation/LArmInput" unique_id=1940260382]
 layout_mode = 0
@@ -279,9 +279,9 @@ horizontal_alignment = 1
 unique_name_in_owner = true
 anchors_preset = 0
 offset_left = 1162.0
-offset_top = 300.0
+offset_top = 328.0
 offset_right = 1491.0
-offset_bottom = 495.0
+offset_bottom = 523.0
 
 [node name="LineEdit" type="LineEdit" parent="StartingScreen/CharacterCreation/RArmInput" unique_id=1488888419]
 layout_mode = 0
@@ -310,9 +310,9 @@ horizontal_alignment = 1
 unique_name_in_owner = true
 anchors_preset = 0
 offset_left = 433.0
-offset_top = 568.0
+offset_top = 596.0
 offset_right = 762.0
-offset_bottom = 763.0
+offset_bottom = 791.0
 
 [node name="LineEdit" type="LineEdit" parent="StartingScreen/CharacterCreation/LLegInput" unique_id=157085679]
 layout_mode = 0
@@ -347,9 +347,9 @@ offset_bottom = 763.0
 
 [node name="LineEdit" type="LineEdit" parent="StartingScreen/CharacterCreation/RLegInput" unique_id=1218125926]
 layout_mode = 0
-offset_top = 44.0
-offset_right = 328.0
-offset_bottom = 194.0
+offset_top = 72.0
+offset_right = 336.0
+offset_bottom = 222.0
 theme = ExtResource("3_msc5x")
 theme_override_fonts/font = ExtResource("4_xgstk")
 theme_override_font_sizes/font_size = 128
@@ -359,9 +359,9 @@ drag_and_drop_selection_enabled = false
 
 [node name="Label" type="Label" parent="StartingScreen/CharacterCreation/RLegInput" unique_id=793211334]
 layout_mode = 0
-offset_top = 6.0
+offset_top = 34.0
 offset_right = 329.0
-offset_bottom = 30.0
+offset_bottom = 58.0
 theme = ExtResource("3_msc5x")
 theme_override_font_sizes/font_size = 24
 text = "Right Leg"
@@ -379,14 +379,14 @@ anchors_preset = -1
 anchor_top = 0.007
 anchor_right = 0.9990001
 anchor_bottom = 0.1
-offset_left = 19.0
+offset_left = -2.0
 offset_top = -30.0
-offset_right = 1919.0
+offset_right = 1918.0
 offset_bottom = 70.0
 grow_horizontal = 2
 theme = ExtResource("3_msc5x")
-theme_override_font_sizes/font_size = 100
-text = "-------------------"
+theme_override_font_sizes/font_size = 64
+text = "------------------------------"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -395,14 +395,14 @@ anchors_preset = -1
 anchor_top = 0.007
 anchor_right = 0.9990001
 anchor_bottom = 0.1
-offset_left = 19.0
+offset_left = 1.0
 offset_top = 1021.0
-offset_right = 1919.0
+offset_right = 1921.0
 offset_bottom = 1121.0
 grow_horizontal = 2
 theme = ExtResource("3_msc5x")
-theme_override_font_sizes/font_size = 100
-text = "-------------------"
+theme_override_font_sizes/font_size = 64
+text = "------------------------------"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -411,15 +411,15 @@ anchors_preset = -1
 anchor_top = 0.007
 anchor_right = 0.9990001
 anchor_bottom = 0.1
-offset_left = 59.0
-offset_top = 45.0
-offset_right = 1059.0
-offset_bottom = 145.0
+offset_left = 47.0
+offset_top = 8.844788
+offset_right = 1107.1553
+offset_bottom = 108.84479
 grow_horizontal = 2
 rotation = 1.5707964
 theme = ExtResource("3_msc5x")
-theme_override_font_sizes/font_size = 100
-text = "----------"
+theme_override_font_sizes/font_size = 64
+text = "----------------"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -472,9 +472,9 @@ anchors_preset = -1
 anchor_top = 0.097
 anchor_right = 1.0
 anchor_bottom = 0.142
-offset_top = -54.663002
+offset_top = -44.760002
 offset_right = -2.0
-offset_bottom = -63.218002
+offset_bottom = -53.315002
 grow_horizontal = 2
 theme = ExtResource("3_msc5x")
 theme_override_font_sizes/font_size = 40
@@ -488,9 +488,9 @@ anchors_preset = -1
 anchor_top = 0.097
 anchor_right = 1.0
 anchor_bottom = 0.142
-offset_top = 16.239998
+offset_top = 26.142998
 offset_right = -2.0
-offset_bottom = 7.6849976
+offset_bottom = 17.587997
 grow_horizontal = 2
 theme = ExtResource("3_msc5x")
 theme_override_font_sizes/font_size = 40
@@ -525,41 +525,132 @@ shape = SubResource("RectangleShape2D_r2r38")
 position = Vector2(960, 10)
 shape = SubResource("RectangleShape2D_r2r38")
 
-[node name="WallTop" type="Label" parent="NameScreen/Walls" unique_id=656755222]
+[node name="WallTop" type="Label" parent="NameScreen/Walls" unique_id=1273284914]
 anchors_preset = -1
 anchor_top = 0.007
 anchor_right = 0.9990001
 anchor_bottom = 0.1
-offset_left = 19.0
+offset_left = -2.0
 offset_top = -30.0
-offset_right = 1919.0
+offset_right = 1918.0
 offset_bottom = 70.0
 grow_horizontal = 2
 theme = ExtResource("3_msc5x")
-theme_override_font_sizes/font_size = 100
-text = "-------------------"
+theme_override_font_sizes/font_size = 64
+text = "------------------------------"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="WallBottom" type="Label" parent="NameScreen/Walls" unique_id=1571010831]
+[node name="WallBottom" type="Label" parent="NameScreen/Walls" unique_id=1343919744]
 anchors_preset = -1
 anchor_top = 0.007
 anchor_right = 0.9990001
 anchor_bottom = 0.1
-offset_left = 19.0
+offset_left = 1.0
 offset_top = 1021.0
-offset_right = 1919.0
+offset_right = 1921.0
 offset_bottom = 1121.0
 grow_horizontal = 2
 theme = ExtResource("3_msc5x")
-theme_override_font_sizes/font_size = 100
-text = "-------------------"
+theme_override_font_sizes/font_size = 64
+text = "------------------------------"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreditsScreen" type="Node2D" parent="." unique_id=25403009]
+unique_name_in_owner = true
+position = Vector2(4000, 0)
+script = ExtResource("14_cxvm1")
+metadata/_edit_lock_ = true
+
+[node name="Screen" type="Control" parent="CreditsScreen" unique_id=308625924]
+z_index = -5
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+metadata/_edit_lock_ = true
+
+[node name="BGColor" type="ColorRect" parent="CreditsScreen/Screen" unique_id=1013615487]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.3001183, 0, 0.09499041, 1)
+metadata/_edit_lock_ = true
+
+[node name="Title" type="Control" parent="CreditsScreen" unique_id=1138446889]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+metadata/_edit_lock_ = true
+
+[node name="ByLine" type="Label" parent="CreditsScreen/Title" unique_id=827146044]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.097
+anchor_right = 1.0
+anchor_bottom = 0.142
+offset_top = 104.24
+offset_right = -2.0
+offset_bottom = 155.64
+grow_horizontal = 2
+theme = ExtResource("3_msc5x")
+theme_override_font_sizes/font_size = 36
+text = "A DizzyD Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Walls" type="StaticBody2D" parent="CreditsScreen" unique_id=2004645675]
+collision_layer = 4
+collision_mask = 0
+
+[node name="Bottom" type="CollisionShape2D" parent="CreditsScreen/Walls" unique_id=1054413861]
+position = Vector2(960, 1069)
+shape = SubResource("RectangleShape2D_r2r38")
+
+[node name="Top" type="CollisionShape2D" parent="CreditsScreen/Walls" unique_id=34048981]
+position = Vector2(960, 12)
+shape = SubResource("RectangleShape2D_r2r38")
+
+[node name="WallTop" type="Label" parent="CreditsScreen/Walls" unique_id=1469908869]
+anchors_preset = -1
+anchor_top = 0.007
+anchor_right = 0.9990001
+anchor_bottom = 0.1
+offset_left = -2.0
+offset_top = -30.0
+offset_right = 1918.0
+offset_bottom = 70.0
+grow_horizontal = 2
+theme = ExtResource("3_msc5x")
+theme_override_font_sizes/font_size = 64
+text = "------------------------------"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WallBottom" type="Label" parent="CreditsScreen/Walls" unique_id=1749183184]
+anchors_preset = -1
+anchor_top = 0.007
+anchor_right = 0.9990001
+anchor_bottom = 0.1
+offset_left = 1.0
+offset_top = 1021.0
+offset_right = 1921.0
+offset_bottom = 1121.0
+grow_horizontal = 2
+theme = ExtResource("3_msc5x")
+theme_override_font_sizes/font_size = 64
+text = "------------------------------"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TitleScreen" type="Node2D" parent="." unique_id=618630963]
 unique_name_in_owner = true
-position = Vector2(4000, 0)
+position = Vector2(6000, 0)
 script = ExtResource("8_fxxrn")
 metadata/_edit_lock_ = true
 
@@ -611,15 +702,14 @@ anchors_preset = -1
 anchor_top = 0.097
 anchor_right = 1.0
 anchor_bottom = 0.142
-offset_top = 199.23999
+offset_top = 231.23999
 offset_right = -2.0
-offset_bottom = 250.64
+offset_bottom = 282.64
 grow_horizontal = 2
 theme = ExtResource("3_msc5x")
 theme_override_font_sizes/font_size = 36
 text = "An Interactive Showcase of Game Mechanics"
 horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="ByLine" type="Label" parent="TitleScreen/Title" unique_id=1626553658]
 layout_mode = 1
@@ -649,42 +739,43 @@ shape = SubResource("RectangleShape2D_r2r38")
 position = Vector2(960, 12)
 shape = SubResource("RectangleShape2D_r2r38")
 
-[node name="WallTop" type="Label" parent="TitleScreen/Walls" unique_id=383667797]
+[node name="WallTop" type="Label" parent="TitleScreen/Walls" unique_id=1629154728]
 anchors_preset = -1
 anchor_top = 0.007
 anchor_right = 0.9990001
 anchor_bottom = 0.1
-offset_left = 19.0
+offset_left = -2.0
 offset_top = -30.0
-offset_right = 1919.0
+offset_right = 1918.0
 offset_bottom = 70.0
 grow_horizontal = 2
 theme = ExtResource("3_msc5x")
-theme_override_font_sizes/font_size = 100
-text = "-------------------"
+theme_override_font_sizes/font_size = 64
+text = "------------------------------"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="WallBottom" type="Label" parent="TitleScreen/Walls" unique_id=881483733]
+[node name="WallBottom" type="Label" parent="TitleScreen/Walls" unique_id=1097185747]
 anchors_preset = -1
 anchor_top = 0.007
 anchor_right = 0.9990001
 anchor_bottom = 0.1
-offset_left = 19.0
+offset_left = 1.0
 offset_top = 1021.0
-offset_right = 1919.0
+offset_right = 1921.0
 offset_bottom = 1121.0
 grow_horizontal = 2
 theme = ExtResource("3_msc5x")
-theme_override_font_sizes/font_size = 100
-text = "-------------------"
+theme_override_font_sizes/font_size = 64
+text = "------------------------------"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ForkScreen" type="Node2D" parent="." unique_id=1410307427]
 unique_name_in_owner = true
-position = Vector2(6000, 0)
+position = Vector2(8000, 0)
 script = ExtResource("9_xbe4s")
+metadata/_edit_lock_ = true
 
 [node name="Screen" type="Control" parent="ForkScreen" unique_id=1501921140]
 z_index = -5
@@ -711,37 +802,37 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 metadata/_edit_lock_ = true
 
-[node name="WallTop" type="Label" parent="ForkScreen/PathUI" unique_id=1805058210]
+[node name="WallTop" type="Label" parent="ForkScreen/PathUI" unique_id=1204156405]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.007
 anchor_right = 0.9990001
 anchor_bottom = 0.1
-offset_left = 1.0
-offset_top = -41.56
-offset_right = 0.9199219
-offset_bottom = -42.0
+offset_left = 5.0
+offset_top = -20.560001
+offset_right = 6.919922
+offset_bottom = -57.0
 grow_horizontal = 2
 theme = ExtResource("3_msc5x")
-theme_override_font_sizes/font_size = 100
-text = "--  ---------------"
+theme_override_font_sizes/font_size = 64
+text = "---   ------------------------"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="WallBottom" type="Label" parent="ForkScreen/PathUI" unique_id=60074145]
+[node name="WallBottom" type="Label" parent="ForkScreen/PathUI" unique_id=1681510779]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.007
 anchor_right = 0.9990001
 anchor_bottom = 0.1
-offset_left = -3.0
-offset_top = 1009.44
-offset_right = -3.0800781
-offset_bottom = 1009.0
+offset_left = 2.040039
+offset_top = 1031.6599
+offset_right = 3.959961
+offset_bottom = 995.22
 grow_horizontal = 2
 theme = ExtResource("3_msc5x")
-theme_override_font_sizes/font_size = 100
-text = "-                --"
+theme_override_font_sizes/font_size = 64
+text = "-                          ---"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -758,8 +849,8 @@ offset_bottom = -25.0
 grow_horizontal = 2
 rotation = 1.5707964
 theme = ExtResource("3_msc5x")
-theme_override_font_sizes/font_size = 100
-text = "---    ---"
+theme_override_font_sizes/font_size = 64
+text = "----        ----"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -786,7 +877,7 @@ collision_layer = 4
 collision_mask = 0
 
 [node name="Wall" type="CollisionShape2D" parent="ForkScreen/PathUI/Walls" unique_id=794097176]
-position = Vector2(1169, -13)
+position = Vector2(1156, -13)
 shape = SubResource("RectangleShape2D_xbe4s")
 
 [node name="Wall2" type="CollisionShape2D" parent="ForkScreen/PathUI/Walls" unique_id=1627613871]
@@ -794,24 +885,25 @@ position = Vector2(93.5, -9.5)
 shape = SubResource("RectangleShape2D_jarwu")
 
 [node name="Wall4" type="CollisionShape2D" parent="ForkScreen/PathUI/Walls" unique_id=842818636]
-position = Vector2(1918, 161)
+position = Vector2(1918, 140)
 shape = SubResource("RectangleShape2D_m6wy5")
 
 [node name="Wall5" type="CollisionShape2D" parent="ForkScreen/PathUI/Walls" unique_id=1948524022]
-position = Vector2(1918, 900)
+position = Vector2(1918, 923.84375)
 shape = SubResource("RectangleShape2D_m6wy5")
 
 [node name="Wall6" type="CollisionShape2D" parent="ForkScreen/PathUI/Walls" unique_id=569198984]
-position = Vector2(1821, 1081)
+position = Vector2(1828.25, 1091)
 shape = SubResource("RectangleShape2D_jarwu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ForkScreen/PathUI/Walls" unique_id=292164587]
-position = Vector2(48.5, 1084)
+position = Vector2(36, 1094)
 shape = SubResource("RectangleShape2D_q5w7w")
 
 [node name="PlatformerScreen" parent="." unique_id=2138964136 instance=ExtResource("11_m6wy5")]
 unique_name_in_owner = true
-position = Vector2(6000, 1200)
+position = Vector2(8000, 1200)
+metadata/_edit_lock_ = true
 
 [node name="DizzyTransitions" parent="." unique_id=688147533 instance=ExtResource("6_qjlv8")]
 unique_name_in_owner = true
@@ -824,6 +916,7 @@ visible = false
 [connection signal="start_music" from="StartingScreen/CharacterCreation/FakeButton" to="BGMusic" method="_on_start_music"]
 [connection signal="player_is_here" from="NameScreen" to="." method="_on_name_screen_here"]
 [connection signal="text_changed" from="NameScreen/CharacterName/LineEdit" to="Player" method="_on_name_changed"]
+[connection signal="player_is_here" from="CreditsScreen" to="." method="_on_credits_screen_here"]
 [connection signal="player_is_here" from="TitleScreen" to="." method="_on_title_screen_here"]
 [connection signal="intro_state" from="ForkScreen" to="Player" method="_on_fork_screen_intro_state"]
 [connection signal="player_is_here" from="ForkScreen" to="." method="_on_fork_screen_here"]

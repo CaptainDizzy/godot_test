@@ -22,7 +22,7 @@ func _process(delta: float) -> void:
 		entered = false
 	
 	if px > sx + (sw / 2) and enter_count == 1:
-		%Subtitle.text = "I made you smaller so you look at the title longer."
+		%Subtitle.text = "I made you small so you have to\nlook at the title longer."
 	if enter_count == 2:
 		%Subtitle.text = "Oh, you're back... this is awkward."
 	elif enter_count == 3:
