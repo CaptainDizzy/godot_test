@@ -28,9 +28,9 @@ func _on_shoe_color_picked(c: Color) -> void:
 	CharBodyManager.shoe_color = c
 	%CharBody._set_shoe_color()
 	
-func _set_head(h: String) -> void:
+func _set_head(h: String, offset_y: int) -> void:
 	CharBodyManager.head = h
-	%CharBody._set_head()
+	%CharBody._set_head(offset_y)
 	
 func _set_body(b: String) -> void:
 	CharBodyManager.body = b

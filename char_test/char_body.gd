@@ -25,8 +25,9 @@ func _set_pants_color() -> void:
 func _set_shoe_color() -> void:
 	%Foot_Left.modulate = Color(CharBodyManager.shoe_color)
 	%Foot_Right.modulate = Color(CharBodyManager.shoe_color)
-func _set_head() -> void:
+func _set_head(offset_y: int) -> void:
 	%Skull.texture = load(CharBodyManager.head)
+	%Skull.position.y = offset_y
 func _set_body() -> void:
 	%Torso.texture = load(CharBodyManager.body)
 
