@@ -2,8 +2,14 @@
 
 [ext_resource type="Script" uid="uid://qbo16tt1p06o" path="res://char_creation.gd" id="1_dqbh3"]
 [ext_resource type="PackedScene" uid="uid://8iwk6cmg7yq2" path="res://skintone_pick.tscn" id="2_231of"]
+[ext_resource type="ButtonGroup" uid="uid://b10hi5ddsnues" path="res://head_choice.tres" id="3_1ucq7"]
 [ext_resource type="PackedScene" uid="uid://by3jfawv8jjnn" path="res://char_body.tscn" id="3_swumw"]
+[ext_resource type="ButtonGroup" uid="uid://c2rmbg3ntul1i" path="res://body_choice.tres" id="4_02v0n"]
 [ext_resource type="PackedScene" uid="uid://tkyuo65k0mtu" path="res://basic_color_pick.tscn" id="4_231of"]
+[ext_resource type="Script" uid="uid://c0poq5uex8apn" path="res://head_btn_regular.gd" id="4_qwulh"]
+[ext_resource type="Script" uid="uid://uocnsyl7sjfr" path="res://head_btn_small.gd" id="5_qwulh"]
+[ext_resource type="Script" uid="uid://d3p4vpqu4s1ud" path="res://body_btn_medium.gd" id="7_v1h2v"]
+[ext_resource type="Script" uid="uid://cjes684p2ss6g" path="res://body_btn_curvy.gd" id="8_ny51w"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_38n7b"]
 bg_color = Color(0.2, 0.2901961, 0.09019608, 1)
@@ -135,7 +141,9 @@ offset_bottom = 70.0
 theme = SubResource("Theme_olt8n")
 theme_override_font_sizes/font_size = 28
 toggle_mode = true
+button_group = ExtResource("3_1ucq7")
 text = "Regular"
+script = ExtResource("4_qwulh")
 
 [node name="Small" type="Button" parent="Menu/TabContainer/Head & Body/HeadTypes" unique_id=1259564032]
 layout_mode = 0
@@ -146,7 +154,9 @@ offset_bottom = 70.0
 theme = SubResource("Theme_olt8n")
 theme_override_font_sizes/font_size = 28
 toggle_mode = true
+button_group = ExtResource("3_1ucq7")
 text = "Small"
+script = ExtResource("5_qwulh")
 
 [node name="BodyLabel" type="Label" parent="Menu/TabContainer/Head & Body" unique_id=2073430720]
 layout_mode = 0
@@ -174,7 +184,9 @@ offset_bottom = 70.0
 theme = SubResource("Theme_olt8n")
 theme_override_font_sizes/font_size = 28
 toggle_mode = true
+button_group = ExtResource("4_02v0n")
 text = "Medium"
+script = ExtResource("7_v1h2v")
 
 [node name="Curvy" type="Button" parent="Menu/TabContainer/Head & Body/BodyTypes" unique_id=40986474]
 layout_mode = 0
@@ -185,8 +197,10 @@ offset_bottom = 70.0
 theme = SubResource("Theme_olt8n")
 theme_override_font_sizes/font_size = 28
 toggle_mode = true
+button_group = ExtResource("4_02v0n")
 text = "Curvy
 "
+script = ExtResource("8_ny51w")
 
 [node name="Colors" type="Control" parent="Menu/TabContainer" unique_id=238753725]
 visible = false
@@ -264,6 +278,10 @@ layout_mode = 2
 [node name="BasicColorPick" parent="Menu/TabContainer/Colors/PanelContainer/VBoxContainer/ShoeColor" unique_id=289332200 instance=ExtResource("4_231of")]
 layout_mode = 2
 
+[connection signal="pressed" from="Menu/TabContainer/Head & Body/HeadTypes/Regular" to="Menu/TabContainer/Head & Body/HeadTypes/Regular" method="_on_pressed"]
+[connection signal="pressed" from="Menu/TabContainer/Head & Body/HeadTypes/Small" to="Menu/TabContainer/Head & Body/HeadTypes/Small" method="_on_pressed"]
+[connection signal="pressed" from="Menu/TabContainer/Head & Body/BodyTypes/Medium" to="Menu/TabContainer/Head & Body/BodyTypes/Medium" method="_on_pressed"]
+[connection signal="pressed" from="Menu/TabContainer/Head & Body/BodyTypes/Curvy" to="Menu/TabContainer/Head & Body/BodyTypes/Curvy" method="_on_pressed"]
 [connection signal="color_picked" from="Menu/TabContainer/Colors/PanelContainer/VBoxContainer/Skintones/SkintonePick" to="." method="_on_skintone_picked"]
 [connection signal="color_picked" from="Menu/TabContainer/Colors/PanelContainer/VBoxContainer/ShirtColor/BasicColorPick" to="." method="_on_shirt_color_picked"]
 [connection signal="color_picked" from="Menu/TabContainer/Colors/PanelContainer/VBoxContainer/SleaveColor/BasicColorPick" to="." method="_on_sleave_color_picked"]
