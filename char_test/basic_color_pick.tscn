@@ -1,0 +1,310 @@
+[gd_scene format=3 uid="uid://tkyuo65k0mtu"]
+
+[ext_resource type="Script" uid="uid://bfmva55occ7x0" path="res://color_pick.gd" id="1_5kitm"]
+[ext_resource type="Script" uid="uid://cko80q742ciom" path="res://color_option_button.gd" id="2_708im"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w8jo0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hji7v"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_38n7b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5kitm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_708im"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ok0ph"]
+
+[node name="BasicColorPick" type="Control" unique_id=38424458]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 3
+anchor_right = 0.53400004
+anchor_bottom = 0.18200001
+offset_right = 0.47998047
+offset_bottom = -4.0400085
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5kitm")
+
+[node name="SelectedColor" type="ColorRect" parent="." unique_id=1007114748]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 60.0
+offset_bottom = 60.0
+color = Color(0.9843137, 0.85882354, 0.6745098, 1)
+
+[node name="ColorButton" type="Button" parent="SelectedColor" unique_id=1453485616]
+layout_mode = 0
+offset_right = 60.0
+offset_bottom = 60.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_w8jo0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_hji7v")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_38n7b")
+
+[node name="Options" type="FlowContainer" parent="." unique_id=1778535454]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.162
+anchor_right = 1.0
+anchor_bottom = 0.99200004
+offset_left = 0.19200134
+offset_right = 2.0
+offset_bottom = 0.04798889
+
+[node name="Color1" type="ColorRect" parent="Options" unique_id=620325454]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Options/Color1" unique_id=548419758]
+layout_mode = 0
+offset_right = 60.0
+offset_bottom = 60.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_w8jo0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_hji7v")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_38n7b")
+script = ExtResource("2_708im")
+
+[node name="Color2" type="ColorRect" parent="Options" unique_id=899068933]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+color = Color(0.072842635, 0.072842635, 0.072842635, 1)
+
+[node name="Button" type="Button" parent="Options/Color2" unique_id=1680525909]
+layout_mode = 0
+offset_right = 60.0
+offset_bottom = 60.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_w8jo0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_hji7v")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_38n7b")
+script = ExtResource("2_708im")
+
+[node name="Color3" type="ColorRect" parent="Options" unique_id=1724341079]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+color = Color(0.5910177, 0.26729926, 0.24027508, 1)
+
+[node name="Button" type="Button" parent="Options/Color3" unique_id=139158737]
+layout_mode = 0
+offset_right = 60.0
+offset_bottom = 60.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_w8jo0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_hji7v")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_38n7b")
+script = ExtResource("2_708im")
+
+[node name="Color4" type="ColorRect" parent="Options" unique_id=444369126]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+color = Color(0.38254791, 0.39504322, 0.5855414, 1)
+
+[node name="Button" type="Button" parent="Options/Color4" unique_id=1069541564]
+layout_mode = 0
+offset_right = 60.0
+offset_bottom = 60.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_w8jo0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_hji7v")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_38n7b")
+script = ExtResource("2_708im")
+
+[node name="Color5" type="ColorRect" parent="Options" unique_id=1291032254]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+color = Color(0.35796207, 0.40378222, 0.26211366, 1)
+
+[node name="Button" type="Button" parent="Options/Color5" unique_id=1218579058]
+layout_mode = 0
+offset_right = 60.0
+offset_bottom = 60.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_w8jo0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_hji7v")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_38n7b")
+script = ExtResource("2_708im")
+
+[node name="Color6" type="ColorRect" parent="Options" unique_id=1781374277]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+color = Color(0.7634739, 0.54475576, 0.24890435, 1)
+
+[node name="Button" type="Button" parent="Options/Color6" unique_id=857679985]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 61.0
+offset_bottom = 60.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_w8jo0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_hji7v")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_38n7b")
+script = ExtResource("2_708im")
+
+[node name="Color7" type="ColorRect" parent="Options" unique_id=1885604850]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+color = Color(0.44152102, 0.28136948, 0.41530123, 1)
+
+[node name="Button" type="Button" parent="Options/Color7" unique_id=389275693]
+layout_mode = 0
+offset_right = 60.0
+offset_bottom = 60.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_w8jo0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_hji7v")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_38n7b")
+script = ExtResource("2_708im")
+
+[node name="Color8" type="ColorRect" parent="Options" unique_id=1710701477]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+color = Color(0.27634513, 0.36460263, 0.38380656, 1)
+
+[node name="Button" type="Button" parent="Options/Color8" unique_id=1541872090]
+layout_mode = 0
+offset_left = -1.0
+offset_right = 59.0
+offset_bottom = 60.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_w8jo0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_hji7v")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_38n7b")
+script = ExtResource("2_708im")
+
+[node name="Color9" type="ColorRect" parent="Options" unique_id=382809688]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+color = Color(0.67722297, 0.43450472, 0.4076666, 1)
+
+[node name="Button" type="Button" parent="Options/Color9" unique_id=640980479]
+layout_mode = 0
+offset_right = 60.0
+offset_bottom = 60.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_w8jo0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_hji7v")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_38n7b")
+script = ExtResource("2_708im")
+
+[node name="Color10" type="ColorRect" parent="Options" unique_id=998534840]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+color = Color(0.99176055, 0.92298996, 0.82363164, 1)
+
+[node name="Button" type="Button" parent="Options/Color10" unique_id=1913464545]
+layout_mode = 0
+offset_right = 60.0
+offset_bottom = 60.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5kitm")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_708im")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ok0ph")
+script = ExtResource("2_708im")
+
+[node name="Color11" type="ColorRect" parent="Options" unique_id=1808660869]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+color = Color(0.9843137, 0.85882354, 0.6745098, 1)
+
+[node name="Button" type="Button" parent="Options/Color11" unique_id=991509969]
+layout_mode = 0
+offset_right = 60.0
+offset_bottom = 60.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5kitm")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_708im")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ok0ph")
+script = ExtResource("2_708im")
+
+[node name="Color12" type="ColorRect" parent="Options" unique_id=1009915087]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+color = Color(0.74443907, 0.5447372, 0.34515887, 1)
+
+[node name="Button" type="Button" parent="Options/Color12" unique_id=2011028637]
+layout_mode = 0
+offset_right = 60.0
+offset_bottom = 60.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5kitm")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_708im")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ok0ph")
+script = ExtResource("2_708im")
+
+[node name="Color13" type="ColorRect" parent="Options" unique_id=1856654726]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+color = Color(0.52675486, 0.37040058, 0.21126804, 1)
+
+[node name="Button" type="Button" parent="Options/Color13" unique_id=474823532]
+layout_mode = 0
+offset_right = 60.0
+offset_bottom = 60.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5kitm")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_708im")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ok0ph")
+script = ExtResource("2_708im")
+
+[node name="Color14" type="ColorRect" parent="Options" unique_id=66852550]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+color = Color(0.3902973, 0.2681537, 0.14547494, 1)
+
+[node name="Button" type="Button" parent="Options/Color14" unique_id=185275795]
+layout_mode = 0
+offset_right = 60.0
+offset_bottom = 60.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5kitm")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_708im")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ok0ph")
+script = ExtResource("2_708im")
+
+[node name="Color15" type="ColorRect" parent="Options" unique_id=723928929]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+color = Color(0.26090705, 0.17161351, 0.08491834, 1)
+
+[node name="Button" type="Button" parent="Options/Color15" unique_id=1058227797]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 61.0
+offset_bottom = 60.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5kitm")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_708im")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ok0ph")
+script = ExtResource("2_708im")
+
+[node name="Color16" type="ColorRect" parent="Options" unique_id=493475417]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+color = Color(0.14740923, 0.08976286, 0.034721553, 1)
+
+[node name="Button" type="Button" parent="Options/Color16" unique_id=25825672]
+layout_mode = 0
+offset_right = 60.0
+offset_bottom = 60.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5kitm")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_708im")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ok0ph")
+script = ExtResource("2_708im")
+
+[node name="Color17" type="ColorRect" parent="Options" unique_id=1591488078]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+color = Color(0.61272544, 0.2880422, 0.19273716, 1)
+
+[node name="Button" type="Button" parent="Options/Color17" unique_id=351257821]
+layout_mode = 0
+offset_left = -1.0
+offset_right = 59.0
+offset_bottom = 60.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5kitm")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_708im")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ok0ph")
+script = ExtResource("2_708im")
+
+[node name="Color18" type="ColorRect" parent="Options" unique_id=1554653858]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+color = Color(0.57752514, 0.66550344, 0.46282285, 1)
+
+[node name="Button" type="Button" parent="Options/Color18" unique_id=1093162831]
+layout_mode = 0
+offset_right = 60.0
+offset_bottom = 60.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5kitm")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_708im")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ok0ph")
+script = ExtResource("2_708im")
+
+[connection signal="pressed" from="SelectedColor/ColorButton" to="." method="_on_color_button_pressed"]

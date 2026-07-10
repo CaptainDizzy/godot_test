@@ -15,9 +15,13 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Character Test"
-run/main_scene="res://game.tscn"
+run/main_scene="uid://cjb66iowisjdc"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"
+
+[autoload]
+
+CharBodyManager="*uid://dyltkh0w16nfn"
 
 [display]
 

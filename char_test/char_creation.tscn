@@ -1,0 +1,271 @@
+[gd_scene format=3 uid="uid://cjb66iowisjdc"]
+
+[ext_resource type="Script" uid="uid://qbo16tt1p06o" path="res://char_creation.gd" id="1_dqbh3"]
+[ext_resource type="PackedScene" uid="uid://8iwk6cmg7yq2" path="res://skintone_pick.tscn" id="2_231of"]
+[ext_resource type="PackedScene" uid="uid://by3jfawv8jjnn" path="res://char_body.tscn" id="3_swumw"]
+[ext_resource type="PackedScene" uid="uid://tkyuo65k0mtu" path="res://basic_color_pick.tscn" id="4_231of"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_38n7b"]
+bg_color = Color(0.2, 0.2901961, 0.09019608, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x04qd"]
+bg_color = Color(1, 1, 1, 0.19607843)
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+expand_margin_left = 22.0
+expand_margin_top = 8.0
+expand_margin_right = 22.0
+expand_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v8ony"]
+
+[sub_resource type="Theme" id="Theme_w8jo0"]
+TabContainer/colors/font_unselected_color = Color(1, 1, 1, 0.5882353)
+TabContainer/constants/side_margin = 183
+TabContainer/constants/tab_separation = 138
+TabContainer/font_sizes/font_size = 32
+TabContainer/styles/panel = SubResource("StyleBoxFlat_38n7b")
+TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_x04qd")
+TabContainer/styles/tab_unselected = SubResource("StyleBoxEmpty_v8ony")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_olt8n"]
+bg_color = Color(0, 0, 0, 0.29411766)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ktig4"]
+bg_color = Color(0, 0, 0, 0.19607843)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_outur"]
+bg_color = Color(0, 0, 0, 0.39215687)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="Theme" id="Theme_olt8n"]
+Button/styles/hover = SubResource("StyleBoxFlat_olt8n")
+Button/styles/normal = SubResource("StyleBoxFlat_ktig4")
+Button/styles/pressed = SubResource("StyleBoxFlat_outur")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5kitm"]
+
+[node name="CharCreation" type="Node2D" unique_id=86544382]
+script = ExtResource("1_dqbh3")
+
+[node name="BG" type="Node2D" parent="." unique_id=893722649]
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="BG" unique_id=1199585298]
+offset_right = 1280.0
+offset_bottom = 720.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.103743516, 0.10374353, 0.103743516, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="BG" unique_id=1535416491]
+offset_right = 811.0
+offset_bottom = 720.0
+size_flags_vertical = 3
+color = Color(0.20082939, 0.29097256, 0.0888203, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="BG" unique_id=608330632]
+offset_left = 811.0
+offset_right = 843.0
+offset_bottom = 720.0
+size_flags_vertical = 3
+color = Color(0.12946928, 0.15722972, 0.087780796, 1)
+
+[node name="CharPreview" type="Node2D" parent="." unique_id=1517288767]
+
+[node name="CharBody" parent="CharPreview" unique_id=773892354 instance=ExtResource("3_swumw")]
+unique_name_in_owner = true
+position = Vector2(1047, 513)
+
+[node name="Menu" type="Control" parent="." unique_id=1872108419]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TabContainer" type="TabContainer" parent="Menu" unique_id=1720300383]
+layout_mode = 0
+offset_top = 8.0
+offset_right = 811.0
+offset_bottom = 715.0
+theme = SubResource("Theme_w8jo0")
+current_tab = 0
+
+[node name="Head & Body" type="Control" parent="Menu/TabContainer" unique_id=1598918498]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="HeadLabel" type="Label" parent="Menu/TabContainer/Head & Body" unique_id=1215346410]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 15.0
+offset_right = 125.0
+offset_bottom = 60.0
+theme_override_font_sizes/font_size = 32
+text = "Head:"
+
+[node name="HeadTypes" type="Control" parent="Menu/TabContainer/Head & Body" unique_id=319013750]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_left = 36.0
+offset_top = 58.0
+offset_right = 401.0
+offset_bottom = 259.0
+
+[node name="Regular" type="Button" parent="Menu/TabContainer/Head & Body/HeadTypes" unique_id=1785780104]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 11.0
+offset_right = 155.0
+offset_bottom = 70.0
+theme = SubResource("Theme_olt8n")
+theme_override_font_sizes/font_size = 28
+toggle_mode = true
+text = "Regular"
+
+[node name="Small" type="Button" parent="Menu/TabContainer/Head & Body/HeadTypes" unique_id=1259564032]
+layout_mode = 0
+offset_left = 175.0
+offset_top = 11.0
+offset_right = 329.0
+offset_bottom = 70.0
+theme = SubResource("Theme_olt8n")
+theme_override_font_sizes/font_size = 28
+toggle_mode = true
+text = "Small"
+
+[node name="BodyLabel" type="Label" parent="Menu/TabContainer/Head & Body" unique_id=2073430720]
+layout_mode = 0
+offset_left = 445.0
+offset_top = 15.0
+offset_right = 535.0
+offset_bottom = 60.0
+theme_override_font_sizes/font_size = 32
+text = "Body:"
+
+[node name="BodyTypes" type="Control" parent="Menu/TabContainer/Head & Body" unique_id=710750147]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_left = 445.0
+offset_top = 58.0
+offset_right = 795.0
+offset_bottom = 254.0
+
+[node name="Medium" type="Button" parent="Menu/TabContainer/Head & Body/BodyTypes" unique_id=196860362]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 11.0
+offset_right = 157.0
+offset_bottom = 70.0
+theme = SubResource("Theme_olt8n")
+theme_override_font_sizes/font_size = 28
+toggle_mode = true
+text = "Medium"
+
+[node name="Curvy" type="Button" parent="Menu/TabContainer/Head & Body/BodyTypes" unique_id=40986474]
+layout_mode = 0
+offset_left = 177.0
+offset_top = 11.0
+offset_right = 331.0
+offset_bottom = 70.0
+theme = SubResource("Theme_olt8n")
+theme_override_font_sizes/font_size = 28
+toggle_mode = true
+text = "Curvy
+"
+
+[node name="Colors" type="Control" parent="Menu/TabContainer" unique_id=238753725]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="Menu/TabContainer/Colors" unique_id=2103956720]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 7.0
+offset_right = 777.0
+offset_bottom = 659.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_5kitm")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/TabContainer/Colors/PanelContainer" unique_id=600006070]
+layout_mode = 2
+
+[node name="SkintoneLabel" type="Label" parent="Menu/TabContainer/Colors/PanelContainer/VBoxContainer" unique_id=126436820]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Skintone"
+
+[node name="Skintones" type="VBoxContainer" parent="Menu/TabContainer/Colors/PanelContainer/VBoxContainer" unique_id=1951813790]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SkintonePick" parent="Menu/TabContainer/Colors/PanelContainer/VBoxContainer/Skintones" unique_id=38424458 instance=ExtResource("2_231of")]
+layout_mode = 2
+
+[node name="ShirtLabel" type="Label" parent="Menu/TabContainer/Colors/PanelContainer/VBoxContainer" unique_id=1113540563]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Shirt Color"
+
+[node name="ShirtColor" type="VBoxContainer" parent="Menu/TabContainer/Colors/PanelContainer/VBoxContainer" unique_id=281107079]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="BasicColorPick" parent="Menu/TabContainer/Colors/PanelContainer/VBoxContainer/ShirtColor" unique_id=677946362 instance=ExtResource("4_231of")]
+layout_mode = 2
+
+[node name="SleaveLabel" type="Label" parent="Menu/TabContainer/Colors/PanelContainer/VBoxContainer" unique_id=1398773845]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Sleave Color"
+
+[node name="SleaveColor" type="VBoxContainer" parent="Menu/TabContainer/Colors/PanelContainer/VBoxContainer" unique_id=1827663214]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="BasicColorPick" parent="Menu/TabContainer/Colors/PanelContainer/VBoxContainer/SleaveColor" unique_id=861643848 instance=ExtResource("4_231of")]
+layout_mode = 2
+
+[node name="PantsLabel" type="Label" parent="Menu/TabContainer/Colors/PanelContainer/VBoxContainer" unique_id=409703976]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Pants Color"
+
+[node name="PantsColor" type="VBoxContainer" parent="Menu/TabContainer/Colors/PanelContainer/VBoxContainer" unique_id=1084497007]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="BasicColorPick" parent="Menu/TabContainer/Colors/PanelContainer/VBoxContainer/PantsColor" unique_id=1400580592 instance=ExtResource("4_231of")]
+layout_mode = 2
+
+[node name="ShoeLabel" type="Label" parent="Menu/TabContainer/Colors/PanelContainer/VBoxContainer" unique_id=659431001]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Shoe Color"
+
+[node name="ShoeColor" type="VBoxContainer" parent="Menu/TabContainer/Colors/PanelContainer/VBoxContainer" unique_id=1467848381]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="BasicColorPick" parent="Menu/TabContainer/Colors/PanelContainer/VBoxContainer/ShoeColor" unique_id=289332200 instance=ExtResource("4_231of")]
+layout_mode = 2
+
+[connection signal="color_picked" from="Menu/TabContainer/Colors/PanelContainer/VBoxContainer/Skintones/SkintonePick" to="." method="_on_skintone_picked"]
+[connection signal="color_picked" from="Menu/TabContainer/Colors/PanelContainer/VBoxContainer/ShirtColor/BasicColorPick" to="." method="_on_shirt_color_picked"]
+[connection signal="color_picked" from="Menu/TabContainer/Colors/PanelContainer/VBoxContainer/SleaveColor/BasicColorPick" to="." method="_on_sleave_color_picked"]
+[connection signal="color_picked" from="Menu/TabContainer/Colors/PanelContainer/VBoxContainer/PantsColor/BasicColorPick" to="." method="_on_pants_color_picked"]
+[connection signal="color_picked" from="Menu/TabContainer/Colors/PanelContainer/VBoxContainer/ShoeColor/BasicColorPick" to="." method="_on_shoe_color_picked"]

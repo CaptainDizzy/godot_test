@@ -29,7 +29,7 @@ func _physics_process(delta: float) -> void:
 		prev_multi = speed_multiplier
 		is_jumping = true
 		%CharBody.play_jump_animation()
-		await get_tree().create_timer(0.25).timeout
+		#await get_tree().create_timer(0.25).timeout
 		velocity.y = JUMP_V
 
 	if not is_on_floor() and is_jumping:
@@ -38,7 +38,7 @@ func _physics_process(delta: float) -> void:
 	# Ground movement 
 	if is_on_floor() and not is_jumping and not hurt:
 		if direction != 0:
-			velocity.x = move_toward(velocity.x, direction * SPEED * speed_multiplier, SPEED * 0.25)
+			velocity.x = move_toward(velocity.x, direction * SPEED * speed_multiplier, SPEED * speed_multiplier)
 			if speed_multiplier > 2:
 				%CharBody.play_run_animation()
 			else:

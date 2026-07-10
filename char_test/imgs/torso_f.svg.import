@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0k416r52u1qw"
-path="res://.godot/imported/torso.svg-0083f7377076068c7c633dd6999882b1.ctex"
+uid="uid://klgyn05y73y"
+path="res://.godot/imported/torso_f.svg-a998a08f14274d05663940c151b5f02b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://imgs/torso.svg"
-dest_files=["res://.godot/imported/torso.svg-0083f7377076068c7c633dd6999882b1.ctex"]
+source_file="res://imgs/torso_f.svg"
+dest_files=["res://.godot/imported/torso_f.svg-a998a08f14274d05663940c151b5f02b.ctex"]
 
 [params]
 

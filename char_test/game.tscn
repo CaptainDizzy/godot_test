@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://btso2rnv7oaai"]
 
 [ext_resource type="PackedScene" uid="uid://cq7kafdypwn22" path="res://char.tscn" id="1_80nbo"]
-[ext_resource type="Script" uid="uid://calt1f7wa583c" path="res://char.gd" id="2_e2o6t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hmenk"]
 size = Vector2(1300, 76)
@@ -13,13 +12,12 @@ size = Vector2(1300, 76)
 [node name="ColorRect" type="ColorRect" parent="BG" unique_id=1498946612]
 offset_right = 1281.0
 offset_bottom = 710.0
-color = Color(0.42431572, 0.6081855, 0.32123613, 1)
+color = Color(0.77451634, 0.7568844, 0.48233348, 1)
 
 [node name="Char" parent="." unique_id=2137954122 instance=ExtResource("1_80nbo")]
 unique_name_in_owner = true
 position = Vector2(131, 482)
 scale = Vector2(0.5, 0.5)
-script = ExtResource("2_e2o6t")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=940998305]
 position = Vector2(640, 360)
@@ -35,4 +33,4 @@ offset_left = -8.0
 offset_top = 652.0
 offset_right = 1285.0
 offset_bottom = 722.0
-color = Color(0.37961054, 0.22774976, 0.1306256, 1)
+color = Color(0.41111663, 0.35449588, 0.28101113, 1)
