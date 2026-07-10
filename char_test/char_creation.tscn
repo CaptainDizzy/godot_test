@@ -10,6 +10,8 @@
 [ext_resource type="Script" uid="uid://uocnsyl7sjfr" path="res://head_btn_small.gd" id="5_qwulh"]
 [ext_resource type="Script" uid="uid://d3p4vpqu4s1ud" path="res://body_btn_medium.gd" id="7_v1h2v"]
 [ext_resource type="Script" uid="uid://cjes684p2ss6g" path="res://body_btn_curvy.gd" id="8_ny51w"]
+[ext_resource type="Script" uid="uid://37hciosjr4jd" path="res://body_btn_large.gd" id="9_f218v"]
+[ext_resource type="Script" uid="uid://sx4o0qamy7nn" path="res://body_btn_thin.gd" id="10_25tly"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ny51w"]
 bg_color = Color(1, 1, 1, 0.09803922)
@@ -224,8 +226,35 @@ theme_override_font_sizes/font_size = 28
 toggle_mode = true
 button_group = ExtResource("4_02v0n")
 text = "Curvy
+
 "
 script = ExtResource("8_ny51w")
+
+[node name="Large" type="Button" parent="Menu/TabContainer/Head & Body/BodyTypes" unique_id=2061433556]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 91.0
+offset_right = 157.0
+offset_bottom = 150.0
+theme = SubResource("Theme_olt8n")
+theme_override_font_sizes/font_size = 28
+toggle_mode = true
+button_group = ExtResource("4_02v0n")
+text = "Large"
+script = ExtResource("9_f218v")
+
+[node name="Thin" type="Button" parent="Menu/TabContainer/Head & Body/BodyTypes" unique_id=1934166711]
+layout_mode = 0
+offset_left = 178.0
+offset_top = 91.0
+offset_right = 332.0
+offset_bottom = 150.0
+theme = SubResource("Theme_olt8n")
+theme_override_font_sizes/font_size = 28
+toggle_mode = true
+button_group = ExtResource("4_02v0n")
+text = "Thin"
+script = ExtResource("10_25tly")
 
 [node name="Colors" type="Control" parent="Menu/TabContainer" unique_id=238753725]
 visible = false
