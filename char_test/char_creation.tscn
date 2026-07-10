@@ -278,10 +278,6 @@ layout_mode = 2
 [node name="BasicColorPick" parent="Menu/TabContainer/Colors/PanelContainer/VBoxContainer/ShoeColor" unique_id=289332200 instance=ExtResource("4_231of")]
 layout_mode = 2
 
-[connection signal="pressed" from="Menu/TabContainer/Head & Body/HeadTypes/Regular" to="Menu/TabContainer/Head & Body/HeadTypes/Regular" method="_on_pressed"]
-[connection signal="pressed" from="Menu/TabContainer/Head & Body/HeadTypes/Small" to="Menu/TabContainer/Head & Body/HeadTypes/Small" method="_on_pressed"]
-[connection signal="pressed" from="Menu/TabContainer/Head & Body/BodyTypes/Medium" to="Menu/TabContainer/Head & Body/BodyTypes/Medium" method="_on_pressed"]
-[connection signal="pressed" from="Menu/TabContainer/Head & Body/BodyTypes/Curvy" to="Menu/TabContainer/Head & Body/BodyTypes/Curvy" method="_on_pressed"]
 [connection signal="color_picked" from="Menu/TabContainer/Colors/PanelContainer/VBoxContainer/Skintones/SkintonePick" to="." method="_on_skintone_picked"]
 [connection signal="color_picked" from="Menu/TabContainer/Colors/PanelContainer/VBoxContainer/ShirtColor/BasicColorPick" to="." method="_on_shirt_color_picked"]
 [connection signal="color_picked" from="Menu/TabContainer/Colors/PanelContainer/VBoxContainer/SleaveColor/BasicColorPick" to="." method="_on_sleave_color_picked"]
