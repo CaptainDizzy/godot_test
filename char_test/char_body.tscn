@@ -747,9 +747,10 @@ _data = {
 &"walk": SubResource("Animation_3uo8v")
 }
 
-[node name="Char_Body" type="Node2D" unique_id=773892354]
+[node name="CharBody" type="Node2D" unique_id=773892354]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=8298022]
+unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_8gvb8")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1411656958]
