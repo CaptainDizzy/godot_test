@@ -11,6 +11,13 @@
 [ext_resource type="Script" uid="uid://d3p4vpqu4s1ud" path="res://body_btn_medium.gd" id="7_v1h2v"]
 [ext_resource type="Script" uid="uid://cjes684p2ss6g" path="res://body_btn_curvy.gd" id="8_ny51w"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ny51w"]
+bg_color = Color(1, 1, 1, 0.09803922)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_38n7b"]
 bg_color = Color(0.2, 0.2901961, 0.09019608, 1)
 
@@ -89,12 +96,6 @@ offset_bottom = 720.0
 size_flags_vertical = 3
 color = Color(0.12946928, 0.15722972, 0.087780796, 1)
 
-[node name="CharPreview" type="Node2D" parent="." unique_id=1517288767]
-
-[node name="CharBody" parent="CharPreview" unique_id=773892354 instance=ExtResource("3_swumw")]
-unique_name_in_owner = true
-position = Vector2(1047, 513)
-
 [node name="Menu" type="Control" parent="." unique_id=1872108419]
 layout_mode = 3
 anchors_preset = 0
@@ -102,6 +103,30 @@ offset_right = 1280.0
 offset_bottom = 720.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="CharPreview" type="Node2D" parent="Menu" unique_id=1517288767]
+
+[node name="CharBody" parent="Menu/CharPreview" unique_id=773892354 instance=ExtResource("3_swumw")]
+unique_name_in_owner = true
+position = Vector2(1068, 513)
+
+[node name="AnimationPicker" type="OptionButton" parent="Menu/CharPreview" unique_id=15646724]
+offset_left = 1015.0
+offset_top = 89.0
+offset_right = 1115.0
+offset_bottom = 121.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_ny51w")
+alignment = 1
+selected = 0
+item_count = 4
+popup/item_0/text = "Idle"
+popup/item_0/id = 0
+popup/item_1/text = "Walk"
+popup/item_1/id = 1
+popup/item_2/text = "Run"
+popup/item_2/id = 2
+popup/item_3/text = "Jump"
+popup/item_3/id = 3
 
 [node name="TabContainer" type="TabContainer" parent="Menu" unique_id=1720300383]
 layout_mode = 0
@@ -278,6 +303,7 @@ layout_mode = 2
 [node name="BasicColorPick" parent="Menu/TabContainer/Colors/PanelContainer/VBoxContainer/ShoeColor" unique_id=289332200 instance=ExtResource("4_231of")]
 layout_mode = 2
 
+[connection signal="item_selected" from="Menu/CharPreview/AnimationPicker" to="." method="_on_animation_selected"]
 [connection signal="color_picked" from="Menu/TabContainer/Colors/PanelContainer/VBoxContainer/Skintones/SkintonePick" to="." method="_on_skintone_picked"]
 [connection signal="color_picked" from="Menu/TabContainer/Colors/PanelContainer/VBoxContainer/ShirtColor/BasicColorPick" to="." method="_on_shirt_color_picked"]
 [connection signal="color_picked" from="Menu/TabContainer/Colors/PanelContainer/VBoxContainer/SleaveColor/BasicColorPick" to="." method="_on_sleave_color_picked"]

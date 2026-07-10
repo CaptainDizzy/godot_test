@@ -5,6 +5,8 @@ func _ready() -> void:
 		head.picked_head.connect(_set_head)
 	for body in %BodyTypes.get_children():
 		body.picked_body.connect(_set_body)
+		
+		%CharBody.play_idle_animation()
 
 func _on_skintone_picked(c: Color) -> void:
 	CharBodyManager.skin_color = c
@@ -33,3 +35,13 @@ func _set_head(h: String) -> void:
 func _set_body(b: String) -> void:
 	CharBodyManager.body = b
 	%CharBody._set_body()
+
+func _on_animation_selected(index: int) -> void:
+	if index == 0:
+		%CharBody.play_idle_animation()
+	elif index == 1:
+		%CharBody.play_walk_animation()
+	elif index == 2:
+		%CharBody.play_run_animation()
+	elif index == 3:
+		%CharBody.play_jump_animation()
