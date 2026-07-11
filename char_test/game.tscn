@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cq7kafdypwn22" path="res://char.tscn" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://pum7p4rq42fa" path="res://game.gd" id="1_e2o6t"]
+[ext_resource type="Script" uid="uid://dfqfuqsuktwpo" path="res://floor.gd" id="3_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://ckowrgqaidh8t" path="res://addons/dizzy_transitions/dizzy_transitions.tscn" id="3_feb5d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w8jo0"]
@@ -29,9 +30,11 @@ scale = Vector2(0.5, 0.5)
 [node name="Camera2D" type="Camera2D" parent="." unique_id=940998305]
 position = Vector2(640, 360)
 
-[node name="Floor" type="Area2D" parent="." unique_id=231690409]
+[node name="Floor" type="Area2D" parent="." unique_id=231690409 groups=["Floors"]]
+unique_name_in_owner = true
 collision_layer = 8
 collision_mask = 3
+script = ExtResource("3_fc0e3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=900077710]
 position = Vector2(640, 554.5)
@@ -42,9 +45,10 @@ debug_color = Color(0.30909702, 0.61466956, 0.3630051, 0.41960785)
 offset_top = 395.0
 offset_right = 1281.0
 offset_bottom = 720.0
-color = Color(0.83019346, 0.7784725, 0.63985515, 1)
+color = Color(0.721527, 0.8245725, 0.60876846, 1)
 
-[node name="Walls" type="StaticBody2D" parent="." unique_id=2045030473]
+[node name="Walls" type="StaticBody2D" parent="." unique_id=2045030473 groups=["Walls"]]
+unique_name_in_owner = true
 collision_layer = 4
 collision_mask = 3
 
@@ -70,3 +74,6 @@ color = Color(0.4117647, 0.3529412, 0.28235295, 1)
 [node name="DizzyTransitions" parent="." unique_id=688147533 instance=ExtResource("3_feb5d")]
 unique_name_in_owner = true
 visible = false
+
+[connection signal="area_exited" from="Floor" to="Char" method="_on_floor_area_exited"]
+[connection signal="is_inside" from="Floor" to="Char" method="_is_inside_floor"]
