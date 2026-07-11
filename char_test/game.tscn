@@ -4,18 +4,22 @@
 [ext_resource type="Script" uid="uid://pum7p4rq42fa" path="res://game.gd" id="1_e2o6t"]
 [ext_resource type="PackedScene" uid="uid://ckowrgqaidh8t" path="res://addons/dizzy_transitions/dizzy_transitions.tscn" id="3_feb5d"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w8jo0"]
+size = Vector2(1300, 317)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hmenk"]
-size = Vector2(1300, 76)
+size = Vector2(1300, 12)
 
 [node name="Game" type="Node2D" unique_id=612142271]
+y_sort_enabled = true
 script = ExtResource("1_e2o6t")
 
 [node name="BG" type="Node2D" parent="." unique_id=486389846]
 
 [node name="ColorRect" type="ColorRect" parent="BG" unique_id=1498946612]
 offset_right = 1281.0
-offset_bottom = 710.0
-color = Color(0.7928761, 0.85390824, 0.89050347, 1)
+offset_bottom = 395.0
+color = Color(0.6972425, 0.7858049, 0.83523524, 1)
 
 [node name="Char" parent="." unique_id=2137954122 instance=ExtResource("1_80nbo")]
 unique_name_in_owner = true
@@ -25,18 +29,43 @@ scale = Vector2(0.5, 0.5)
 [node name="Camera2D" type="Camera2D" parent="." unique_id=940998305]
 position = Vector2(640, 360)
 
-[node name="Floor" type="StaticBody2D" parent="." unique_id=2045030473]
+[node name="Floor" type="Area2D" parent="." unique_id=231690409]
+collision_layer = 8
+collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=351587298]
-position = Vector2(640, 690)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=900077710]
+position = Vector2(640, 554.5)
+shape = SubResource("RectangleShape2D_w8jo0")
+debug_color = Color(0.30909702, 0.61466956, 0.3630051, 0.41960785)
+
+[node name="ColorRect" type="ColorRect" parent="Floor" unique_id=1063444929]
+offset_top = 395.0
+offset_right = 1281.0
+offset_bottom = 720.0
+color = Color(0.83019346, 0.7784725, 0.63985515, 1)
+
+[node name="Walls" type="StaticBody2D" parent="." unique_id=2045030473]
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls" unique_id=351587298]
+position = Vector2(640, 714)
 shape = SubResource("RectangleShape2D_hmenk")
+debug_color = Color(0.9978729, 0.042266555, 5.7756904e-07, 0.41960785)
 
-[node name="ColorRect" type="ColorRect" parent="Floor" unique_id=1772135248]
-offset_left = -8.0
-offset_top = 652.0
-offset_right = 1285.0
+[node name="ColorRect" type="ColorRect" parent="Walls" unique_id=1772135248]
+z_index = 2
+offset_left = 831.0
+offset_top = 549.0
+offset_right = 979.0
 offset_bottom = 722.0
 color = Color(0.41111663, 0.35449588, 0.28101113, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Walls" unique_id=399576028]
+offset_top = 708.0
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0.4117647, 0.3529412, 0.28235295, 1)
 
 [node name="DizzyTransitions" parent="." unique_id=688147533 instance=ExtResource("3_feb5d")]
 unique_name_in_owner = true
