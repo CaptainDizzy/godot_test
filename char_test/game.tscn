@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://pum7p4rq42fa" path="res://game.gd" id="1_e2o6t"]
 [ext_resource type="Script" uid="uid://dfqfuqsuktwpo" path="res://floor.gd" id="3_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://ckowrgqaidh8t" path="res://addons/dizzy_transitions/dizzy_transitions.tscn" id="3_feb5d"]
+[ext_resource type="PackedScene" uid="uid://bie6y2a4pudhh" path="res://objs/large_box.tscn" id="5_7jktm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w8jo0"]
 size = Vector2(1300, 317)
@@ -74,6 +75,9 @@ color = Color(0.4117647, 0.3529412, 0.28235295, 1)
 [node name="DizzyTransitions" parent="." unique_id=688147533 instance=ExtResource("3_feb5d")]
 unique_name_in_owner = true
 visible = false
+
+[node name="LargeBox" parent="." unique_id=1908374981 instance=ExtResource("5_7jktm")]
+position = Vector2(385, 548)
 
 [connection signal="area_exited" from="Floor" to="Char" method="_on_floor_area_exited"]
 [connection signal="is_inside" from="Floor" to="Char" method="_is_inside_floor"]

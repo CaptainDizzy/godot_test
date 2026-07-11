@@ -58,7 +58,7 @@ func _physics_process(delta: float) -> void:
 	if is_on_ground() and not is_jumping and not hurt:
 		if direction != 0 or depth != 0:
 			velocity.x = move_toward(velocity.x, direction * SPEED * speed_multiplier, SPEED * speed_multiplier)
-			velocity.y = move_toward(velocity.y, depth * (SPEED * 0.75) * speed_multiplier, SPEED * speed_multiplier)
+			velocity.y = move_toward(velocity.y, depth * (SPEED * 0.66) * speed_multiplier, SPEED * speed_multiplier)
 			standing_y = position.y
 			if speed_multiplier > 2:
 				%CharBody.play_run_animation()
@@ -78,19 +78,21 @@ func _physics_process(delta: float) -> void:
 	if direction > 0:
 		%CharBody.scale.x = 1
 	
-	move_and_slide()
+	move_and_slide() 
+	#move_and_slide() is the moment the character actually exists in the world for that frame. 
+	#Everything before it is planning, everything after it is reacting to what actually happened.
 	
 	if not is_on_ground() and position.y >= standing_y:
 		grounded = true
 		is_jumping = false
 		position.y = standing_y
 	
-	on_ground = is_on_ground()     # 1. snapshot THIS frame
+	on_ground = is_on_ground()          # 1. snapshot THIS frame
 	if on_ground and not was_on_ground: # 2. check the transition
-		_on_landing()                 # 3. react
+		_on_landing()                   # 3. react
 	was_on_ground = on_ground           # 4. remember for NEXT frame
 	
-	print(grounded)
+	#print(grounded)
 
 func is_on_ground() -> bool:
 	if grounded and inside_floor_bounds:
