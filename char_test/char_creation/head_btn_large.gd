@@ -6,4 +6,4 @@ func _ready() -> void:
 	pressed.connect(_on_pressed)
 
 func _on_pressed() -> void:
-	picked_head.emit("res://imgs/head_base.svg", -1)
+	picked_head.emit("res://imgs/head_large.svg", -5)

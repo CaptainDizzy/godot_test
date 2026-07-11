@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://8iwk6cmg7yq2"]
 
-[ext_resource type="Script" uid="uid://bfmva55occ7x0" path="res://color_pick.gd" id="1_k2isj"]
-[ext_resource type="Script" uid="uid://cko80q742ciom" path="res://color_option_button.gd" id="3_e2y03"]
+[ext_resource type="Script" uid="uid://bfmva55occ7x0" path="res://char_creation/color_pick/color_pick.gd" id="1_6bply"]
+[ext_resource type="Script" uid="uid://cko80q742ciom" path="res://char_creation/color_pick/color_option_button.gd" id="2_ak1a6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w8jo0"]
 
@@ -18,7 +18,7 @@ offset_right = -0.16003418
 offset_bottom = 5.279995
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_k2isj")
+script = ExtResource("1_6bply")
 
 [node name="SelectedColor" type="ColorRect" parent="." unique_id=1007114748]
 unique_name_in_owner = true
@@ -57,7 +57,7 @@ offset_bottom = 60.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_w8jo0")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_hji7v")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_38n7b")
-script = ExtResource("3_e2y03")
+script = ExtResource("2_ak1a6")
 
 [node name="Color2" type="ColorRect" parent="Options" unique_id=899068933]
 custom_minimum_size = Vector2(60, 60)
@@ -71,7 +71,7 @@ offset_bottom = 60.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_w8jo0")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_hji7v")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_38n7b")
-script = ExtResource("3_e2y03")
+script = ExtResource("2_ak1a6")
 
 [node name="Color3" type="ColorRect" parent="Options" unique_id=1724341079]
 custom_minimum_size = Vector2(60, 60)
@@ -85,7 +85,7 @@ offset_bottom = 60.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_w8jo0")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_hji7v")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_38n7b")
-script = ExtResource("3_e2y03")
+script = ExtResource("2_ak1a6")
 
 [node name="Color4" type="ColorRect" parent="Options" unique_id=444369126]
 custom_minimum_size = Vector2(60, 60)
@@ -99,7 +99,7 @@ offset_bottom = 60.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_w8jo0")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_hji7v")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_38n7b")
-script = ExtResource("3_e2y03")
+script = ExtResource("2_ak1a6")
 
 [node name="Color5" type="ColorRect" parent="Options" unique_id=1291032254]
 custom_minimum_size = Vector2(60, 60)
@@ -113,7 +113,7 @@ offset_bottom = 60.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_w8jo0")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_hji7v")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_38n7b")
-script = ExtResource("3_e2y03")
+script = ExtResource("2_ak1a6")
 
 [node name="Color6" type="ColorRect" parent="Options" unique_id=1781374277]
 custom_minimum_size = Vector2(60, 60)
@@ -128,7 +128,7 @@ offset_bottom = 60.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_w8jo0")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_hji7v")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_38n7b")
-script = ExtResource("3_e2y03")
+script = ExtResource("2_ak1a6")
 
 [node name="Color7" type="ColorRect" parent="Options" unique_id=1885604850]
 custom_minimum_size = Vector2(60, 60)
@@ -142,7 +142,7 @@ offset_bottom = 60.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_w8jo0")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_hji7v")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_38n7b")
-script = ExtResource("3_e2y03")
+script = ExtResource("2_ak1a6")
 
 [node name="Color8" type="ColorRect" parent="Options" unique_id=1710701477]
 custom_minimum_size = Vector2(60, 60)
@@ -157,7 +157,7 @@ offset_bottom = 60.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_w8jo0")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_hji7v")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_38n7b")
-script = ExtResource("3_e2y03")
+script = ExtResource("2_ak1a6")
 
 [node name="Color9" type="ColorRect" parent="Options" unique_id=382809688]
 custom_minimum_size = Vector2(60, 60)
@@ -171,6 +171,6 @@ offset_bottom = 60.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_w8jo0")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_hji7v")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_38n7b")
-script = ExtResource("3_e2y03")
+script = ExtResource("2_ak1a6")
 
 [connection signal="pressed" from="SelectedColor/ColorButton" to="." method="_on_color_button_pressed"]

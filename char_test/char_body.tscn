@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://by3jfawv8jjnn"]
 
 [ext_resource type="Script" uid="uid://cj0xj87teqsyc" path="res://char_body.gd" id="1_i0pom"]
-[ext_resource type="Texture2D" uid="uid://c20kcvap8pimw" path="res://imgs/head_base.svg" id="1_yn502"]
+[ext_resource type="Texture2D" uid="uid://d208vgptrm01y" path="res://imgs/head_medium.svg" id="2_3uo8v"]
 [ext_resource type="Texture2D" uid="uid://byu3f3qlw1e8q" path="res://imgs/arm_segmt_base.svg" id="2_i0pom"]
-[ext_resource type="Texture2D" uid="uid://0k416r52u1qw" path="res://imgs/torso_m.svg" id="3_3uo8v"]
+[ext_resource type="Texture2D" uid="uid://0k416r52u1qw" path="res://imgs/torso_medium.svg" id="3_3uo8v"]
 [ext_resource type="Texture2D" uid="uid://gq67hfhp2j38" path="res://imgs/leg_upper_base.svg" id="4_8gvb8"]
 [ext_resource type="Texture2D" uid="uid://l71o52e73uj5" path="res://imgs/leg_lower_base.svg" id="5_5refw"]
 [ext_resource type="Texture2D" uid="uid://nvnjy7eb5lo0" path="res://imgs/foot_base.svg" id="6_a0yq1"]
@@ -768,13 +768,12 @@ position = Vector2(4, -103)
 
 [node name="Skull" type="Sprite2D" parent="Body/Top/Head" unique_id=1820553624]
 unique_name_in_owner = true
-position = Vector2(0, -1)
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("1_yn502")
-offset = Vector2(0, -50)
+position = Vector2(0, -5)
+texture = ExtResource("2_3uo8v")
+offset = Vector2(0, -28)
 
 [node name="Arm_Left" type="Node2D" parent="Body/Top" unique_id=1348746078]
-modulate = Color(0.8392157, 0.8392157, 0.8392157, 1)
+modulate = Color(0.90939033, 0.9093903, 0.9093903, 1)
 position = Vector2(20, -89.5)
 rotation = 1.6755161
 
@@ -820,7 +819,7 @@ texture = ExtResource("2_i0pom")
 [node name="Bottom" type="Node2D" parent="Body" unique_id=694322103]
 
 [node name="Leg_Left" type="Node2D" parent="Body/Bottom" unique_id=1057049913]
-modulate = Color(0.84104, 0.84104, 0.84103996, 1)
+modulate = Color(0.90939033, 0.9093903, 0.9093903, 1)
 position = Vector2(16, 7)
 rotation = -0.17453292
 

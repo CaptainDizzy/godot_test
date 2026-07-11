@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const JUMP_V = -400
-const SPEED = 200
+const SPEED = 150
 var speed_multiplier: float = 1
 var prev_multi: float
 var falling: bool = false
