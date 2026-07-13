@@ -7,10 +7,6 @@ extends Node2D
 @onready var lleg_symbol: LineEdit = %LLegInput/LineEdit
 @onready var rleg_symbol: LineEdit = %RLegInput/LineEdit
 @onready var ascii: Node2D = %Player/ASCII
-@onready var intro_beat: AudioStreamPlayer = %Intro1
-@onready var intro_2: AudioStreamPlayer = %Intro2
-@onready var intro_3: AudioStreamPlayer = %Intro3
-@onready var intro_full: AudioStreamPlayer = %Intro4
 
 @onready var current_screen = {
 	scrn = "StartingScreen",
@@ -46,7 +42,7 @@ func _process(delta: float) -> void:
 		%HUD.visible = false
 	elif current_screen.scrn == "NameScreen":
 		pass
-	elif current_screen.scrn == "NameScreen":
+	elif current_screen.scrn == "CreditsScreen":
 		%Player.scale.x = 1
 		%Player.scale.y = 1
 	elif current_screen.scrn == "TitleScreen":

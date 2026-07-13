@@ -1,16 +1,12 @@
 [gd_scene format=3 uid="uid://ck2uub8r0b31w"]
 
 [ext_resource type="Script" uid="uid://drmt8mgohx0af" path="res://ascii/scripts/ascii_game.gd" id="1_l4rt8"]
-[ext_resource type="Script" uid="uid://bsuo6jbxrtry2" path="res://ascii/scripts/bg_music.gd" id="2_0qvif"]
 [ext_resource type="PackedScene" uid="uid://ca6qc3lev5jre" path="res://ascii/assets/player.tscn" id="2_qihb0"]
 [ext_resource type="Script" uid="uid://w405fugcb2xs" path="res://ascii/scripts/starting_screen.gd" id="3_1bvfa"]
-[ext_resource type="AudioStream" uid="uid://dmokj2krjo7kk" path="res://ascii/assets/audio/intro_1.wav" id="3_cxvm1"]
 [ext_resource type="Theme" uid="uid://dpika668hgijq" path="res://ascii/ui/pixelfont.theme" id="3_msc5x"]
-[ext_resource type="AudioStream" uid="uid://dywc45md71ldb" path="res://ascii/assets/audio/intro_2.wav" id="4_aodu7"]
 [ext_resource type="FontFile" uid="uid://b0r2cab1742t2" path="res://fonts/8514oem.ttf" id="4_xgstk"]
-[ext_resource type="AudioStream" uid="uid://bc3qsx0em8j3m" path="res://ascii/assets/audio/intro_3.wav" id="5_140bi"]
 [ext_resource type="PackedScene" uid="uid://d2u1ldw8p4xbr" path="res://ascii/ui/fake_button.tscn" id="5_e68bd"]
-[ext_resource type="AudioStream" uid="uid://b8erphh2rwofo" path="res://ascii/assets/audio/intro_4.wav" id="6_basin"]
+[ext_resource type="Script" uid="uid://4ooskrt560lx" path="res://ascii/scripts/music_manager.gd" id="6_cxvm1"]
 [ext_resource type="PackedScene" uid="uid://ckowrgqaidh8t" path="res://addons/dizzy_transitions/dizzy_transitions.tscn" id="6_qjlv8"]
 [ext_resource type="Script" uid="uid://dtwhyb8sh31cd" path="res://ascii/scripts/name_screen.gd" id="7_r2r38"]
 [ext_resource type="Script" uid="uid://dlu7o73jbawau" path="res://ascii/scripts/title_screen.gd" id="8_fxxrn"]
@@ -46,23 +42,11 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("2_0qvif")
 
-[node name="Intro1" type="AudioStreamPlayer" parent="BGMusic" unique_id=480116539]
+[node name="MusicManager" type="AudioStreamPlayer" parent="BGMusic" unique_id=1220245997]
 unique_name_in_owner = true
-stream = ExtResource("3_cxvm1")
-
-[node name="Intro2" type="AudioStreamPlayer" parent="BGMusic" unique_id=69222289]
-unique_name_in_owner = true
-stream = ExtResource("4_aodu7")
-
-[node name="Intro3" type="AudioStreamPlayer" parent="BGMusic" unique_id=747751805]
-unique_name_in_owner = true
-stream = ExtResource("5_140bi")
-
-[node name="Intro4" type="AudioStreamPlayer" parent="BGMusic" unique_id=1683960322]
-unique_name_in_owner = true
-stream = ExtResource("6_basin")
+volume_db = -20.0
+script = ExtResource("6_cxvm1")
 
 [node name="ParalaxBG" type="CanvasLayer" parent="." unique_id=1404425434]
 unique_name_in_owner = true
@@ -909,18 +893,23 @@ metadata/_edit_lock_ = true
 unique_name_in_owner = true
 visible = false
 
+[connection signal="finished" from="BGMusic/MusicManager" to="BGMusic/MusicManager" method="_on_finished"]
 [connection signal="game_state" from="Player" to="." method="_on_changed_game_state"]
 [connection signal="platformer_landing" from="Player" to="PlatformerScreen" method="_on_player_first_landing"]
 [connection signal="player_is_here" from="StartingScreen" to="." method="_on_starting_screen_here"]
 [connection signal="button_fall" from="StartingScreen/CharacterCreation/FakeButton" to="Player" method="_on_fake_button_fall"]
-[connection signal="start_music" from="StartingScreen/CharacterCreation/FakeButton" to="BGMusic" method="_on_start_music"]
+[connection signal="start_music" from="StartingScreen/CharacterCreation/FakeButton" to="BGMusic/MusicManager" method="_on_fake_button_start_music"]
+[connection signal="intro_2_music" from="NameScreen" to="BGMusic/MusicManager" method="_on_intro_2_music"]
 [connection signal="player_is_here" from="NameScreen" to="." method="_on_name_screen_here"]
 [connection signal="text_changed" from="NameScreen/CharacterName/LineEdit" to="Player" method="_on_name_changed"]
+[connection signal="intro_3_music" from="CreditsScreen" to="BGMusic/MusicManager" method="_on_intro_3_music"]
 [connection signal="player_is_here" from="CreditsScreen" to="." method="_on_credits_screen_here"]
 [connection signal="player_is_here" from="TitleScreen" to="." method="_on_title_screen_here"]
+[connection signal="title_music" from="TitleScreen" to="BGMusic/MusicManager" method="_on_title_music"]
 [connection signal="intro_state" from="ForkScreen" to="Player" method="_on_fork_screen_intro_state"]
 [connection signal="player_is_here" from="ForkScreen" to="." method="_on_fork_screen_here"]
 [connection signal="add_dollars" from="PlatformerScreen" to="Player" method="_on_add_dollars"]
 [connection signal="bounce_player" from="PlatformerScreen" to="Player" method="_on_platformer_bounce_player"]
 [connection signal="platform_state" from="PlatformerScreen" to="Player" method="_on_platformer_screen_platform_state"]
+[connection signal="platformer_music" from="PlatformerScreen" to="BGMusic/MusicManager" method="_on_platformer_music"]
 [connection signal="player_is_here" from="PlatformerScreen" to="." method="_on_platformer_screen_here"]

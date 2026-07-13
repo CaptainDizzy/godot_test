@@ -1,6 +1,7 @@
 extends Node2D
 
 signal player_is_here(s)
+signal platformer_music()
 signal platform_state(state)
 signal add_dollars(d: float)
 signal bounce_player(v: float)
@@ -24,6 +25,7 @@ func _process(delta: float) -> void:
 		var screen_name = "PlatformerScreen"
 		player_is_here.emit(screen_name)
 		platform_state.emit("platformer")
+		platformer_music.emit()
 		if not entered:
 			enter_count += 1
 			entered = true
