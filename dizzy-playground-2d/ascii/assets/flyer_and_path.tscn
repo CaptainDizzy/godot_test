@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://c0nwqm8arfta5"]
+
+[ext_resource type="PackedScene" uid="uid://crhtgxhnolu7e" path="res://ascii/assets/flyer.tscn" id="1_2xfc2"]
+[ext_resource type="Script" uid="uid://bx7jx67m3utn1" path="res://ascii/scripts/flyer_and_path.gd" id="1_dkan2"]
+
+[sub_resource type="Curve2D" id="Curve2D_dkan2"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -41.381733, -349, 0, 0, 0, 0, -41.381733, 324)
+}
+point_count = 2
+
+[node name="FlyerAndPath" type="Node2D" unique_id=154772225]
+script = ExtResource("1_dkan2")
+
+[node name="Flyer" parent="." unique_id=1315470838 instance=ExtResource("1_2xfc2")]
+
+[node name="Path2D" type="Path2D" parent="." unique_id=769775173]
+position = Vector2(38, -33)
+scale = Vector2(0.9182796, 1)
+curve = SubResource("Curve2D_dkan2")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=941036988]
+position = Vector2(-41.381733, 131.50221)
+progress = 480.4999
+rotates = false
+loop = false
+
+[connection signal="plr_bounce" from="Flyer" to="." method="_on_flyer_plr_bounce"]

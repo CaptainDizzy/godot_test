@@ -1,9 +1,10 @@
 extends CharacterBody2D
 
-@onready var path_follow: PathFollow2D = %PathFollow2D
+@onready var path: Path2D = $"../Path2D"
+@onready var path_follow: PathFollow2D = $"../Path2D/PathFollow2D"
 
 signal plr_bounce(v: float)
-const SPEED = 0.25
+const SPEED = 200
 var damage: int = 1
 var direction = 1
 var falling := false
@@ -69,24 +70,33 @@ func _ready() -> void:
 		%FlyerBody/Body/Bod.text = "|"
 
 func _physics_process(delta: float) -> void:
-	var target = path_follow.global_position
-	var delta_pos = target - global_position
+	var path_length: float = path.curve.get_baked_length()
 	
-	path_follow.progress_ratio += SPEED * delta * direction
-	%FlyerBody.play_fly_animation()
+	path_follow.progress += SPEED * delta * direction
 	
-	if path_follow.progress_ratio >= 1.0:
-		path_follow.progress_ratio = 1.0
-		direction = -1.0
-	elif path_follow.progress_ratio <= 0.0:
-		path_follow.progress_ratio = 0.0
-		direction = 1.0
+	if path_follow.progress >= path_length:
+		path_follow.progress = path_length
+		direction = -1
+	elif path_follow.progress <= 0.0:
+		path_follow.progress = 0.0
+		direction = 1
 	
-	move_and_collide(delta_pos)
+	var target_position: Vector2 = path_follow.global_position
+	var move_direction: Vector2 = (target_position - global_position)
+
+	if move_direction.length() > 4.0:
+		velocity = move_direction.normalized() * SPEED
+	else:
+		velocity = Vector2.ZERO
+	
+	if not is_dead:
+		%FlyerBody.play_fly_animation()
+	
+	move_and_slide()
 
 func _on_stomped(area: Area2D) -> void:
 	if area.is_in_group("player_attacks"):
-		plr_bounce.emit(-500)
+		plr_bounce.emit(-750)
 		get_dead()
 
 func get_dead() -> void:

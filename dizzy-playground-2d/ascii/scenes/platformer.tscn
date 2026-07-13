@@ -5,10 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://d0l45d00184ce" path="res://ascii/assets/box.tscn" id="2_mkhiu"]
 [ext_resource type="PackedScene" uid="uid://cc5jokgqwepq2" path="res://ascii/assets/pile_on.tscn" id="3_4k4rx"]
 [ext_resource type="Script" uid="uid://dugrd6k7yiwob" path="res://ascii/scripts/fall_line.gd" id="3_ccpff"]
-[ext_resource type="PackedScene" uid="uid://oheubn7bmxr5" path="res://ascii/assets/flyer.tscn" id="5_8s4kh"]
 [ext_resource type="PackedScene" uid="uid://bf5dwo0oy6mgc" path="res://ascii/assets/block.tscn" id="6_5i1g8"]
 [ext_resource type="PackedScene" uid="uid://elo6dpv5myij" path="res://ascii/assets/moving_platform.tscn" id="7_504g7"]
 [ext_resource type="PackedScene" uid="uid://dc8vdt2xtvcif" path="res://ascii/assets/tosser.tscn" id="8_dkcvi"]
+[ext_resource type="PackedScene" uid="uid://b5b67q3scyrr5" path="res://ascii/assets/crawler.tscn" id="10_1ngif"]
+[ext_resource type="PackedScene" uid="uid://c0nwqm8arfta5" path="res://ascii/assets/flyer_and_path.tscn" id="11_pqjkp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mkhiu"]
 size = Vector2(3065, 91)
@@ -305,6 +306,9 @@ position = Vector2(9284, 627)
 unique_name_in_owner = true
 position = Vector2(9383, 627)
 
+[node name="Block12" parent="LevelObjs" unique_id=756312004 instance=ExtResource("6_5i1g8")]
+position = Vector2(5778, 946)
+
 [node name="Mobs" type="Node2D" parent="." unique_id=1750582389]
 unique_name_in_owner = true
 
@@ -342,15 +346,6 @@ position = Vector2(9424, 513)
 shape = SubResource("RectangleShape2D_w8jo0")
 debug_color = Color(0.28853557, 0.6304161, 3.85046e-07, 0.41960785)
 
-[node name="Crawler" parent="Mobs" unique_id=1315470838 instance=ExtResource("5_8s4kh")]
-position = Vector2(2676, 968)
-
-[node name="Crawler2" parent="Mobs" unique_id=1125435250 instance=ExtResource("5_8s4kh")]
-position = Vector2(1871, 965)
-
-[node name="Crawler3" parent="Mobs" unique_id=1904531920 instance=ExtResource("5_8s4kh")]
-position = Vector2(4041, 966)
-
 [node name="Tosser" parent="Mobs" unique_id=2012318944 instance=ExtResource("8_dkcvi")]
 position = Vector2(5356, 667)
 collision_mask = 71
@@ -359,15 +354,27 @@ collision_mask = 71
 position = Vector2(1526, 574)
 collision_mask = 71
 
-[node name="Crawler4" parent="Mobs" unique_id=1466439913 instance=ExtResource("5_8s4kh")]
-position = Vector2(4670, 964)
-
-[node name="Crawler5" parent="Mobs" unique_id=1168524770 instance=ExtResource("5_8s4kh")]
-position = Vector2(8936, 681)
+[node name="Crawler5" parent="Mobs" unique_id=1404124861 instance=ExtResource("10_1ngif")]
+position = Vector2(9211, 556)
 collision_mask = 71
 
-[node name="Block" parent="." unique_id=756312004 instance=ExtResource("6_5i1g8")]
-position = Vector2(5778, 946)
+[node name="Crawler" parent="Mobs" unique_id=131414925 instance=ExtResource("10_1ngif")]
+position = Vector2(1730, 960)
+
+[node name="Crawler2" parent="Mobs" unique_id=823329814 instance=ExtResource("10_1ngif")]
+position = Vector2(2682, 960)
+
+[node name="Crawler3" parent="Mobs" unique_id=1768787759 instance=ExtResource("10_1ngif")]
+position = Vector2(4031, 940)
+
+[node name="Crawler4" parent="Mobs" unique_id=1595413722 instance=ExtResource("10_1ngif")]
+position = Vector2(4758, 946)
+
+[node name="FlyerAndPath" parent="Mobs" unique_id=154772225 instance=ExtResource("11_pqjkp")]
+position = Vector2(398, 570)
+
+[node name="FlyerAndPath2" parent="Mobs" unique_id=527730485 instance=ExtResource("11_pqjkp")]
+position = Vector2(8884, 579)
 
 [connection signal="body_entered" from="PitFalls" to="." method="_on_player_pit_fall"]
 [connection signal="has_dollars" from="LevelObjs/Box" to="." method="_on_box_has_dollars"]
