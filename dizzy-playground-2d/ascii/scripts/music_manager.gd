@@ -23,15 +23,11 @@ func _on_finished() -> void:
 	else:
 		play()
 
-
 func _on_title_music() -> void:
 	next_song = intro_full
-
 func _on_intro_2_music() -> void:
 	next_song = intro_2
-
 func _on_intro_3_music() -> void:
 	next_song = intro_3
-
 func _on_platformer_music() -> void:
 	stop()
