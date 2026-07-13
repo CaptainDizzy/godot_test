@@ -1,17 +1,20 @@
 [gd_scene format=3 uid="uid://cjb66iowisjdc"]
 
-[ext_resource type="Script" uid="uid://qbo16tt1p06o" path="res://char_creation.gd" id="1_dqbh3"]
-[ext_resource type="PackedScene" uid="uid://8iwk6cmg7yq2" path="res://skintone_pick.tscn" id="2_231of"]
-[ext_resource type="ButtonGroup" uid="uid://b10hi5ddsnues" path="res://head_choice.tres" id="3_1ucq7"]
-[ext_resource type="PackedScene" uid="uid://by3jfawv8jjnn" path="res://char_body.tscn" id="3_swumw"]
-[ext_resource type="ButtonGroup" uid="uid://c2rmbg3ntul1i" path="res://body_choice.tres" id="4_02v0n"]
-[ext_resource type="PackedScene" uid="uid://tkyuo65k0mtu" path="res://basic_color_pick.tscn" id="4_231of"]
-[ext_resource type="Script" uid="uid://c0poq5uex8apn" path="res://head_btn_regular.gd" id="4_qwulh"]
-[ext_resource type="Script" uid="uid://uocnsyl7sjfr" path="res://head_btn_small.gd" id="5_qwulh"]
-[ext_resource type="Script" uid="uid://d3p4vpqu4s1ud" path="res://body_btn_medium.gd" id="7_v1h2v"]
-[ext_resource type="Script" uid="uid://cjes684p2ss6g" path="res://body_btn_curvy.gd" id="8_ny51w"]
-[ext_resource type="Script" uid="uid://37hciosjr4jd" path="res://body_btn_large.gd" id="9_f218v"]
-[ext_resource type="Script" uid="uid://sx4o0qamy7nn" path="res://body_btn_thin.gd" id="10_25tly"]
+[ext_resource type="Script" uid="uid://qbo16tt1p06o" path="res://char_creation/char_creation.gd" id="1_fceqf"]
+[ext_resource type="PackedScene" uid="uid://by3jfawv8jjnn" path="res://char_body.tscn" id="2_33ifv"]
+[ext_resource type="Script" uid="uid://kigdee3qab5t" path="res://char_creation/play_button.gd" id="3_7k1y4"]
+[ext_resource type="ButtonGroup" uid="uid://b10hi5ddsnues" path="res://char_creation/head_choice.tres" id="4_o1idi"]
+[ext_resource type="Script" uid="uid://c0poq5uex8apn" path="res://char_creation/head_btn_regular.gd" id="5_4cm82"]
+[ext_resource type="Script" uid="uid://uocnsyl7sjfr" path="res://char_creation/head_btn_small.gd" id="6_a6gjf"]
+[ext_resource type="Script" uid="uid://cp0f8kudyib4l" path="res://char_creation/head_btn_large.gd" id="7_7k1y4"]
+[ext_resource type="ButtonGroup" uid="uid://c2rmbg3ntul1i" path="res://char_creation/body_choice.tres" id="7_tvbs4"]
+[ext_resource type="Script" uid="uid://d3p4vpqu4s1ud" path="res://char_creation/body_btn_medium.gd" id="8_wfvdp"]
+[ext_resource type="Script" uid="uid://cjes684p2ss6g" path="res://char_creation/body_btn_curvy.gd" id="9_p1k84"]
+[ext_resource type="Script" uid="uid://37hciosjr4jd" path="res://char_creation/body_btn_large.gd" id="10_52bfh"]
+[ext_resource type="Script" uid="uid://sx4o0qamy7nn" path="res://char_creation/body_btn_thin.gd" id="11_dp23e"]
+[ext_resource type="PackedScene" uid="uid://8iwk6cmg7yq2" path="res://char_creation/color_pick/skintone_pick.tscn" id="12_na1y1"]
+[ext_resource type="PackedScene" uid="uid://tkyuo65k0mtu" path="res://char_creation/color_pick/basic_color_pick.tscn" id="13_nomgh"]
+[ext_resource type="PackedScene" uid="uid://ckowrgqaidh8t" path="res://addons/dizzy_transitions/dizzy_transitions.tscn" id="14_33ifv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ny51w"]
 bg_color = Color(1, 1, 1, 0.09803922)
@@ -19,6 +22,27 @@ corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w8jo0"]
+bg_color = Color(1, 1, 1, 0.19607843)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hji7v"]
+bg_color = Color(1, 1, 1, 0.09803922)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_53pel"]
+bg_color = Color(1, 1, 1, 0.39215687)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_38n7b"]
 bg_color = Color(0.2, 0.2901961, 0.09019608, 1)
@@ -72,7 +96,7 @@ Button/styles/pressed = SubResource("StyleBoxFlat_outur")
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5kitm"]
 
 [node name="CharCreation" type="Node2D" unique_id=86544382]
-script = ExtResource("1_dqbh3")
+script = ExtResource("1_fceqf")
 
 [node name="BG" type="Node2D" parent="." unique_id=893722649]
 metadata/_edit_lock_ = true
@@ -108,7 +132,7 @@ size_flags_vertical = 3
 
 [node name="CharPreview" type="Node2D" parent="Menu" unique_id=1517288767]
 
-[node name="CharBody" parent="Menu/CharPreview" unique_id=773892354 instance=ExtResource("3_swumw")]
+[node name="CharBody" parent="Menu/CharPreview" unique_id=773892354 instance=ExtResource("2_33ifv")]
 unique_name_in_owner = true
 position = Vector2(1068, 513)
 
@@ -129,6 +153,25 @@ popup/item_2/text = "Run"
 popup/item_2/id = 2
 popup/item_3/text = "Jump"
 popup/item_3/id = 3
+
+[node name="Label" type="Label" parent="Menu/CharPreview" unique_id=1549438210]
+offset_left = 1025.0
+offset_top = 59.0
+offset_right = 1106.0
+offset_bottom = 82.0
+text = "Animation"
+
+[node name="PlayButton" type="Button" parent="Menu/CharPreview" unique_id=1271088451]
+offset_left = 1018.0
+offset_top = 608.0
+offset_right = 1137.0
+offset_bottom = 662.0
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_w8jo0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hji7v")
+theme_override_styles/hover = SubResource("StyleBoxFlat_53pel")
+text = "Play"
+script = ExtResource("3_7k1y4")
 
 [node name="TabContainer" type="TabContainer" parent="Menu" unique_id=1720300383]
 layout_mode = 0
@@ -161,6 +204,20 @@ offset_bottom = 259.0
 
 [node name="Regular" type="Button" parent="Menu/TabContainer/Head & Body/HeadTypes" unique_id=1785780104]
 layout_mode = 0
+offset_left = 172.0
+offset_top = 11.0
+offset_right = 326.0
+offset_bottom = 70.0
+theme = SubResource("Theme_olt8n")
+theme_override_font_sizes/font_size = 28
+toggle_mode = true
+button_group = ExtResource("4_o1idi")
+text = "Medium
+"
+script = ExtResource("5_4cm82")
+
+[node name="Small" type="Button" parent="Menu/TabContainer/Head & Body/HeadTypes" unique_id=1259564032]
+layout_mode = 0
 offset_left = 1.0
 offset_top = 11.0
 offset_right = 155.0
@@ -168,22 +225,22 @@ offset_bottom = 70.0
 theme = SubResource("Theme_olt8n")
 theme_override_font_sizes/font_size = 28
 toggle_mode = true
-button_group = ExtResource("3_1ucq7")
-text = "Regular"
-script = ExtResource("4_qwulh")
+button_group = ExtResource("4_o1idi")
+text = "Small"
+script = ExtResource("6_a6gjf")
 
-[node name="Small" type="Button" parent="Menu/TabContainer/Head & Body/HeadTypes" unique_id=1259564032]
+[node name="Large" type="Button" parent="Menu/TabContainer/Head & Body/HeadTypes" unique_id=199496587]
 layout_mode = 0
-offset_left = 175.0
-offset_top = 11.0
-offset_right = 329.0
-offset_bottom = 70.0
+offset_left = 1.0
+offset_top = 91.0
+offset_right = 155.0
+offset_bottom = 150.0
 theme = SubResource("Theme_olt8n")
 theme_override_font_sizes/font_size = 28
 toggle_mode = true
-button_group = ExtResource("3_1ucq7")
-text = "Small"
-script = ExtResource("5_qwulh")
+button_group = ExtResource("4_o1idi")
+text = "Large"
+script = ExtResource("7_7k1y4")
 
 [node name="BodyLabel" type="Label" parent="Menu/TabContainer/Head & Body" unique_id=2073430720]
 layout_mode = 0
@@ -211,9 +268,9 @@ offset_bottom = 70.0
 theme = SubResource("Theme_olt8n")
 theme_override_font_sizes/font_size = 28
 toggle_mode = true
-button_group = ExtResource("4_02v0n")
+button_group = ExtResource("7_tvbs4")
 text = "Medium"
-script = ExtResource("7_v1h2v")
+script = ExtResource("8_wfvdp")
 
 [node name="Curvy" type="Button" parent="Menu/TabContainer/Head & Body/BodyTypes" unique_id=40986474]
 layout_mode = 0
@@ -224,11 +281,11 @@ offset_bottom = 70.0
 theme = SubResource("Theme_olt8n")
 theme_override_font_sizes/font_size = 28
 toggle_mode = true
-button_group = ExtResource("4_02v0n")
+button_group = ExtResource("7_tvbs4")
 text = "Curvy
 
 "
-script = ExtResource("8_ny51w")
+script = ExtResource("9_p1k84")
 
 [node name="Large" type="Button" parent="Menu/TabContainer/Head & Body/BodyTypes" unique_id=2061433556]
 layout_mode = 0
@@ -239,9 +296,9 @@ offset_bottom = 150.0
 theme = SubResource("Theme_olt8n")
 theme_override_font_sizes/font_size = 28
 toggle_mode = true
-button_group = ExtResource("4_02v0n")
+button_group = ExtResource("7_tvbs4")
 text = "Large"
-script = ExtResource("9_f218v")
+script = ExtResource("10_52bfh")
 
 [node name="Thin" type="Button" parent="Menu/TabContainer/Head & Body/BodyTypes" unique_id=1934166711]
 layout_mode = 0
@@ -252,9 +309,9 @@ offset_bottom = 150.0
 theme = SubResource("Theme_olt8n")
 theme_override_font_sizes/font_size = 28
 toggle_mode = true
-button_group = ExtResource("4_02v0n")
+button_group = ExtResource("7_tvbs4")
 text = "Thin"
-script = ExtResource("10_25tly")
+script = ExtResource("11_dp23e")
 
 [node name="Colors" type="Control" parent="Menu/TabContainer" unique_id=238753725]
 visible = false
@@ -281,7 +338,7 @@ text = "Skintone"
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="SkintonePick" parent="Menu/TabContainer/Colors/PanelContainer/VBoxContainer/Skintones" unique_id=38424458 instance=ExtResource("2_231of")]
+[node name="SkintonePick2" parent="Menu/TabContainer/Colors/PanelContainer/VBoxContainer/Skintones" unique_id=998726659 instance=ExtResource("12_na1y1")]
 layout_mode = 2
 
 [node name="ShirtLabel" type="Label" parent="Menu/TabContainer/Colors/PanelContainer/VBoxContainer" unique_id=1113540563]
@@ -293,7 +350,7 @@ text = "Shirt Color"
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="BasicColorPick" parent="Menu/TabContainer/Colors/PanelContainer/VBoxContainer/ShirtColor" unique_id=677946362 instance=ExtResource("4_231of")]
+[node name="BasicColorPick2" parent="Menu/TabContainer/Colors/PanelContainer/VBoxContainer/ShirtColor" unique_id=38424458 instance=ExtResource("13_nomgh")]
 layout_mode = 2
 
 [node name="SleaveLabel" type="Label" parent="Menu/TabContainer/Colors/PanelContainer/VBoxContainer" unique_id=1398773845]
@@ -305,7 +362,7 @@ text = "Sleave Color"
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="BasicColorPick" parent="Menu/TabContainer/Colors/PanelContainer/VBoxContainer/SleaveColor" unique_id=861643848 instance=ExtResource("4_231of")]
+[node name="BasicColorPick2" parent="Menu/TabContainer/Colors/PanelContainer/VBoxContainer/SleaveColor" unique_id=1872672538 instance=ExtResource("13_nomgh")]
 layout_mode = 2
 
 [node name="PantsLabel" type="Label" parent="Menu/TabContainer/Colors/PanelContainer/VBoxContainer" unique_id=409703976]
@@ -317,7 +374,7 @@ text = "Pants Color"
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="BasicColorPick" parent="Menu/TabContainer/Colors/PanelContainer/VBoxContainer/PantsColor" unique_id=1400580592 instance=ExtResource("4_231of")]
+[node name="BasicColorPick2" parent="Menu/TabContainer/Colors/PanelContainer/VBoxContainer/PantsColor" unique_id=883720373 instance=ExtResource("13_nomgh")]
 layout_mode = 2
 
 [node name="ShoeLabel" type="Label" parent="Menu/TabContainer/Colors/PanelContainer/VBoxContainer" unique_id=659431001]
@@ -329,12 +386,16 @@ text = "Shoe Color"
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="BasicColorPick" parent="Menu/TabContainer/Colors/PanelContainer/VBoxContainer/ShoeColor" unique_id=289332200 instance=ExtResource("4_231of")]
+[node name="BasicColorPick2" parent="Menu/TabContainer/Colors/PanelContainer/VBoxContainer/ShoeColor" unique_id=561402436 instance=ExtResource("13_nomgh")]
 layout_mode = 2
 
+[node name="DizzyTransitions" parent="." unique_id=688147533 instance=ExtResource("14_33ifv")]
+unique_name_in_owner = true
+visible = false
+
 [connection signal="item_selected" from="Menu/CharPreview/AnimationPicker" to="." method="_on_animation_selected"]
-[connection signal="color_picked" from="Menu/TabContainer/Colors/PanelContainer/VBoxContainer/Skintones/SkintonePick" to="." method="_on_skintone_picked"]
-[connection signal="color_picked" from="Menu/TabContainer/Colors/PanelContainer/VBoxContainer/ShirtColor/BasicColorPick" to="." method="_on_shirt_color_picked"]
-[connection signal="color_picked" from="Menu/TabContainer/Colors/PanelContainer/VBoxContainer/SleaveColor/BasicColorPick" to="." method="_on_sleave_color_picked"]
-[connection signal="color_picked" from="Menu/TabContainer/Colors/PanelContainer/VBoxContainer/PantsColor/BasicColorPick" to="." method="_on_pants_color_picked"]
-[connection signal="color_picked" from="Menu/TabContainer/Colors/PanelContainer/VBoxContainer/ShoeColor/BasicColorPick" to="." method="_on_shoe_color_picked"]
+[connection signal="color_picked" from="Menu/TabContainer/Colors/PanelContainer/VBoxContainer/Skintones/SkintonePick2" to="." method="_on_skintone_picked"]
+[connection signal="color_picked" from="Menu/TabContainer/Colors/PanelContainer/VBoxContainer/ShirtColor/BasicColorPick2" to="." method="_on_shirt_color_picked"]
+[connection signal="color_picked" from="Menu/TabContainer/Colors/PanelContainer/VBoxContainer/SleaveColor/BasicColorPick2" to="." method="_on_sleave_color_picked"]
+[connection signal="color_picked" from="Menu/TabContainer/Colors/PanelContainer/VBoxContainer/PantsColor/BasicColorPick2" to="." method="_on_pants_color_picked"]
+[connection signal="color_picked" from="Menu/TabContainer/Colors/PanelContainer/VBoxContainer/ShoeColor/BasicColorPick2" to="." method="_on_shoe_color_picked"]

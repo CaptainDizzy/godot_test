@@ -2,19 +2,44 @@
 
 [ext_resource type="Script" uid="uid://calt1f7wa583c" path="res://char.gd" id="1_3bvsw"]
 [ext_resource type="PackedScene" uid="uid://by3jfawv8jjnn" path="res://char_body.tscn" id="1_njpxk"]
-[ext_resource type="Script" uid="uid://cj0xj87teqsyc" path="res://char_body.gd" id="2_hs5vj"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hs5vj"]
-size = Vector2(64, 302)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fc0e3"]
+radius = 28.000069
+height = 125.99959
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w8jo0"]
+radius = 41.0
+height = 306.0
 
 [node name="Char" type="CharacterBody2D" unique_id=2137954122]
+collision_mask = 15
 script = ExtResource("1_3bvsw")
 
 [node name="CharBody" parent="." unique_id=773892354 instance=ExtResource("1_njpxk")]
 unique_name_in_owner = true
-script = ExtResource("2_hs5vj")
+position = Vector2(0, -10)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1747565053]
-visible = false
-position = Vector2(1, -152)
-shape = SubResource("RectangleShape2D_hs5vj")
+[node name="FloorCollision" type="CollisionShape2D" parent="." unique_id=1747565053 groups=["player_collision"]]
+position = Vector2(6, -27)
+rotation = -1.5707735
+shape = SubResource("CapsuleShape2D_fc0e3")
+
+[node name="Feet" type="Area2D" parent="." unique_id=258318394 groups=["player_collision"]]
+position = Vector2(6, -27)
+rotation = -1.5707735
+collision_mask = 8
+
+[node name="FloorCollision" type="CollisionShape2D" parent="Feet" unique_id=1662648924 groups=["player_collision"]]
+position = Vector2(-4.7683716e-07, 0)
+shape = SubResource("CapsuleShape2D_fc0e3")
+debug_color = Color(0.784393, 0.18797883, 0.9475462, 0.41960785)
+
+[node name="HurtBox" type="Area2D" parent="." unique_id=1371806465]
+unique_name_in_owner = true
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=2041863024]
+position = Vector2(4, -152)
+shape = SubResource("CapsuleShape2D_w8jo0")
+debug_color = Color(0.9591926, 0.1945143, 0.16154513, 0.41960785)

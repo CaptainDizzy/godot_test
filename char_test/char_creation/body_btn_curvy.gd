@@ -1,9 +1,9 @@
 extends Button
 
-signal picked_head(h: String, offset_y: int)
+signal picked_body(b: String)
 
 func _ready() -> void:
 	pressed.connect(_on_pressed)
 
 func _on_pressed() -> void:
-	picked_head.emit("res://imgs/head_small.svg", 4)
+	picked_body.emit("res://imgs/torso_curvy.svg")
