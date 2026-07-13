@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://dpika668hgijq" path="res://ascii/ui/pixelfont.theme" id="1_1i8j3"]
 [ext_resource type="Script" uid="uid://byyj5eb5vt8vc" path="res://ascii/scripts/moving_platform.gd" id="1_1pqf0"]
-[ext_resource type="FontFile" uid="uid://b0r2cab1742t2" path="res://fonts/vertopal.com_8514oem.ttf" id="2_1pqf0"]
+[ext_resource type="FontFile" uid="uid://b0r2cab1742t2" path="res://fonts/8514oem.ttf" id="2_1pqf0"]
 
 [sub_resource type="Curve2D" id="Curve2D_1pqf0"]
 _data = {

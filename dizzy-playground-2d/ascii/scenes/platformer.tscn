@@ -5,10 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://d0l45d00184ce" path="res://ascii/assets/box.tscn" id="2_mkhiu"]
 [ext_resource type="PackedScene" uid="uid://cc5jokgqwepq2" path="res://ascii/assets/pile_on.tscn" id="3_4k4rx"]
 [ext_resource type="Script" uid="uid://dugrd6k7yiwob" path="res://ascii/scripts/fall_line.gd" id="3_ccpff"]
-[ext_resource type="PackedScene" uid="uid://oheubn7bmxr5" path="res://ascii/assets/crawler.tscn" id="5_8s4kh"]
 [ext_resource type="PackedScene" uid="uid://bf5dwo0oy6mgc" path="res://ascii/assets/block.tscn" id="6_5i1g8"]
 [ext_resource type="PackedScene" uid="uid://elo6dpv5myij" path="res://ascii/assets/moving_platform.tscn" id="7_504g7"]
 [ext_resource type="PackedScene" uid="uid://dc8vdt2xtvcif" path="res://ascii/assets/tosser.tscn" id="8_dkcvi"]
+[ext_resource type="PackedScene" uid="uid://b5b67q3scyrr5" path="res://ascii/assets/crawler.tscn" id="10_1ngif"]
+[ext_resource type="PackedScene" uid="uid://c0nwqm8arfta5" path="res://ascii/assets/flyer_and_path.tscn" id="11_pqjkp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mkhiu"]
 size = Vector2(3065, 91)
@@ -52,37 +53,36 @@ metadata/_edit_lock_ = true
 
 [node name="Ruler" type="CanvasGroup" parent="Screen" unique_id=1560554955]
 visible = false
-position = Vector2(462, 5)
+position = Vector2(8181, 285)
 
 [node name="ColorRect" type="ColorRect" parent="Screen/Ruler" unique_id=1438413122]
-offset_left = 1783.0
-offset_top = 937.0
-offset_right = 1833.0
-offset_bottom = 987.0
+offset_left = 8.0
+offset_top = 154.0
+offset_right = 58.0
+offset_bottom = 204.0
 color = Color(1, 1, 1, 0.5137255)
 metadata/_edit_lock_ = true
 
 [node name="ColorRect2" type="ColorRect" parent="Screen/Ruler" unique_id=1567785542]
-offset_left = 1783.0
-offset_top = 886.0
-offset_right = 1833.0
-offset_bottom = 936.0
+offset_left = 8.0
+offset_top = 103.0
+offset_right = 58.0
+offset_bottom = 153.0
 color = Color(0.39498678, 0.3949867, 0.3949867, 0.5137255)
 metadata/_edit_lock_ = true
 
 [node name="ColorRect3" type="ColorRect" parent="Screen/Ruler" unique_id=128039525]
-offset_left = 1783.0
-offset_top = 834.0
-offset_right = 1833.0
-offset_bottom = 884.0
+offset_left = 8.0
+offset_top = 51.0
+offset_right = 58.0
+offset_bottom = 101.0
 color = Color(1, 1, 1, 0.5137255)
 metadata/_edit_lock_ = true
 
 [node name="ColorRect4" type="ColorRect" parent="Screen/Ruler" unique_id=517420862]
-offset_left = 1783.0
-offset_top = 783.0
-offset_right = 1833.0
-offset_bottom = 833.0
+offset_left = 8.0
+offset_right = 58.0
+offset_bottom = 50.0
 color = Color(0.39498678, 0.3949867, 0.3949867, 0.5137255)
 metadata/_edit_lock_ = true
 
@@ -284,31 +284,33 @@ position = Vector2(6173, 946)
 position = Vector2(7254, 739)
 
 [node name="MovingPlatform2" parent="LevelObjs" unique_id=1897429142 instance=ExtResource("7_504g7")]
-position = Vector2(8221, 590)
+position = Vector2(8135, 594)
 scale = Vector2(-1, 1)
+
+[node name="Box5" parent="LevelObjs" unique_id=808793690 instance=ExtResource("2_mkhiu")]
+position = Vector2(8296, 322)
+
+[node name="Block2" parent="LevelObjs" unique_id=966751189 instance=ExtResource("6_5i1g8")]
+unique_name_in_owner = true
+position = Vector2(9085, 627)
+
+[node name="Block3" parent="LevelObjs" unique_id=1542147676 instance=ExtResource("6_5i1g8")]
+unique_name_in_owner = true
+position = Vector2(9184, 627)
+
+[node name="Block4" parent="LevelObjs" unique_id=1623958042 instance=ExtResource("6_5i1g8")]
+unique_name_in_owner = true
+position = Vector2(9284, 627)
+
+[node name="Block5" parent="LevelObjs" unique_id=2131978834 instance=ExtResource("6_5i1g8")]
+unique_name_in_owner = true
+position = Vector2(9383, 627)
+
+[node name="Block12" parent="LevelObjs" unique_id=756312004 instance=ExtResource("6_5i1g8")]
+position = Vector2(5778, 946)
 
 [node name="Mobs" type="Node2D" parent="." unique_id=1750582389]
 unique_name_in_owner = true
-
-[node name="Crawler" parent="Mobs" unique_id=1315470838 instance=ExtResource("5_8s4kh")]
-position = Vector2(2676, 968)
-
-[node name="Crawler2" parent="Mobs" unique_id=1125435250 instance=ExtResource("5_8s4kh")]
-position = Vector2(1871, 965)
-
-[node name="Crawler3" parent="Mobs" unique_id=1904531920 instance=ExtResource("5_8s4kh")]
-position = Vector2(4041, 966)
-
-[node name="Tosser" parent="Mobs" unique_id=2012318944 instance=ExtResource("8_dkcvi")]
-position = Vector2(5356, 667)
-collision_mask = 71
-
-[node name="Tosser2" parent="Mobs" unique_id=75367391 instance=ExtResource("8_dkcvi")]
-position = Vector2(1526, 574)
-collision_mask = 71
-
-[node name="Crawler4" parent="Mobs" unique_id=1466439913 instance=ExtResource("5_8s4kh")]
-position = Vector2(4670, 964)
 
 [node name="WalkBlockers" type="StaticBody2D" parent="Mobs" unique_id=27020331]
 collision_layer = 64
@@ -334,8 +336,45 @@ position = Vector2(1588, 545)
 shape = SubResource("RectangleShape2D_w8jo0")
 debug_color = Color(0.28853557, 0.6304161, 3.85046e-07, 0.41960785)
 
-[node name="Block" parent="." unique_id=756312004 instance=ExtResource("6_5i1g8")]
-position = Vector2(5778, 946)
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Mobs/WalkBlockers" unique_id=772649454]
+position = Vector2(9044, 513)
+shape = SubResource("RectangleShape2D_w8jo0")
+debug_color = Color(0.28853557, 0.6304161, 3.85046e-07, 0.41960785)
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Mobs/WalkBlockers" unique_id=1297913508]
+position = Vector2(9424, 513)
+shape = SubResource("RectangleShape2D_w8jo0")
+debug_color = Color(0.28853557, 0.6304161, 3.85046e-07, 0.41960785)
+
+[node name="Tosser" parent="Mobs" unique_id=2012318944 instance=ExtResource("8_dkcvi")]
+position = Vector2(5356, 667)
+collision_mask = 71
+
+[node name="Tosser2" parent="Mobs" unique_id=75367391 instance=ExtResource("8_dkcvi")]
+position = Vector2(1526, 574)
+collision_mask = 71
+
+[node name="Crawler5" parent="Mobs" unique_id=1404124861 instance=ExtResource("10_1ngif")]
+position = Vector2(9211, 556)
+collision_mask = 71
+
+[node name="Crawler" parent="Mobs" unique_id=131414925 instance=ExtResource("10_1ngif")]
+position = Vector2(1730, 960)
+
+[node name="Crawler2" parent="Mobs" unique_id=823329814 instance=ExtResource("10_1ngif")]
+position = Vector2(2682, 960)
+
+[node name="Crawler3" parent="Mobs" unique_id=1768787759 instance=ExtResource("10_1ngif")]
+position = Vector2(4031, 940)
+
+[node name="Crawler4" parent="Mobs" unique_id=1595413722 instance=ExtResource("10_1ngif")]
+position = Vector2(4758, 946)
+
+[node name="FlyerAndPath" parent="Mobs" unique_id=154772225 instance=ExtResource("11_pqjkp")]
+position = Vector2(398, 570)
+
+[node name="FlyerAndPath2" parent="Mobs" unique_id=527730485 instance=ExtResource("11_pqjkp")]
+position = Vector2(8884, 579)
 
 [connection signal="body_entered" from="PitFalls" to="." method="_on_player_pit_fall"]
 [connection signal="has_dollars" from="LevelObjs/Box" to="." method="_on_box_has_dollars"]
