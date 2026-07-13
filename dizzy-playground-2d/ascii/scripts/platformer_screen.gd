@@ -12,6 +12,10 @@ func _ready() -> void:
 	for mob in %Mobs.get_children():
 		if mob.has_signal("plr_bounce"):
 			mob.plr_bounce.connect(_on_plr_bounce)
+	
+	for box in %LevelObjs.get_children():
+		if box.has_signal("has_dollars"):
+			box.has_dollars.connect(_on_box_has_dollars)
 
 func _process(delta: float) -> void:
 	var px = %Player.position.x
@@ -45,8 +49,8 @@ func _on_player_first_landing() -> void:
 func _on_plr_bounce(v: float) -> void:
 	bounce_player.emit(v)
 
-func _on_box_has_dollars() -> void:
-	add_dollars.emit(1)
+func _on_box_has_dollars(d: float) -> void:
+	add_dollars.emit(d)
 
 func _on_player_pit_fall(body: Node2D) -> void:
 	%Player/ASCII.play_platformer_hurt_animation()

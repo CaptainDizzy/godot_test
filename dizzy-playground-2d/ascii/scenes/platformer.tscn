@@ -23,6 +23,18 @@ size = Vector2(80, 1011)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o2jsq"]
 size = Vector2(116, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hmenk"]
+size = Vector2(607, 506)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mrdcu"]
+size = Vector2(603, 205)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cplvu"]
+size = Vector2(1680, 88)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_54q7n"]
+size = Vector2(604, 505)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5i1g8"]
 size = Vector2(13779, 27)
 
@@ -116,25 +128,12 @@ metadata/_edit_lock_ = true
 collision_layer = 4
 collision_mask = 0
 
-[node name="Floor2" type="ColorRect" parent="LevelCollisions" unique_id=1713326258]
-offset_top = 996.0
-offset_right = 3059.0
-offset_bottom = 1081.0
-color = Color(0.6666667, 0.30588236, 0, 1)
-
-[node name="Floor" type="ColorRect" parent="LevelCollisions" unique_id=332434604]
-offset_left = 3504.0
-offset_top = 996.0
-offset_right = 6563.0
-offset_bottom = 1081.0
-color = Color(0.6666667, 0.30588236, 0, 1)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelCollisions" unique_id=1259949472]
 position = Vector2(1526.5, 1040.5)
 shape = SubResource("RectangleShape2D_mkhiu")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="LevelCollisions" unique_id=874748115]
-position = Vector2(5033.5, 1038.5)
+position = Vector2(5038, 1038)
 shape = SubResource("RectangleShape2D_x0j81")
 
 [node name="Ladder" type="StaticBody2D" parent="LevelCollisions" unique_id=975406435]
@@ -212,6 +211,63 @@ position = Vector2(125, 124)
 shape = SubResource("RectangleShape2D_o2jsq")
 one_way_collision = true
 
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="LevelCollisions" unique_id=684658617]
+position = Vector2(10286.5, 831)
+shape = SubResource("RectangleShape2D_hmenk")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="LevelCollisions" unique_id=292688501]
+position = Vector2(10890.5, 981.5)
+shape = SubResource("RectangleShape2D_mrdcu")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="LevelCollisions" unique_id=516197493]
+position = Vector2(12964, 1039)
+shape = SubResource("RectangleShape2D_cplvu")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="LevelCollisions" unique_id=1175443433]
+position = Vector2(11833, 830.5)
+shape = SubResource("RectangleShape2D_54q7n")
+
+[node name="Floor2" type="ColorRect" parent="LevelCollisions" unique_id=1713326258]
+offset_top = 996.0
+offset_right = 3059.0
+offset_bottom = 1081.0
+color = Color(0.6666667, 0.30588236, 0, 1)
+
+[node name="Floor" type="ColorRect" parent="LevelCollisions" unique_id=332434604]
+offset_left = 3504.0
+offset_top = 996.0
+offset_right = 6563.0
+offset_bottom = 1081.0
+color = Color(0.6666667, 0.30588236, 0, 1)
+
+[node name="Floor3" type="ColorRect" parent="LevelCollisions" unique_id=501034593]
+offset_left = 9984.0
+offset_top = 578.0
+offset_right = 10588.0
+offset_bottom = 1081.0
+color = Color(0.6666667, 0.30588236, 0, 1)
+
+[node name="Floor5" type="ColorRect" parent="LevelCollisions" unique_id=1299970124]
+offset_left = 11531.0
+offset_top = 578.0
+offset_right = 12135.0
+offset_bottom = 1081.0
+color = Color(0.6666667, 0.30588236, 0, 1)
+
+[node name="Floor6" type="ColorRect" parent="LevelCollisions" unique_id=157650473]
+offset_left = 12134.0
+offset_top = 996.0
+offset_right = 13806.0
+offset_bottom = 1080.0
+color = Color(0.6666667, 0.30588236, 0, 1)
+
+[node name="Floor4" type="ColorRect" parent="LevelCollisions" unique_id=121326465]
+offset_left = 10586.0
+offset_top = 879.0
+offset_right = 11190.0
+offset_bottom = 1081.0
+color = Color(0.6666667, 0.30588236, 0, 1)
+
 [node name="PitFalls" type="Area2D" parent="." unique_id=71671978]
 collision_layer = 0
 
@@ -223,6 +279,7 @@ debug_color = Color(0.9953279, 0.06464036, 7.70092e-07, 0.41960785)
 script = ExtResource("3_ccpff")
 
 [node name="LevelObjs" type="Node2D" parent="." unique_id=156608409]
+unique_name_in_owner = true
 
 [node name="Box" parent="LevelObjs" unique_id=1886465380 instance=ExtResource("2_mkhiu")]
 unique_name_in_owner = true
@@ -251,6 +308,9 @@ position = Vector2(6515, 746)
 
 [node name="PileOn4" parent="LevelObjs" unique_id=2070580428 instance=ExtResource("3_4k4rx")]
 position = Vector2(4494, 997)
+
+[node name="PileOn6" parent="LevelObjs" unique_id=91992090 instance=ExtResource("3_4k4rx")]
+position = Vector2(12710, 998)
 
 [node name="Block6" parent="LevelObjs" unique_id=426997523 instance=ExtResource("6_5i1g8")]
 unique_name_in_owner = true
@@ -307,7 +367,104 @@ unique_name_in_owner = true
 position = Vector2(9383, 627)
 
 [node name="Block12" parent="LevelObjs" unique_id=756312004 instance=ExtResource("6_5i1g8")]
+unique_name_in_owner = true
 position = Vector2(5778, 946)
+
+[node name="Block13" parent="LevelObjs" unique_id=177829665 instance=ExtResource("6_5i1g8")]
+unique_name_in_owner = true
+position = Vector2(10635, 629)
+
+[node name="Block14" parent="LevelObjs" unique_id=1752426273 instance=ExtResource("6_5i1g8")]
+unique_name_in_owner = true
+position = Vector2(10635, 829)
+
+[node name="Block19" parent="LevelObjs" unique_id=1741581548 instance=ExtResource("6_5i1g8")]
+unique_name_in_owner = true
+position = Vector2(10635, 729)
+
+[node name="Block15" parent="LevelObjs" unique_id=356287804 instance=ExtResource("6_5i1g8")]
+unique_name_in_owner = true
+position = Vector2(10735, 629)
+
+[node name="Block17" parent="LevelObjs" unique_id=246301677 instance=ExtResource("6_5i1g8")]
+unique_name_in_owner = true
+position = Vector2(11032, 629)
+
+[node name="Block18" parent="LevelObjs" unique_id=218540522 instance=ExtResource("6_5i1g8")]
+unique_name_in_owner = true
+position = Vector2(11129, 629)
+
+[node name="Block20" parent="LevelObjs" unique_id=244633556 instance=ExtResource("6_5i1g8")]
+unique_name_in_owner = true
+position = Vector2(12185, 946)
+
+[node name="Box6" parent="LevelObjs" unique_id=1666110581 instance=ExtResource("2_mkhiu")]
+position = Vector2(10292, 322)
+
+[node name="Box10" parent="LevelObjs" unique_id=1657786651 instance=ExtResource("2_mkhiu")]
+position = Vector2(10640, 322)
+
+[node name="Box7" parent="LevelObjs" unique_id=1208949416 instance=ExtResource("2_mkhiu")]
+position = Vector2(10834, 629)
+
+[node name="Box8" parent="LevelObjs" unique_id=647005029 instance=ExtResource("2_mkhiu")]
+position = Vector2(10932, 629)
+
+[node name="Box9" parent="LevelObjs" unique_id=1414073984 instance=ExtResource("2_mkhiu")]
+position = Vector2(12185, 628)
+
+[node name="ColorRect" type="ColorRect" parent="LevelObjs" unique_id=1542037104]
+offset_left = 13151.0
+offset_top = 402.0
+offset_right = 13170.0
+offset_bottom = 995.0
+color = Color(0.71004736, 0.71004736, 0.71004736, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="LevelObjs" unique_id=1116728062]
+offset_left = 13505.0
+offset_top = 551.0
+offset_right = 13802.0
+offset_bottom = 995.0
+color = Color(0.33101895, 0.33101892, 0.33101892, 1)
+
+[node name="ColorRect6" type="ColorRect" parent="LevelObjs" unique_id=612181624]
+offset_left = 13672.0
+offset_top = 693.0
+offset_right = 13802.0
+offset_bottom = 995.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="LevelObjs" unique_id=1553237813]
+offset_left = 13505.0
+offset_top = 435.0
+offset_right = 13638.0
+offset_bottom = 551.0
+color = Color(0.33101895, 0.33101892, 0.33101892, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="LevelObjs" unique_id=843007917]
+offset_left = 13739.0
+offset_top = 435.0
+offset_right = 13872.0
+offset_bottom = 551.0
+color = Color(0.33101895, 0.33101892, 0.33101892, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="LevelObjs" unique_id=611733059]
+offset_left = 13014.0
+offset_top = 402.0
+offset_right = 13152.0
+offset_bottom = 493.0
+color = Color(0.17850256, 0.65182686, 0.22937736, 1)
+
+[node name="Label" type="Label" parent="LevelObjs/ColorRect2" unique_id=406897203]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 10.0
+offset_right = 113.0
+offset_bottom = 173.0
+theme = ExtResource("1_o2jsq")
+theme_override_font_sizes/font_size = 80
+text = "*
+"
 
 [node name="Mobs" type="Node2D" parent="." unique_id=1750582389]
 unique_name_in_owner = true
@@ -346,6 +503,16 @@ position = Vector2(9424, 513)
 shape = SubResource("RectangleShape2D_w8jo0")
 debug_color = Color(0.28853557, 0.6304161, 3.85046e-07, 0.41960785)
 
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Mobs/WalkBlockers" unique_id=1877488836]
+position = Vector2(10002, 513)
+shape = SubResource("RectangleShape2D_w8jo0")
+debug_color = Color(0.28853557, 0.6304161, 3.85046e-07, 0.41960785)
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Mobs/WalkBlockers" unique_id=709756531]
+position = Vector2(11158, 513)
+shape = SubResource("RectangleShape2D_w8jo0")
+debug_color = Color(0.28853557, 0.6304161, 3.85046e-07, 0.41960785)
+
 [node name="Tosser" parent="Mobs" unique_id=2012318944 instance=ExtResource("8_dkcvi")]
 position = Vector2(5356, 667)
 collision_mask = 71
@@ -356,6 +523,10 @@ collision_mask = 71
 
 [node name="Crawler5" parent="Mobs" unique_id=1404124861 instance=ExtResource("10_1ngif")]
 position = Vector2(9211, 556)
+collision_mask = 71
+
+[node name="Crawler6" parent="Mobs" unique_id=1315470838 instance=ExtResource("10_1ngif")]
+position = Vector2(10751, 556)
 collision_mask = 71
 
 [node name="Crawler" parent="Mobs" unique_id=131414925 instance=ExtResource("10_1ngif")]
@@ -377,5 +548,3 @@ position = Vector2(398, 570)
 position = Vector2(8884, 579)
 
 [connection signal="body_entered" from="PitFalls" to="." method="_on_player_pit_fall"]
-[connection signal="has_dollars" from="LevelObjs/Box" to="." method="_on_box_has_dollars"]
-[connection signal="has_dollars" from="LevelObjs/Box2" to="." method="_on_box_has_dollars"]
