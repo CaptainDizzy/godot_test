@@ -7,10 +7,10 @@ extends Node2D
 @onready var lleg_symbol: LineEdit = %LLegInput/LineEdit
 @onready var rleg_symbol: LineEdit = %RLegInput/LineEdit
 @onready var ascii: Node2D = %Player/ASCII
-@onready var intro_beat: AudioStreamPlayer = %IntroBeat
-@onready var intro_mid_1: AudioStreamPlayer = %IntroMid1
-@onready var intro_mid_2: AudioStreamPlayer = %IntroMid2
-@onready var intro_end: AudioStreamPlayer = %IntroEnd
+@onready var intro_beat: AudioStreamPlayer = %Intro1
+@onready var intro_2: AudioStreamPlayer = %Intro2
+@onready var intro_3: AudioStreamPlayer = %Intro3
+@onready var intro_full: AudioStreamPlayer = %Intro4
 
 @onready var current_screen = {
 	scrn = "StartingScreen",

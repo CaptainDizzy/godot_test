@@ -2,15 +2,15 @@
 
 [ext_resource type="Script" uid="uid://drmt8mgohx0af" path="res://ascii/scripts/ascii_game.gd" id="1_l4rt8"]
 [ext_resource type="Script" uid="uid://bsuo6jbxrtry2" path="res://ascii/scripts/bg_music.gd" id="2_0qvif"]
-[ext_resource type="AudioStream" uid="uid://c3a6cyhiluut" path="res://ascii/assets/audio/intro_beat.wav" id="2_ls0ox"]
 [ext_resource type="PackedScene" uid="uid://ca6qc3lev5jre" path="res://ascii/assets/player.tscn" id="2_qihb0"]
 [ext_resource type="Script" uid="uid://w405fugcb2xs" path="res://ascii/scripts/starting_screen.gd" id="3_1bvfa"]
+[ext_resource type="AudioStream" uid="uid://dmokj2krjo7kk" path="res://ascii/assets/audio/intro_1.wav" id="3_cxvm1"]
 [ext_resource type="Theme" uid="uid://dpika668hgijq" path="res://ascii/ui/pixelfont.theme" id="3_msc5x"]
-[ext_resource type="AudioStream" uid="uid://bf2tc0twxtbh0" path="res://ascii/assets/audio/intro_mid_1.wav" id="3_myy03"]
-[ext_resource type="AudioStream" uid="uid://c6ruywpgmrjqt" path="res://ascii/assets/audio/intro_mid_2.wav" id="4_heixm"]
+[ext_resource type="AudioStream" uid="uid://dywc45md71ldb" path="res://ascii/assets/audio/intro_2.wav" id="4_aodu7"]
 [ext_resource type="FontFile" uid="uid://b0r2cab1742t2" path="res://fonts/8514oem.ttf" id="4_xgstk"]
+[ext_resource type="AudioStream" uid="uid://bc3qsx0em8j3m" path="res://ascii/assets/audio/intro_3.wav" id="5_140bi"]
 [ext_resource type="PackedScene" uid="uid://d2u1ldw8p4xbr" path="res://ascii/ui/fake_button.tscn" id="5_e68bd"]
-[ext_resource type="AudioStream" uid="uid://mvnw2sttudq7" path="res://ascii/assets/audio/intro_end.wav" id="6_heixm"]
+[ext_resource type="AudioStream" uid="uid://b8erphh2rwofo" path="res://ascii/assets/audio/intro_4.wav" id="6_basin"]
 [ext_resource type="PackedScene" uid="uid://ckowrgqaidh8t" path="res://addons/dizzy_transitions/dizzy_transitions.tscn" id="6_qjlv8"]
 [ext_resource type="Script" uid="uid://dtwhyb8sh31cd" path="res://ascii/scripts/name_screen.gd" id="7_r2r38"]
 [ext_resource type="Script" uid="uid://dlu7o73jbawau" path="res://ascii/scripts/title_screen.gd" id="8_fxxrn"]
@@ -48,21 +48,21 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("2_0qvif")
 
-[node name="IntroBeat" type="AudioStreamPlayer" parent="BGMusic" unique_id=1837350731]
+[node name="Intro1" type="AudioStreamPlayer" parent="BGMusic" unique_id=480116539]
 unique_name_in_owner = true
-stream = ExtResource("2_ls0ox")
+stream = ExtResource("3_cxvm1")
 
-[node name="IntroMid1" type="AudioStreamPlayer" parent="BGMusic" unique_id=1556175285]
+[node name="Intro2" type="AudioStreamPlayer" parent="BGMusic" unique_id=69222289]
 unique_name_in_owner = true
-stream = ExtResource("3_myy03")
+stream = ExtResource("4_aodu7")
 
-[node name="IntroMid2" type="AudioStreamPlayer" parent="BGMusic" unique_id=934078102]
+[node name="Intro3" type="AudioStreamPlayer" parent="BGMusic" unique_id=747751805]
 unique_name_in_owner = true
-stream = ExtResource("4_heixm")
+stream = ExtResource("5_140bi")
 
-[node name="IntroEnd" type="AudioStreamPlayer" parent="BGMusic" unique_id=692030604]
+[node name="Intro4" type="AudioStreamPlayer" parent="BGMusic" unique_id=1683960322]
 unique_name_in_owner = true
-stream = ExtResource("6_heixm")
+stream = ExtResource("6_basin")
 
 [node name="ParalaxBG" type="CanvasLayer" parent="." unique_id=1404425434]
 unique_name_in_owner = true
