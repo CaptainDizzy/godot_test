@@ -138,8 +138,10 @@ func _physics_process(delta: float) -> void:
 
 	if state != "platformer":
 		if last_state != state:
+			print(str(last_state) + " " + str(state))
 			first_landing = true
 			fall_anim = false
+	
 
 func take_damage(damage: int, direction: int) -> void:
 	CharacterManager.health -= damage
@@ -160,14 +162,19 @@ func _on_landing() -> void:
 		velocity.x = 0
 		%ASCII.play_splat_animation()
 		await get_tree().create_timer(1.5).timeout
-		platformer_landing.emit()
 		first_landing = false
+		platformer_landing.emit()
 		falling = false
 		is_jumping = false
 	else:
 		first_landing = false
 		falling = false
 		is_jumping = false
+
+func change_game_state(new_state: String):
+	last_state = state
+	state = new_state
+	game_state.emit(state)
 
 func _on_platformer_bounce_player(v: float) -> void:
 	%ASCII.play_jump_animation()
@@ -189,11 +196,6 @@ func _on_platformer_screen_platform_state(new_state: String) -> void:
 
 func _on_fork_screen_intro_state(new_state: String) -> void:
 	change_game_state(new_state)
-
-func change_game_state(new_state: String):
-	last_state = state
-	state = new_state
-	game_state.emit(state)
 
 func _on_platformer_screen_flag_down(flag) -> void:
 	global_position.x = flag.global_position.x

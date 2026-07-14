@@ -35,7 +35,7 @@ func _process(delta: float) -> void:
 	if px > sx + (sw * 0.80) and enter_count == 1:
 		%Credits.text = "The only AI used for this project\nwas for teaching Godot and debugging."
 	if px > sx + (sw * 0.90) and enter_count == 1:
-		%Credits.text = str(CharacterManager.char_name)# The player's name
+		%Credits.text = str(CharacterManager.char_name)
 	if enter_count > 2:
 		%Credits.text = "Look, I'm not going to keep listing the credits every time\nyou want to change your name or appearance..."
 	
