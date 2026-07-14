@@ -40,5 +40,7 @@ func play_platformer_hurt_animation():
 #	%AnimationPlayer.play("dead")
 func play_blink_animation():
 	%AnimationPlayer.play("blink")
+func play_pole_slide_animation():
+	%AnimationPlayer.play("pole_slide")
 func reset_animation():
 	%AnimationPlayer.play("RESET")

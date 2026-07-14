@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://c3r2577462r2x"]
+
+[ext_resource type="Script" uid="uid://dlhc2db5islkx" path="res://ascii/scripts/flag.gd" id="1_jteba"]
+[ext_resource type="Theme" uid="uid://dpika668hgijq" path="res://ascii/ui/pixelfont.theme" id="1_s285a"]
+
+[sub_resource type="Animation" id="Animation_s285a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flag:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-146, -594)]
+}
+
+[sub_resource type="Animation" id="Animation_jteba"]
+resource_name = "go_down"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flag:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-146, -594), Vector2(-146, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q4wsw"]
+_data = {
+&"RESET": SubResource("Animation_s285a"),
+&"go_down": SubResource("Animation_jteba")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w8jo0"]
+size = Vector2(20, 861)
+
+[node name="Flag" type="Node2D" unique_id=1430745667]
+script = ExtResource("1_jteba")
+
+[node name="Pole" type="ColorRect" parent="." unique_id=1873434000]
+offset_left = -9.0
+offset_top = -594.0
+offset_right = 10.0
+color = Color(0.71004736, 0.71004736, 0.71004736, 1)
+
+[node name="Flag" type="ColorRect" parent="." unique_id=410164061]
+offset_left = -146.0
+offset_top = -594.0
+offset_right = -8.0
+offset_bottom = -503.0
+color = Color(0.17850256, 0.65182686, 0.22937736, 1)
+
+[node name="Label" type="Label" parent="Flag" unique_id=1862398284]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 10.0
+offset_right = 113.0
+offset_bottom = 173.0
+theme = ExtResource("1_s285a")
+theme_override_font_sizes/font_size = 80
+text = "*
+"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1366499856]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_q4wsw")
+
+[node name="LevelEnd" type="Area2D" parent="." unique_id=952904237]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelEnd" unique_id=303766968]
+position = Vector2(0, -420.5)
+shape = SubResource("RectangleShape2D_w8jo0")
+
+[connection signal="body_entered" from="LevelEnd" to="." method="_on_player_touch"]

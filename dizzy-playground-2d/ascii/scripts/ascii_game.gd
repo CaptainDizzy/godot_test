@@ -43,16 +43,39 @@ func _process(delta: float) -> void:
 	elif current_screen.scrn == "NameScreen":
 		pass
 	elif current_screen.scrn == "CreditsScreen":
-		%Player.scale.x = 1
-		%Player.scale.y = 1
+		reset_player_scale()
 	elif current_screen.scrn == "TitleScreen":
-		%Player.scale.x = 0.66
-		%Player.scale.y = 0.66
+		adventure_player_scale()
 	elif current_screen.scrn == "ForkScreen":
-		%HUD.visible = false
+		adventure_player_scale()
 	elif current_screen.scrn == "PlatformerScreen":
+		platformer_player_scale()
 		%HUD.visible = true
 		%ParalaxBG.visible = true
+
+func reset_player_scale() -> void:
+	%Player.scale.x = 1
+	%Player.scale.y = 1
+	%Player/Collision.scale.x = 1
+	%Player/Collision.scale.y = 1
+	%Player/Collision.position.y = -33
+	%Player/StompBox.scale.x = 1
+
+func adventure_player_scale() -> void:
+	%Player.scale.x = 0.66
+	%Player.scale.y = 0.66
+	%Player/Collision.scale.x = 1
+	%Player/Collision.scale.y = 1
+	%Player/Collision.position.y = -33
+	%Player/StompBox.scale.x = 1
+
+func platformer_player_scale() -> void:
+	%Player.scale.x = 0.66
+	%Player.scale.y = 0.66
+	%Player/Collision.scale.x = 1.125
+	%Player/Collision.scale.y = 1.66
+	%Player/Collision.position.y = -80
+	%Player/StompBox.scale.x = 1.125 
 
 func get_cam_pos() -> void:
 	%Cam.set_anchor_mode(0)
@@ -63,13 +86,15 @@ func get_cam_pos() -> void:
 func follow_cam_pos() -> void:
 	%Cam.set_anchor_mode(1)
 	var screen = get_node("%" + current_screen.scrn + "/Screen")
-	var cam_w = %PlatformerScreen/Screen.size.x
-	var cam_h = %PlatformerScreen/Screen.size.y
+	var cam_w = get_viewport_rect().size.x
+	var cam_h = get_viewport_rect().size.y
 	%Cam.global_position.y = screen.global_position.y + (cam_h / 2)
 	if %Player.global_position.x <= screen.global_position.x + (cam_w / 2):
 		%Cam.global_position.x = screen.global_position.x + (cam_w / 2)
-	elif %Player.global_position.x > screen.global_position.x + (cam_w / 2):
+	elif %Player.global_position.x > screen.global_position.x + (cam_w / 2) and %Player.global_position.x <= screen.global_position.x + current_screen.w - (cam_w / 2):
 		%Cam.global_position.x = %Player.global_position.x
+	elif %Player.global_position.x >= screen.global_position.x + current_screen.w - (cam_w / 2):
+		%Cam.global_position.x = screen.global_position.x + screen.size.x - (cam_w / 2)
 
 func update_current_screen() -> void:
 	var screen = get_node("%" + current_screen.scrn + "/Screen")

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://81gc8cy0rihd" path="res://ascii/scripts/crawler.gd" id="1_kg4e5"]
 [ext_resource type="PackedScene" uid="uid://bjhkx1g2xut3q" path="res://ascii/assets/crawler_body.tscn" id="2_31fi6"]
+[ext_resource type="Script" uid="uid://1nh5ypoopgdh" path="res://ascii/scripts/crawler_body.gd" id="3_31fi6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_31fi6"]
 size = Vector2(63, 101)
@@ -23,6 +24,7 @@ script = ExtResource("1_kg4e5")
 
 [node name="CrawlerBody" parent="." unique_id=1389010231 instance=ExtResource("2_31fi6")]
 unique_name_in_owner = true
+script = ExtResource("3_31fi6")
 
 [node name="CBox" type="CollisionShape2D" parent="." unique_id=1404329517]
 position = Vector2(0, -50.5)

@@ -5,6 +5,8 @@ signal platformer_music()
 signal platform_state(state)
 signal add_dollars(d: float)
 signal bounce_player(v: float)
+signal flag_down(flag: Node2D)
+signal level_completed()
 var enter_count = 0
 var entered := false
 
@@ -52,9 +54,19 @@ func _on_plr_bounce(v: float) -> void:
 func _on_box_has_dollars(d: float) -> void:
 	add_dollars.emit(d)
 
-func _on_player_pit_fall(body: Node2D) -> void:
+func _on_player_pit_fall(body) -> void:
 	%Player/ASCII.play_platformer_hurt_animation()
 	%Player.global_position.x = %PlatformerScreen/Screen/BGColor.global_position.x + 960
 	%Player.global_position.y = %PlatformerScreen/Screen/BGColor.global_position.y + 60
 	%Player.take_damage(1,0)
-	
+
+func _on_flag_end_level(f) -> void:
+	%Flag.play_flagdrop_animation()
+	flag_down.emit(f)
+	await get_tree().create_timer(1).timeout
+
+func _on_end_level_body_exited(body: Node2D) -> void:
+	level_completed.emit()
+	var target_screen = %ForkScreen/Screen
+	%Player.global_position.x = target_screen.global_position.x + target_screen.size.x / 2
+	%Player.global_position.y = target_screen.global_position.y + target_screen.size.y / 2

@@ -45,7 +45,7 @@ offset_bottom = 40.0
 
 [node name="MusicManager" type="AudioStreamPlayer" parent="BGMusic" unique_id=1220245997]
 unique_name_in_owner = true
-volume_db = -20.0
+volume_db = -5.0
 script = ExtResource("6_cxvm1")
 
 [node name="ParalaxBG" type="CanvasLayer" parent="." unique_id=1404425434]
@@ -111,7 +111,7 @@ text = "♥"
 
 [node name="Player" parent="." unique_id=1632503170 instance=ExtResource("2_qihb0")]
 unique_name_in_owner = true
-position = Vector2(8901, 986)
+position = Vector2(970, 651)
 
 [node name="Cam" type="Camera2D" parent="." unique_id=1775665619]
 unique_name_in_owner = true
@@ -565,14 +565,15 @@ grow_vertical = 2
 color = Color(0.3001183, 0, 0.09499041, 1)
 metadata/_edit_lock_ = true
 
-[node name="Title" type="Control" parent="CreditsScreen" unique_id=1138446889]
+[node name="CreditsText" type="Control" parent="CreditsScreen" unique_id=1138446889]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 metadata/_edit_lock_ = true
 
-[node name="ByLine" type="Label" parent="CreditsScreen/Title" unique_id=827146044]
+[node name="Credits" type="Label" parent="CreditsScreen/CreditsText" unique_id=827146044]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.097
@@ -910,6 +911,8 @@ visible = false
 [connection signal="player_is_here" from="ForkScreen" to="." method="_on_fork_screen_here"]
 [connection signal="add_dollars" from="PlatformerScreen" to="Player" method="_on_add_dollars"]
 [connection signal="bounce_player" from="PlatformerScreen" to="Player" method="_on_platformer_bounce_player"]
+[connection signal="flag_down" from="PlatformerScreen" to="Player" method="_on_platformer_screen_flag_down"]
+[connection signal="level_completed" from="PlatformerScreen" to="Player" method="_on_platformer_level_completed"]
 [connection signal="platform_state" from="PlatformerScreen" to="Player" method="_on_platformer_screen_platform_state"]
 [connection signal="platformer_music" from="PlatformerScreen" to="BGMusic/MusicManager" method="_on_platformer_music"]
 [connection signal="player_is_here" from="PlatformerScreen" to="." method="_on_platformer_screen_here"]
