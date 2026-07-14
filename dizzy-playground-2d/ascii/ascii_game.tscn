@@ -8,11 +8,17 @@
 [ext_resource type="PackedScene" uid="uid://d2u1ldw8p4xbr" path="res://ascii/ui/fake_button.tscn" id="5_e68bd"]
 [ext_resource type="Script" uid="uid://4ooskrt560lx" path="res://ascii/scripts/music_manager.gd" id="6_cxvm1"]
 [ext_resource type="PackedScene" uid="uid://ckowrgqaidh8t" path="res://addons/dizzy_transitions/dizzy_transitions.tscn" id="6_qjlv8"]
+[ext_resource type="Script" uid="uid://cw1j5pwm0y3dm" path="res://ascii/scripts/head.gd" id="7_140bi"]
 [ext_resource type="Script" uid="uid://dtwhyb8sh31cd" path="res://ascii/scripts/name_screen.gd" id="7_r2r38"]
+[ext_resource type="Script" uid="uid://cjvpbipdlw07h" path="res://ascii/scripts/torso.gd" id="8_basin"]
 [ext_resource type="Script" uid="uid://dlu7o73jbawau" path="res://ascii/scripts/title_screen.gd" id="8_fxxrn"]
 [ext_resource type="FontFile" uid="uid://bcijiqbocagsh" path="res://fonts/PressStart2P-Regular.ttf" id="8_q5w7w"]
+[ext_resource type="Script" uid="uid://beo1bt1qnffyh" path="res://ascii/scripts/l_arm.gd" id="9_lv3bq"]
 [ext_resource type="Script" uid="uid://cgq8aardyrekk" path="res://ascii/scripts/fork_screen.gd" id="9_xbe4s"]
+[ext_resource type="Script" uid="uid://bk78mjkbkdv7d" path="res://ascii/scripts/r_arm.gd" id="10_xrb1f"]
+[ext_resource type="Script" uid="uid://431impkc0kj5" path="res://ascii/scripts/l_leg.gd" id="11_eg7he"]
 [ext_resource type="PackedScene" uid="uid://boq04k3epdjg0" path="res://ascii/scenes/platformer.tscn" id="11_m6wy5"]
+[ext_resource type="Script" uid="uid://dmlrql1mjq7q5" path="res://ascii/scripts/r_leg.gd" id="12_b6gdg"]
 [ext_resource type="Script" uid="uid://bk77qtg1j5hpk" path="res://ascii/scripts/credits_screen.gd" id="14_cxvm1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r2r38"]
@@ -166,14 +172,13 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="HeadInput" type="Control" parent="StartingScreen/CharacterCreation" unique_id=2045243235]
-unique_name_in_owner = true
 anchors_preset = 0
 offset_left = 803.0
 offset_top = 142.0
 offset_right = 1132.0
 offset_bottom = 337.0
 
-[node name="LineEdit" type="LineEdit" parent="StartingScreen/CharacterCreation/HeadInput" unique_id=1954742031]
+[node name="Head" type="LineEdit" parent="StartingScreen/CharacterCreation/HeadInput" unique_id=1954742031]
 layout_mode = 0
 offset_top = 70.0
 offset_right = 336.0
@@ -185,6 +190,7 @@ alignment = 1
 max_length = 1
 emoji_menu_enabled = false
 drag_and_drop_selection_enabled = false
+script = ExtResource("7_140bi")
 
 [node name="Label" type="Label" parent="StartingScreen/CharacterCreation/HeadInput" unique_id=1313815071]
 layout_mode = 0
@@ -198,14 +204,13 @@ text = "Head"
 horizontal_alignment = 1
 
 [node name="TorsoInput" type="Control" parent="StartingScreen/CharacterCreation" unique_id=135303032]
-unique_name_in_owner = true
 anchors_preset = 0
 offset_left = 799.0
 offset_top = 750.0
 offset_right = 1128.0
 offset_bottom = 945.0
 
-[node name="LineEdit" type="LineEdit" parent="StartingScreen/CharacterCreation/TorsoInput" unique_id=1147195116]
+[node name="Torso" type="LineEdit" parent="StartingScreen/CharacterCreation/TorsoInput" unique_id=1147195116]
 layout_mode = 0
 offset_top = 44.0
 offset_right = 328.0
@@ -216,6 +221,7 @@ theme_override_font_sizes/font_size = 128
 alignment = 1
 max_length = 1
 drag_and_drop_selection_enabled = false
+script = ExtResource("8_basin")
 
 [node name="Label" type="Label" parent="StartingScreen/CharacterCreation/TorsoInput" unique_id=1411328211]
 layout_mode = 0
@@ -229,14 +235,13 @@ text = "Torso"
 horizontal_alignment = 1
 
 [node name="LArmInput" type="Control" parent="StartingScreen/CharacterCreation" unique_id=1940665545]
-unique_name_in_owner = true
 anchors_preset = 0
 offset_left = 433.0
 offset_top = 328.0
 offset_right = 762.0
 offset_bottom = 523.0
 
-[node name="LineEdit" type="LineEdit" parent="StartingScreen/CharacterCreation/LArmInput" unique_id=1940260382]
+[node name="LArm" type="LineEdit" parent="StartingScreen/CharacterCreation/LArmInput" unique_id=1940260382]
 layout_mode = 0
 offset_top = 44.0
 offset_right = 328.0
@@ -247,6 +252,7 @@ theme_override_font_sizes/font_size = 128
 alignment = 1
 max_length = 1
 drag_and_drop_selection_enabled = false
+script = ExtResource("9_lv3bq")
 
 [node name="Label" type="Label" parent="StartingScreen/CharacterCreation/LArmInput" unique_id=443212420]
 layout_mode = 0
@@ -260,14 +266,13 @@ text = "Left Arm"
 horizontal_alignment = 1
 
 [node name="RArmInput" type="Control" parent="StartingScreen/CharacterCreation" unique_id=593430483]
-unique_name_in_owner = true
 anchors_preset = 0
 offset_left = 1162.0
 offset_top = 328.0
 offset_right = 1491.0
 offset_bottom = 523.0
 
-[node name="LineEdit" type="LineEdit" parent="StartingScreen/CharacterCreation/RArmInput" unique_id=1488888419]
+[node name="RArm" type="LineEdit" parent="StartingScreen/CharacterCreation/RArmInput" unique_id=1488888419]
 layout_mode = 0
 offset_top = 44.0
 offset_right = 328.0
@@ -278,6 +283,7 @@ theme_override_font_sizes/font_size = 128
 alignment = 1
 max_length = 1
 drag_and_drop_selection_enabled = false
+script = ExtResource("10_xrb1f")
 
 [node name="Label" type="Label" parent="StartingScreen/CharacterCreation/RArmInput" unique_id=1643267022]
 layout_mode = 0
@@ -291,14 +297,13 @@ text = "Right Arm"
 horizontal_alignment = 1
 
 [node name="LLegInput" type="Control" parent="StartingScreen/CharacterCreation" unique_id=583764741]
-unique_name_in_owner = true
 anchors_preset = 0
 offset_left = 433.0
 offset_top = 596.0
 offset_right = 762.0
 offset_bottom = 791.0
 
-[node name="LineEdit" type="LineEdit" parent="StartingScreen/CharacterCreation/LLegInput" unique_id=157085679]
+[node name="LLeg" type="LineEdit" parent="StartingScreen/CharacterCreation/LLegInput" unique_id=157085679]
 layout_mode = 0
 offset_top = 44.0
 offset_right = 328.0
@@ -309,6 +314,7 @@ theme_override_font_sizes/font_size = 128
 alignment = 1
 max_length = 1
 drag_and_drop_selection_enabled = false
+script = ExtResource("11_eg7he")
 
 [node name="Label" type="Label" parent="StartingScreen/CharacterCreation/LLegInput" unique_id=519182958]
 layout_mode = 0
@@ -322,14 +328,13 @@ text = "Left Leg"
 horizontal_alignment = 1
 
 [node name="RLegInput" type="Control" parent="StartingScreen/CharacterCreation" unique_id=375288398]
-unique_name_in_owner = true
 anchors_preset = 0
 offset_left = 1162.0
 offset_top = 568.0
 offset_right = 1491.0
 offset_bottom = 763.0
 
-[node name="LineEdit" type="LineEdit" parent="StartingScreen/CharacterCreation/RLegInput" unique_id=1218125926]
+[node name="RLeg" type="LineEdit" parent="StartingScreen/CharacterCreation/RLegInput" unique_id=1218125926]
 layout_mode = 0
 offset_top = 72.0
 offset_right = 336.0
@@ -340,6 +345,7 @@ theme_override_font_sizes/font_size = 128
 alignment = 1
 max_length = 1
 drag_and_drop_selection_enabled = false
+script = ExtResource("12_b6gdg")
 
 [node name="Label" type="Label" parent="StartingScreen/CharacterCreation/RLegInput" unique_id=793211334]
 layout_mode = 0
@@ -898,6 +904,12 @@ visible = false
 [connection signal="game_state" from="Player" to="." method="_on_changed_game_state"]
 [connection signal="platformer_landing" from="Player" to="PlatformerScreen" method="_on_player_first_landing"]
 [connection signal="player_is_here" from="StartingScreen" to="." method="_on_starting_screen_here"]
+[connection signal="text_changed" from="StartingScreen/CharacterCreation/HeadInput/Head" to="StartingScreen/CharacterCreation/HeadInput/Head" method="_on_text_changed"]
+[connection signal="text_changed" from="StartingScreen/CharacterCreation/TorsoInput/Torso" to="StartingScreen/CharacterCreation/TorsoInput/Torso" method="_on_text_changed"]
+[connection signal="text_changed" from="StartingScreen/CharacterCreation/LArmInput/LArm" to="StartingScreen/CharacterCreation/LArmInput/LArm" method="_on_text_changed"]
+[connection signal="text_changed" from="StartingScreen/CharacterCreation/RArmInput/RArm" to="StartingScreen/CharacterCreation/RArmInput/RArm" method="_on_text_changed"]
+[connection signal="text_changed" from="StartingScreen/CharacterCreation/LLegInput/LLeg" to="StartingScreen/CharacterCreation/LLegInput/LLeg" method="_on_text_changed"]
+[connection signal="text_changed" from="StartingScreen/CharacterCreation/RLegInput/RLeg" to="StartingScreen/CharacterCreation/RLegInput/RLeg" method="_on_text_changed"]
 [connection signal="button_fall" from="StartingScreen/CharacterCreation/FakeButton" to="Player" method="_on_fake_button_fall"]
 [connection signal="start_music" from="StartingScreen/CharacterCreation/FakeButton" to="BGMusic/MusicManager" method="_on_fake_button_start_music"]
 [connection signal="intro_2_music" from="NameScreen" to="BGMusic/MusicManager" method="_on_intro_2_music"]

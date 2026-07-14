@@ -7,18 +7,13 @@ extends Node2D
 @onready var plr_lleg: Label = %LLeg/Symbol
 @onready var plr_rleg: Label = %RLeg/Symbol
 
-func set_torso_symbol(symbol: String) -> void:
-	plr_torso.text = symbol
-func set_head_symbol(symbol: String) -> void:
-	plr_head.text = symbol
-func set_larm_symbol(symbol: String) -> void:
-	plr_larm.text = symbol
-func set_rarm_symbol(symbol: String) -> void:
-	plr_rarm.text = symbol
-func set_lleg_symbol(symbol: String) -> void:
-	plr_lleg.text = symbol
-func set_rleg_symbol(symbol: String) -> void:
-	plr_rleg.text = symbol
+func _process(delta: float) -> void:
+	plr_torso.text = CharacterManager.torso
+	plr_head.text = CharacterManager.head
+	plr_larm.text = CharacterManager.larm
+	plr_rarm.text = CharacterManager.rarm
+	plr_lleg.text = CharacterManager.lleg
+	plr_rleg.text = CharacterManager.rleg
 
 func play_idle_animation():
 	%AnimationPlayer.play("idle")
