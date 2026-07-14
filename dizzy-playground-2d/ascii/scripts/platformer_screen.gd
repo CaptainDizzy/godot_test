@@ -20,10 +20,10 @@ func _ready() -> void:
 			box.has_dollars.connect(_on_box_has_dollars)
 
 func _process(delta: float) -> void:
-	var px = %Player.position.x
-	var py = %Player.position.y
-	var sx = %PlatformerScreen.position.x
-	var sy = %PlatformerScreen.position.y
+	var px = %Player.global_position.x
+	var py = %Player.global_position.y
+	var sx = %PlatformerScreen.global_position.x
+	var sy = %PlatformerScreen.global_position.y
 	var sw = %PlatformerScreen/Screen/BGColor.size.x
 	var sh = %PlatformerScreen/Screen/BGColor.size.y
 	

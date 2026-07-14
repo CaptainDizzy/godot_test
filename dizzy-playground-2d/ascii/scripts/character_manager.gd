@@ -8,4 +8,4 @@ var rarm: String = "t"
 var lleg: String = "7"
 var rleg: String = "7"
 var health: int = 6
-var dollars: float
+var dollars: float = 0

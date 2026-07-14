@@ -7,10 +7,10 @@ var enter_count = 0
 var entered := false
 
 func _process(delta: float) -> void:
-	var px = %Player.position.x
-	var py = %Player.position.y
-	var sx = %TitleScreen.position.x
-	var sy = %TitleScreen.position.y
+	var px = %Player.global_position.x
+	var py = %Player.global_position.y
+	var sx = %TitleScreen.global_position.x
+	var sy = %TitleScreen.global_position.y
 	var sw = %TitleScreen/Screen.size.x
 	var sh = %TitleScreen/Screen.size.y
 	

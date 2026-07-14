@@ -1,6 +1,7 @@
 extends StaticBody2D
 
 signal has_dollars(d: float)
+@onready var animation = %AnimationPlayer
 var is_below: String = ""
 
 func _ready() -> void:
@@ -25,9 +26,9 @@ func _on_bonked(body: Node2D) -> void:
 			standing_node.get_dead()
 			
 		if %Face.text == "$":
-			%AnimationPlayer.play("bump_dollar")
-			has_dollars.emit(1)
-			await get_tree().create_timer(1).timeout
+			animation.play("bump_dollar")
+			CharacterManager.dollars += 1
+			await animation.animation_finished
 			%Face.text = ""
 		else:
 			%AnimationPlayer.play("bump")

@@ -4,8 +4,6 @@ signal health_depleted
 signal game_state(state)
 signal platformer_landing
 
-var heart_string: String = ""
-var dollars: float = 0
 var is_dead = false
 var death_anim = false
 var state: String = "create_char"
@@ -31,12 +29,6 @@ var attack_direction: int = 0
 
 
 func _physics_process(delta: float) -> void:
-	%DollarCount.text = str(dollars)
-	heart_string = ""
-	for i in range(CharacterManager.health):
-		heart_string += "♥"
-	%Hearts.text = heart_string
-	
 	if state == "create_char":
 		%ASCII.play_idle_animation()
 	elif state == "intro_screens":
@@ -141,6 +133,7 @@ func _physics_process(delta: float) -> void:
 			print(str(last_state) + " " + str(state))
 			first_landing = true
 			fall_anim = false
+			last_state = state
 	
 
 func take_damage(damage: int, direction: int) -> void:
@@ -182,9 +175,6 @@ func _on_platformer_bounce_player(v: float) -> void:
 	velocity.y = v
 	move_and_slide()
 
-func _on_add_dollars(d: float) -> void:
-	dollars += d
-	
 func _on_fake_button_fall(start_state: String) -> void:
 	change_game_state(start_state)
 
@@ -203,4 +193,4 @@ func _on_platformer_screen_flag_down(flag) -> void:
 	flag_reached = true
 
 func _on_platformer_level_completed() -> void:
-	pass # Anything that needs to update or do something after clearing a level
+	flag_reached = false
