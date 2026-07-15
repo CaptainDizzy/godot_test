@@ -25,7 +25,7 @@ var flag_reached = false
 var sliding_pole = false
 var blink_time: float = 20
 var blink_number: int = 4 #This needs to be an even number or the player will end invisible
-var attack_direction: int = 0
+var attacked_direction: int = 0
 
 
 func _physics_process(delta: float) -> void:
@@ -94,6 +94,16 @@ func _physics_process(delta: float) -> void:
 				else:
 					velocity.x = move_toward(velocity.x, 0, SPEED * 0.25)
 					%ASCII.play_idle_animation()
+			if hurt:
+				if attacked_direction == 0:
+					%ASCII.play_blink_animation()
+					await get_tree().create_timer(0.51).timeout
+				else:
+					velocity.y = -250
+					velocity.x = attacked_direction * 250
+					%ASCII.play_platformer_hurt_animation()
+					await get_tree().create_timer(0.33).timeout
+				hurt = false
 			
 			if not fall_anim and falling:
 				%ASCII.play_falling_animation()
@@ -130,25 +140,15 @@ func _physics_process(delta: float) -> void:
 
 	if state != "platformer":
 		if last_state != state:
-			print(str(last_state) + " " + str(state))
 			first_landing = true
 			fall_anim = false
-			last_state = state
-	
+			
+	#print(str(last_state) + " " + str(state))
 
 func take_damage(damage: int, direction: int) -> void:
 	CharacterManager.health -= damage
+	attacked_direction = direction
 	hurt = true
-	if direction == 0:
-		%ASCII.play_blink_animation()
-		await get_tree().create_timer(0.51).timeout
-	else:
-		velocity.y = -250
-		velocity.x = attack_direction * 250
-		%ASCII.play_platformer_hurt_animation()
-		await get_tree().create_timer(0.33).timeout
-	move_and_slide()
-	hurt = false
 
 func _on_landing() -> void:
 	if first_landing:
