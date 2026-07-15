@@ -62,11 +62,11 @@ anchor_bottom = 1.0
 offset_right = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.4440249, 0.5398438, 0.9164276, 1)
+color = Color(0.44313726, 0.5411765, 0.91764706, 1)
 
 [node name="Ruler" type="CanvasGroup" parent="Screen" unique_id=1560554955]
-visible = false
-position = Vector2(8181, 285)
+z_index = 2
+position = Vector2(1813, 751)
 
 [node name="ColorRect" type="ColorRect" parent="Screen/Ruler" unique_id=1438413122]
 offset_left = 8.0
@@ -78,24 +78,25 @@ metadata/_edit_lock_ = true
 
 [node name="ColorRect2" type="ColorRect" parent="Screen/Ruler" unique_id=1567785542]
 offset_left = 8.0
-offset_top = 103.0
+offset_top = 104.0
 offset_right = 58.0
-offset_bottom = 153.0
+offset_bottom = 154.0
 color = Color(0.39498678, 0.3949867, 0.3949867, 0.5137255)
 metadata/_edit_lock_ = true
 
 [node name="ColorRect3" type="ColorRect" parent="Screen/Ruler" unique_id=128039525]
 offset_left = 8.0
-offset_top = 51.0
+offset_top = 54.0
 offset_right = 58.0
-offset_bottom = 101.0
+offset_bottom = 104.0
 color = Color(1, 1, 1, 0.5137255)
 metadata/_edit_lock_ = true
 
 [node name="ColorRect4" type="ColorRect" parent="Screen/Ruler" unique_id=517420862]
 offset_left = 8.0
+offset_top = 4.0
 offset_right = 58.0
-offset_bottom = 50.0
+offset_bottom = 54.0
 color = Color(0.39498678, 0.3949867, 0.3949867, 0.5137255)
 metadata/_edit_lock_ = true
 

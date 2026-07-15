@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://d4amkho8l6trb"]
+
+[ext_resource type="PackedScene" uid="uid://elo6dpv5myij" path="res://ascii/assets/moving_platform.tscn" id="1_y3h58"]
+
+[node name="Chunk3" type="Node2D" unique_id=1805870600]
+
+[node name="Bounds" type="Control" parent="." unique_id=1652763996]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 960.0
+offset_bottom = 1080.0
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Bounds" unique_id=994770932]
+z_index = -2
+layout_mode = 0
+offset_right = 960.0
+offset_bottom = 1080.0
+color = Color(0.44313726, 0.5411765, 0.91764706, 1)
+metadata/_edit_lock_ = true
+
+[node name="Ruler" type="CanvasGroup" parent="." unique_id=1493817800]
+visible = false
+z_index = 2
+
+[node name="ColorRect" type="ColorRect" parent="Ruler" unique_id=2048019336]
+offset_top = 150.0
+offset_right = 50.0
+offset_bottom = 200.0
+color = Color(1, 1, 1, 0.5137255)
+metadata/_edit_lock_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="Ruler" unique_id=515225063]
+offset_top = 100.0
+offset_right = 50.0
+offset_bottom = 150.0
+color = Color(0.39498678, 0.3949867, 0.3949867, 0.5137255)
+metadata/_edit_lock_ = true
+
+[node name="ColorRect3" type="ColorRect" parent="Ruler" unique_id=389539680]
+offset_top = 50.0
+offset_right = 50.0
+offset_bottom = 100.0
+color = Color(1, 1, 1, 0.5137255)
+metadata/_edit_lock_ = true
+
+[node name="ColorRect4" type="ColorRect" parent="Ruler" unique_id=1987548272]
+offset_right = 50.0
+offset_bottom = 50.0
+color = Color(0.39498678, 0.3949867, 0.3949867, 0.5137255)
+metadata/_edit_lock_ = true
+
+[node name="LevelObjs" type="Node2D" parent="." unique_id=149353985]
+
+[node name="MovingPlatform" parent="LevelObjs" unique_id=1897429142 instance=ExtResource("1_y3h58")]
+position = Vector2(500, 880)
+
+[node name="MobLocations" type="Node2D" parent="." unique_id=31195402]
+
+[node name="Flyer" type="Node2D" parent="MobLocations" unique_id=2068484510]
+position = Vector2(500, 580)

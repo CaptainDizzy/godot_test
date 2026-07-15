@@ -1,0 +1,138 @@
+[gd_scene format=3 uid="uid://c11paeb1x0i70"]
+
+[ext_resource type="PackedScene" uid="uid://bf5dwo0oy6mgc" path="res://ascii/assets/block.tscn" id="1_g7gh0"]
+[ext_resource type="PackedScene" uid="uid://d0l45d00184ce" path="res://ascii/assets/box.tscn" id="1_iiyfc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w8jo0"]
+size = Vector2(960, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g7gh0"]
+size = Vector2(17, 120)
+
+[node name="Chunk2" type="Node2D" unique_id=1805870600]
+
+[node name="Bounds" type="Control" parent="." unique_id=1652763996]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 960.0
+offset_bottom = 1080.0
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Bounds" unique_id=994770932]
+z_index = -2
+layout_mode = 0
+offset_right = 960.0
+offset_bottom = 1080.0
+color = Color(0.44313726, 0.5411765, 0.91764706, 1)
+metadata/_edit_lock_ = true
+
+[node name="Ruler" type="CanvasGroup" parent="." unique_id=1493817800]
+visible = false
+z_index = 2
+
+[node name="ColorRect" type="ColorRect" parent="Ruler" unique_id=2048019336]
+offset_top = 150.0
+offset_right = 50.0
+offset_bottom = 200.0
+color = Color(1, 1, 1, 0.5137255)
+metadata/_edit_lock_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="Ruler" unique_id=515225063]
+offset_top = 100.0
+offset_right = 50.0
+offset_bottom = 150.0
+color = Color(0.39498678, 0.3949867, 0.3949867, 0.5137255)
+metadata/_edit_lock_ = true
+
+[node name="ColorRect3" type="ColorRect" parent="Ruler" unique_id=389539680]
+offset_top = 50.0
+offset_right = 50.0
+offset_bottom = 100.0
+color = Color(1, 1, 1, 0.5137255)
+metadata/_edit_lock_ = true
+
+[node name="ColorRect4" type="ColorRect" parent="Ruler" unique_id=1987548272]
+offset_right = 50.0
+offset_bottom = 50.0
+color = Color(0.39498678, 0.3949867, 0.3949867, 0.5137255)
+metadata/_edit_lock_ = true
+
+[node name="LevelCollisions" type="StaticBody2D" parent="." unique_id=680147371]
+collision_layer = 4
+collision_mask = 0
+
+[node name="FloorCollision" type="CollisionShape2D" parent="LevelCollisions" unique_id=2117305733]
+position = Vector2(480, 1030)
+shape = SubResource("RectangleShape2D_w8jo0")
+
+[node name="FloorRect" type="ColorRect" parent="LevelCollisions" unique_id=119828343]
+offset_top = 980.0
+offset_right = 960.0
+offset_bottom = 1080.0
+color = Color(0.6666667, 0.30588236, 0, 1)
+
+[node name="LevelObjs" type="Node2D" parent="." unique_id=149353985]
+
+[node name="Block" parent="LevelObjs" unique_id=1886465380 instance=ExtResource("1_g7gh0")]
+position = Vector2(250, 930)
+
+[node name="Block2" parent="LevelObjs" unique_id=2144780126 instance=ExtResource("1_g7gh0")]
+position = Vector2(350, 930)
+
+[node name="Block3" parent="LevelObjs" unique_id=232159032 instance=ExtResource("1_g7gh0")]
+position = Vector2(350, 830)
+
+[node name="Block4" parent="LevelObjs" unique_id=509583041 instance=ExtResource("1_g7gh0")]
+position = Vector2(450, 830)
+
+[node name="Block5" parent="LevelObjs" unique_id=1498871547 instance=ExtResource("1_g7gh0")]
+position = Vector2(450, 930)
+
+[node name="Block6" parent="LevelObjs" unique_id=859013998 instance=ExtResource("1_g7gh0")]
+position = Vector2(550, 830)
+
+[node name="Block8" parent="LevelObjs" unique_id=646660015 instance=ExtResource("1_g7gh0")]
+position = Vector2(450, 730)
+
+[node name="Block9" parent="LevelObjs" unique_id=584186459 instance=ExtResource("1_g7gh0")]
+position = Vector2(550, 730)
+
+[node name="Block10" parent="LevelObjs" unique_id=926128218 instance=ExtResource("1_g7gh0")]
+position = Vector2(550, 630)
+
+[node name="Block7" parent="LevelObjs" unique_id=413010615 instance=ExtResource("1_g7gh0")]
+position = Vector2(550, 930)
+
+[node name="Block12" parent="LevelObjs" unique_id=1234662330 instance=ExtResource("1_g7gh0")]
+position = Vector2(650, 730)
+
+[node name="Block13" parent="LevelObjs" unique_id=1360539703 instance=ExtResource("1_g7gh0")]
+position = Vector2(850, 830)
+
+[node name="Block14" parent="LevelObjs" unique_id=523580793 instance=ExtResource("1_g7gh0")]
+position = Vector2(850, 930)
+
+[node name="Box" parent="LevelObjs" unique_id=119874328 instance=ExtResource("1_iiyfc")]
+position = Vector2(650, 630)
+
+[node name="MobLocations" type="Node2D" parent="." unique_id=31195402]
+
+[node name="Crawler" type="Node2D" parent="MobLocations" unique_id=78338715]
+position = Vector2(700, 880)
+
+[node name="Tosser" type="Node2D" parent="MobLocations" unique_id=590744959]
+position = Vector2(599.052, 525.5265)
+
+[node name="WalkBlockers" type="StaticBody2D" parent="." unique_id=1932021970]
+collision_layer = 0
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WalkBlockers" unique_id=395289614]
+position = Vector2(488.23322, 524.028)
+shape = SubResource("RectangleShape2D_g7gh0")
+debug_color = Color(0.28853557, 0.6304161, 3.85046e-07, 0.41960785)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WalkBlockers" unique_id=1844857203]
+position = Vector2(712, 524)
+shape = SubResource("RectangleShape2D_g7gh0")
+debug_color = Color(0.28853557, 0.6304161, 3.85046e-07, 0.41960785)
