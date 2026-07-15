@@ -19,8 +19,33 @@ Next Steps:
 
 - How should we get things like hats or items or whatnot to attach to the player? a simple add node script should be fine, I think, but we need to think through it more completely.
 
+--Code notes/pseudo-code:
 
-__
-| Thoughts For Future Updates:
---
-- Add different levels to the the platformer and make them load at random or have the node progess to the next level after the player finishes the current one, keeping track of the ones that have been completed in the Fork Screen's text UI? ... Or maybe make the platformer procedurally generated?? <.<
+Level Generation:
+1. Look for all of the chunk scenes in the level_chunks directory, and save their paths to an packed array.
+
+var chunks: Array[String]
+
+func get_files_in_directory(path: String) -> void:
+	# Get all files at the specified path
+	var files: PackedStringArray = DirAccess.get_files_at(path)
+	
+	# Loop through the files using a for loop
+  var i = 1
+	for file: String in files:
+    if file == "chunk_" + str(i) + ".tscn":
+      chunks.append(file)
+
+2. For however many chunks the level needs (var chunk_count: int), randomly pick a chunk scene from the array, and instantiate it at the chunk location, and then advance the chunk location to the top-right corner of the chunk.
+
+var chunk_count: int = 10
+
+func generate_level(chunk_count) -> void:
+  for chunk in chunk_count:
+    var c = randi_range(chunks.size())
+
+    ...
+
+3. For each instantiated chunk scene node, find each node in Chunk/MobLocations, get the name of the node, and instantiate the corresponding mob at that location.
+
+4. Resize the PitFall Area2D node to be the width of the combined chunks.
