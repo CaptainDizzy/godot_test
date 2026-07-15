@@ -3,7 +3,7 @@
 
 - Finish fully integrating the CharacterManager global script to include things more of the variables in the exceedingly large and growing variable list at the top of the player.gd
 
-- Figure out why /how to fix being hurt in during the first_landing sequence and splat animation makes the character sink below the floor a little bit.
+- Figure out why/how to fix being hurt during the first_landing sequence and splat animation makes the character sink below the floor a little bit.
 
 - Either figure out how to get the moving platforms to push the player when they overlap, or just figure out a better way to position them so the top one doesn't collide into the player.
 
@@ -12,6 +12,7 @@ Next Steps:
 - Build out the space shooter (shmup)
 - Get the basics of the adventure mechanics/style done
 - Figure out what items or actions from the space shooter and the platformer can be tied into the adventure and how they help complete the game at large
+- Make a main menu and in-game menu!
 
 # Chicken Scratch:
 - The space shooter will also be left to right like the platformer, and the adventure mape will just have to be much lower in the editor's global space; having the player teleport to its location after leaving the Fork Screen.
